@@ -33,17 +33,33 @@ function normalizeCategory(data, mode) {
   };
 }
 
+function normalizeCategories(data, mode) {
+  if (Array.isArray(data.categories) && data.categories.length > 0) {
+    return data.categories.map(cat => ({
+      key:   cat.key   ?? "unknown",
+      label: cat.label ?? cat.key ?? "Unknown",
+      items: Array.isArray(cat.items) ? cat.items : [],
+    }));
+  }
+  return [normalizeCategory(data, mode)];
+}
+
+let modeLoading = false;
+
 async function loadMode(mode) {
-  activeMode = mode;
+  if (modeLoading) return;
+  modeLoading = true;
   let data;
   try {
     data = await fetch(COMPILED[mode]).then(r => r.json());
   } catch (e) {
     console.warn(`Failed to load ${COMPILED[mode]}:`, e);
     cardGrid.innerHTML = "<p style='color:#888;padding:40px'>辞書ファイルが見つかりません。</p>";
+    modeLoading = false;
     return;
   }
-  allCategories = [normalizeCategory(data, mode)];
+  activeMode = mode;
+  allCategories = normalizeCategories(data, mode);
   renderSidebar();
   selectCategory(allCategories[0].key);
   document.querySelectorAll(".mode-btn").forEach(btn => {
@@ -52,6 +68,7 @@ async function loadMode(mode) {
     btn.style.color       = on ? "#fff"    : "#aaa";
     btn.style.borderColor = on ? "#4a9eff" : "#444";
   });
+  modeLoading = false;
 }
 
 // ---- Boot ----
@@ -110,7 +127,7 @@ function renderTagChips() {
 
   const tagCounts = {};
   cat.items.forEach(item => {
-    item.tags.forEach(t => { tagCounts[t] = (tagCounts[t] || 0) + 1; });
+    safeTags(item).forEach(t => { tagCounts[t] = (tagCounts[t] || 0) + 1; });
   });
 
   const tags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
@@ -148,15 +165,15 @@ function filteredItems() {
   let items = cat.items;
 
   if (activeTag) {
-    items = items.filter(i => i.tags.includes(activeTag));
+    items = items.filter(i => safeTags(i).includes(activeTag));
   }
 
   if (searchQuery) {
     const q = searchQuery.toLowerCase();
     items = items.filter(i =>
-      i.jp.toLowerCase().includes(q) ||
-      i.en.toLowerCase().includes(q) ||
-      i.tags.some(t => t.toLowerCase().includes(q))
+      safeText(i.jp).toLowerCase().includes(q) ||
+      safeText(i.en).toLowerCase().includes(q) ||
+      safeTags(i).some(t => t.toLowerCase().includes(q))
     );
   }
 
@@ -173,16 +190,17 @@ function renderCards() {
     card.className = "card" + (selectedIds.has(item.id) ? " selected" : "");
     card.dataset.id = item.id;
 
-    const tagsHtml = item.tags.length
-      ? `<div class="card-tags">${item.tags.map(t => `<span class="card-tag">${t}</span>`).join("")}</div>`
+    const tags = safeTags(item);
+    const tagsHtml = tags.length
+      ? `<div class="card-tags">${tags.map(t => `<span class="card-tag">${t}</span>`).join("")}</div>`
       : "";
 
     card.innerHTML = `
       <div class="card-actions">
-        <button class="btn-copy" title="en をコピー" data-en="${escHtml(item.en)}">📋</button>
+        <button class="btn-copy" title="en をコピー" data-en="${escHtml(safeText(item.en))}">📋</button>
       </div>
-      <div class="card-en">${escHtml(item.en)}</div>
-      <div class="card-jp">${escHtml(item.jp)}</div>
+      <div class="card-en">${escHtml(safeText(item.en))}</div>
+      <div class="card-jp">${escHtml(safeText(item.jp))}</div>
       ${tagsHtml}
     `;
 
@@ -196,7 +214,7 @@ function renderCards() {
     // Copy button
     card.querySelector(".btn-copy").addEventListener("click", async e => {
       e.stopPropagation();
-      await copyText(item.en);
+      await copyText(safeText(item.en));
     });
 
     cardGrid.appendChild(card);
@@ -269,7 +287,9 @@ function showToast(msg) {
 
 // ---- Utils ----
 function escHtml(str) {
-  return str.replace(/[&<>"']/g, c => ({
+  return String(str ?? "").replace(/[&<>"']/g, c => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
   }[c]));
 }
+function safeText(v) { return v == null ? "" : String(v); }
+function safeTags(item) { return Array.isArray(item.tags) ? item.tags : []; }

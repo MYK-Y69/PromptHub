@@ -66,17 +66,45 @@ def load_categories(exclude_r18: bool) -> list[dict]:
     return sorted(all_items, key=lambda x: x["id"].lower())
 
 
-def write_compiled(path: Path, items: list[dict], label: str) -> None:
+def build_categories_out(exclude_r18: bool) -> list[dict]:
+    """
+    カテゴリ別の正規化リスト [{key, label, items}, ...] を返す。
+    items が空のカテゴリは除外。items はカテゴリ内で id ソート済み。
+    label は各 JSON の label フィールド優先、なければ Title Case。
+    """
+    files = sorted(CATEGORIES_DIR.glob("*.json"))
+    if exclude_r18:
+        files = [f for f in files if not f.stem.endswith("_r18")]
+
+    result = []
+    for path in files:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+        items = data.get("items", [])
+        if not items:
+            continue
+        key = path.stem
+        label = data.get("label") or key.replace("_", " ").title()
+        result.append({
+            "key": key,
+            "label": label,
+            "items": sorted(items, key=lambda x: x["id"].lower()),
+        })
+    return result
+
+
+def write_compiled(path: Path, items: list[dict], categories_out: list[dict]) -> None:
     """compiled/safe.json または compiled/full.json を書き出す。"""
     path.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "generated_at": datetime.datetime.now().isoformat(timespec="seconds"),
         "count": len(items),
         "items": items,
+        "categories": categories_out,
     }
     with open(path, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
-    print(f"  -> {path.relative_to(REPO_DIR)}  ({len(items)} items)")
+    print(f"  -> {path.relative_to(REPO_DIR)}  ({len(items)} items, {len(categories_out)} categories)")
 
 
 def write_expression_compat(path: Path, items: list[dict]) -> None:
@@ -136,17 +164,21 @@ def main() -> None:
         print(f"ERROR: {e}", file=sys.stderr)
         sys.exit(1)
 
+    # ── カテゴリ別リスト ──────────────────────────────────────────────────────
+    safe_cats = build_categories_out(exclude_r18=True)
+    full_cats = build_categories_out(exclude_r18=False)
+
     # ── 出力 ─────────────────────────────────────────────────────────────────
     print("\n[OUTPUT] Writing compiled files...")
-    write_compiled(COMPILED_DIR / "safe.json", safe_items, "SAFE")
-    write_compiled(COMPILED_DIR / "full.json", full_items, "FULL")
+    write_compiled(COMPILED_DIR / "safe.json", safe_items, safe_cats)
+    write_compiled(COMPILED_DIR / "full.json", full_items, full_cats)
     write_expression_compat(EXPRESSION_JSON, safe_items)
 
     r18_count = len(full_items) - len(safe_items)
     print(
         f"\n=== Done ===\n"
-        f"  SAFE : {len(safe_items):4d} items\n"
-        f"  FULL : {len(full_items):4d} items  (+{r18_count} R18)\n"
+        f"  SAFE : {len(safe_items):4d} items  / {len(safe_cats)} categories\n"
+        f"  FULL : {len(full_items):4d} items  / {len(full_cats)} categories  (+{r18_count} R18)\n"
     )
 
 
