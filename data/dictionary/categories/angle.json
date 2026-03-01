@@ -1,1 +1,9 @@
-{"items": []}
+{
+  "key": "angle",
+  "label": "Angle",
+  "items": [
+    { "id": "ang_high", "en": "high angle", "jp": "ハイアングル", "tags": ["angle"] },
+    { "id": "ang_low", "en": "low angle", "jp": "ローアングル", "tags": ["angle"] },
+    { "id": "ang_dutch", "en": "dutch angle", "jp": "ダッチアングル", "tags": ["angle"] }
+  ]
+}

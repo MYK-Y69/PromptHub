@@ -1,1 +1,9 @@
-{"items": []}
+{
+  "key": "focus",
+  "label": "Focus",
+  "items": [
+    { "id": "foc_face", "en": "face focus", "jp": "焦点（顔）", "tags": ["focus"] },
+    { "id": "foc_eyes", "en": "eye focus", "jp": "焦点（目）", "tags": ["focus"] },
+    { "id": "foc_hands", "en": "hand focus", "jp": "焦点（手）", "tags": ["focus"] }
+  ]
+}

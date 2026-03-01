@@ -1,1 +1,9 @@
-{"items": []}
+{
+  "key": "camera",
+  "label": "Camera",
+  "items": [
+    { "id": "cam_closeup", "en": "close-up", "jp": "アップ", "tags": ["camera"] },
+    { "id": "cam_wide", "en": "wide shot", "jp": "ワイドショット", "tags": ["camera"] },
+    { "id": "cam_fisheye", "en": "fisheye lens", "jp": "魚眼レンズ", "tags": ["camera"] }
+  ]
+}

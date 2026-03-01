@@ -3,6 +3,54 @@
   "label": "表情",
   "items": [
     {
+      "id": "ang_dutch",
+      "en": "dutch angle",
+      "jp": "ダッチアングル",
+      "tags": [
+        "angle"
+      ]
+    },
+    {
+      "id": "ang_high",
+      "en": "high angle",
+      "jp": "ハイアングル",
+      "tags": [
+        "angle"
+      ]
+    },
+    {
+      "id": "ang_low",
+      "en": "low angle",
+      "jp": "ローアングル",
+      "tags": [
+        "angle"
+      ]
+    },
+    {
+      "id": "cam_closeup",
+      "en": "close-up",
+      "jp": "アップ",
+      "tags": [
+        "camera"
+      ]
+    },
+    {
+      "id": "cam_fisheye",
+      "en": "fisheye lens",
+      "jp": "魚眼レンズ",
+      "tags": [
+        "camera"
+      ]
+    },
+    {
+      "id": "cam_wide",
+      "en": "wide shot",
+      "jp": "ワイドショット",
+      "tags": [
+        "camera"
+      ]
+    },
+    {
       "id": "expression_1boy",
       "jp": "男性1人",
       "en": "1boy",
@@ -1152,6 +1200,30 @@
       "en": "zoom layer",
       "tags": [],
       "source": ""
+    },
+    {
+      "id": "foc_eyes",
+      "en": "eye focus",
+      "jp": "焦点（目）",
+      "tags": [
+        "focus"
+      ]
+    },
+    {
+      "id": "foc_face",
+      "en": "face focus",
+      "jp": "焦点（顔）",
+      "tags": [
+        "focus"
+      ]
+    },
+    {
+      "id": "foc_hands",
+      "en": "hand focus",
+      "jp": "焦点（手）",
+      "tags": [
+        "focus"
+      ]
     }
   ]
 }
