@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-02T00:14:35",
+  "generated_at": "2026-03-02T01:05:08",
   "count": 225,
   "items": [
     {
@@ -224,91 +224,143 @@
       "id": "expression_1boy",
       "jp": "男性1人",
       "en": "1boy",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_1girl",
       "jp": "女性1人",
       "en": "1girl",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_2boys",
       "jp": "男性2人",
       "en": "2boys",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_2girls",
       "jp": "女性2人",
       "en": "2girls",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_3boys",
       "jp": "男性3人",
       "en": "3boys",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_3girls",
       "jp": "女性3人",
       "en": "3girls",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_4boys",
       "jp": "男性4人",
       "en": "4boys",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_4girls",
       "jp": "女性4人",
       "en": "4girls",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_5boys",
       "jp": "男性5人",
       "en": "5boys",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_5girls",
       "jp": "女性5人",
       "en": "5girls",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_6boys",
       "jp": "男性6人以上",
       "en": "6boys",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_6girls",
       "jp": "女性6人以上",
       "en": "6girls",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_agitation",
       "jp": "興奮",
       "en": "agitation",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "joy"
+      ],
       "source": ""
     },
     {
@@ -316,7 +368,9 @@
       "jp": "怒り",
       "en": "anger",
       "tags": [
-        "emotion"
+        "emotion",
+        "expression",
+        "anger"
       ],
       "source": ""
     },
@@ -324,56 +378,88 @@
       "id": "expression_angry_look",
       "jp": "怒気",
       "en": "angry look",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "anger"
+      ],
       "source": ""
     },
     {
       "id": "expression_animal_focus",
       "jp": "焦点（動物）",
       "en": "animal focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_annoyance",
       "jp": "むかつき",
       "en": "annoyance",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "anger"
+      ],
       "source": ""
     },
     {
       "id": "expression_armpit_focus",
       "jp": "焦点（腋）",
       "en": "armpit focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_ass_focus",
       "jp": "焦点（尻を強調）",
       "en": "ass focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_audience",
       "jp": "観客",
       "en": "audience",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_back_focus",
       "jp": "焦点（背中）",
       "en": "back focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_bara",
       "jp": "薔薇",
       "en": "bara",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
@@ -381,7 +467,10 @@
       "jp": "赤面",
       "en": "blush",
       "tags": [
-        "cute"
+        "cute",
+        "expression",
+        "emotion",
+        "shy"
       ],
       "source": "https://sorenuts.jp/1954/"
     },
@@ -389,91 +478,143 @@
       "id": "expression_breast_focus",
       "jp": "焦点（胸）",
       "en": "breast focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_chibi_inset",
       "jp": "ちびキャラの挿入/付加",
       "en": "chibi inset",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_clenched_teeth",
       "jp": "歯を食いしばる",
       "en": "clenched teeth",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "determined"
+      ],
       "source": ""
     },
     {
       "id": "expression_close_up",
       "jp": "至近距離 / 接写",
       "en": "close-up",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_cold_glare",
       "jp": "冷たい視線",
       "en": "cold glare",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "anger"
+      ],
       "source": ""
     },
     {
       "id": "expression_collage",
       "jp": "複数画像の組み合わせ",
       "en": "collage",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_column_lineup",
       "jp": "縦列整列",
       "en": "column lineup",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_couple",
       "jp": "カップル",
       "en": "couple",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_cowboy_shot",
       "jp": "膝上から上",
       "en": "cowboy shot",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_cropped_legs",
       "jp": "フレームアウトした脚",
       "en": "cropped legs",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_cropped_shoulders",
       "jp": "フレームアウトした肩",
       "en": "cropped shoulders",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_cropped_torso",
       "jp": "フレームアウトした胴体",
       "en": "cropped torso",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_crowd",
       "jp": "群衆",
       "en": "crowd",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
@@ -482,7 +623,9 @@
       "en": "crying face",
       "tags": [
         "sad",
-        "emotion"
+        "emotion",
+        "expression",
+        "sadness"
       ],
       "source": ""
     },
@@ -490,56 +633,88 @@
       "id": "expression_dejection",
       "jp": "落ち込み",
       "en": "dejection",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness"
+      ],
       "source": ""
     },
     {
       "id": "expression_despair",
       "jp": "絶望",
       "en": "despair",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness"
+      ],
       "source": ""
     },
     {
       "id": "expression_disappointment",
       "jp": "失望",
       "en": "disappointment",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness"
+      ],
       "source": ""
     },
     {
       "id": "expression_displeasure",
       "jp": "不満",
       "en": "displeasure",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "anger"
+      ],
       "source": ""
     },
     {
       "id": "expression_downblouse",
       "jp": "胸チラ",
       "en": "downblouse",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_downcast_face",
       "jp": "沈んだ顔",
       "en": "downcast face",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness"
+      ],
       "source": ""
     },
     {
       "id": "expression_dual_persona",
       "jp": "二重人格",
       "en": "dual persona",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "confused"
+      ],
       "source": ""
     },
     {
       "id": "expression_dutch_angle",
       "jp": "傾いた角度からの撮影",
       "en": "dutch angle",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
@@ -548,7 +723,10 @@
       "en": "embarrassed",
       "tags": [
         "cute",
-        "shy"
+        "shy",
+        "expression",
+        "emotion",
+        "embarrassed"
       ],
       "source": ""
     },
@@ -556,175 +734,275 @@
       "id": "expression_everyone",
       "jp": "集合絵",
       "en": "everyone",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_expression_chart",
       "jp": "表情練習",
       "en": "expression chart",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_expressionless",
       "jp": "無表情",
       "en": "expressionless",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_expressions",
       "jp": "表情集",
       "en": "expressions",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_eye_focus",
       "jp": "焦点（目）",
       "en": "eye focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_facing_ahead",
       "jp": "前方注視",
       "en": "facing ahead",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_facing_another",
       "jp": "他者に向かい合う",
       "en": "facing another",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_facing_away",
       "jp": "後ろ姿、背面",
       "en": "facing away",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_facing_back",
       "jp": "振り返り、目閉じ",
       "en": "facing back",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_facing_down",
       "jp": "顔が下を向いている",
       "en": "facing down",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness"
+      ],
       "source": ""
     },
     {
       "id": "expression_facing_to_the_side",
       "jp": "横顔、横向き",
       "en": "facing to the side",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_facing_up",
       "jp": "顔が上を向いている",
       "en": "facing up",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_facing_viewer",
       "jp": "正面",
       "en": "facing viewer",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_faux_figurine",
       "jp": "ヴィネット",
       "en": "faux figurine",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_feet_out_of_frame",
       "jp": "フレームアウトした足先",
       "en": "feet out of frame",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_female_pov",
       "jp": "女性主観視点",
       "en": "female pov",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_food_focus",
       "jp": "焦点（食べ物）",
       "en": "food focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_foot_focus",
       "jp": "焦点（足）",
       "en": "foot focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_from_above",
       "jp": "上から、ハイアングル",
       "en": "from above",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_from_behind",
       "jp": "後方から、後ろ姿",
       "en": "from behind",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_from_below",
       "jp": "下から、ローアングル",
       "en": "from below",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_from_side",
       "jp": "横から",
       "en": "from side",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_full_body",
       "jp": "全身",
       "en": "full body",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_furrowed_brows",
       "jp": "眉をひそめる",
       "en": "furrowed brows",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "anger"
+      ],
       "source": ""
     },
     {
       "id": "expression_fury",
       "jp": "憤怒",
       "en": "fury",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "anger"
+      ],
       "source": ""
     },
     {
@@ -732,7 +1010,10 @@
       "jp": "睨み",
       "en": "glare",
       "tags": [
-        "intense"
+        "intense",
+        "expression",
+        "emotion",
+        "anger"
       ],
       "source": ""
     },
@@ -740,434 +1021,682 @@
       "id": "expression_glaring_eyes",
       "jp": "睨みつける",
       "en": "glaring eyes",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "anger"
+      ],
       "source": ""
     },
     {
       "id": "expression_grief",
       "jp": "悲嘆",
       "en": "grief",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness"
+      ],
       "source": ""
     },
     {
       "id": "expression_grin",
       "jp": "にやり",
       "en": "grin",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "smug"
+      ],
       "source": "https://sorenuts.jp/1954/"
     },
     {
       "id": "expression_hair_focus",
       "jp": "焦点（髪）",
       "en": "hair focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_half_closed_eyes",
       "jp": "目を細める",
       "en": "half-closed eyes",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "tired"
+      ],
       "source": ""
     },
     {
       "id": "expression_hand_focus",
       "jp": "焦点（手）",
       "en": "hand focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_head_out_of_frame",
       "jp": "フレームアウトした顔",
       "en": "head out of frame",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_heartache",
       "jp": "切なさ",
       "en": "heartache",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness"
+      ],
       "source": ""
     },
     {
       "id": "expression_helplessness",
       "jp": "やるせなさ",
       "en": "helplessness",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness"
+      ],
       "source": ""
     },
     {
       "id": "expression_hip_focus",
       "jp": "焦点（腰）",
       "en": "hip focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_implied_pantyshot",
       "jp": "見えないパンチラ",
       "en": "implied pantyshot",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_implied_yuri",
       "jp": "百合要素",
       "en": "implied yuri",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_irritation",
       "jp": "苛立ち",
       "en": "irritation",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "anger"
+      ],
       "source": ""
     },
     {
       "id": "expression_lineup",
       "jp": "整列、キャラクター等の並び",
       "en": "lineup",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_loneliness",
       "jp": "寂しさ",
       "en": "loneliness",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness"
+      ],
       "source": ""
     },
     {
       "id": "expression_looking_afar",
       "jp": "遠くを見る",
       "en": "looking afar",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_looking_ahead",
       "jp": "自分の正面を見る",
       "en": "looking ahead",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_looking_at_another",
       "jp": "他者を見る",
       "en": "looking at another",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_looking_at_object",
       "jp": "物体を見る",
       "en": "looking at object",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_looking_at_viewer",
       "jp": "カメラ目線",
       "en": "looking at viewer",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_looking_away",
       "jp": "視線を逸らしている",
       "en": "looking away",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_looking_back",
       "jp": "振り返り",
       "en": "looking back",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_looking_down",
       "jp": "下を見る",
       "en": "looking down",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_looking_to_the_side",
       "jp": "横を見ている状態",
       "en": "looking to the side",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_looking_up",
       "jp": "上を見る",
       "en": "looking up",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_lower_body",
       "jp": "下半身",
       "en": "lower body",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_male_focus",
       "jp": "焦点（男性）",
       "en": "male focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_mecha_focus",
       "jp": "焦点（メカ、ロボット）",
       "en": "mecha focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_melancholy",
       "jp": "憂鬱",
       "en": "melancholy",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness"
+      ],
       "source": ""
     },
     {
       "id": "expression_multiple_boys",
       "jp": "複数の男性",
       "en": "multiple boys",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_multiple_girls",
       "jp": "複数の女性",
       "en": "multiple girls",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_multiple_persona",
       "jp": "複数人格",
       "en": "multiple persona",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "confused"
+      ],
       "source": ""
     },
     {
       "id": "expression_multiple_views",
       "jp": "複数の視点 / 三面図",
       "en": "multiple views",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_navel_focus",
       "jp": "焦点（へそ）",
       "en": "navel focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_no_humans",
       "jp": "人物なし",
       "en": "no humans",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_onee_loli",
       "jp": "おねロリ",
       "en": "onee-loli",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_onee_shota",
       "jp": "おねショタ",
       "en": "onee-shota",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_onii_shota",
       "jp": "おにショタ",
       "en": "onii-shota",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_other_focus",
       "jp": "焦点（その他）",
       "en": "other focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_otoko_no_ko",
       "jp": "男の娘",
       "en": "otoko no ko",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_out_of_frame",
       "jp": "フレームアウト",
       "en": "out of frame",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_pantyshot",
       "jp": "パンチラ",
       "en": "pantyshot",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_partially_underwater_shot",
       "jp": "一部水中の撮影",
       "en": "partially underwater shot",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_pectoral_focus",
       "jp": "焦点（胸筋）",
       "en": "pectoral focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_portrait",
       "jp": "人物の顔に焦点",
       "en": "portrait",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_pouty",
       "jp": "むっとした",
       "en": "pouty",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "anger"
+      ],
       "source": ""
     },
     {
       "id": "expression_pov",
       "jp": "(Point of View) 一人称視点",
       "en": "pov",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_pov_across_bed",
       "jp": "ベッド越しの視点",
       "en": "pov across bed",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_pov_across_table",
       "jp": "テーブル越しの視点",
       "en": "pov across table",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_pov_crotch",
       "jp": "一人称視点で下半身が見える",
       "en": "pov crotch",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_pov_doorway",
       "jp": "ドアの前もしくはドア枠の中からの視点",
       "en": "pov doorway",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_pov_hands",
       "jp": "一人称視点で自分の手が見える",
       "en": "pov hands",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_profile",
       "jp": "横顔",
       "en": "profile",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_projected_inset",
       "jp": "投影された挿入画",
       "en": "projected inset",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_rage",
       "jp": "激怒",
       "en": "rage",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "anger"
+      ],
       "source": ""
     },
     {
       "id": "expression_regret",
       "jp": "後悔",
       "en": "regret",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness"
+      ],
       "source": ""
     },
     {
       "id": "expression_reversible_couple",
       "jp": "リバ",
       "en": "reversible couple",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_sadness",
       "jp": "悲しみ",
       "en": "sadness",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness"
+      ],
       "source": ""
     },
     {
       "id": "expression_sense_of_isolation",
       "jp": "孤独感",
       "en": "sense of isolation",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness"
+      ],
       "source": ""
     },
     {
       "id": "expression_sense_of_loss",
       "jp": "喪失感",
       "en": "sense of loss",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness"
+      ],
       "source": ""
     },
     {
       "id": "expression_shoe_soles",
       "jp": "靴底",
       "en": "shoe soles",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_shouting_anger",
       "jp": "怒鳴る",
       "en": "shouting anger",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "anger"
+      ],
       "source": ""
     },
     {
@@ -1175,7 +1704,10 @@
       "jp": "ほほ笑み",
       "en": "smile",
       "tags": [
-        "cute"
+        "cute",
+        "expression",
+        "emotion",
+        "joy"
       ],
       "source": "https://sorenuts.jp/1954/"
     },
@@ -1183,42 +1715,66 @@
       "id": "expression_smug",
       "jp": "得意げ",
       "en": "smug",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "smug"
+      ],
       "source": ""
     },
     {
       "id": "expression_sobbing",
       "jp": "すすり泣き",
       "en": "sobbing",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness"
+      ],
       "source": ""
     },
     {
       "id": "expression_solo",
       "jp": "1人",
       "en": "solo",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_solo_focus",
       "jp": "焦点（ソロ）",
       "en": "solo focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_stern_face",
       "jp": "険しい顔",
       "en": "stern face",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "determined"
+      ],
       "source": ""
     },
     {
       "id": "expression_straight_on",
       "jp": "完全正面",
       "en": "straight-on",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
@@ -1226,7 +1782,9 @@
       "jp": "驚き",
       "en": "surprised",
       "tags": [
-        "emotion"
+        "emotion",
+        "expression",
+        "surprise"
       ],
       "source": ""
     },
@@ -1234,14 +1792,22 @@
       "id": "expression_tachi_e",
       "jp": "立ち絵",
       "en": "tachi-e",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_tantrum",
       "jp": "かんしゃく",
       "en": "tantrum",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "anger"
+      ],
       "source": ""
     },
     {
@@ -1250,7 +1816,10 @@
       "en": "teary eyes",
       "tags": [
         "sad",
-        "cute"
+        "cute",
+        "expression",
+        "emotion",
+        "sadness"
       ],
       "source": ""
     },
@@ -1258,14 +1827,22 @@
       "id": "expression_text_focus",
       "jp": "焦点（テキスト）",
       "en": "text focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_thigh_gap",
       "jp": "絶対空域",
       "en": "thigh gap",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
@@ -1274,7 +1851,9 @@
       "en": "troubled face",
       "tags": [
         "emotion",
-        "sad"
+        "sad",
+        "expression",
+        "confused"
       ],
       "source": ""
     },
@@ -1282,56 +1861,88 @@
       "id": "expression_upper_body",
       "jp": "上半身",
       "en": "upper body",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_upshirt",
       "jp": "アップシャツ",
       "en": "upshirt",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_upshorts",
       "jp": "何らかの形でショーツの中が見えている",
       "en": "upshorts",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_upside_down",
       "jp": "上下逆さま",
       "en": "upside-down",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_upskirt",
       "jp": "何らかの形でスカートの中が見えている",
       "en": "upskirt",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_vacant_eyes",
       "jp": "うつろな目",
       "en": "vacant eyes",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "tired"
+      ],
       "source": ""
     },
     {
       "id": "expression_vehicle_focus",
       "jp": "焦点（乗り物）",
       "en": "vehicle focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_weapon_focus",
       "jp": "焦点（武器）",
       "en": "weapon focus",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
@@ -1339,7 +1950,10 @@
       "jp": "ウィンク",
       "en": "wink",
       "tags": [
-        "cute"
+        "cute",
+        "expression",
+        "emotion",
+        "mischievous"
       ],
       "source": "https://sorenuts.jp/1954/"
     },
@@ -1347,28 +1961,44 @@
       "id": "expression_yaoi",
       "jp": "やおい",
       "en": "yaoi",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_yuri",
       "jp": "百合",
       "en": "yuri",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_zettai_ryouiki",
       "jp": "絶対領域",
       "en": "zettai ryouiki",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
       "id": "expression_zoom_layer",
       "jp": "ズームレイヤー",
       "en": "zoom layer",
-      "tags": [],
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
       "source": ""
     },
     {
@@ -1928,91 +2558,143 @@
           "id": "expression_1boy",
           "jp": "男性1人",
           "en": "1boy",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_1girl",
           "jp": "女性1人",
           "en": "1girl",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_2boys",
           "jp": "男性2人",
           "en": "2boys",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_2girls",
           "jp": "女性2人",
           "en": "2girls",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_3boys",
           "jp": "男性3人",
           "en": "3boys",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_3girls",
           "jp": "女性3人",
           "en": "3girls",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_4boys",
           "jp": "男性4人",
           "en": "4boys",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_4girls",
           "jp": "女性4人",
           "en": "4girls",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_5boys",
           "jp": "男性5人",
           "en": "5boys",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_5girls",
           "jp": "女性5人",
           "en": "5girls",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_6boys",
           "jp": "男性6人以上",
           "en": "6boys",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_6girls",
           "jp": "女性6人以上",
           "en": "6girls",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_agitation",
           "jp": "興奮",
           "en": "agitation",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "joy"
+          ],
           "source": ""
         },
         {
@@ -2020,7 +2702,9 @@
           "jp": "怒り",
           "en": "anger",
           "tags": [
-            "emotion"
+            "emotion",
+            "expression",
+            "anger"
           ],
           "source": ""
         },
@@ -2028,56 +2712,88 @@
           "id": "expression_angry_look",
           "jp": "怒気",
           "en": "angry look",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "anger"
+          ],
           "source": ""
         },
         {
           "id": "expression_animal_focus",
           "jp": "焦点（動物）",
           "en": "animal focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_annoyance",
           "jp": "むかつき",
           "en": "annoyance",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "anger"
+          ],
           "source": ""
         },
         {
           "id": "expression_armpit_focus",
           "jp": "焦点（腋）",
           "en": "armpit focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_ass_focus",
           "jp": "焦点（尻を強調）",
           "en": "ass focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_audience",
           "jp": "観客",
           "en": "audience",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_back_focus",
           "jp": "焦点（背中）",
           "en": "back focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_bara",
           "jp": "薔薇",
           "en": "bara",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
@@ -2085,7 +2801,10 @@
           "jp": "赤面",
           "en": "blush",
           "tags": [
-            "cute"
+            "cute",
+            "expression",
+            "emotion",
+            "shy"
           ],
           "source": "https://sorenuts.jp/1954/"
         },
@@ -2093,91 +2812,143 @@
           "id": "expression_breast_focus",
           "jp": "焦点（胸）",
           "en": "breast focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_chibi_inset",
           "jp": "ちびキャラの挿入/付加",
           "en": "chibi inset",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_clenched_teeth",
           "jp": "歯を食いしばる",
           "en": "clenched teeth",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "determined"
+          ],
           "source": ""
         },
         {
           "id": "expression_close_up",
           "jp": "至近距離 / 接写",
           "en": "close-up",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_cold_glare",
           "jp": "冷たい視線",
           "en": "cold glare",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "anger"
+          ],
           "source": ""
         },
         {
           "id": "expression_collage",
           "jp": "複数画像の組み合わせ",
           "en": "collage",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_column_lineup",
           "jp": "縦列整列",
           "en": "column lineup",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_couple",
           "jp": "カップル",
           "en": "couple",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_cowboy_shot",
           "jp": "膝上から上",
           "en": "cowboy shot",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_cropped_legs",
           "jp": "フレームアウトした脚",
           "en": "cropped legs",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_cropped_shoulders",
           "jp": "フレームアウトした肩",
           "en": "cropped shoulders",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_cropped_torso",
           "jp": "フレームアウトした胴体",
           "en": "cropped torso",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_crowd",
           "jp": "群衆",
           "en": "crowd",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
@@ -2186,7 +2957,9 @@
           "en": "crying face",
           "tags": [
             "sad",
-            "emotion"
+            "emotion",
+            "expression",
+            "sadness"
           ],
           "source": ""
         },
@@ -2194,56 +2967,88 @@
           "id": "expression_dejection",
           "jp": "落ち込み",
           "en": "dejection",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness"
+          ],
           "source": ""
         },
         {
           "id": "expression_despair",
           "jp": "絶望",
           "en": "despair",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness"
+          ],
           "source": ""
         },
         {
           "id": "expression_disappointment",
           "jp": "失望",
           "en": "disappointment",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness"
+          ],
           "source": ""
         },
         {
           "id": "expression_displeasure",
           "jp": "不満",
           "en": "displeasure",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "anger"
+          ],
           "source": ""
         },
         {
           "id": "expression_downblouse",
           "jp": "胸チラ",
           "en": "downblouse",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_downcast_face",
           "jp": "沈んだ顔",
           "en": "downcast face",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness"
+          ],
           "source": ""
         },
         {
           "id": "expression_dual_persona",
           "jp": "二重人格",
           "en": "dual persona",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "confused"
+          ],
           "source": ""
         },
         {
           "id": "expression_dutch_angle",
           "jp": "傾いた角度からの撮影",
           "en": "dutch angle",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
@@ -2252,7 +3057,10 @@
           "en": "embarrassed",
           "tags": [
             "cute",
-            "shy"
+            "shy",
+            "expression",
+            "emotion",
+            "embarrassed"
           ],
           "source": ""
         },
@@ -2260,175 +3068,275 @@
           "id": "expression_everyone",
           "jp": "集合絵",
           "en": "everyone",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_expression_chart",
           "jp": "表情練習",
           "en": "expression chart",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_expressionless",
           "jp": "無表情",
           "en": "expressionless",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_expressions",
           "jp": "表情集",
           "en": "expressions",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_eye_focus",
           "jp": "焦点（目）",
           "en": "eye focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_facing_ahead",
           "jp": "前方注視",
           "en": "facing ahead",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_facing_another",
           "jp": "他者に向かい合う",
           "en": "facing another",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_facing_away",
           "jp": "後ろ姿、背面",
           "en": "facing away",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_facing_back",
           "jp": "振り返り、目閉じ",
           "en": "facing back",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_facing_down",
           "jp": "顔が下を向いている",
           "en": "facing down",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness"
+          ],
           "source": ""
         },
         {
           "id": "expression_facing_to_the_side",
           "jp": "横顔、横向き",
           "en": "facing to the side",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_facing_up",
           "jp": "顔が上を向いている",
           "en": "facing up",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_facing_viewer",
           "jp": "正面",
           "en": "facing viewer",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_faux_figurine",
           "jp": "ヴィネット",
           "en": "faux figurine",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_feet_out_of_frame",
           "jp": "フレームアウトした足先",
           "en": "feet out of frame",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_female_pov",
           "jp": "女性主観視点",
           "en": "female pov",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_food_focus",
           "jp": "焦点（食べ物）",
           "en": "food focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_foot_focus",
           "jp": "焦点（足）",
           "en": "foot focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_from_above",
           "jp": "上から、ハイアングル",
           "en": "from above",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_from_behind",
           "jp": "後方から、後ろ姿",
           "en": "from behind",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_from_below",
           "jp": "下から、ローアングル",
           "en": "from below",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_from_side",
           "jp": "横から",
           "en": "from side",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_full_body",
           "jp": "全身",
           "en": "full body",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_furrowed_brows",
           "jp": "眉をひそめる",
           "en": "furrowed brows",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "anger"
+          ],
           "source": ""
         },
         {
           "id": "expression_fury",
           "jp": "憤怒",
           "en": "fury",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "anger"
+          ],
           "source": ""
         },
         {
@@ -2436,7 +3344,10 @@
           "jp": "睨み",
           "en": "glare",
           "tags": [
-            "intense"
+            "intense",
+            "expression",
+            "emotion",
+            "anger"
           ],
           "source": ""
         },
@@ -2444,434 +3355,682 @@
           "id": "expression_glaring_eyes",
           "jp": "睨みつける",
           "en": "glaring eyes",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "anger"
+          ],
           "source": ""
         },
         {
           "id": "expression_grief",
           "jp": "悲嘆",
           "en": "grief",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness"
+          ],
           "source": ""
         },
         {
           "id": "expression_grin",
           "jp": "にやり",
           "en": "grin",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "smug"
+          ],
           "source": "https://sorenuts.jp/1954/"
         },
         {
           "id": "expression_hair_focus",
           "jp": "焦点（髪）",
           "en": "hair focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_half_closed_eyes",
           "jp": "目を細める",
           "en": "half-closed eyes",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "tired"
+          ],
           "source": ""
         },
         {
           "id": "expression_hand_focus",
           "jp": "焦点（手）",
           "en": "hand focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_head_out_of_frame",
           "jp": "フレームアウトした顔",
           "en": "head out of frame",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_heartache",
           "jp": "切なさ",
           "en": "heartache",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness"
+          ],
           "source": ""
         },
         {
           "id": "expression_helplessness",
           "jp": "やるせなさ",
           "en": "helplessness",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness"
+          ],
           "source": ""
         },
         {
           "id": "expression_hip_focus",
           "jp": "焦点（腰）",
           "en": "hip focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_implied_pantyshot",
           "jp": "見えないパンチラ",
           "en": "implied pantyshot",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_implied_yuri",
           "jp": "百合要素",
           "en": "implied yuri",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_irritation",
           "jp": "苛立ち",
           "en": "irritation",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "anger"
+          ],
           "source": ""
         },
         {
           "id": "expression_lineup",
           "jp": "整列、キャラクター等の並び",
           "en": "lineup",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_loneliness",
           "jp": "寂しさ",
           "en": "loneliness",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness"
+          ],
           "source": ""
         },
         {
           "id": "expression_looking_afar",
           "jp": "遠くを見る",
           "en": "looking afar",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_looking_ahead",
           "jp": "自分の正面を見る",
           "en": "looking ahead",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_looking_at_another",
           "jp": "他者を見る",
           "en": "looking at another",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_looking_at_object",
           "jp": "物体を見る",
           "en": "looking at object",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_looking_at_viewer",
           "jp": "カメラ目線",
           "en": "looking at viewer",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_looking_away",
           "jp": "視線を逸らしている",
           "en": "looking away",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_looking_back",
           "jp": "振り返り",
           "en": "looking back",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_looking_down",
           "jp": "下を見る",
           "en": "looking down",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_looking_to_the_side",
           "jp": "横を見ている状態",
           "en": "looking to the side",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_looking_up",
           "jp": "上を見る",
           "en": "looking up",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_lower_body",
           "jp": "下半身",
           "en": "lower body",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_male_focus",
           "jp": "焦点（男性）",
           "en": "male focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_mecha_focus",
           "jp": "焦点（メカ、ロボット）",
           "en": "mecha focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_melancholy",
           "jp": "憂鬱",
           "en": "melancholy",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness"
+          ],
           "source": ""
         },
         {
           "id": "expression_multiple_boys",
           "jp": "複数の男性",
           "en": "multiple boys",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_multiple_girls",
           "jp": "複数の女性",
           "en": "multiple girls",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_multiple_persona",
           "jp": "複数人格",
           "en": "multiple persona",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "confused"
+          ],
           "source": ""
         },
         {
           "id": "expression_multiple_views",
           "jp": "複数の視点 / 三面図",
           "en": "multiple views",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_navel_focus",
           "jp": "焦点（へそ）",
           "en": "navel focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_no_humans",
           "jp": "人物なし",
           "en": "no humans",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_onee_loli",
           "jp": "おねロリ",
           "en": "onee-loli",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_onee_shota",
           "jp": "おねショタ",
           "en": "onee-shota",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_onii_shota",
           "jp": "おにショタ",
           "en": "onii-shota",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_other_focus",
           "jp": "焦点（その他）",
           "en": "other focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_otoko_no_ko",
           "jp": "男の娘",
           "en": "otoko no ko",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_out_of_frame",
           "jp": "フレームアウト",
           "en": "out of frame",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_pantyshot",
           "jp": "パンチラ",
           "en": "pantyshot",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_partially_underwater_shot",
           "jp": "一部水中の撮影",
           "en": "partially underwater shot",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_pectoral_focus",
           "jp": "焦点（胸筋）",
           "en": "pectoral focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_portrait",
           "jp": "人物の顔に焦点",
           "en": "portrait",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_pouty",
           "jp": "むっとした",
           "en": "pouty",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "anger"
+          ],
           "source": ""
         },
         {
           "id": "expression_pov",
           "jp": "(Point of View) 一人称視点",
           "en": "pov",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_pov_across_bed",
           "jp": "ベッド越しの視点",
           "en": "pov across bed",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_pov_across_table",
           "jp": "テーブル越しの視点",
           "en": "pov across table",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_pov_crotch",
           "jp": "一人称視点で下半身が見える",
           "en": "pov crotch",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_pov_doorway",
           "jp": "ドアの前もしくはドア枠の中からの視点",
           "en": "pov doorway",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_pov_hands",
           "jp": "一人称視点で自分の手が見える",
           "en": "pov hands",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_profile",
           "jp": "横顔",
           "en": "profile",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_projected_inset",
           "jp": "投影された挿入画",
           "en": "projected inset",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_rage",
           "jp": "激怒",
           "en": "rage",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "anger"
+          ],
           "source": ""
         },
         {
           "id": "expression_regret",
           "jp": "後悔",
           "en": "regret",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness"
+          ],
           "source": ""
         },
         {
           "id": "expression_reversible_couple",
           "jp": "リバ",
           "en": "reversible couple",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_sadness",
           "jp": "悲しみ",
           "en": "sadness",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness"
+          ],
           "source": ""
         },
         {
           "id": "expression_sense_of_isolation",
           "jp": "孤独感",
           "en": "sense of isolation",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness"
+          ],
           "source": ""
         },
         {
           "id": "expression_sense_of_loss",
           "jp": "喪失感",
           "en": "sense of loss",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness"
+          ],
           "source": ""
         },
         {
           "id": "expression_shoe_soles",
           "jp": "靴底",
           "en": "shoe soles",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_shouting_anger",
           "jp": "怒鳴る",
           "en": "shouting anger",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "anger"
+          ],
           "source": ""
         },
         {
@@ -2879,7 +4038,10 @@
           "jp": "ほほ笑み",
           "en": "smile",
           "tags": [
-            "cute"
+            "cute",
+            "expression",
+            "emotion",
+            "joy"
           ],
           "source": "https://sorenuts.jp/1954/"
         },
@@ -2887,42 +4049,66 @@
           "id": "expression_smug",
           "jp": "得意げ",
           "en": "smug",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "smug"
+          ],
           "source": ""
         },
         {
           "id": "expression_sobbing",
           "jp": "すすり泣き",
           "en": "sobbing",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness"
+          ],
           "source": ""
         },
         {
           "id": "expression_solo",
           "jp": "1人",
           "en": "solo",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_solo_focus",
           "jp": "焦点（ソロ）",
           "en": "solo focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_stern_face",
           "jp": "険しい顔",
           "en": "stern face",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "determined"
+          ],
           "source": ""
         },
         {
           "id": "expression_straight_on",
           "jp": "完全正面",
           "en": "straight-on",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
@@ -2930,7 +4116,9 @@
           "jp": "驚き",
           "en": "surprised",
           "tags": [
-            "emotion"
+            "emotion",
+            "expression",
+            "surprise"
           ],
           "source": ""
         },
@@ -2938,14 +4126,22 @@
           "id": "expression_tachi_e",
           "jp": "立ち絵",
           "en": "tachi-e",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_tantrum",
           "jp": "かんしゃく",
           "en": "tantrum",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "anger"
+          ],
           "source": ""
         },
         {
@@ -2954,7 +4150,10 @@
           "en": "teary eyes",
           "tags": [
             "sad",
-            "cute"
+            "cute",
+            "expression",
+            "emotion",
+            "sadness"
           ],
           "source": ""
         },
@@ -2962,14 +4161,22 @@
           "id": "expression_text_focus",
           "jp": "焦点（テキスト）",
           "en": "text focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_thigh_gap",
           "jp": "絶対空域",
           "en": "thigh gap",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
@@ -2978,7 +4185,9 @@
           "en": "troubled face",
           "tags": [
             "emotion",
-            "sad"
+            "sad",
+            "expression",
+            "confused"
           ],
           "source": ""
         },
@@ -2986,56 +4195,88 @@
           "id": "expression_upper_body",
           "jp": "上半身",
           "en": "upper body",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_upshirt",
           "jp": "アップシャツ",
           "en": "upshirt",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_upshorts",
           "jp": "何らかの形でショーツの中が見えている",
           "en": "upshorts",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_upside_down",
           "jp": "上下逆さま",
           "en": "upside-down",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_upskirt",
           "jp": "何らかの形でスカートの中が見えている",
           "en": "upskirt",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_vacant_eyes",
           "jp": "うつろな目",
           "en": "vacant eyes",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "tired"
+          ],
           "source": ""
         },
         {
           "id": "expression_vehicle_focus",
           "jp": "焦点（乗り物）",
           "en": "vehicle focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_weapon_focus",
           "jp": "焦点（武器）",
           "en": "weapon focus",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
@@ -3043,7 +4284,10 @@
           "jp": "ウィンク",
           "en": "wink",
           "tags": [
-            "cute"
+            "cute",
+            "expression",
+            "emotion",
+            "mischievous"
           ],
           "source": "https://sorenuts.jp/1954/"
         },
@@ -3051,28 +4295,44 @@
           "id": "expression_yaoi",
           "jp": "やおい",
           "en": "yaoi",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_yuri",
           "jp": "百合",
           "en": "yuri",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_zettai_ryouiki",
           "jp": "絶対領域",
           "en": "zettai ryouiki",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         },
         {
           "id": "expression_zoom_layer",
           "jp": "ズームレイヤー",
           "en": "zoom layer",
-          "tags": [],
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
           "source": ""
         }
       ]
