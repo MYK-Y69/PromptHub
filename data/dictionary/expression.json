@@ -3,6 +3,176 @@
   "label": "表情",
   "items": [
     {
+      "id": "act_blowing_kiss",
+      "en": "blowing a kiss",
+      "jp": "投げキス",
+      "tags": [
+        "action"
+      ]
+    },
+    {
+      "id": "act_crying",
+      "en": "crying",
+      "jp": "泣く",
+      "tags": [
+        "action",
+        "emotion"
+      ]
+    },
+    {
+      "id": "act_drinking",
+      "en": "drinking",
+      "jp": "飲む",
+      "tags": [
+        "action"
+      ]
+    },
+    {
+      "id": "act_eating",
+      "en": "eating",
+      "jp": "食べる",
+      "tags": [
+        "action"
+      ]
+    },
+    {
+      "id": "act_holding_hands",
+      "en": "holding hands",
+      "jp": "手をつなぐ",
+      "tags": [
+        "action",
+        "relationship"
+      ]
+    },
+    {
+      "id": "act_hugging",
+      "en": "hugging",
+      "jp": "抱きしめる",
+      "tags": [
+        "action",
+        "relationship"
+      ]
+    },
+    {
+      "id": "act_jumping",
+      "en": "jumping",
+      "jp": "跳ぶ",
+      "tags": [
+        "action"
+      ]
+    },
+    {
+      "id": "act_kissing",
+      "en": "kissing",
+      "jp": "キスする",
+      "tags": [
+        "action",
+        "relationship"
+      ]
+    },
+    {
+      "id": "act_laughing",
+      "en": "laughing",
+      "jp": "笑っている",
+      "tags": [
+        "action",
+        "emotion"
+      ]
+    },
+    {
+      "id": "act_looking_at_viewer",
+      "en": "looking at viewer",
+      "jp": "こちらを見る",
+      "tags": [
+        "action",
+        "pov"
+      ]
+    },
+    {
+      "id": "act_lying_down",
+      "en": "lying down",
+      "jp": "横になる",
+      "tags": [
+        "action",
+        "pose"
+      ]
+    },
+    {
+      "id": "act_running",
+      "en": "running",
+      "jp": "走る",
+      "tags": [
+        "action"
+      ]
+    },
+    {
+      "id": "act_shushing",
+      "en": "shushing",
+      "jp": "しー（静かに）",
+      "tags": [
+        "action"
+      ]
+    },
+    {
+      "id": "act_sitting_down",
+      "en": "sitting down",
+      "jp": "座る",
+      "tags": [
+        "action",
+        "pose"
+      ]
+    },
+    {
+      "id": "act_smiling",
+      "en": "smiling",
+      "jp": "笑う",
+      "tags": [
+        "action",
+        "emotion"
+      ]
+    },
+    {
+      "id": "act_touching_face",
+      "en": "touching face",
+      "jp": "頬に触れる",
+      "tags": [
+        "action"
+      ]
+    },
+    {
+      "id": "act_touching_hair",
+      "en": "touching hair",
+      "jp": "髪に触れる",
+      "tags": [
+        "action"
+      ]
+    },
+    {
+      "id": "act_turning_around",
+      "en": "turning around",
+      "jp": "振り向く",
+      "tags": [
+        "action"
+      ]
+    },
+    {
+      "id": "act_walking",
+      "en": "walking",
+      "jp": "歩く",
+      "tags": [
+        "action"
+      ]
+    },
+    {
+      "id": "act_winking",
+      "en": "winking",
+      "jp": "ウィンク",
+      "tags": [
+        "action",
+        "emotion"
+      ]
+    },
+    {
       "id": "ang_dutch",
       "en": "dutch angle",
       "jp": "ダッチアングル",
@@ -1223,6 +1393,293 @@
       "jp": "焦点（手）",
       "tags": [
         "focus"
+      ]
+    },
+    {
+      "id": "pose_arms_crossed",
+      "en": "arms crossed",
+      "jp": "腕組み",
+      "tags": [
+        "pose"
+      ]
+    },
+    {
+      "id": "pose_back_to_camera",
+      "en": "back to camera",
+      "jp": "背中を向ける",
+      "tags": [
+        "pose",
+        "pov"
+      ]
+    },
+    {
+      "id": "pose_crouching",
+      "en": "crouching",
+      "jp": "しゃがんでいる",
+      "tags": [
+        "pose"
+      ]
+    },
+    {
+      "id": "pose_hand_behind_head",
+      "en": "hand behind head",
+      "jp": "頭の後ろに手",
+      "tags": [
+        "pose"
+      ]
+    },
+    {
+      "id": "pose_hand_on_hip",
+      "en": "hand on hip",
+      "jp": "腰に手",
+      "tags": [
+        "pose"
+      ]
+    },
+    {
+      "id": "pose_hand_to_mouth",
+      "en": "hand to mouth",
+      "jp": "口元に手",
+      "tags": [
+        "pose"
+      ]
+    },
+    {
+      "id": "pose_hands_on_cheeks",
+      "en": "hands on cheeks",
+      "jp": "両手を頬に",
+      "tags": [
+        "pose"
+      ]
+    },
+    {
+      "id": "pose_kneeling",
+      "en": "kneeling",
+      "jp": "膝をついている",
+      "tags": [
+        "pose"
+      ]
+    },
+    {
+      "id": "pose_lying_on_back",
+      "en": "lying on back",
+      "jp": "仰向け",
+      "tags": [
+        "pose"
+      ]
+    },
+    {
+      "id": "pose_lying_on_stomach",
+      "en": "lying on stomach",
+      "jp": "うつ伏せ",
+      "tags": [
+        "pose"
+      ]
+    },
+    {
+      "id": "pose_pointing",
+      "en": "pointing",
+      "jp": "指さし",
+      "tags": [
+        "pose"
+      ]
+    },
+    {
+      "id": "pose_reaching_out",
+      "en": "reaching out",
+      "jp": "手を伸ばす",
+      "tags": [
+        "pose"
+      ]
+    },
+    {
+      "id": "pose_shrug",
+      "en": "shrug",
+      "jp": "肩をすくめる",
+      "tags": [
+        "pose"
+      ]
+    },
+    {
+      "id": "pose_side_lying",
+      "en": "lying on side",
+      "jp": "横向きに寝る",
+      "tags": [
+        "pose"
+      ]
+    },
+    {
+      "id": "pose_sitting",
+      "en": "sitting",
+      "jp": "座っている",
+      "tags": [
+        "pose"
+      ]
+    },
+    {
+      "id": "pose_sitting_cross_legged",
+      "en": "sitting cross-legged",
+      "jp": "あぐら座り",
+      "tags": [
+        "pose"
+      ]
+    },
+    {
+      "id": "pose_sitting_on_floor",
+      "en": "sitting on the floor",
+      "jp": "床に座る",
+      "tags": [
+        "pose"
+      ]
+    },
+    {
+      "id": "pose_standing",
+      "en": "standing",
+      "jp": "立っている",
+      "tags": [
+        "pose"
+      ]
+    },
+    {
+      "id": "pose_turning_back",
+      "en": "looking back",
+      "jp": "振り返り",
+      "tags": [
+        "pose"
+      ]
+    },
+    {
+      "id": "pose_waving",
+      "en": "waving",
+      "jp": "手を振る",
+      "tags": [
+        "pose"
+      ]
+    },
+    {
+      "id": "pov_back_view",
+      "en": "back view",
+      "jp": "背面視点",
+      "tags": [
+        "pov"
+      ]
+    },
+    {
+      "id": "pov_close_pov",
+      "en": "POV close-up",
+      "jp": "主観寄りアップ",
+      "tags": [
+        "pov",
+        "camera"
+      ]
+    },
+    {
+      "id": "pov_eye_level",
+      "en": "eye-level view",
+      "jp": "目線の高さ",
+      "tags": [
+        "pov"
+      ]
+    },
+    {
+      "id": "pov_first_person",
+      "en": "first-person view",
+      "jp": "一人称視点",
+      "tags": [
+        "pov"
+      ]
+    },
+    {
+      "id": "pov_from_above",
+      "en": "view from above",
+      "jp": "上からの視点",
+      "tags": [
+        "pov",
+        "angle"
+      ]
+    },
+    {
+      "id": "pov_from_below",
+      "en": "view from below",
+      "jp": "下からの視点",
+      "tags": [
+        "pov",
+        "angle"
+      ]
+    },
+    {
+      "id": "pov_front_view",
+      "en": "front view",
+      "jp": "正面視点",
+      "tags": [
+        "pov"
+      ]
+    },
+    {
+      "id": "pov_handheld",
+      "en": "handheld camera",
+      "jp": "手持ちカメラ風",
+      "tags": [
+        "pov",
+        "camera"
+      ]
+    },
+    {
+      "id": "pov_mirror",
+      "en": "mirror view",
+      "jp": "鏡越し視点",
+      "tags": [
+        "pov"
+      ]
+    },
+    {
+      "id": "pov_over_shoulder",
+      "en": "over-the-shoulder shot",
+      "jp": "肩越し視点",
+      "tags": [
+        "pov",
+        "camera"
+      ]
+    },
+    {
+      "id": "pov_peeking",
+      "en": "peeking view",
+      "jp": "覗き見る視点",
+      "tags": [
+        "pov"
+      ]
+    },
+    {
+      "id": "pov_selfie",
+      "en": "selfie",
+      "jp": "自撮り視点",
+      "tags": [
+        "pov"
+      ]
+    },
+    {
+      "id": "pov_side_view",
+      "en": "side view",
+      "jp": "横からの視点",
+      "tags": [
+        "pov"
+      ]
+    },
+    {
+      "id": "pov_third_person",
+      "en": "third-person view",
+      "jp": "三人称視点",
+      "tags": [
+        "pov"
+      ]
+    },
+    {
+      "id": "pov_top_down",
+      "en": "top-down view",
+      "jp": "真上から（俯瞰）",
+      "tags": [
+        "pov",
+        "angle"
       ]
     }
   ]

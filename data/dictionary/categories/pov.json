@@ -1,1 +1,21 @@
-{"items": []}
+{
+  "key": "pov",
+  "label": "POV",
+  "items": [
+    { "id": "pov_first_person", "en": "first-person view", "jp": "一人称視点", "tags": ["pov"] },
+    { "id": "pov_third_person", "en": "third-person view", "jp": "三人称視点", "tags": ["pov"] },
+    { "id": "pov_over_shoulder", "en": "over-the-shoulder shot", "jp": "肩越し視点", "tags": ["pov", "camera"] },
+    { "id": "pov_from_above", "en": "view from above", "jp": "上からの視点", "tags": ["pov", "angle"] },
+    { "id": "pov_from_below", "en": "view from below", "jp": "下からの視点", "tags": ["pov", "angle"] },
+    { "id": "pov_eye_level", "en": "eye-level view", "jp": "目線の高さ", "tags": ["pov"] },
+    { "id": "pov_side_view", "en": "side view", "jp": "横からの視点", "tags": ["pov"] },
+    { "id": "pov_back_view", "en": "back view", "jp": "背面視点", "tags": ["pov"] },
+    { "id": "pov_front_view", "en": "front view", "jp": "正面視点", "tags": ["pov"] },
+    { "id": "pov_top_down", "en": "top-down view", "jp": "真上から（俯瞰）", "tags": ["pov", "angle"] },
+    { "id": "pov_close_pov", "en": "POV close-up", "jp": "主観寄りアップ", "tags": ["pov", "camera"] },
+    { "id": "pov_handheld", "en": "handheld camera", "jp": "手持ちカメラ風", "tags": ["pov", "camera"] },
+    { "id": "pov_selfie", "en": "selfie", "jp": "自撮り視点", "tags": ["pov"] },
+    { "id": "pov_mirror", "en": "mirror view", "jp": "鏡越し視点", "tags": ["pov"] },
+    { "id": "pov_peeking", "en": "peeking view", "jp": "覗き見る視点", "tags": ["pov"] }
+  ]
+}
