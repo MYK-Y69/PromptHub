@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PromptHub</title>
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <div id="layout">
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <div id="logo">PromptHub</div>
+      <nav id="category-list">
+        <!-- populated by JS -->
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <main id="main">
+      <header id="toolbar">
+        <input
+          id="search"
+          type="search"
+          placeholder="jp / en / tags で検索..."
+          autocomplete="off"
+        />
+        <button id="copy-selected" disabled>選択をまとめてコピー (<span id="selected-count">0</span>)</button>
+      </header>
+
+      <div id="tag-chips"></div>
+
+      <div id="card-grid"></div>
+
+      <div id="empty-msg" hidden>該当するアイテムがありません。</div>
+    </main>
+  </div>
+
+  <div id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

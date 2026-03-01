@@ -1,0 +1,135 @@
+{
+  "key": "expression",
+  "label": "表情",
+  "items": [
+    {
+      "id": "expression_anger",
+      "jp": "怒り",
+      "en": "anger",
+      "tags": [
+        "emotion"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_blush",
+      "jp": "赤面",
+      "en": "blush",
+      "tags": [
+        "cute"
+      ],
+      "source": "https://sorenuts.jp/1954/"
+    },
+    {
+      "id": "expression_crying_face",
+      "jp": "泣き顔",
+      "en": "crying face",
+      "tags": [
+        "sad",
+        "emotion"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_embarrassed",
+      "jp": "恥ずかし",
+      "en": "embarrassed",
+      "tags": [
+        "cute",
+        "shy"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_expressionless",
+      "jp": "無表情",
+      "en": "expressionless",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_glare",
+      "jp": "睨み",
+      "en": "glare",
+      "tags": [
+        "intense"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_grin",
+      "jp": "にやり",
+      "en": "grin",
+      "tags": [],
+      "source": "https://sorenuts.jp/1954/"
+    },
+    {
+      "id": "expression_half_closed_eyes",
+      "jp": "目を細める",
+      "en": "half-closed eyes",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_pouty",
+      "jp": "むっとした",
+      "en": "pouty",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_smile",
+      "jp": "ほほ笑み",
+      "en": "smile",
+      "tags": [
+        "cute"
+      ],
+      "source": "https://sorenuts.jp/1954/"
+    },
+    {
+      "id": "expression_smug",
+      "jp": "得意げ",
+      "en": "smug",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_surprised",
+      "jp": "驚き",
+      "en": "surprised",
+      "tags": [
+        "emotion"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_teary_eyes",
+      "jp": "涙目",
+      "en": "teary eyes",
+      "tags": [
+        "sad",
+        "cute"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_troubled_face",
+      "jp": "困り顔",
+      "en": "troubled face",
+      "tags": [
+        "emotion",
+        "sad"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_wink",
+      "jp": "ウィンク",
+      "en": "wink",
+      "tags": [
+        "cute"
+      ],
+      "source": "https://sorenuts.jp/1954/"
+    }
+  ]
+}
