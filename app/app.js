@@ -34,14 +34,25 @@ function normalizeCategory(data, mode) {
 }
 
 function normalizeCategories(data, mode) {
+  let cats;
   if (Array.isArray(data.categories) && data.categories.length > 0) {
-    return data.categories.map(cat => ({
+    cats = data.categories.map(cat => ({
       key:   cat.key   ?? "unknown",
       label: cat.label ?? cat.key ?? "Unknown",
       items: Array.isArray(cat.items) ? cat.items : [],
     }));
+  } else {
+    cats = [normalizeCategory(data, mode)];
   }
-  return [normalizeCategory(data, mode)];
+
+  // ALL カテゴリ：全カテゴリの items を結合し id でユニーク化
+  const seen = new Set();
+  const allItems = cats
+    .flatMap(c => c.items)
+    .filter(x => x && x.id && !seen.has(x.id) && (seen.add(x.id), true));
+  const allCat = { key: "__all__", label: `ALL (${mode.toUpperCase()})`, items: allItems };
+
+  return [allCat, ...cats];
 }
 
 let modeLoading = false;
