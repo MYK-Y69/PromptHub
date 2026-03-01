@@ -5,6 +5,7 @@
 #   [2] rows (excl. header) < 10        → abort
 #   [3] any empty en/key                → abort
 #   [4] duplicate rate > 50%            → abort
+#   [5b] added items < 5               → abort (exit 22)
 #   [6] expression.json not valid JSON  → abort
 #   [7] unexpected changed files        → abort
 #
@@ -90,7 +91,18 @@ fi
 
 # ── 5. Import into expression.json ───────────────────────────────────────────
 echo "[5/7] Running import_tsv.py..."
-"${PYTHON}" tools/import_tsv.py "${TSV_PATH}"
+IMPORT_LOG=$("${PYTHON}" tools/import_tsv.py "${TSV_PATH}" 2>&1 | tee /dev/stderr)
+ADDED=$( printf '%s' "${IMPORT_LOG}" | "${PYTHON}" -c "
+import sys, re
+m = re.search(r'(\d+)\s+item\(s?\)\s+added|added\s+(\d+)|(\d+)\s*追加|追加\s*(\d+)', sys.stdin.read())
+print(next((g for g in m.groups() if g is not None), 0) if m else 0)
+" )
+echo "      Added: ${ADDED} item(s)"
+if [[ "${ADDED}" -lt 5 ]]; then
+  echo "" >&2
+  echo "ABORT: Too few new items added (${ADDED} < 5 minimum)" >&2
+  exit 22
+fi
 
 # ── 6. Validate expression.json ──────────────────────────────────────────────
 echo "[6/7] Validating expression.json is valid JSON..."
