@@ -66,9 +66,37 @@
       "source": ""
     },
     {
+      "id": "expression_dejection",
+      "jp": "落ち込み",
+      "en": "dejection",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_despair",
+      "jp": "絶望",
+      "en": "despair",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_disappointment",
+      "jp": "失望",
+      "en": "disappointment",
+      "tags": [],
+      "source": ""
+    },
+    {
       "id": "expression_displeasure",
       "jp": "不満",
       "en": "displeasure",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_downcast_face",
+      "jp": "沈んだ顔",
+      "en": "downcast face",
       "tags": [],
       "source": ""
     },
@@ -120,6 +148,13 @@
       "source": ""
     },
     {
+      "id": "expression_grief",
+      "jp": "悲嘆",
+      "en": "grief",
+      "tags": [],
+      "source": ""
+    },
+    {
       "id": "expression_grin",
       "jp": "にやり",
       "en": "grin",
@@ -134,9 +169,37 @@
       "source": ""
     },
     {
+      "id": "expression_heartache",
+      "jp": "切なさ",
+      "en": "heartache",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_helplessness",
+      "jp": "やるせなさ",
+      "en": "helplessness",
+      "tags": [],
+      "source": ""
+    },
+    {
       "id": "expression_irritation",
       "jp": "苛立ち",
       "en": "irritation",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_loneliness",
+      "jp": "寂しさ",
+      "en": "loneliness",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_melancholy",
+      "jp": "憂鬱",
+      "en": "melancholy",
       "tags": [],
       "source": ""
     },
@@ -151,6 +214,34 @@
       "id": "expression_rage",
       "jp": "激怒",
       "en": "rage",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_regret",
+      "jp": "後悔",
+      "en": "regret",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_sadness",
+      "jp": "悲しみ",
+      "en": "sadness",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_sense_of_isolation",
+      "jp": "孤独感",
+      "en": "sense of isolation",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_sense_of_loss",
+      "jp": "喪失感",
+      "en": "sense of loss",
       "tags": [],
       "source": ""
     },
@@ -174,6 +265,13 @@
       "id": "expression_smug",
       "jp": "得意げ",
       "en": "smug",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_sobbing",
+      "jp": "すすり泣き",
+      "en": "sobbing",
       "tags": [],
       "source": ""
     },
@@ -218,6 +316,13 @@
         "emotion",
         "sad"
       ],
+      "source": ""
+    },
+    {
+      "id": "expression_vacant_eyes",
+      "jp": "うつろな目",
+      "en": "vacant eyes",
+      "tags": [],
       "source": ""
     },
     {
