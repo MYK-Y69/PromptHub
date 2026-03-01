@@ -1,9 +1,11 @@
 /* PromptHub – app.js */
 
 // ---- Config ----
-const DICT_FILES = [
-  { key: "expression", file: "../data/dictionary/expression.json" },
-];
+const COMPILED = {
+  safe: "../data/dictionary/compiled/safe.json",
+  full: "../data/dictionary/compiled/full.json",
+};
+let activeMode = "safe";
 
 // ---- State ----
 let allCategories = [];      // [{ key, label, items }]
@@ -22,27 +24,53 @@ const copySelected  = document.getElementById("copy-selected");
 const selectedCount = document.getElementById("selected-count");
 const toast         = document.getElementById("toast");
 
-// ---- Boot ----
-(async function init() {
-  const results = await Promise.allSettled(
-    DICT_FILES.map(({ file }) => fetch(file).then(r => r.json()))
-  );
+// ---- Mode helpers ----
+function normalizeCategory(data, mode) {
+  return {
+    key:   data.key   ?? "expression",
+    label: data.label ?? (mode === "full" ? "Expression (FULL)" : "Expression (SAFE)"),
+    items: Array.isArray(data.items) ? data.items : [],
+  };
+}
 
-  results.forEach((r, i) => {
-    if (r.status === "fulfilled") {
-      allCategories.push(r.value);
-    } else {
-      console.warn(`Failed to load ${DICT_FILES[i].file}:`, r.reason);
-    }
-  });
-
-  if (allCategories.length === 0) {
-    cardGrid.innerHTML = "<p style='color:#888;padding:40px'>辞書ファイルが見つかりません。<br>まず import_tsv.py を実行してください。</p>";
+async function loadMode(mode) {
+  activeMode = mode;
+  let data;
+  try {
+    data = await fetch(COMPILED[mode]).then(r => r.json());
+  } catch (e) {
+    console.warn(`Failed to load ${COMPILED[mode]}:`, e);
+    cardGrid.innerHTML = "<p style='color:#888;padding:40px'>辞書ファイルが見つかりません。</p>";
     return;
   }
-
+  allCategories = [normalizeCategory(data, mode)];
   renderSidebar();
   selectCategory(allCategories[0].key);
+  document.querySelectorAll(".mode-btn").forEach(btn => {
+    const on = btn.dataset.mode === mode;
+    btn.style.background  = on ? "#4a9eff" : "#2a2a3e";
+    btn.style.color       = on ? "#fff"    : "#aaa";
+    btn.style.borderColor = on ? "#4a9eff" : "#444";
+  });
+}
+
+// ---- Boot ----
+(async function init() {
+  // SAFE / FULL toggle bar を body 先頭に挿入
+  const modeBar = document.createElement("div");
+  modeBar.style.cssText = "display:flex;gap:8px;padding:6px 14px;background:#111827;border-bottom:1px solid #2a2a3e;";
+  ["safe", "full"].forEach(m => {
+    const btn = document.createElement("button");
+    btn.className = "mode-btn";
+    btn.dataset.mode = m;
+    btn.textContent = m.toUpperCase();
+    btn.style.cssText = "padding:3px 14px;border:1px solid #444;background:#2a2a3e;color:#aaa;cursor:pointer;border-radius:4px;font-size:11px;font-weight:600;";
+    btn.addEventListener("click", () => loadMode(m));
+    modeBar.appendChild(btn);
+  });
+  document.body.insertBefore(modeBar, document.body.firstChild);
+
+  await loadMode("safe");
   bindEvents();
 })();
 
