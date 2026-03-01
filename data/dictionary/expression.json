@@ -3,12 +3,33 @@
   "label": "表情",
   "items": [
     {
+      "id": "expression_agitation",
+      "jp": "興奮",
+      "en": "agitation",
+      "tags": [],
+      "source": ""
+    },
+    {
       "id": "expression_anger",
       "jp": "怒り",
       "en": "anger",
       "tags": [
         "emotion"
       ],
+      "source": ""
+    },
+    {
+      "id": "expression_angry_look",
+      "jp": "怒気",
+      "en": "angry look",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_annoyance",
+      "jp": "むかつき",
+      "en": "annoyance",
+      "tags": [],
       "source": ""
     },
     {
@@ -21,6 +42,20 @@
       "source": "https://sorenuts.jp/1954/"
     },
     {
+      "id": "expression_clenched_teeth",
+      "jp": "歯を食いしばる",
+      "en": "clenched teeth",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_cold_glare",
+      "jp": "冷たい視線",
+      "en": "cold glare",
+      "tags": [],
+      "source": ""
+    },
+    {
       "id": "expression_crying_face",
       "jp": "泣き顔",
       "en": "crying face",
@@ -28,6 +63,13 @@
         "sad",
         "emotion"
       ],
+      "source": ""
+    },
+    {
+      "id": "expression_displeasure",
+      "jp": "不満",
+      "en": "displeasure",
+      "tags": [],
       "source": ""
     },
     {
@@ -48,12 +90,33 @@
       "source": ""
     },
     {
+      "id": "expression_furrowed_brows",
+      "jp": "眉をひそめる",
+      "en": "furrowed brows",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_fury",
+      "jp": "憤怒",
+      "en": "fury",
+      "tags": [],
+      "source": ""
+    },
+    {
       "id": "expression_glare",
       "jp": "睨み",
       "en": "glare",
       "tags": [
         "intense"
       ],
+      "source": ""
+    },
+    {
+      "id": "expression_glaring_eyes",
+      "jp": "睨みつける",
+      "en": "glaring eyes",
+      "tags": [],
       "source": ""
     },
     {
@@ -71,9 +134,30 @@
       "source": ""
     },
     {
+      "id": "expression_irritation",
+      "jp": "苛立ち",
+      "en": "irritation",
+      "tags": [],
+      "source": ""
+    },
+    {
       "id": "expression_pouty",
       "jp": "むっとした",
       "en": "pouty",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_rage",
+      "jp": "激怒",
+      "en": "rage",
+      "tags": [],
+      "source": ""
+    },
+    {
+      "id": "expression_shouting_anger",
+      "jp": "怒鳴る",
+      "en": "shouting anger",
       "tags": [],
       "source": ""
     },
@@ -94,12 +178,26 @@
       "source": ""
     },
     {
+      "id": "expression_stern_face",
+      "jp": "険しい顔",
+      "en": "stern face",
+      "tags": [],
+      "source": ""
+    },
+    {
       "id": "expression_surprised",
       "jp": "驚き",
       "en": "surprised",
       "tags": [
         "emotion"
       ],
+      "source": ""
+    },
+    {
+      "id": "expression_tantrum",
+      "jp": "かんしゃく",
+      "en": "tantrum",
+      "tags": [],
       "source": ""
     },
     {
