@@ -1,138 +1,6 @@
 {
   "items": [
     {
-      "id": "expression_1boy",
-      "jp": "男性1人",
-      "en": "1boy",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_1girl",
-      "jp": "女性1人",
-      "en": "1girl",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_2boys",
-      "jp": "男性2人",
-      "en": "2boys",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_2girls",
-      "jp": "女性2人",
-      "en": "2girls",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_3boys",
-      "jp": "男性3人",
-      "en": "3boys",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_3girls",
-      "jp": "女性3人",
-      "en": "3girls",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_4boys",
-      "jp": "男性4人",
-      "en": "4boys",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_4girls",
-      "jp": "女性4人",
-      "en": "4girls",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_5boys",
-      "jp": "男性5人",
-      "en": "5boys",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_5girls",
-      "jp": "女性5人",
-      "en": "5girls",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_6boys",
-      "jp": "男性6人以上",
-      "en": "6boys",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_6girls",
-      "jp": "女性6人以上",
-      "en": "6girls",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
       "id": "expression_agitation",
       "jp": "興奮",
       "en": "agitation",
@@ -166,17 +34,6 @@
       "source": ""
     },
     {
-      "id": "expression_animal_focus",
-      "jp": "焦点（動物）",
-      "en": "animal focus",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
       "id": "expression_annoyance",
       "jp": "むかつき",
       "en": "annoyance",
@@ -188,42 +45,9 @@
       "source": ""
     },
     {
-      "id": "expression_armpit_focus",
-      "jp": "焦点（腋）",
-      "en": "armpit focus",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_ass_focus",
-      "jp": "焦点（尻を強調）",
-      "en": "ass focus",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
       "id": "expression_audience",
       "jp": "観客",
       "en": "audience",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_back_focus",
-      "jp": "焦点（背中）",
-      "en": "back focus",
       "tags": [
         "expression",
         "emotion",
@@ -253,17 +77,6 @@
         "shy"
       ],
       "source": "https://sorenuts.jp/1954/"
-    },
-    {
-      "id": "expression_breast_focus",
-      "jp": "焦点（胸）",
-      "en": "breast focus",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
     },
     {
       "id": "expression_chibi_inset",
@@ -476,17 +289,6 @@
       "source": ""
     },
     {
-      "id": "expression_dual_persona",
-      "jp": "二重人格",
-      "en": "dual persona",
-      "tags": [
-        "expression",
-        "emotion",
-        "confused"
-      ],
-      "source": ""
-    },
-    {
       "id": "expression_dutch_angle",
       "jp": "傾いた角度からの撮影",
       "en": "dutch angle",
@@ -547,17 +349,6 @@
       "id": "expression_expressions",
       "jp": "表情集",
       "en": "expressions",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_eye_focus",
-      "jp": "焦点（目）",
-      "en": "eye focus",
       "tags": [
         "expression",
         "emotion",
@@ -668,39 +459,6 @@
       "id": "expression_feet_out_of_frame",
       "jp": "フレームアウトした足先",
       "en": "feet out of frame",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_female_pov",
-      "jp": "女性主観視点",
-      "en": "female pov",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_food_focus",
-      "jp": "焦点（食べ物）",
-      "en": "food focus",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_foot_focus",
-      "jp": "焦点（足）",
-      "en": "foot focus",
       "tags": [
         "expression",
         "emotion",
@@ -831,17 +589,6 @@
       "source": "https://sorenuts.jp/1954/"
     },
     {
-      "id": "expression_hair_focus",
-      "jp": "焦点（髪）",
-      "en": "hair focus",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
       "id": "expression_half_closed_eyes",
       "jp": "目を細める",
       "en": "half-closed eyes",
@@ -849,17 +596,6 @@
         "expression",
         "emotion",
         "tired"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_hand_focus",
-      "jp": "焦点（手）",
-      "en": "hand focus",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
       ],
       "source": ""
     },
@@ -893,17 +629,6 @@
         "expression",
         "emotion",
         "sadness"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_hip_focus",
-      "jp": "焦点（腰）",
-      "en": "hip focus",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
       ],
       "source": ""
     },
@@ -1084,28 +809,6 @@
       "source": ""
     },
     {
-      "id": "expression_male_focus",
-      "jp": "焦点（男性）",
-      "en": "male focus",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_mecha_focus",
-      "jp": "焦点（メカ、ロボット）",
-      "en": "mecha focus",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
       "id": "expression_melancholy",
       "jp": "憂鬱",
       "en": "melancholy",
@@ -1117,64 +820,9 @@
       "source": ""
     },
     {
-      "id": "expression_multiple_boys",
-      "jp": "複数の男性",
-      "en": "multiple boys",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_multiple_girls",
-      "jp": "複数の女性",
-      "en": "multiple girls",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_multiple_persona",
-      "jp": "複数人格",
-      "en": "multiple persona",
-      "tags": [
-        "expression",
-        "emotion",
-        "confused"
-      ],
-      "source": ""
-    },
-    {
       "id": "expression_multiple_views",
       "jp": "複数の視点 / 三面図",
       "en": "multiple views",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_navel_focus",
-      "jp": "焦点（へそ）",
-      "en": "navel focus",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_no_humans",
-      "jp": "人物なし",
-      "en": "no humans",
       "tags": [
         "expression",
         "emotion",
@@ -1208,17 +856,6 @@
       "id": "expression_onii_shota",
       "jp": "おにショタ",
       "en": "onii-shota",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_other_focus",
-      "jp": "焦点（その他）",
-      "en": "other focus",
       "tags": [
         "expression",
         "emotion",
@@ -1271,17 +908,6 @@
       "source": ""
     },
     {
-      "id": "expression_pectoral_focus",
-      "jp": "焦点（胸筋）",
-      "en": "pectoral focus",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
       "id": "expression_portrait",
       "jp": "人物の顔に焦点",
       "en": "portrait",
@@ -1300,72 +926,6 @@
         "expression",
         "emotion",
         "anger"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_pov",
-      "jp": "(Point of View) 一人称視点",
-      "en": "pov",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_pov_across_bed",
-      "jp": "ベッド越しの視点",
-      "en": "pov across bed",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_pov_across_table",
-      "jp": "テーブル越しの視点",
-      "en": "pov across table",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_pov_crotch",
-      "jp": "一人称視点で下半身が見える",
-      "en": "pov crotch",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_pov_doorway",
-      "jp": "ドアの前もしくはドア枠の中からの視点",
-      "en": "pov doorway",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_pov_hands",
-      "jp": "一人称視点で自分の手が見える",
-      "en": "pov hands",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
       ],
       "source": ""
     },
@@ -1514,28 +1074,6 @@
       "source": ""
     },
     {
-      "id": "expression_solo",
-      "jp": "1人",
-      "en": "solo",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_solo_focus",
-      "jp": "焦点（ソロ）",
-      "en": "solo focus",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
       "id": "expression_stern_face",
       "jp": "険しい顔",
       "en": "stern face",
@@ -1600,17 +1138,6 @@
         "expression",
         "emotion",
         "sadness"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_text_focus",
-      "jp": "焦点（テキスト）",
-      "en": "text focus",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
       ],
       "source": ""
     },
@@ -1700,28 +1227,6 @@
         "expression",
         "emotion",
         "tired"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_vehicle_focus",
-      "jp": "焦点（乗り物）",
-      "en": "vehicle focus",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_weapon_focus",
-      "jp": "焦点（武器）",
-      "en": "weapon focus",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral"
       ],
       "source": ""
     },

@@ -1,1 +1,198 @@
-{"items": []}
+{
+  "key": "count",
+  "label": "Count",
+  "items": [
+    {
+      "id": "expression_1boy",
+      "jp": "男性1人",
+      "en": "1boy",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "count"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_1girl",
+      "jp": "女性1人",
+      "en": "1girl",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "count"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_2boys",
+      "jp": "男性2人",
+      "en": "2boys",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "count"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_2girls",
+      "jp": "女性2人",
+      "en": "2girls",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "count"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_3boys",
+      "jp": "男性3人",
+      "en": "3boys",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "count"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_3girls",
+      "jp": "女性3人",
+      "en": "3girls",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "count"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_4boys",
+      "jp": "男性4人",
+      "en": "4boys",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "count"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_4girls",
+      "jp": "女性4人",
+      "en": "4girls",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "count"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_5boys",
+      "jp": "男性5人",
+      "en": "5boys",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "count"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_5girls",
+      "jp": "女性5人",
+      "en": "5girls",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "count"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_6boys",
+      "jp": "男性6人以上",
+      "en": "6boys",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "count"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_6girls",
+      "jp": "女性6人以上",
+      "en": "6girls",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "count"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_multiple_boys",
+      "jp": "複数の男性",
+      "en": "multiple boys",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "count"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_multiple_girls",
+      "jp": "複数の女性",
+      "en": "multiple girls",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "count"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_no_humans",
+      "jp": "人物なし",
+      "en": "no humans",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "count"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_solo",
+      "jp": "1人",
+      "en": "solo",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "count"
+      ],
+      "source": ""
+    }
+  ]
+}

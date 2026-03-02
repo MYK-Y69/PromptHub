@@ -2,8 +2,269 @@
   "key": "focus",
   "label": "Focus",
   "items": [
-    { "id": "foc_face", "en": "face focus", "jp": "焦点（顔）", "tags": ["focus"] },
-    { "id": "foc_eyes", "en": "eye focus", "jp": "焦点（目）", "tags": ["focus"] },
-    { "id": "foc_hands", "en": "hand focus", "jp": "焦点（手）", "tags": ["focus"] }
+    {
+      "id": "foc_face",
+      "en": "face focus",
+      "jp": "焦点（顔）",
+      "tags": [
+        "focus"
+      ]
+    },
+    {
+      "id": "foc_eyes",
+      "en": "eye focus",
+      "jp": "焦点（目）",
+      "tags": [
+        "focus"
+      ]
+    },
+    {
+      "id": "foc_hands",
+      "en": "hand focus",
+      "jp": "焦点（手）",
+      "tags": [
+        "focus"
+      ]
+    },
+    {
+      "id": "expression_animal_focus",
+      "jp": "焦点（動物）",
+      "en": "animal focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_armpit_focus",
+      "jp": "焦点（腋）",
+      "en": "armpit focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_ass_focus",
+      "jp": "焦点（尻を強調）",
+      "en": "ass focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_back_focus",
+      "jp": "焦点（背中）",
+      "en": "back focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_breast_focus",
+      "jp": "焦点（胸）",
+      "en": "breast focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_eye_focus",
+      "jp": "焦点（目）",
+      "en": "eye focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_food_focus",
+      "jp": "焦点（食べ物）",
+      "en": "food focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_foot_focus",
+      "jp": "焦点（足）",
+      "en": "foot focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_hair_focus",
+      "jp": "焦点（髪）",
+      "en": "hair focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_hand_focus",
+      "jp": "焦点（手）",
+      "en": "hand focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_hip_focus",
+      "jp": "焦点（腰）",
+      "en": "hip focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_male_focus",
+      "jp": "焦点（男性）",
+      "en": "male focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_mecha_focus",
+      "jp": "焦点（メカ、ロボット）",
+      "en": "mecha focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_navel_focus",
+      "jp": "焦点（へそ）",
+      "en": "navel focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_other_focus",
+      "jp": "焦点（その他）",
+      "en": "other focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_pectoral_focus",
+      "jp": "焦点（胸筋）",
+      "en": "pectoral focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_solo_focus",
+      "jp": "焦点（ソロ）",
+      "en": "solo focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_text_focus",
+      "jp": "焦点（テキスト）",
+      "en": "text focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_vehicle_focus",
+      "jp": "焦点（乗り物）",
+      "en": "vehicle focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_weapon_focus",
+      "jp": "焦点（武器）",
+      "en": "weapon focus",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "focus"
+      ],
+      "source": ""
+    }
   ]
 }
