@@ -87,18 +87,6 @@
       "source": ""
     },
     {
-      "id": "expression_eye_focus",
-      "jp": "焦点（目）",
-      "en": "eye focus",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral",
-        "focus"
-      ],
-      "source": ""
-    },
-    {
       "id": "expression_food_focus",
       "jp": "焦点（食べ物）",
       "en": "food focus",
@@ -126,18 +114,6 @@
       "id": "expression_hair_focus",
       "jp": "焦点（髪）",
       "en": "hair focus",
-      "tags": [
-        "expression",
-        "emotion",
-        "neutral",
-        "focus"
-      ],
-      "source": ""
-    },
-    {
-      "id": "expression_hand_focus",
-      "jp": "焦点（手）",
-      "en": "hand focus",
       "tags": [
         "expression",
         "emotion",
