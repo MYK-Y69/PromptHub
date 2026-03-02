@@ -229,6 +229,23 @@ body {
 }
 .btn-copy:hover { background: var(--chip-bg); }
 
+/* ===== Emotion group headers (Expression) ===== */
+.emotion-group-header {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 2px 4px;
+  margin-top: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  border-bottom: 1.5px solid var(--border);
+}
+.emotion-group-header:first-child { margin-top: 0; }
+
 /* ===== Empty message ===== */
 #empty-msg {
   text-align: center;

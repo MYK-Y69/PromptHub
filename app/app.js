@@ -191,45 +191,79 @@ function filteredItems() {
   return items;
 }
 
+// ---- Emotion grouping (Expression only) ----
+const EMOTION_GROUPS = [
+  { key: "joy",      emoji: "😊", label: "Joy" },
+  { key: "anger",    emoji: "😡", label: "Anger" },
+  { key: "sadness",  emoji: "😢", label: "Sadness" },
+  { key: "surprise", emoji: "😲", label: "Surprise" },
+  { key: "shy",      emoji: "😳", label: "Shy" },
+  { key: "neutral",  emoji: "😐", label: "Neutral" },
+  { key: "other",    emoji: "📦", label: "Other" },
+];
+
+function groupByEmotion(items) {
+  const buckets = Object.fromEntries(EMOTION_GROUPS.map(g => [g.key, []]));
+  for (const item of items) {
+    const tags = safeTags(item);
+    if (!tags.includes("emotion")) { buckets.other.push(item); continue; }
+    const match = EMOTION_GROUPS.find(g => g.key !== "other" && tags.includes(g.key));
+    (match ? buckets[match.key] : buckets.other).push(item);
+  }
+  return EMOTION_GROUPS
+    .map(g => ({ ...g, items: buckets[g.key] }))
+    .filter(g => g.items.length > 0);
+}
+
+function createCard(item) {
+  const card = document.createElement("div");
+  card.className = "card" + (selectedIds.has(item.id) ? " selected" : "");
+  card.dataset.id = item.id;
+
+  const tags = safeTags(item);
+  const tagsHtml = tags.length
+    ? `<div class="card-tags">${tags.map(t => `<span class="card-tag">${t}</span>`).join("")}</div>`
+    : "";
+
+  card.innerHTML = `
+    <div class="card-actions">
+      <button class="btn-copy" title="en をコピー" data-en="${escHtml(safeText(item.en))}">📋</button>
+    </div>
+    <div class="card-en">${escHtml(safeText(item.en))}</div>
+    <div class="card-jp">${escHtml(safeText(item.jp))}</div>
+    ${tagsHtml}
+  `;
+
+  card.addEventListener("click", e => {
+    if (e.target.closest(".btn-copy")) return;
+    toggleSelect(item.id);
+    card.classList.toggle("selected", selectedIds.has(item.id));
+  });
+
+  card.querySelector(".btn-copy").addEventListener("click", async e => {
+    e.stopPropagation();
+    await copyText(safeText(item.en));
+  });
+
+  return card;
+}
+
 function renderCards() {
   const items = filteredItems();
   cardGrid.innerHTML = "";
   emptyMsg.hidden = items.length > 0;
 
-  items.forEach(item => {
-    const card = document.createElement("div");
-    card.className = "card" + (selectedIds.has(item.id) ? " selected" : "");
-    card.dataset.id = item.id;
-
-    const tags = safeTags(item);
-    const tagsHtml = tags.length
-      ? `<div class="card-tags">${tags.map(t => `<span class="card-tag">${t}</span>`).join("")}</div>`
-      : "";
-
-    card.innerHTML = `
-      <div class="card-actions">
-        <button class="btn-copy" title="en をコピー" data-en="${escHtml(safeText(item.en))}">📋</button>
-      </div>
-      <div class="card-en">${escHtml(safeText(item.en))}</div>
-      <div class="card-jp">${escHtml(safeText(item.jp))}</div>
-      ${tagsHtml}
-    `;
-
-    // Click card body to toggle selection
-    card.addEventListener("click", e => {
-      if (e.target.closest(".btn-copy")) return;
-      toggleSelect(item.id);
-      card.classList.toggle("selected", selectedIds.has(item.id));
+  if (activeCatKey === "expression") {
+    groupByEmotion(items).forEach(({ emoji, label, items: gItems }) => {
+      const header = document.createElement("div");
+      header.className = "emotion-group-header";
+      header.textContent = `${emoji} ${label}`;
+      cardGrid.appendChild(header);
+      gItems.forEach(item => cardGrid.appendChild(createCard(item)));
     });
-
-    // Copy button
-    card.querySelector(".btn-copy").addEventListener("click", async e => {
-      e.stopPropagation();
-      await copyText(safeText(item.en));
-    });
-
-    cardGrid.appendChild(card);
-  });
+  } else {
+    items.forEach(item => cardGrid.appendChild(createCard(item)));
+  }
 }
 
 // ---- Selection ----
