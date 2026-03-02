@@ -13,6 +13,7 @@ let activeCatKey = null;
 let activeTag = null;
 let searchQuery = "";
 let selectedIds = new Set();
+let groupOpenState = { neutral: false }; // emotion accordion: false=closed, undefined/true=open
 
 // ---- DOM refs ----
 const categoryList  = document.getElementById("category-list");
@@ -254,12 +255,33 @@ function renderCards() {
   emptyMsg.hidden = items.length > 0;
 
   if (activeCatKey === "expression") {
-    groupByEmotion(items).forEach(({ emoji, label, items: gItems }) => {
+    const searching = searchQuery !== "";
+    groupByEmotion(items).forEach(({ key, emoji, label, items: gItems }) => {
+      const isOpen = searching || groupOpenState[key] !== false;
+
       const header = document.createElement("div");
       header.className = "emotion-group-header";
-      header.textContent = `${emoji} ${label}`;
+
+      const title = document.createElement("span");
+      title.textContent = `${emoji} ${label}`;
+
+      const toggle = document.createElement("span");
+      toggle.className = "emotion-group-toggle";
+      toggle.textContent = isOpen ? "▼" : "▶";
+
+      header.appendChild(title);
+      header.appendChild(toggle);
+
+      header.addEventListener("click", () => {
+        if (searching) return;
+        groupOpenState[key] = !(groupOpenState[key] !== false);
+        renderCards();
+      });
+
       cardGrid.appendChild(header);
-      gItems.forEach(item => cardGrid.appendChild(createCard(item)));
+      if (isOpen) {
+        gItems.forEach(item => cardGrid.appendChild(createCard(item)));
+      }
     });
   } else {
     items.forEach(item => cardGrid.appendChild(createCard(item)));
