@@ -256,11 +256,42 @@ function renderCards() {
 
   if (activeCatKey === "expression") {
     const searching = searchQuery !== "";
-    groupByEmotion(items).forEach(({ key, emoji, label, items: gItems }) => {
+    const groups = groupByEmotion(items);
+
+    // ---- Agenda (emotion jump menu) ----
+    if (groups.length > 0) {
+      const agenda = document.createElement("div");
+      agenda.className = "emotion-agenda";
+      groups.forEach(({ key, emoji, label }) => {
+        const btn = document.createElement("button");
+        btn.className = "emotion-agenda-item";
+        btn.textContent = `${emoji} ${label}`;
+        btn.addEventListener("click", () => {
+          if (!searching && groupOpenState[key] === false) {
+            // group is closed → open it, rerender, then scroll
+            groupOpenState[key] = true;
+            renderCards();
+            requestAnimationFrame(() => {
+              document.getElementById("emotion-" + key)
+                ?.scrollIntoView({ behavior: "smooth", block: "start" });
+            });
+          } else {
+            document.getElementById("emotion-" + key)
+              ?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+        agenda.appendChild(btn);
+      });
+      cardGrid.appendChild(agenda);
+    }
+
+    // ---- Groups ----
+    groups.forEach(({ key, emoji, label, items: gItems }) => {
       const isOpen = searching || groupOpenState[key] !== false;
 
       const header = document.createElement("div");
       header.className = "emotion-group-header";
+      header.id = "emotion-" + key;
 
       const title = document.createElement("span");
       title.textContent = `${emoji} ${label}`;

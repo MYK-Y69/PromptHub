@@ -229,8 +229,36 @@ body {
 }
 .btn-copy:hover { background: var(--chip-bg); }
 
+/* ===== Emotion agenda (Expression jump menu) ===== */
+.emotion-agenda {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 0 10px;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 10;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+.emotion-agenda-item {
+  padding: 3px 12px;
+  border-radius: 99px;
+  background: var(--chip-bg);
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: background 0.15s, color 0.15s;
+  user-select: none;
+}
+.emotion-agenda-item:hover { border-color: var(--accent); color: var(--text); }
+
 /* ===== Emotion group headers (Expression) ===== */
 .emotion-group-header {
+  scroll-margin-top: 56px; /* clear the sticky agenda */
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
