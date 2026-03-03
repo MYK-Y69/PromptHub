@@ -14,6 +14,7 @@ let activeTag = null;
 let searchQuery = "";
 let selectedIds = new Set();
 let groupOpenState = { neutral: false }; // emotion accordion: false=closed, undefined/true=open
+let activeTabKey = null; // "emotions" | "parts" | "facemakeup" | null
 
 // ---- DOM refs ----
 const categoryList  = document.getElementById("category-list");
@@ -83,6 +84,33 @@ async function loadMode(mode) {
   modeLoading = false;
 }
 
+// ---- Tab constants ----
+const TABS = [
+  { key: "emotions",   label: "Emotions" },
+  { key: "parts",      label: "Parts" },
+  { key: "facemakeup", label: "Face & Makeup" },
+];
+
+const PARTS_GROUPS = [
+  { key: "eye",          emoji: "👁",  label: "Eye" },
+  { key: "mouth",        emoji: "👄",  label: "Mouth" },
+  { key: "teeth",        emoji: "🦷",  label: "Teeth" },
+  { key: "brow",         emoji: "〰️",  label: "Brow" },
+  { key: "sweat",        emoji: "💧",  label: "Sweat" },
+  { key: "blush_detail", emoji: "🌸",  label: "Blush Detail" },
+];
+
+const FACE_MAKEUP_GROUPS = [
+  { key: "makeup",      emoji: "💄",  label: "Makeup" },
+  { key: "lips",        emoji: "💋",  label: "Lips" },
+  { key: "eyelashes",   emoji: "✨",  label: "Eyelashes" },
+  { key: "freckles",    emoji: "🔴",  label: "Freckles" },
+  { key: "mole",        emoji: "⚫",  label: "Mole" },
+  { key: "facial_mark", emoji: "🎭",  label: "Facial Mark" },
+  { key: "facepaint",   emoji: "🎨",  label: "Facepaint" },
+  { key: "bodypaint",   emoji: "🖌️",  label: "Bodypaint" },
+];
+
 // ---- Boot ----
 (async function init() {
   // SAFE / FULL toggle bar を body 先頭に挿入
@@ -99,9 +127,51 @@ async function loadMode(mode) {
   });
   document.body.insertBefore(modeBar, document.body.firstChild);
 
+  // Tab bar を modeBar の直後に挿入
+  const tabBar = document.createElement("div");
+  tabBar.id = "tab-bar";
+  tabBar.style.cssText = "display:flex;gap:0;background:#111827;border-bottom:2px solid #2a2a3e;padding:0 14px;";
+  TABS.forEach(tab => {
+    const btn = document.createElement("button");
+    btn.className = "tab-btn";
+    btn.dataset.tab = tab.key;
+    btn.textContent = tab.label;
+    btn.style.cssText = "padding:8px 18px;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;background:transparent;color:#aaa;cursor:pointer;font-size:13px;font-weight:600;transition:color .15s,border-color .15s;";
+    btn.addEventListener("click", () => selectTab(tab.key));
+    btn.addEventListener("mouseenter", () => {
+      if (btn.dataset.tab !== activeTabKey) btn.style.color = "#ccc";
+    });
+    btn.addEventListener("mouseleave", () => {
+      if (btn.dataset.tab !== activeTabKey) btn.style.color = "#aaa";
+    });
+    tabBar.appendChild(btn);
+  });
+  document.body.insertBefore(tabBar, document.body.children[1]);
+
   await loadMode("safe");
   bindEvents();
 })();
+
+// ---- Tab selection ----
+function selectTab(key) {
+  activeTabKey = activeTabKey === key ? null : key;
+  searchQuery = "";
+  searchInput.value = "";
+  activeTag = null;
+  selectedIds.clear();
+  updateSelectedUI();
+  updateTabBar();
+  renderTagChips();
+  renderCards();
+}
+
+function updateTabBar() {
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    const on = btn.dataset.tab === activeTabKey;
+    btn.style.color = on ? "#4a9eff" : "#aaa";
+    btn.style.borderBottomColor = on ? "#4a9eff" : "transparent";
+  });
+}
 
 // ---- Sidebar ----
 function renderSidebar() {
@@ -119,10 +189,12 @@ function renderSidebar() {
 function selectCategory(key) {
   activeCatKey = key;
   activeTag = null;
+  activeTabKey = null;
   searchQuery = "";
   searchInput.value = "";
   selectedIds.clear();
   updateSelectedUI();
+  updateTabBar();
 
   document.querySelectorAll(".cat-item").forEach(el => {
     el.classList.toggle("active", el.dataset.key === key);
@@ -134,6 +206,9 @@ function selectCategory(key) {
 
 // ---- Tag chips ----
 function renderTagChips() {
+  tagChips.innerHTML = "";
+  if (activeTabKey) return;
+
   const cat = currentCategory();
   if (!cat) return;
 
@@ -143,8 +218,6 @@ function renderTagChips() {
   });
 
   const tags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
-  tagChips.innerHTML = "";
-
   if (tags.length === 0) return;
 
   tags.forEach(([tag, count]) => {
@@ -170,11 +243,42 @@ function currentCategory() {
   return allCategories.find(c => c.key === activeCatKey);
 }
 
-function filteredItems() {
-  const cat = currentCategory();
-  if (!cat) return [];
+function allItemsPool() {
+  const allCat = allCategories.find(c => c.key === "__all__");
+  return allCat ? allCat.items : [];
+}
 
-  let items = cat.items;
+// emotion サブタグ（neutral 以外）: このいずれかを持つアイテムは Emotions タブ扱い
+const EMOTION_SUBTAGS = ["joy", "anger", "sadness", "surprise", "shy", "determined", "smug", "tired", "confused"];
+
+function hasEmotionSubtag(tags) {
+  return EMOTION_SUBTAGS.some(t => tags.includes(t));
+}
+
+function filteredItems() {
+  let items;
+
+  if (activeTabKey === "emotions") {
+    // emotion タグを持ち、かつ非 neutral の感情サブタグを持つもの
+    items = allItemsPool().filter(i => {
+      const tags = safeTags(i);
+      return tags.includes("emotion") && hasEmotionSubtag(tags);
+    });
+  } else if (activeTabKey === "parts") {
+    // parts タグを持ち、かつ非 neutral 感情サブタグを持たないもの（= neutral 寄り）
+    const partsKeys = PARTS_GROUPS.map(g => g.key);
+    items = allItemsPool().filter(i => {
+      const tags = safeTags(i);
+      return tags.some(t => partsKeys.includes(t)) && !hasEmotionSubtag(tags);
+    });
+  } else if (activeTabKey === "facemakeup") {
+    const keys = FACE_MAKEUP_GROUPS.map(g => g.key);
+    items = allItemsPool().filter(i => safeTags(i).some(t => keys.includes(t)));
+  } else {
+    const cat = currentCategory();
+    if (!cat) return [];
+    items = cat.items;
+  }
 
   if (activeTag) {
     items = items.filter(i => safeTags(i).includes(activeTag));
@@ -192,7 +296,7 @@ function filteredItems() {
   return items;
 }
 
-// ---- Emotion grouping (Expression only) ----
+// ---- Emotion grouping ----
 const EMOTION_GROUPS = [
   { key: "joy",      emoji: "😊", label: "Joy" },
   { key: "anger",    emoji: "😡", label: "Anger" },
@@ -212,6 +316,20 @@ function groupByEmotion(items) {
     (match ? buckets[match.key] : buckets.other).push(item);
   }
   return EMOTION_GROUPS
+    .map(g => ({ ...g, items: buckets[g.key] }))
+    .filter(g => g.items.length > 0);
+}
+
+// ---- Generic tag grouping (Parts / Face & Makeup) ----
+function groupByTag(items, groups) {
+  const buckets = Object.fromEntries(groups.map(g => [g.key, []]));
+  for (const item of items) {
+    const tags = safeTags(item);
+    for (const g of groups) {
+      if (tags.includes(g.key)) buckets[g.key].push(item);
+    }
+  }
+  return groups
     .map(g => ({ ...g, items: buckets[g.key] }))
     .filter(g => g.items.length > 0);
 }
@@ -249,71 +367,80 @@ function createCard(item) {
   return card;
 }
 
+// ---- Grouped card rendering (shared by emotion/parts/facemakeup) ----
+function renderGroupedCards(groups, searching) {
+  // Agenda (jump menu)
+  if (groups.length > 0) {
+    const agenda = document.createElement("div");
+    agenda.className = "emotion-agenda";
+    groups.forEach(({ key, emoji, label }) => {
+      const btn = document.createElement("button");
+      btn.className = "emotion-agenda-item";
+      btn.textContent = emoji ? `${emoji} ${label}` : label;
+      btn.addEventListener("click", () => {
+        if (!searching && groupOpenState[key] === false) {
+          groupOpenState[key] = true;
+          renderCards();
+          requestAnimationFrame(() => {
+            document.getElementById("emotion-" + key)
+              ?.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        } else {
+          document.getElementById("emotion-" + key)
+            ?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+      agenda.appendChild(btn);
+    });
+    cardGrid.appendChild(agenda);
+  }
+
+  // Accordion groups
+  groups.forEach(({ key, emoji, label, items: gItems }) => {
+    const isOpen = searching || groupOpenState[key] !== false;
+
+    const header = document.createElement("div");
+    header.className = "emotion-group-header";
+    header.id = "emotion-" + key;
+
+    const title = document.createElement("span");
+    title.textContent = emoji ? `${emoji} ${label}` : label;
+
+    const toggle = document.createElement("span");
+    toggle.className = "emotion-group-toggle";
+    toggle.textContent = isOpen ? "▼" : "▶";
+
+    header.appendChild(title);
+    header.appendChild(toggle);
+
+    header.addEventListener("click", () => {
+      if (searching) return;
+      groupOpenState[key] = !(groupOpenState[key] !== false);
+      renderCards();
+    });
+
+    cardGrid.appendChild(header);
+    if (isOpen) {
+      gItems.forEach(item => cardGrid.appendChild(createCard(item)));
+    }
+  });
+}
+
 function renderCards() {
   const items = filteredItems();
   cardGrid.innerHTML = "";
   emptyMsg.hidden = items.length > 0;
 
-  if (activeCatKey === "expression") {
-    const searching = searchQuery !== "";
-    const groups = groupByEmotion(items);
+  const searching = searchQuery !== "";
 
-    // ---- Agenda (emotion jump menu) ----
-    if (groups.length > 0) {
-      const agenda = document.createElement("div");
-      agenda.className = "emotion-agenda";
-      groups.forEach(({ key, emoji, label }) => {
-        const btn = document.createElement("button");
-        btn.className = "emotion-agenda-item";
-        btn.textContent = `${emoji} ${label}`;
-        btn.addEventListener("click", () => {
-          if (!searching && groupOpenState[key] === false) {
-            // group is closed → open it, rerender, then scroll
-            groupOpenState[key] = true;
-            renderCards();
-            requestAnimationFrame(() => {
-              document.getElementById("emotion-" + key)
-                ?.scrollIntoView({ behavior: "smooth", block: "start" });
-            });
-          } else {
-            document.getElementById("emotion-" + key)
-              ?.scrollIntoView({ behavior: "smooth", block: "start" });
-          }
-        });
-        agenda.appendChild(btn);
-      });
-      cardGrid.appendChild(agenda);
-    }
-
-    // ---- Groups ----
-    groups.forEach(({ key, emoji, label, items: gItems }) => {
-      const isOpen = searching || groupOpenState[key] !== false;
-
-      const header = document.createElement("div");
-      header.className = "emotion-group-header";
-      header.id = "emotion-" + key;
-
-      const title = document.createElement("span");
-      title.textContent = `${emoji} ${label}`;
-
-      const toggle = document.createElement("span");
-      toggle.className = "emotion-group-toggle";
-      toggle.textContent = isOpen ? "▼" : "▶";
-
-      header.appendChild(title);
-      header.appendChild(toggle);
-
-      header.addEventListener("click", () => {
-        if (searching) return;
-        groupOpenState[key] = !(groupOpenState[key] !== false);
-        renderCards();
-      });
-
-      cardGrid.appendChild(header);
-      if (isOpen) {
-        gItems.forEach(item => cardGrid.appendChild(createCard(item)));
-      }
-    });
+  if (activeTabKey === "emotions") {
+    renderGroupedCards(groupByEmotion(items), searching);
+  } else if (activeTabKey === "parts") {
+    renderGroupedCards(groupByTag(items, PARTS_GROUPS), searching);
+  } else if (activeTabKey === "facemakeup") {
+    renderGroupedCards(groupByTag(items, FACE_MAKEUP_GROUPS), searching);
+  } else if (activeCatKey === "expression") {
+    renderGroupedCards(groupByEmotion(items), searching);
   } else {
     items.forEach(item => cardGrid.appendChild(createCard(item)));
   }
