@@ -4,6 +4,7 @@
 const COMPILED = {
   safe: "../data/dictionary/compiled/safe.json",
   full: "../data/dictionary/compiled/full.json",
+  tags: "../data/dictionary/compiled/tags.json",
 };
 let activeMode = "safe";
 
@@ -87,11 +88,22 @@ function normalizeCategory(data, mode) {
 function normalizeCategories(data, mode) {
   let cats;
   if (Array.isArray(data.categories) && data.categories.length > 0) {
-    cats = data.categories.map(cat => ({
+    cats = data.categories.map(cat => {
+    const start = Number.isInteger(cat.start) ? cat.start : null;
+    const end   = Number.isInteger(cat.end)   ? cat.end   : null;
+
+    // Prefer explicit cat.items if present, else rebuild from [start,end) over data.items
+    let items = Array.isArray(cat.items) ? cat.items : [];
+    if ((!items || items.length === 0) && start !== null && end !== null && Array.isArray(data.items)) {
+      items = data.items.slice(start, end);
+    }
+
+    return {
       key:   cat.key   ?? "unknown",
       label: cat.label ?? cat.key ?? "Unknown",
-      items: Array.isArray(cat.items) ? cat.items : [],
-    }));
+      items,
+    };
+  });
   } else {
     cats = [normalizeCategory(data, mode)];
   }
@@ -138,7 +150,7 @@ async function loadMode(mode) {
   // SAFE / FULL toggle bar を body 先頭に挿入
   const modeBar = document.createElement("div");
   modeBar.style.cssText = "display:flex;gap:8px;padding:6px 14px;background:#111827;border-bottom:1px solid #2a2a3e;";
-  ["safe", "full"].forEach(m => {
+  ["safe", "full", "tags"].forEach(m => {
     const btn = document.createElement("button");
     btn.className = "mode-btn";
     btn.dataset.mode = m;
@@ -149,7 +161,7 @@ async function loadMode(mode) {
   });
   document.body.insertBefore(modeBar, document.body.firstChild);
 
-  await loadMode("safe");
+  await loadMode("tags");
   bindEvents();
 })();
 

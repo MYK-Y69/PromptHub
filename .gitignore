@@ -1,0 +1,7 @@
+
+# PromptHub local inbox (manual TSV drops)
+data/inbox/
+data/imbox/
+
+# generated previews / scratch
+data/dictionary/*.preview.json

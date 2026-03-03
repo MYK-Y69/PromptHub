@@ -1,0 +1,4724 @@
+{
+  "generated_at": "2026-03-03T18:27:15",
+  "source_tsv": "data/inbox/2026-03-03_tags_fixed.tsv",
+  "count_rows": 711,
+  "count_sections": 75,
+  "sections": [
+    {
+      "key": "camera_comp",
+      "label": "camera_comp",
+      "items": [
+        {
+          "jp_term": "全身",
+          "definition": "wide shotの全身は該当しない",
+          "danbooru_tag": "full body",
+          "notes": "除外: wide shot"
+        },
+        {
+          "jp_term": "フレームアウトした顔",
+          "definition": "顔がフレーム外",
+          "danbooru_tag": "head out of frame",
+          "notes": ""
+        },
+        {
+          "jp_term": "上半身",
+          "definition": "へそから上が見える構図（頭部の有無は問わない）",
+          "danbooru_tag": "upper body",
+          "notes": ""
+        },
+        {
+          "jp_term": "フレームアウトした肩",
+          "definition": "肩がフレーム外",
+          "danbooru_tag": "cropped shoulders",
+          "notes": ""
+        },
+        {
+          "jp_term": "膝上から上",
+          "definition": "太もも上部から上。膝上からやや上で切れる／顔と腰回りが明確",
+          "danbooru_tag": "cowboy shot",
+          "notes": ""
+        },
+        {
+          "jp_term": "フレームアウトした胴体",
+          "definition": "胴体がフレーム外",
+          "danbooru_tag": "cropped torso",
+          "notes": ""
+        },
+        {
+          "jp_term": "下半身",
+          "definition": "腰から下。単なるassアップは該当しない／povや背景キャラには使用しない",
+          "danbooru_tag": "lower body",
+          "notes": "除外: assアップ"
+        },
+        {
+          "jp_term": "フレームアウトした脚",
+          "definition": "脚がフレーム外",
+          "danbooru_tag": "cropped legs",
+          "notes": ""
+        },
+        {
+          "jp_term": "立ち絵",
+          "definition": "基本全身立ち姿／シンプルor透過背景／差分が存在",
+          "danbooru_tag": "tachi-e",
+          "notes": ""
+        },
+        {
+          "jp_term": "フレームアウトした足先",
+          "definition": "足先がフレーム外",
+          "danbooru_tag": "feet out of frame",
+          "notes": ""
+        },
+        {
+          "jp_term": "ヴィネット",
+          "definition": "フィギュア/模型風演出＋装飾台座に立っているように見える",
+          "danbooru_tag": "faux figurine",
+          "notes": "区別: fading border(背景ぼやけ)"
+        },
+        {
+          "jp_term": "フレームアウト",
+          "definition": "一部がフレーム外",
+          "danbooru_tag": "out of frame",
+          "notes": ""
+        },
+        {
+          "jp_term": "一部水中の撮影",
+          "definition": "一部が水中",
+          "danbooru_tag": "partially underwater shot",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "focus",
+      "label": "focus",
+      "items": [
+        {
+          "jp_term": "焦点（男性）",
+          "definition": "主題が男性、または男性が強く強調",
+          "danbooru_tag": "male focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（動物）",
+          "definition": "主題が動物",
+          "danbooru_tag": "animal focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（ソロ）",
+          "definition": "複数人物だが一人にフォーカス",
+          "danbooru_tag": "solo focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（食べ物）",
+          "definition": "主題が食べ物",
+          "danbooru_tag": "food focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（その他）",
+          "definition": "性別なし/曖昧な人型が主題",
+          "danbooru_tag": "other focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（乗り物）",
+          "definition": "主題が乗り物",
+          "danbooru_tag": "vehicle focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（尻を強調）",
+          "definition": "尻が主題/強調",
+          "danbooru_tag": "ass focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（メカ、ロボット）",
+          "definition": "主題がメカ",
+          "danbooru_tag": "mecha focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（腰）",
+          "definition": "腰が主題/強調",
+          "danbooru_tag": "hip focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（武器）",
+          "definition": "主題が武器",
+          "danbooru_tag": "weapon focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（足）",
+          "definition": "足が主題/強調",
+          "danbooru_tag": "foot focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（テキスト）",
+          "definition": "テキストが主題",
+          "danbooru_tag": "text focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（目）",
+          "definition": "目が主題/強調",
+          "danbooru_tag": "eye focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（背中）",
+          "definition": "背中が主題/強調",
+          "danbooru_tag": "back focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（胸）",
+          "definition": "胸が主題/強調",
+          "danbooru_tag": "breast focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（胸筋）",
+          "definition": "胸筋が主題/強調",
+          "danbooru_tag": "pectoral focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（手）",
+          "definition": "手が主題/強調",
+          "danbooru_tag": "hand focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（腋）",
+          "definition": "腋が主題/強調",
+          "danbooru_tag": "armpit focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（へそ）",
+          "definition": "へそが主題/強調",
+          "danbooru_tag": "navel focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（髪）",
+          "definition": "髪が主題/強調",
+          "danbooru_tag": "hair focus",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "angle",
+      "label": "angle",
+      "items": [
+        {
+          "jp_term": "完全正面",
+          "definition": "頭・胴体・腰が全て正面（0度）",
+          "danbooru_tag": "straight-on",
+          "notes": ""
+        },
+        {
+          "jp_term": "正面（目閉じ/覆われ）",
+          "definition": "視聴者方向だが目を閉じているor覆われている",
+          "danbooru_tag": "facing viewer",
+          "notes": ""
+        },
+        {
+          "jp_term": "横から",
+          "definition": "90度または左右45度まで",
+          "danbooru_tag": "from side",
+          "notes": ""
+        },
+        {
+          "jp_term": "横顔、横向き",
+          "definition": "横向き",
+          "danbooru_tag": "facing to the side",
+          "notes": ""
+        },
+        {
+          "jp_term": "後方から、後ろ姿",
+          "definition": "背面",
+          "danbooru_tag": "from behind",
+          "notes": ""
+        },
+        {
+          "jp_term": "後ろ姿、背面（180度/後頭部のみ）",
+          "definition": "完全後ろ向きor後頭部のみ",
+          "danbooru_tag": "facing away",
+          "notes": ""
+        },
+        {
+          "jp_term": "上から、ハイアングル",
+          "definition": "上から",
+          "danbooru_tag": "from above",
+          "notes": ""
+        },
+        {
+          "jp_term": "顔が上を向いている",
+          "definition": "顔が上",
+          "danbooru_tag": "facing up",
+          "notes": ""
+        },
+        {
+          "jp_term": "下から、ローアングル",
+          "definition": "下から",
+          "danbooru_tag": "from below",
+          "notes": ""
+        },
+        {
+          "jp_term": "顔が下を向いている",
+          "definition": "顔が下",
+          "danbooru_tag": "facing down",
+          "notes": ""
+        },
+        {
+          "jp_term": "振り返り、目閉じ",
+          "definition": "後ろを振り返るが目は閉じている",
+          "danbooru_tag": "facing back",
+          "notes": ""
+        },
+        {
+          "jp_term": "前方注視",
+          "definition": "目を閉じていて視聴者ではなく自分の正面",
+          "danbooru_tag": "facing ahead",
+          "notes": ""
+        },
+        {
+          "jp_term": "他者に向かい合う（目閉じ）",
+          "definition": "他者に向く",
+          "danbooru_tag": "facing another",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "gaze",
+      "label": "gaze",
+      "items": [
+        {
+          "jp_term": "カメラ目線",
+          "definition": "視聴者を見る",
+          "danbooru_tag": "looking at viewer",
+          "notes": ""
+        },
+        {
+          "jp_term": "人物の顔に焦点",
+          "definition": "顔中心",
+          "danbooru_tag": "portrait",
+          "notes": ""
+        },
+        {
+          "jp_term": "振り返り",
+          "definition": "振り返って見る",
+          "danbooru_tag": "looking back",
+          "notes": ""
+        },
+        {
+          "jp_term": "至近距離/接写",
+          "definition": "近距離",
+          "danbooru_tag": "close-up",
+          "notes": ""
+        },
+        {
+          "jp_term": "他者を見る",
+          "definition": "他者を見る",
+          "danbooru_tag": "looking at another",
+          "notes": ""
+        },
+        {
+          "jp_term": "横顔（顔の片側のみ）",
+          "definition": "片側のみ",
+          "danbooru_tag": "profile",
+          "notes": ""
+        },
+        {
+          "jp_term": "横を見る（肩越し90度/45度まで）",
+          "definition": "横を見る",
+          "danbooru_tag": "looking to the side",
+          "notes": ""
+        },
+        {
+          "jp_term": "傾いた角度からの撮影",
+          "definition": "斜め",
+          "danbooru_tag": "dutch angle",
+          "notes": ""
+        },
+        {
+          "jp_term": "下を見る",
+          "definition": "下を見る",
+          "danbooru_tag": "looking down",
+          "notes": ""
+        },
+        {
+          "jp_term": "上下逆さま",
+          "definition": "逆さ",
+          "danbooru_tag": "upside-down",
+          "notes": ""
+        },
+        {
+          "jp_term": "視線を逸らす",
+          "definition": "逸らす",
+          "danbooru_tag": "looking away",
+          "notes": ""
+        },
+        {
+          "jp_term": "靴底",
+          "definition": "靴底が見える",
+          "danbooru_tag": "shoe soles",
+          "notes": ""
+        },
+        {
+          "jp_term": "上を見る",
+          "definition": "上を見る",
+          "danbooru_tag": "looking up",
+          "notes": ""
+        },
+        {
+          "jp_term": "自分の正面を見る（視聴者ではない）",
+          "definition": "正面",
+          "danbooru_tag": "looking ahead",
+          "notes": ""
+        },
+        {
+          "jp_term": "遠くを見る",
+          "definition": "遠方",
+          "danbooru_tag": "looking afar",
+          "notes": ""
+        },
+        {
+          "jp_term": "物体を見る",
+          "definition": "物を見る",
+          "danbooru_tag": "looking at object",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "pov",
+      "label": "pov",
+      "items": [
+        {
+          "jp_term": "スカートの中が見える",
+          "definition": "何らかの形で見える",
+          "danbooru_tag": "upskirt",
+          "notes": ""
+        },
+        {
+          "jp_term": "ショーツの中が見える",
+          "definition": "何らかの形で見える",
+          "danbooru_tag": "upshorts",
+          "notes": ""
+        },
+        {
+          "jp_term": "パンチラ",
+          "definition": "パンツが見える",
+          "danbooru_tag": "pantyshot",
+          "notes": ""
+        },
+        {
+          "jp_term": "見えないパンチラ",
+          "definition": "登場人物には見える",
+          "danbooru_tag": "implied pantyshot",
+          "notes": ""
+        },
+        {
+          "jp_term": "アップシャツ",
+          "definition": "シャツ裾から覗き（downblouseの反対）",
+          "danbooru_tag": "upshirt",
+          "notes": ""
+        },
+        {
+          "jp_term": "胸チラ",
+          "definition": "襟元から胸元が見える",
+          "danbooru_tag": "downblouse",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "tech",
+      "label": "tech",
+      "items": [
+        {
+          "jp_term": "絶対領域",
+          "definition": "裾とサイハイ上端の間の露出太もも（自然／下着見えない）",
+          "danbooru_tag": "zettai ryouiki",
+          "notes": ""
+        },
+        {
+          "jp_term": "太もも上部の隙間",
+          "definition": "絶対空域",
+          "danbooru_tag": "thigh gap",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "count",
+      "label": "count",
+      "items": [
+        {
+          "jp_term": "1人",
+          "definition": "人物1人",
+          "danbooru_tag": "solo",
+          "notes": ""
+        },
+        {
+          "jp_term": "人物なし",
+          "definition": "人がいない",
+          "danbooru_tag": "no humans",
+          "notes": ""
+        },
+        {
+          "jp_term": "女性1人",
+          "definition": "女性1人",
+          "danbooru_tag": "1girl",
+          "notes": ""
+        },
+        {
+          "jp_term": "男性1人",
+          "definition": "男性1人",
+          "danbooru_tag": "1boy",
+          "notes": ""
+        },
+        {
+          "jp_term": "女性2人",
+          "definition": "女性2人",
+          "danbooru_tag": "2girls",
+          "notes": ""
+        },
+        {
+          "jp_term": "男性2人",
+          "definition": "男性2人",
+          "danbooru_tag": "2boys",
+          "notes": ""
+        },
+        {
+          "jp_term": "女性3人",
+          "definition": "女性3人",
+          "danbooru_tag": "3girls",
+          "notes": ""
+        },
+        {
+          "jp_term": "男性3人",
+          "definition": "男性3人",
+          "danbooru_tag": "3boys",
+          "notes": ""
+        },
+        {
+          "jp_term": "女性4人",
+          "definition": "女性4人",
+          "danbooru_tag": "4girls",
+          "notes": ""
+        },
+        {
+          "jp_term": "男性4人",
+          "definition": "男性4人",
+          "danbooru_tag": "4boys",
+          "notes": ""
+        },
+        {
+          "jp_term": "女性5人",
+          "definition": "女性5人",
+          "danbooru_tag": "5girls",
+          "notes": ""
+        },
+        {
+          "jp_term": "男性5人",
+          "definition": "男性5人",
+          "danbooru_tag": "5boys",
+          "notes": ""
+        },
+        {
+          "jp_term": "女性6人以上",
+          "definition": "女性6人以上",
+          "danbooru_tag": "6+girls",
+          "notes": ""
+        },
+        {
+          "jp_term": "男性6人以上",
+          "definition": "男性6人以上",
+          "danbooru_tag": "6+boys",
+          "notes": ""
+        },
+        {
+          "jp_term": "複数の女性",
+          "definition": "複数女性",
+          "danbooru_tag": "multiple girls",
+          "notes": ""
+        },
+        {
+          "jp_term": "複数の男性",
+          "definition": "複数男性",
+          "danbooru_tag": "multiple boys",
+          "notes": ""
+        },
+        {
+          "jp_term": "男の娘",
+          "definition": "男の娘",
+          "danbooru_tag": "otoko no ko",
+          "notes": ""
+        },
+        {
+          "jp_term": "おねショタ",
+          "definition": "おねショタ",
+          "danbooru_tag": "onee-shota",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "relationship",
+      "label": "relationship",
+      "items": [
+        {
+          "jp_term": "百合",
+          "definition": "百合",
+          "danbooru_tag": "yuri",
+          "notes": ""
+        },
+        {
+          "jp_term": "薔薇",
+          "definition": "がっしり筋肉質の男性的特徴",
+          "danbooru_tag": "bara",
+          "notes": ""
+        },
+        {
+          "jp_term": "百合要素",
+          "definition": "暗示的百合",
+          "danbooru_tag": "implied yuri",
+          "notes": ""
+        },
+        {
+          "jp_term": "やおい",
+          "definition": "繊細・美しい描写",
+          "danbooru_tag": "yaoi",
+          "notes": ""
+        },
+        {
+          "jp_term": "おねロリ",
+          "definition": "おねロリ",
+          "danbooru_tag": "onee-loli",
+          "notes": ""
+        },
+        {
+          "jp_term": "おにショタ",
+          "definition": "おにショタ",
+          "danbooru_tag": "onii-shota",
+          "notes": ""
+        },
+        {
+          "jp_term": "カップル",
+          "definition": "一方が他方に一方的に作用",
+          "danbooru_tag": "couple",
+          "notes": ""
+        },
+        {
+          "jp_term": "リバ",
+          "definition": "対等で入れ替え可能",
+          "danbooru_tag": "reversible couple",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "misc_people",
+      "label": "misc_people",
+      "items": [
+        {
+          "jp_term": "複数の性別不明/曖昧",
+          "definition": "multiple others",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "二重人格",
+          "definition": "同一キャラの異なるバージョン2つ",
+          "danbooru_tag": "dual persona",
+          "notes": ""
+        },
+        {
+          "jp_term": "複数視点/三面図",
+          "definition": "同一キャラの異なる図2つ以上（multiple angles含む）",
+          "danbooru_tag": "multiple views",
+          "notes": ""
+        },
+        {
+          "jp_term": "複数人格",
+          "definition": "同一キャラの3つ以上の人格",
+          "danbooru_tag": "multiple persona",
+          "notes": ""
+        },
+        {
+          "jp_term": "群衆",
+          "definition": "crowd",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "観客",
+          "definition": "audience",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "layout",
+      "label": "layout",
+      "items": [
+        {
+          "jp_term": "集合絵",
+          "definition": "everyone",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "整列",
+          "definition": "lineup",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "縦列整列",
+          "definition": "column lineup",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "複数画像の組み合わせ",
+          "definition": "collage",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "表情集",
+          "definition": "expressions",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "表情練習（グリッド）",
+          "definition": "expression chart",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ちびキャラ挿入",
+          "definition": "chibi inset",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "投影された挿入画",
+          "definition": "projected inset",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ズームレイヤー",
+          "definition": "一部拡大別レイヤー",
+          "danbooru_tag": "zoom layer",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "tech2",
+      "label": "tech2",
+      "items": [
+        {
+          "jp_term": "ワイドショット/遠景",
+          "definition": "wide shot",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "超ワイドショット/極遠景",
+          "definition": "very wide shot",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "魚眼レンズ（超広角）",
+          "definition": "fisheye",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "遠近法/パース",
+          "definition": "奥行き・立体感",
+          "danbooru_tag": "perspective",
+          "notes": ""
+        },
+        {
+          "jp_term": "アイソメトリック",
+          "definition": "平行線が消失点に収束しない",
+          "danbooru_tag": "isometric",
+          "notes": ""
+        },
+        {
+          "jp_term": "フォアショートニング",
+          "definition": "突き出しを「短く」表現（強い要素のときのみ）",
+          "danbooru_tag": "foreshortening",
+          "notes": "強い要素のみ"
+        },
+        {
+          "jp_term": "消失点",
+          "definition": "一点収束",
+          "danbooru_tag": "vanishing point",
+          "notes": ""
+        },
+        {
+          "jp_term": "被写界深度/ボケ",
+          "definition": "前景/背景ぼかし等",
+          "danbooru_tag": "depth of field",
+          "notes": ""
+        },
+        {
+          "jp_term": "ぼやけた",
+          "definition": "ぼやけ",
+          "danbooru_tag": "blurry",
+          "notes": ""
+        },
+        {
+          "jp_term": "ボケ",
+          "definition": "bokeh",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "quality",
+      "label": "quality",
+      "items": [
+        {
+          "jp_term": "高解像度",
+          "definition": "highres",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "非常に高い解像度",
+          "definition": "absurdres",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "極めて高解像度",
+          "definition": "incredibly absurdres",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "低解像度",
+          "definition": "lowres",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "effect",
+      "label": "effect",
+      "items": [
+        {
+          "jp_term": "モーションブラー",
+          "definition": "motion blur",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "残像",
+          "definition": "afterimage",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "レンズフレア",
+          "definition": "lens flare",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "光の粒子",
+          "definition": "light particles",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "光線",
+          "definition": "light rays",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "スポットライト",
+          "definition": "spotlight",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "逆光",
+          "definition": "backlighting",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "色収差",
+          "definition": "chromatic aberration",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "フィルムグレイン",
+          "definition": "film grain",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ドロップシャドウ",
+          "definition": "drop shadow",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "放射状の光線",
+          "definition": "diffraction spikes",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "動線",
+          "definition": "motion lines",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "スピード線",
+          "definition": "speed lines",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "強調線",
+          "definition": "emphasis lines",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ブルーム",
+          "definition": "bloom",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "グリッチ",
+          "definition": "glitch",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "コースティクス（水中光）",
+          "definition": "caustics",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "style",
+      "label": "style",
+      "items": [
+        {
+          "jp_term": "漫画",
+          "definition": "comic",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "スケッチ",
+          "definition": "sketch",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "お絵かき",
+          "definition": "oekaki",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ピクセルアート",
+          "definition": "pixel art",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "シルエット",
+          "definition": "silhouette",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "アウトライン",
+          "definition": "outline",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "線画",
+          "definition": "lineart",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "伝統画材",
+          "definition": "traditional media",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "枠線",
+          "definition": "border",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "外枠",
+          "definition": "outside border",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "枠付き",
+          "definition": "framed",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "manga_panel",
+      "label": "manga_panel",
+      "items": [
+        {
+          "jp_term": "5コマ",
+          "definition": "5koma",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "4コマ",
+          "definition": "4koma",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "3コマ",
+          "definition": "3koma",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "2コマ",
+          "definition": "2koma",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "1コマ",
+          "definition": "1koma",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "manga_read",
+      "label": "manga_read",
+      "items": [
+        {
+          "jp_term": "左から右へ読む",
+          "definition": "left-to-right manga",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "cover",
+      "label": "cover",
+      "items": [
+        {
+          "jp_term": "表紙",
+          "definition": "cover",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "表紙ページ",
+          "definition": "cover page",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "同人誌表紙",
+          "definition": "doujin cover",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "アルバム表紙",
+          "definition": "album cover",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "雑誌表紙",
+          "definition": "magazine cover",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "frame",
+      "label": "frame",
+      "items": [
+        {
+          "jp_term": "レターボックス（上下黒帯）",
+          "definition": "letterboxed",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ピラーボックス（左右黒帯）",
+          "definition": "pillarboxed",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "meta_text",
+      "label": "meta_text",
+      "items": [
+        {
+          "jp_term": "英語に翻訳された投稿",
+          "definition": "translated",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "翻訳されていない投稿",
+          "definition": "translation request",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "翻訳チェック必要",
+          "definition": "check translation",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "非ネイティブ誤英語",
+          "definition": "engrish text",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "部分翻訳",
+          "definition": "partially translated",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "公式翻訳版/別言語",
+          "definition": "alternate language",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "英語",
+          "definition": "english text",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "中国語",
+          "definition": "chinese text",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "韓国語",
+          "definition": "korean text",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ローマ字",
+          "definition": "romaji text",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ロシア語",
+          "definition": "russian text",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ドイツ語",
+          "definition": "german text",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "フランス語",
+          "definition": "french text",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "スペイン語",
+          "definition": "spanish text",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "イタリア語",
+          "definition": "italian text",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "タイ語",
+          "definition": "thai text",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "繁体字中国語",
+          "definition": "traditional chinese text",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "混合言語",
+          "definition": "mixed-language text",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "キリル文字",
+          "definition": "cyrillic",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "象形文字",
+          "definition": "hieroglyphics",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ふりがな",
+          "definition": "furigana",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "誤字",
+          "definition": "typo",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "文字消し",
+          "definition": "detexted",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "qc",
+      "label": "qc",
+      "items": [
+        {
+          "jp_term": "不正確な解剖学",
+          "definition": "bad anatomay",
+          "danbooru_tag": "",
+          "notes": "[moved_from_danbooru_tag line 192] 原文ママ（綴り注意）"
+        },
+        {
+          "jp_term": "不自然な足",
+          "definition": "bad feet",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "不自然な手",
+          "definition": "bad hands",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "不自然な比率",
+          "definition": "bad proportions",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "artifact",
+      "label": "artifact",
+      "items": [
+        {
+          "jp_term": "スキャン画像",
+          "definition": "scan",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "スキャンノイズ",
+          "definition": "scan artifacts",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "透かし",
+          "definition": "watermark",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "アニメスクショ",
+          "definition": "anime screenshot",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "偽スクショ",
+          "definition": "fake screenshot",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "模擬スマホ画面",
+          "definition": "fake phone screenshot",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "動画化",
+          "definition": "animated",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "アニメGIF",
+          "definition": "animated gif",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ループGIF",
+          "definition": "looping animation",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "動画",
+          "definition": "video",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "revision",
+      "label": "revision",
+      "items": [
+        {
+          "jp_term": "修正版",
+          "definition": "revision",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "検閲済み改訂版",
+          "definition": "has censored revision",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "検閲なし",
+          "definition": "uncensored",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "dup",
+      "label": "dup",
+      "items": [
+        {
+          "jp_term": "複製",
+          "definition": "duplicate",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ピクセル単位複製",
+          "definition": "pixel-perfect duplicate",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "shape",
+      "label": "shape",
+      "items": [
+        {
+          "jp_term": "縦長",
+          "definition": "tall image",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "横長",
+          "definition": "wide image",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "orientation",
+      "label": "orientation",
+      "items": [
+        {
+          "jp_term": "横向き",
+          "definition": "sideways",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "quality2",
+      "label": "quality2",
+      "items": [
+        {
+          "jp_term": "JPEG劣化",
+          "definition": "jpeg artifacts",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "effect2",
+      "label": "effect2",
+      "items": [
+        {
+          "jp_term": "拡大",
+          "definition": "upscaled",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ベクタートレース",
+          "definition": "vector trace",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "style2",
+      "label": "style2",
+      "items": [
+        {
+          "jp_term": "線画なし",
+          "definition": "no lineart",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "doc",
+      "label": "doc",
+      "items": [
+        {
+          "jp_term": "設定資料/参考シート",
+          "definition": "reference sheet",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "ui",
+      "label": "ui",
+      "items": [
+        {
+          "jp_term": "覗き窓",
+          "definition": "viewfinder",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "expr_smile",
+      "label": "expr_smile",
+      "items": [
+        {
+          "jp_term": "笑顔（歯ほぼ無し/口大きく開けない）",
+          "definition": "smile",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "笑う（顔と体の動き＋肺からの音）",
+          "definition": "laughing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ほほ笑み（優しい笑み）",
+          "definition": "light smile",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "指笑顔（指で口角を上げる）",
+          "definition": "fingersmile",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "にやり（歯を見せる幅広い笑顔）",
+          "definition": "grin",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ハッピー（喜び/満足/快感）",
+          "definition": "happy",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "どや顔",
+          "definition": "smug",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "嬉し涙",
+          "definition": "happy tears",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "expr_evil",
+      "label": "expr_evil",
+      "items": [
+        {
+          "jp_term": "邪悪な笑み",
+          "definition": "evil smile",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "邪悪な笑み（グリン）",
+          "definition": "evil grin",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "病み",
+          "definition": "crazy",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "悪意のある笑み",
+          "definition": "smirk",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "不気味な笑顔（影顔/鋭い口角）",
+          "definition": "crazy smile",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "レイプ顔（捕食者のような細め目＋笑み）",
+          "definition": "rape face",
+          "danbooru_tag": "",
+          "notes": "[moved_from_danbooru_tag line 233] タグ用途注意"
+        },
+        {
+          "jp_term": "影のかかった顔",
+          "definition": "shaded face",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "影のかかった目",
+          "definition": "shading eyes",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "狂気の目",
+          "definition": "crazy eyes",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "異常に見開いた目",
+          "definition": "unusually open eyes",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "eye",
+      "label": "eye",
+      "items": [
+        {
+          "jp_term": "見開いた目",
+          "definition": "wide-eyed",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "じっと見つめる",
+          "definition": "staring",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "閉じた目",
+          "definition": "closed eyes",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "細められた目（疑惑/怒り/集中）",
+          "definition": "narrowed eyes",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "半目（眠気/誘惑）",
+          "definition": "half-closed eyes",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "目を細める（よく見ようとする/強い光）",
+          "definition": "squinting",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ウィンク",
+          "definition": "one eye closed",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "まばたき（主にアニメ。静止画はclosed eyes）",
+          "definition": "blinking",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "目を回す",
+          "definition": "rolling eyes",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "上目遣い",
+          "definition": "upturned eyes",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "まぶたを引っ張る（あっかんべー）",
+          "definition": "eyelid pull",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "寄り目",
+          "definition": "cross-eyed",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "あっかんべー",
+          "definition": "akanbe",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "eye_empty",
+      "label": "eye_empty",
+      "items": [
+        {
+          "jp_term": "虚ろ目/ハイライトオフ",
+          "definition": "empty eyes",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "瞳孔なし",
+          "definition": "no pupils",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "白目（虹彩＋瞳孔なし）",
+          "definition": "blank eyes",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "無表情な凝視",
+          "definition": "blank stare",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "空洞の目",
+          "definition": "hollow eyes",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "mouth",
+      "label": "mouth",
+      "items": [
+        {
+          "jp_term": "口を開ける",
+          "definition": "open mouth",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "口を閉じる",
+          "definition": "closed mouth",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "口を少し開ける",
+          "definition": "parted lips",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "栗口（尖口）",
+          "definition": "chestnut mouth",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "波打つ口",
+          "definition": "wavy mouth",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "途切れ口",
+          "definition": "split mouth",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "横向きの口",
+          "definition": "sideways mouth",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ドットマウス",
+          "definition": "dot mouth",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "唇を噛む",
+          "definition": "biting own lip",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "四角い口",
+          "definition": "rectangular mouth",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "口を引っ張る",
+          "definition": "mouth pull",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ひし形の口",
+          "definition": "diamond mouth",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "頬を引っ張る",
+          "definition": "cheek pull",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "唇をなめる",
+          "definition": "licking lips",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "すぼめた唇（o3o）",
+          "definition": "puckered lips",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "くしゃみ",
+          "definition": "sneezing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "唾を吐く",
+          "definition": "spitting",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "expr_misc",
+      "label": "expr_misc",
+      "items": [
+        {
+          "jp_term": "無表情",
+          "definition": "expressionless",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "恥じらい",
+          "definition": "embarrassed",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "いたずらっぽい/誘惑",
+          "definition": "naughty face",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "誘惑的な笑み",
+          "definition": "seductive smile",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "赤面",
+          "definition": "blush",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "薄い赤面",
+          "definition": "light blush",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "顔全体の赤面",
+          "definition": "full-face blush",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "鼻の赤面",
+          "definition": "nose-blush",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "耳の赤面",
+          "definition": "ear blush",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "声を漏らす/オホ声",
+          "definition": "moaning",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "息",
+          "definition": "breath",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "息が荒い",
+          "definition": "heavy breathing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "息を止める",
+          "definition": "holding breath",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ため息",
+          "definition": "sigh",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "余韻",
+          "definition": "afterglow",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "舌",
+          "definition": "tongue",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "舌を出す",
+          "definition": "tongue out",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "唾液（物質）",
+          "definition": "saliva",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "唾液の跡",
+          "definition": "saliva trail",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "よだれ（実際に漏れる）",
+          "definition": "drooling",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "よだれ線（輪郭凹み表現）",
+          "definition": "mouth drool",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "アヘ顔",
+          "definition": "ahegao",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "トロ顔",
+          "definition": "torogao",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ドヤ顔",
+          "definition": "doyagao",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "んほぉ系",
+          "definition": "fucked silly",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "笑顔強制",
+          "definition": "forced smile",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "顔を手で覆う（愚かさ反応）",
+          "definition": "facepalm",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "トロールフェイス",
+          "definition": "troll face",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "恋する乙女",
+          "definition": "lovestruck",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "決意",
+          "definition": "determined",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "考え中",
+          "definition": "thinking",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "真剣",
+          "definition": "serious",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "酔っ払い",
+          "definition": "drunk",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "退屈",
+          "definition": "bored",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "shake",
+      "label": "shake",
+      "items": [
+        {
+          "jp_term": "震える（寒さ/恐怖/興奮）",
+          "definition": "trembling",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ピクピク/痙攣",
+          "definition": "twitching",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "揺れる/揺さぶられる",
+          "definition": "shaking",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "首を振る",
+          "definition": "shaking head",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "もじもじ",
+          "definition": "fidgeting",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "tired",
+      "label": "tired",
+      "items": [
+        {
+          "jp_term": "眠い",
+          "definition": "sleepy",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "疲れ切った",
+          "definition": "exhausted",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "あくび",
+          "definition": "yawning",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "目の下のクマ",
+          "definition": "bags under eyes",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "mood_bad",
+      "label": "mood_bad",
+      "items": [
+        {
+          "jp_term": "ふくれっ面",
+          "definition": "pout",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "むっとした唇",
+          "definition": "pouty lips",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "眉間にしわ",
+          "definition": "furrowed brow",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "嫌悪",
+          "definition": "disgust",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "しかめっ面",
+          "definition": "frown",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "不満",
+          "definition": "frustrated",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "微かなしかめっ面",
+          "definition": "light frown",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "顔をしかめる（痛み/不快/恥ずかしさ）",
+          "definition": "wince",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "anger",
+      "label": "anger",
+      "items": [
+        {
+          "jp_term": "怒り",
+          "definition": "angry",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "怒りマーク",
+          "definition": "anger vein",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "血管",
+          "definition": "veins",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "にらむ/ジト目",
+          "definition": "glaring",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "いらだち",
+          "definition": "annoyed",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "にらみ/くっ殺せ",
+          "definition": "scowl",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "顔をゆがめる（痛み/怒り/嫌悪/不快）",
+          "definition": "grimace",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "confusion",
+      "label": "confusion",
+      "items": [
+        {
+          "jp_term": "驚く",
+          "definition": "surprised",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "混乱",
+          "definition": "confused",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "慌てる",
+          "definition": "flustered",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "パニック",
+          "definition": "panicking",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "anxiety",
+      "label": "anxiety",
+      "items": [
+        {
+          "jp_term": "悩み/不安",
+          "definition": "worried",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "孤独",
+          "definition": "lonely",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "fear",
+      "label": "fear",
+      "items": [
+        {
+          "jp_term": "恐れ",
+          "definition": "scared",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "緊張",
+          "definition": "nervous",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "顔面蒼白",
+          "definition": "turn pale",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "引きつった笑顔",
+          "definition": "nervous smile",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "負傷/痛み",
+          "definition": "pain",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "絶望",
+          "definition": "despair",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "恐ろしい",
+          "definition": "horrified",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "sad",
+      "label": "sad",
+      "items": [
+        {
+          "jp_term": "悲しい",
+          "definition": "sad",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "涙",
+          "definition": "tears",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "涙ぐむ",
+          "definition": "tearing up",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "泣く",
+          "definition": "crying",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "目を開けたまま泣く",
+          "definition": "crying with eyes open",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "号泣",
+          "definition": "sobbing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "落ち込み",
+          "definition": "gloom (expression)",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "抑うつ",
+          "definition": "depressed",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "悲しい笑顔",
+          "definition": "sad smile",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "不幸せな表情",
+          "definition": "unhappy",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "teeth",
+      "label": "teeth",
+      "items": [
+        {
+          "jp_term": "歯",
+          "definition": "teeth",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "八重歯/犬歯",
+          "definition": "fang",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "上の歯だけ",
+          "definition": "upper teeth only",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "複数の犬歯",
+          "definition": "fangs",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "下の歯だけ",
+          "definition": "lower teeth only",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "肌色の牙（1本）",
+          "definition": "skin fang",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "鋭い歯",
+          "definition": "sharp teeth",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "肌色の牙（2本）",
+          "definition": "skin fangs",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "丸い歯",
+          "definition": "round teeth",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "牙を見せる（1本外）",
+          "definition": "fang out",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "出っ歯",
+          "definition": "buck teeth",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "牙を見せる（2本外）",
+          "definition": "fangs out",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "歯ぎしり/咬牙",
+          "definition": "clenched teeth",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "下顎の牙",
+          "definition": "tusks",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "nose",
+      "label": "nose",
+      "items": [
+        {
+          "jp_term": "ドット鼻",
+          "definition": "dot nose",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "鼻なし",
+          "definition": "no nose",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "brow",
+      "label": "brow",
+      "items": [
+        {
+          "jp_term": "V字眉",
+          "definition": "v-shaped eyebrows",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "太い眉",
+          "definition": "thick eyebrows",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "眉を上げる",
+          "definition": "raised eyebrows",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "短い眉",
+          "definition": "short eyebrows",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "face_feature",
+      "label": "face_feature",
+      "items": [
+        {
+          "jp_term": "そばかす",
+          "definition": "freckles",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ホクロ",
+          "definition": "mole",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "目の下のホクロ",
+          "definition": "mole under eye",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "口の下のホクロ",
+          "definition": "mole under mouth",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "顔なし（髪/影で隠れ等）",
+          "definition": "faceless",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "顔なし男性",
+          "definition": "faceless male",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "顔なし女性",
+          "definition": "faceless female",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "makeup",
+      "label": "makeup",
+      "items": [
+        {
+          "jp_term": "化粧",
+          "definition": "makeup",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "アイシャドウ",
+          "definition": "eyeshadow",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "アイライナー",
+          "definition": "eyeliner",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "赤アイライナー",
+          "definition": "red eyeliner",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "黒アイライナー",
+          "definition": "black eyeliner",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "まつげ",
+          "definition": "eyelashes",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "カラーまつ毛",
+          "definition": "colored eyelashes",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "長いまつ毛",
+          "definition": "long eyelashes",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "太いまつ毛",
+          "definition": "thick eyelashes",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "マスカラ",
+          "definition": "mascara",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "メイク崩れ",
+          "definition": "runny makeup",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "キスマーク",
+          "definition": "lipstick mark",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "lip",
+      "label": "lip",
+      "items": [
+        {
+          "jp_term": "唇",
+          "definition": "lips",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ぷっくり唇",
+          "definition": "thick lips",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "リップグロス",
+          "definition": "lipgloss",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "口紅",
+          "definition": "lipstick",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ピンク唇",
+          "definition": "pink lips",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "赤唇",
+          "definition": "red lips",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "紫唇",
+          "definition": "purple lips",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "黒唇",
+          "definition": "black lips",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "青唇",
+          "definition": "blue lips",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "緑唇",
+          "definition": "green lips",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "paint",
+      "label": "paint",
+      "items": [
+        {
+          "jp_term": "フェイスペイント",
+          "definition": "facepaint",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "塗られた服",
+          "definition": "painted clothes",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ボディペイント",
+          "definition": "bodypaint",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "mark",
+      "label": "mark",
+      "items": [
+        {
+          "jp_term": "顔のマーク",
+          "definition": "facial mark",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "顔のタトゥー",
+          "definition": "facial tattoo",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "pose_hand",
+      "label": "pose_hand",
+      "items": [
+        {
+          "jp_term": "ピースサイン",
+          "definition": "v",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ダブルピース",
+          "definition": "double v",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "目の上でピース",
+          "definition": "v over eye",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "口の上でピース",
+          "definition": "v over mouth",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "3本指ジェスチャー",
+          "definition": "w",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "グッドサイン",
+          "definition": "thumbs up",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "バッドサイン",
+          "definition": "thumbs down",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "OKサイン",
+          "definition": "ok sign",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "手でハート",
+          "definition": "heart hands",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "指でハート",
+          "definition": "finger heart",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "4本指ハート",
+          "definition": "4-finger heart hands",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "指でフレーム",
+          "definition": "finger frame",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "狐影絵",
+          "definition": "fox shadow puppet",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "両手狐影絵",
+          "definition": "double fox shadow puppet",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "人差し指立て",
+          "definition": "index finger raised",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "両手人差し指立て",
+          "definition": "index fingers raised",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "中指立て",
+          "definition": "middle finger",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "両手中指",
+          "definition": "double middle finger",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "小指立て",
+          "definition": "pinky out",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "しーっ",
+          "definition": "shushing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "指合わせ（補助）",
+          "definition": "fingers together",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "指先ピラミッド",
+          "definition": "steepled fingers",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "人差し指合わせ",
+          "definition": "index fingers together",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "指笑顔",
+          "definition": "fingersmile",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "指の間に物",
+          "definition": "between fingers",
+          "danbooru_tag": "",
+          "notes": "[moved_from_danbooru_tag line 432] 例: weapon/ofuda/card/cigarette"
+        },
+        {
+          "jp_term": "指間ナイフ",
+          "definition": "knives between fingers",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "指間お札",
+          "definition": "ofuda between fingers",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "指隙間から覗く",
+          "definition": "peeking through fingers",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "指で銃",
+          "definition": "finger gun",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "指パッチン",
+          "definition": "snapping fingers",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "指で髪巻く",
+          "definition": "twirling hair",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "指を丸く曲げる",
+          "definition": "curled fingers",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "猫の手",
+          "definition": "paw pose",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ガオー",
+          "definition": "claw pose",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "うさぎ",
+          "definition": "rabbit pose",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ゾンビ",
+          "definition": "zombie pose",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "お嬢様ポーズ",
+          "definition": "ojou-sama pose",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "幽霊",
+          "definition": "ghost pose",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "勝利のポーズ",
+          "definition": "victory pose",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "筋肉自慢",
+          "definition": "flexing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "手を振る",
+          "definition": "waving",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "腕組み",
+          "definition": "crossed arms",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "手を開く",
+          "definition": "open hand",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "両手を開く",
+          "definition": "open hands",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "指を広げる",
+          "definition": "spread fingers",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "握りこぶし",
+          "definition": "clenched hand",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "両手握りこぶし",
+          "definition": "clenched hands",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "拳を挙げる",
+          "definition": "raised fist",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ガッツポーズ",
+          "definition": "fist pump",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "pose_arm",
+      "label": "pose_arm",
+      "items": [
+        {
+          "jp_term": "片手を上げる",
+          "definition": "hand up",
+          "danbooru_tag": "",
+          "notes": "[moved_from_danbooru_tag line 457] 手が目より上ならarm up"
+        },
+        {
+          "jp_term": "両手を上げる",
+          "definition": "hands up",
+          "danbooru_tag": "",
+          "notes": "[moved_from_danbooru_tag line 458] 手が目より上ならarms up"
+        },
+        {
+          "jp_term": "片腕を上げる",
+          "definition": "arm up",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "両腕を上げる",
+          "definition": "arms up",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "手を伸ばす",
+          "definition": "reaching",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "視聴者に向かって手を伸ばす",
+          "definition": "reaching towards viewer",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "W字腕",
+          "definition": "w arms",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "両腕を横に広げる",
+          "definition": "spread arms",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "片腕を伸ばす",
+          "definition": "outstretched arm",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "両腕を伸ばす",
+          "definition": "outstretched arms",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "伸ばした手",
+          "definition": "outstretched hand",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "touch_self",
+      "label": "touch_self",
+      "items": [
+        {
+          "jp_term": "帽子に手",
+          "definition": "hand on headwear",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "帽子に両手",
+          "definition": "hands on headwear",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ヘッドホンに手",
+          "definition": "hand on headphones",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "眼鏡を直す",
+          "definition": "adjusting eyewear",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "眼鏡に手",
+          "definition": "hand on eyewear",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ポケットに手",
+          "definition": "hand in pocket",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ポケットに両手",
+          "definition": "hands in pockets",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "touch_env",
+      "label": "touch_env",
+      "items": [
+        {
+          "jp_term": "地面に手",
+          "definition": "hand on ground",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "地面に両手",
+          "definition": "hands on ground",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "床に手",
+          "definition": "hand on floor",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "壁に手",
+          "definition": "hand on wall",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ガラスに手",
+          "definition": "hand on glass",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "テーブルに手",
+          "definition": "hand on table",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "rest",
+      "label": "rest",
+      "items": [
+        {
+          "jp_term": "頬杖",
+          "definition": "head rest",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "退屈そうに頬杖",
+          "definition": "cheek rest",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "胸を乗せる",
+          "definition": "breast rest",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "肘を置く",
+          "definition": "elbow rest",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "腕を当てる",
+          "definition": "arm rest",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "手を置く",
+          "definition": "hand rest",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "片腕下げ（片方だけ自然に下ろす）",
+          "definition": "arm at side",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "両腕を自然に下ろす",
+          "definition": "arms at sides",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "寄りかかる",
+          "definition": "reclining",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "傾く",
+          "definition": "leaning",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "前かがみ",
+          "definition": "leaning forward",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "後ろに傾く",
+          "definition": "leaning back",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "横に傾く",
+          "definition": "leaning to the side",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "人に寄りかかる",
+          "definition": "leaning on person",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "物に寄りかかる",
+          "definition": "leaning on object",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "壁に寄りかかる",
+          "definition": "leaning on wall",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "テーブルに寄りかかる",
+          "definition": "leaning on table",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "手すりに寄りかかる",
+          "definition": "leaning on rail",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "point",
+      "label": "point",
+      "items": [
+        {
+          "jp_term": "指差し",
+          "definition": "pointing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "こちらを指差す",
+          "definition": "pointing at viewer",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "自分を指差す",
+          "definition": "pointing at self",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "上を指差す",
+          "definition": "pointing up",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "他の人を指差す",
+          "definition": "pointing at another",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "support",
+      "label": "support",
+      "items": [
+        {
+          "jp_term": "腕を何かに乗せる",
+          "definition": "arm support",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "テーブルに腕",
+          "definition": "arm support on table",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "椅子に腕",
+          "definition": "arm support on chair",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "窓枠に腕",
+          "definition": "arm support on windowsill",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "手すりに腕",
+          "definition": "arm support on railing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "カウンターに腕",
+          "definition": "arm support on counter",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "misc_pose",
+      "label": "misc_pose",
+      "items": [
+        {
+          "jp_term": "手人形",
+          "definition": "hand puppet",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "血のついた手",
+          "definition": "blood on hands",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "土下座",
+          "definition": "dogeza",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "裸土下座",
+          "definition": "naked dogeza",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "左利き",
+          "definition": "left-handed",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "sit",
+      "label": "sit",
+      "items": [
+        {
+          "jp_term": "しゃがむ",
+          "definition": "squatting",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "正座",
+          "definition": "seiza",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "割り座",
+          "definition": "wariza",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "横座り",
+          "definition": "yokozuwari",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "あぐら",
+          "definition": "indian style",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "体育座り",
+          "definition": "hugging own legs",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "横向きに座る",
+          "definition": "sitting sideways",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "sexpos",
+      "label": "sexpos",
+      "items": [
+        {
+          "jp_term": "馬乗り/またがる",
+          "definition": "straddling",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "騎乗位",
+          "definition": "cowgirl position",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "太ももにまたがる",
+          "definition": "thigh straddling",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "背面騎乗位",
+          "definition": "reverse cowgirl position",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "対面座位",
+          "definition": "upright straddle",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "M字騎乗位",
+          "definition": "squatting cowgirl position",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "背面座位",
+          "definition": "reverse upright straddle",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "女性上位/女攻め",
+          "definition": "femdom",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "主体的女性",
+          "definition": "assertive female",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "legs",
+      "label": "legs",
+      "items": [
+        {
+          "jp_term": "足を広げる",
+          "definition": "spread legs",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "脚が開いている",
+          "definition": "legs apart",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "大きく開く",
+          "definition": "wide spread legs",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "開脚",
+          "definition": "split",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "M字開脚",
+          "definition": "m legs",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "V字開脚",
+          "definition": "v legs",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "がに股",
+          "definition": "bowlegged pose",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "膝を合わせて足を開く",
+          "definition": "knees together feet apart",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "膝を開いて足を閉じる",
+          "definition": "knees apart feet together",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "脚を揃える",
+          "definition": "legs together",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "足を組む",
+          "definition": "crossed legs",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "足首を組む",
+          "definition": "crossed ankles",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "立ち脚交差",
+          "definition": "watson cross",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "だいしゅきホールド",
+          "definition": "leg lock",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "feet",
+      "label": "feet",
+      "items": [
+        {
+          "jp_term": "つま先立ち",
+          "definition": "tiptoes",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "足底屈",
+          "definition": "plantar flexion",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "足指を開く",
+          "definition": "spread toes",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "kneel",
+      "label": "kneel",
+      "items": [
+        {
+          "jp_term": "片膝をつく",
+          "definition": "on one knee",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ひざまずく",
+          "definition": "kneeling",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "片ひざ上げ",
+          "definition": "knee up",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "膝が空中",
+          "definition": "knees up",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "膝を胸に",
+          "definition": "knees to chest",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "stand",
+      "label": "stand",
+      "items": [
+        {
+          "jp_term": "立つ",
+          "definition": "standing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "コントラポスト",
+          "definition": "contrapposto",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "片足で立つ",
+          "definition": "standing on one leg",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "torso",
+      "label": "torso",
+      "items": [
+        {
+          "jp_term": "かがむ",
+          "definition": "bent over",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "反った背中",
+          "definition": "arched back",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ひねった胴体",
+          "definition": "twisted torso",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "legmove",
+      "label": "legmove",
+      "items": [
+        {
+          "jp_term": "脚上げ",
+          "definition": "leg up",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "片脚挙げ（意図的）",
+          "definition": "leg lift",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "両脚上げ",
+          "definition": "legs up",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "other_pose",
+      "label": "other_pose",
+      "items": [
+        {
+          "jp_term": "折り畳まれた姿勢",
+          "definition": "folded",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "脚が頭上",
+          "definition": "legs over head",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "トップダウン尻上げ",
+          "definition": "top-down bottom-up",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "拘束された脚",
+          "definition": "bound legs",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "uncat",
+      "label": "uncat",
+      "items": [
+        {
+          "jp_term": "寝そべる/横になる",
+          "definition": "lying",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "うつ伏せ",
+          "definition": "on stomach",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "横向き",
+          "definition": "on side",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "あお向け",
+          "definition": "on back",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "四つん這い",
+          "definition": "all fours",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "四つん這い前進",
+          "definition": "crawling",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "逆立ち",
+          "definition": "handstand",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "内股",
+          "definition": "pigeon-toed",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "上下逆さま",
+          "definition": "upside-down",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "頭を傾ける",
+          "definition": "head tilt",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "うつむく",
+          "definition": "head down",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "仰け反り",
+          "definition": "head back",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "action",
+      "label": "action",
+      "items": [
+        {
+          "jp_term": "お辞儀",
+          "definition": "bowing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "料理",
+          "definition": "cooking",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "食べる",
+          "definition": "eating",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "飲む",
+          "definition": "drinking",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "読む",
+          "definition": "reading",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "書く",
+          "definition": "writing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "話す",
+          "definition": "talking",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "笑う",
+          "definition": "laughing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "歌う",
+          "definition": "singing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "踊る",
+          "definition": "dancing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ポールダンス",
+          "definition": "pole dancing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "応援",
+          "definition": "cheering",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "拍手",
+          "definition": "clapping",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "祈る",
+          "definition": "praying",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "考える",
+          "definition": "thinking",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "想像する",
+          "definition": "imagining",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "夢を見る",
+          "definition": "dreaming",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ゲームをする",
+          "definition": "playing games",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "入浴",
+          "definition": "bathing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "体を洗う",
+          "definition": "washing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "乾かす",
+          "definition": "drying",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "髪をブラシ",
+          "definition": "brushing hair",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "髪を整える",
+          "definition": "hairdressing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "髪を切る",
+          "definition": "cutting hair",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "髪を耳に",
+          "definition": "tucking hair",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "服を着る",
+          "definition": "dressing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "結ぶ",
+          "definition": "tying",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ストレッチ",
+          "definition": "stretching",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "運ぶ",
+          "definition": "carrying",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "お姫様抱っこ",
+          "definition": "princess carry",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "隠れる",
+          "definition": "hiding",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "覗く",
+          "definition": "peeking",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "覗き見",
+          "definition": "voyeurism",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "歩く",
+          "definition": "walking",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "走る",
+          "definition": "running",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "跳ぶ",
+          "definition": "jumping",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "落ちる",
+          "definition": "falling",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "滑る",
+          "definition": "slipping",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "こぼす",
+          "definition": "spilling",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "盗む",
+          "definition": "theft",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "いじめる",
+          "definition": "bullying",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "からかう",
+          "definition": "teasing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "慰める",
+          "definition": "comforting",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "抱きしめる",
+          "definition": "hug",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "背後からハグ",
+          "definition": "hug from behind",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "寄り添う",
+          "definition": "spooning",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "キス",
+          "definition": "kiss",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "舐める",
+          "definition": "licking",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "喫煙",
+          "definition": "smoking",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "釣り",
+          "definition": "fishing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "泳ぐ",
+          "definition": "swimming",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "潜る",
+          "definition": "diving",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "飛ぶ（空中移動）",
+          "definition": "flying",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "浮かぶ",
+          "definition": "floating",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "水に浮く",
+          "definition": "afloat",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "水遊び",
+          "definition": "wading",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "水しぶき",
+          "definition": "splashing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "溶ける",
+          "definition": "melting",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "溶解",
+          "definition": "dissolving",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "注ぐ",
+          "definition": "pouring",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "嗅ぐ",
+          "definition": "smelling",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "囁く",
+          "definition": "whispering",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "手招き",
+          "definition": "beckoning",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "混浴",
+          "definition": "mixed-sex bathing",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "trouble",
+      "label": "trouble",
+      "items": [
+        {
+          "jp_term": "つまづく",
+          "definition": "tripping",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "不器用",
+          "definition": "clumsy",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ドジっ娘",
+          "definition": "dojikko",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "こぼした後",
+          "definition": "spill",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "失敗",
+          "definition": "failure",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "事故",
+          "definition": "accident",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "絡まる",
+          "definition": "entangled",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "どうしてこうなった",
+          "definition": "unlikely accident",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "違うそうじゃない",
+          "definition": "you're doing it wrong",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ラッキースケベ",
+          "definition": "accidental pervert",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "偶然露出",
+          "definition": "accidental exposure",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "脱がす",
+          "definition": "assisted exposure",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "顔面着地",
+          "definition": "faceplant",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "clothes",
+      "label": "clothes",
+      "items": [
+        {
+          "jp_term": "服が下ろされた/下ろす",
+          "definition": "clothes pull",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "たくし上げ",
+          "definition": "clothes lift",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "裾を引っ張る",
+          "definition": "clothes tug",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "股布ずらし",
+          "definition": "clothing aside",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "hold",
+      "label": "hold",
+      "items": [
+        {
+          "jp_term": "手で持つ（基本）",
+          "definition": "holding",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "携帯電話",
+          "definition": "holding phone",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "本",
+          "definition": "holding book",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "傘",
+          "definition": "holding umbrella",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "棒/枝",
+          "definition": "holding stick",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "杖/スタッフ",
+          "definition": "holding staff",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "花（1輪以上）",
+          "definition": "holding flower",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "花束",
+          "definition": "holding bouquet",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "衣服（着ていない）",
+          "definition": "holding clothes",
+          "danbooru_tag": "",
+          "notes": "[moved_from_danbooru_tag line 667] ※持ち上げ/引き下げは別タグ"
+        },
+        {
+          "jp_term": "ぬいぐるみ",
+          "definition": "holding stuffed toy",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "食べ物",
+          "definition": "holding food",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "バッグ",
+          "definition": "holding bag",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ボトル",
+          "definition": "holding bottle",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "カップ",
+          "definition": "holding cup",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "皿",
+          "definition": "holding plate",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "トレイ",
+          "definition": "holding tray",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ペン",
+          "definition": "holding pen",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "紙",
+          "definition": "holding paper",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "カメラ",
+          "definition": "holding camera",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "缶",
+          "definition": "holding can",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "カード",
+          "definition": "holding card",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "タバコ",
+          "definition": "holding cigarette",
+          "danbooru_tag": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "prep",
+      "label": "prep",
+      "items": [
+        {
+          "jp_term": "座る",
+          "definition": "sitting",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "椅子に座る",
+          "definition": "sitting on chair",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "人の上に座る",
+          "definition": "sitting on person",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "膝の上に座る",
+          "definition": "sitting on lap",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "顔の上に座る",
+          "definition": "sitting on face",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "逆座り",
+          "definition": "sitting backwards",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "階段に座る",
+          "definition": "sitting on stairs",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "窓辺に座る",
+          "definition": "sitting in window",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ベッド上",
+          "definition": "on bed",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "椅子上",
+          "definition": "on chair",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ソファ上",
+          "definition": "on couch",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "机上",
+          "definition": "on desk",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "手すり上",
+          "definition": "on railing",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "テーブル上",
+          "definition": "on table",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "床上",
+          "definition": "on floor",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "地面上",
+          "definition": "on ground",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "草の上",
+          "definition": "on grass",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "乗り物上",
+          "definition": "on vehicle",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "頭の上",
+          "definition": "on head",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "肩の上",
+          "definition": "on shoulder",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "膝の上",
+          "definition": "on lap",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "人の上",
+          "definition": "on person",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "動物が頭の上",
+          "definition": "animal on head",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "物体が頭の上",
+          "definition": "object on head",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "鳥が頭の上",
+          "definition": "bird on head",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "猫が頭の上",
+          "definition": "cat on head",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "葉っぱが頭の上",
+          "definition": "leaf on head",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "花が頭の上",
+          "definition": "flower on head",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "食べ物が頭の上",
+          "definition": "food on head",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "果物が頭の上",
+          "definition": "fruit on head",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "人が頭の上",
+          "definition": "person on head",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "ちびが頭の上",
+          "definition": "chibi on head",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "お札が頭",
+          "definition": "on head",
+          "danbooru_tag": "ofuda on head",
+          "notes": ""
+        }
+      ]
+    }
+  ]
+}

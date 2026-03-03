@@ -1,0 +1,4938 @@
+{
+  "generated_at": "2026-03-03T18:28:04",
+  "count": 711,
+  "items": [
+    {
+      "id": 1,
+      "en": "full body",
+      "jp": "全身（wide shotの全身は該当しない / 除外: wide shot）",
+      "tags": [
+        "full body"
+      ]
+    },
+    {
+      "id": 2,
+      "en": "head out of frame",
+      "jp": "フレームアウトした顔（顔がフレーム外）",
+      "tags": [
+        "head out of frame"
+      ]
+    },
+    {
+      "id": 3,
+      "en": "upper body",
+      "jp": "上半身（へそから上が見える構図（頭部の有無は問わない））",
+      "tags": [
+        "upper body"
+      ]
+    },
+    {
+      "id": 4,
+      "en": "cropped shoulders",
+      "jp": "フレームアウトした肩（肩がフレーム外）",
+      "tags": [
+        "cropped shoulders"
+      ]
+    },
+    {
+      "id": 5,
+      "en": "cowboy shot",
+      "jp": "膝上から上（太もも上部から上。膝上からやや上で切れる／顔と腰回りが明確）",
+      "tags": [
+        "cowboy shot"
+      ]
+    },
+    {
+      "id": 6,
+      "en": "cropped torso",
+      "jp": "フレームアウトした胴体（胴体がフレーム外）",
+      "tags": [
+        "cropped torso"
+      ]
+    },
+    {
+      "id": 7,
+      "en": "lower body",
+      "jp": "下半身（腰から下。単なるassアップは該当しない／povや背景キャラには使用しない / 除外: assアップ）",
+      "tags": [
+        "lower body"
+      ]
+    },
+    {
+      "id": 8,
+      "en": "cropped legs",
+      "jp": "フレームアウトした脚（脚がフレーム外）",
+      "tags": [
+        "cropped legs"
+      ]
+    },
+    {
+      "id": 9,
+      "en": "tachi-e",
+      "jp": "立ち絵（基本全身立ち姿／シンプルor透過背景／差分が存在）",
+      "tags": [
+        "tachi-e"
+      ]
+    },
+    {
+      "id": 10,
+      "en": "feet out of frame",
+      "jp": "フレームアウトした足先（足先がフレーム外）",
+      "tags": [
+        "feet out of frame"
+      ]
+    },
+    {
+      "id": 11,
+      "en": "faux figurine",
+      "jp": "ヴィネット（フィギュア/模型風演出＋装飾台座に立っているように見える / 区別: fading border(背景ぼやけ)）",
+      "tags": [
+        "faux figurine"
+      ]
+    },
+    {
+      "id": 12,
+      "en": "out of frame",
+      "jp": "フレームアウト（一部がフレーム外）",
+      "tags": [
+        "out of frame"
+      ]
+    },
+    {
+      "id": 13,
+      "en": "partially underwater shot",
+      "jp": "一部水中の撮影（一部が水中）",
+      "tags": [
+        "partially underwater shot"
+      ]
+    },
+    {
+      "id": 14,
+      "en": "male focus",
+      "jp": "焦点（男性）（主題が男性、または男性が強く強調）",
+      "tags": [
+        "male focus"
+      ]
+    },
+    {
+      "id": 15,
+      "en": "animal focus",
+      "jp": "焦点（動物）（主題が動物）",
+      "tags": [
+        "animal focus"
+      ]
+    },
+    {
+      "id": 16,
+      "en": "solo focus",
+      "jp": "焦点（ソロ）（複数人物だが一人にフォーカス）",
+      "tags": [
+        "solo focus"
+      ]
+    },
+    {
+      "id": 17,
+      "en": "food focus",
+      "jp": "焦点（食べ物）（主題が食べ物）",
+      "tags": [
+        "food focus"
+      ]
+    },
+    {
+      "id": 18,
+      "en": "other focus",
+      "jp": "焦点（その他）（性別なし/曖昧な人型が主題）",
+      "tags": [
+        "other focus"
+      ]
+    },
+    {
+      "id": 19,
+      "en": "vehicle focus",
+      "jp": "焦点（乗り物）（主題が乗り物）",
+      "tags": [
+        "vehicle focus"
+      ]
+    },
+    {
+      "id": 20,
+      "en": "ass focus",
+      "jp": "焦点（尻を強調）（尻が主題/強調）",
+      "tags": [
+        "ass focus"
+      ]
+    },
+    {
+      "id": 21,
+      "en": "mecha focus",
+      "jp": "焦点（メカ、ロボット）（主題がメカ）",
+      "tags": [
+        "mecha focus"
+      ]
+    },
+    {
+      "id": 22,
+      "en": "hip focus",
+      "jp": "焦点（腰）（腰が主題/強調）",
+      "tags": [
+        "hip focus"
+      ]
+    },
+    {
+      "id": 23,
+      "en": "weapon focus",
+      "jp": "焦点（武器）（主題が武器）",
+      "tags": [
+        "weapon focus"
+      ]
+    },
+    {
+      "id": 24,
+      "en": "foot focus",
+      "jp": "焦点（足）（足が主題/強調）",
+      "tags": [
+        "foot focus"
+      ]
+    },
+    {
+      "id": 25,
+      "en": "text focus",
+      "jp": "焦点（テキスト）（テキストが主題）",
+      "tags": [
+        "text focus"
+      ]
+    },
+    {
+      "id": 26,
+      "en": "eye focus",
+      "jp": "焦点（目）（目が主題/強調）",
+      "tags": [
+        "eye focus"
+      ]
+    },
+    {
+      "id": 27,
+      "en": "back focus",
+      "jp": "焦点（背中）（背中が主題/強調）",
+      "tags": [
+        "back focus"
+      ]
+    },
+    {
+      "id": 28,
+      "en": "breast focus",
+      "jp": "焦点（胸）（胸が主題/強調）",
+      "tags": [
+        "breast focus"
+      ]
+    },
+    {
+      "id": 29,
+      "en": "pectoral focus",
+      "jp": "焦点（胸筋）（胸筋が主題/強調）",
+      "tags": [
+        "pectoral focus"
+      ]
+    },
+    {
+      "id": 30,
+      "en": "hand focus",
+      "jp": "焦点（手）（手が主題/強調）",
+      "tags": [
+        "hand focus"
+      ]
+    },
+    {
+      "id": 31,
+      "en": "armpit focus",
+      "jp": "焦点（腋）（腋が主題/強調）",
+      "tags": [
+        "armpit focus"
+      ]
+    },
+    {
+      "id": 32,
+      "en": "navel focus",
+      "jp": "焦点（へそ）（へそが主題/強調）",
+      "tags": [
+        "navel focus"
+      ]
+    },
+    {
+      "id": 33,
+      "en": "hair focus",
+      "jp": "焦点（髪）（髪が主題/強調）",
+      "tags": [
+        "hair focus"
+      ]
+    },
+    {
+      "id": 34,
+      "en": "straight-on",
+      "jp": "完全正面（頭・胴体・腰が全て正面（0度））",
+      "tags": [
+        "straight-on"
+      ]
+    },
+    {
+      "id": 35,
+      "en": "facing viewer",
+      "jp": "正面（目閉じ/覆われ）（視聴者方向だが目を閉じているor覆われている）",
+      "tags": [
+        "facing viewer"
+      ]
+    },
+    {
+      "id": 36,
+      "en": "from side",
+      "jp": "横から（90度または左右45度まで）",
+      "tags": [
+        "from side"
+      ]
+    },
+    {
+      "id": 37,
+      "en": "facing to the side",
+      "jp": "横顔、横向き（横向き）",
+      "tags": [
+        "facing to the side"
+      ]
+    },
+    {
+      "id": 38,
+      "en": "from behind",
+      "jp": "後方から、後ろ姿（背面）",
+      "tags": [
+        "from behind"
+      ]
+    },
+    {
+      "id": 39,
+      "en": "facing away",
+      "jp": "後ろ姿、背面（180度/後頭部のみ）（完全後ろ向きor後頭部のみ）",
+      "tags": [
+        "facing away"
+      ]
+    },
+    {
+      "id": 40,
+      "en": "from above",
+      "jp": "上から、ハイアングル（上から）",
+      "tags": [
+        "from above"
+      ]
+    },
+    {
+      "id": 41,
+      "en": "facing up",
+      "jp": "顔が上を向いている（顔が上）",
+      "tags": [
+        "facing up"
+      ]
+    },
+    {
+      "id": 42,
+      "en": "from below",
+      "jp": "下から、ローアングル（下から）",
+      "tags": [
+        "from below"
+      ]
+    },
+    {
+      "id": 43,
+      "en": "facing down",
+      "jp": "顔が下を向いている（顔が下）",
+      "tags": [
+        "facing down"
+      ]
+    },
+    {
+      "id": 44,
+      "en": "facing back",
+      "jp": "振り返り、目閉じ（後ろを振り返るが目は閉じている）",
+      "tags": [
+        "facing back"
+      ]
+    },
+    {
+      "id": 45,
+      "en": "facing ahead",
+      "jp": "前方注視（目を閉じていて視聴者ではなく自分の正面）",
+      "tags": [
+        "facing ahead"
+      ]
+    },
+    {
+      "id": 46,
+      "en": "facing another",
+      "jp": "他者に向かい合う（目閉じ）（他者に向く）",
+      "tags": [
+        "facing another"
+      ]
+    },
+    {
+      "id": 47,
+      "en": "looking at viewer",
+      "jp": "カメラ目線（視聴者を見る）",
+      "tags": [
+        "looking at viewer"
+      ]
+    },
+    {
+      "id": 48,
+      "en": "portrait",
+      "jp": "人物の顔に焦点（顔中心）",
+      "tags": [
+        "portrait"
+      ]
+    },
+    {
+      "id": 49,
+      "en": "looking back",
+      "jp": "振り返り（振り返って見る）",
+      "tags": [
+        "looking back"
+      ]
+    },
+    {
+      "id": 50,
+      "en": "close-up",
+      "jp": "至近距離/接写（近距離）",
+      "tags": [
+        "close-up"
+      ]
+    },
+    {
+      "id": 51,
+      "en": "looking at another",
+      "jp": "他者を見る（他者を見る）",
+      "tags": [
+        "looking at another"
+      ]
+    },
+    {
+      "id": 52,
+      "en": "profile",
+      "jp": "横顔（顔の片側のみ）（片側のみ）",
+      "tags": [
+        "profile"
+      ]
+    },
+    {
+      "id": 53,
+      "en": "looking to the side",
+      "jp": "横を見る（肩越し90度/45度まで）（横を見る）",
+      "tags": [
+        "looking to the side"
+      ]
+    },
+    {
+      "id": 54,
+      "en": "dutch angle",
+      "jp": "傾いた角度からの撮影（斜め）",
+      "tags": [
+        "dutch angle"
+      ]
+    },
+    {
+      "id": 55,
+      "en": "looking down",
+      "jp": "下を見る（下を見る）",
+      "tags": [
+        "looking down"
+      ]
+    },
+    {
+      "id": 56,
+      "en": "upside-down",
+      "jp": "上下逆さま（逆さ）",
+      "tags": [
+        "upside-down"
+      ]
+    },
+    {
+      "id": 57,
+      "en": "looking away",
+      "jp": "視線を逸らす（逸らす）",
+      "tags": [
+        "looking away"
+      ]
+    },
+    {
+      "id": 58,
+      "en": "shoe soles",
+      "jp": "靴底（靴底が見える）",
+      "tags": [
+        "shoe soles"
+      ]
+    },
+    {
+      "id": 59,
+      "en": "looking up",
+      "jp": "上を見る（上を見る）",
+      "tags": [
+        "looking up"
+      ]
+    },
+    {
+      "id": 60,
+      "en": "looking ahead",
+      "jp": "自分の正面を見る（視聴者ではない）（正面）",
+      "tags": [
+        "looking ahead"
+      ]
+    },
+    {
+      "id": 61,
+      "en": "looking afar",
+      "jp": "遠くを見る（遠方）",
+      "tags": [
+        "looking afar"
+      ]
+    },
+    {
+      "id": 62,
+      "en": "looking at object",
+      "jp": "物体を見る（物を見る）",
+      "tags": [
+        "looking at object"
+      ]
+    },
+    {
+      "id": 63,
+      "en": "upskirt",
+      "jp": "スカートの中が見える（何らかの形で見える）",
+      "tags": [
+        "upskirt"
+      ]
+    },
+    {
+      "id": 64,
+      "en": "upshorts",
+      "jp": "ショーツの中が見える（何らかの形で見える）",
+      "tags": [
+        "upshorts"
+      ]
+    },
+    {
+      "id": 65,
+      "en": "pantyshot",
+      "jp": "パンチラ（パンツが見える）",
+      "tags": [
+        "pantyshot"
+      ]
+    },
+    {
+      "id": 66,
+      "en": "implied pantyshot",
+      "jp": "見えないパンチラ（登場人物には見える）",
+      "tags": [
+        "implied pantyshot"
+      ]
+    },
+    {
+      "id": 67,
+      "en": "upshirt",
+      "jp": "アップシャツ（シャツ裾から覗き（downblouseの反対））",
+      "tags": [
+        "upshirt"
+      ]
+    },
+    {
+      "id": 68,
+      "en": "downblouse",
+      "jp": "胸チラ（襟元から胸元が見える）",
+      "tags": [
+        "downblouse"
+      ]
+    },
+    {
+      "id": 69,
+      "en": "zettai ryouiki",
+      "jp": "絶対領域（裾とサイハイ上端の間の露出太もも（自然／下着見えない））",
+      "tags": [
+        "zettai ryouiki"
+      ]
+    },
+    {
+      "id": 70,
+      "en": "thigh gap",
+      "jp": "太もも上部の隙間（絶対空域）",
+      "tags": [
+        "thigh gap"
+      ]
+    },
+    {
+      "id": 71,
+      "en": "solo",
+      "jp": "1人（人物1人）",
+      "tags": [
+        "solo"
+      ]
+    },
+    {
+      "id": 72,
+      "en": "no humans",
+      "jp": "人物なし（人がいない）",
+      "tags": [
+        "no humans"
+      ]
+    },
+    {
+      "id": 73,
+      "en": "1girl",
+      "jp": "女性1人（女性1人）",
+      "tags": [
+        "1girl"
+      ]
+    },
+    {
+      "id": 74,
+      "en": "1boy",
+      "jp": "男性1人（男性1人）",
+      "tags": [
+        "1boy"
+      ]
+    },
+    {
+      "id": 75,
+      "en": "2girls",
+      "jp": "女性2人（女性2人）",
+      "tags": [
+        "2girls"
+      ]
+    },
+    {
+      "id": 76,
+      "en": "2boys",
+      "jp": "男性2人（男性2人）",
+      "tags": [
+        "2boys"
+      ]
+    },
+    {
+      "id": 77,
+      "en": "3girls",
+      "jp": "女性3人（女性3人）",
+      "tags": [
+        "3girls"
+      ]
+    },
+    {
+      "id": 78,
+      "en": "3boys",
+      "jp": "男性3人（男性3人）",
+      "tags": [
+        "3boys"
+      ]
+    },
+    {
+      "id": 79,
+      "en": "4girls",
+      "jp": "女性4人（女性4人）",
+      "tags": [
+        "4girls"
+      ]
+    },
+    {
+      "id": 80,
+      "en": "4boys",
+      "jp": "男性4人（男性4人）",
+      "tags": [
+        "4boys"
+      ]
+    },
+    {
+      "id": 81,
+      "en": "5girls",
+      "jp": "女性5人（女性5人）",
+      "tags": [
+        "5girls"
+      ]
+    },
+    {
+      "id": 82,
+      "en": "5boys",
+      "jp": "男性5人（男性5人）",
+      "tags": [
+        "5boys"
+      ]
+    },
+    {
+      "id": 83,
+      "en": "6+girls",
+      "jp": "女性6人以上（女性6人以上）",
+      "tags": [
+        "6+girls"
+      ]
+    },
+    {
+      "id": 84,
+      "en": "6+boys",
+      "jp": "男性6人以上（男性6人以上）",
+      "tags": [
+        "6+boys"
+      ]
+    },
+    {
+      "id": 85,
+      "en": "multiple girls",
+      "jp": "複数の女性（複数女性）",
+      "tags": [
+        "multiple girls"
+      ]
+    },
+    {
+      "id": 86,
+      "en": "multiple boys",
+      "jp": "複数の男性（複数男性）",
+      "tags": [
+        "multiple boys"
+      ]
+    },
+    {
+      "id": 87,
+      "en": "otoko no ko",
+      "jp": "男の娘（男の娘）",
+      "tags": [
+        "otoko no ko"
+      ]
+    },
+    {
+      "id": 88,
+      "en": "onee-shota",
+      "jp": "おねショタ（おねショタ）",
+      "tags": [
+        "onee-shota"
+      ]
+    },
+    {
+      "id": 89,
+      "en": "yuri",
+      "jp": "百合（百合）",
+      "tags": [
+        "yuri"
+      ]
+    },
+    {
+      "id": 90,
+      "en": "bara",
+      "jp": "薔薇（がっしり筋肉質の男性的特徴）",
+      "tags": [
+        "bara"
+      ]
+    },
+    {
+      "id": 91,
+      "en": "implied yuri",
+      "jp": "百合要素（暗示的百合）",
+      "tags": [
+        "implied yuri"
+      ]
+    },
+    {
+      "id": 92,
+      "en": "yaoi",
+      "jp": "やおい（繊細・美しい描写）",
+      "tags": [
+        "yaoi"
+      ]
+    },
+    {
+      "id": 93,
+      "en": "onee-loli",
+      "jp": "おねロリ（おねロリ）",
+      "tags": [
+        "onee-loli"
+      ]
+    },
+    {
+      "id": 94,
+      "en": "onii-shota",
+      "jp": "おにショタ（おにショタ）",
+      "tags": [
+        "onii-shota"
+      ]
+    },
+    {
+      "id": 95,
+      "en": "couple",
+      "jp": "カップル（一方が他方に一方的に作用）",
+      "tags": [
+        "couple"
+      ]
+    },
+    {
+      "id": 96,
+      "en": "reversible couple",
+      "jp": "リバ（対等で入れ替え可能）",
+      "tags": [
+        "reversible couple"
+      ]
+    },
+    {
+      "id": 97,
+      "en": "",
+      "jp": "複数の性別不明/曖昧（multiple others）",
+      "tags": []
+    },
+    {
+      "id": 98,
+      "en": "dual persona",
+      "jp": "二重人格（同一キャラの異なるバージョン2つ）",
+      "tags": [
+        "dual persona"
+      ]
+    },
+    {
+      "id": 99,
+      "en": "multiple views",
+      "jp": "複数視点/三面図（同一キャラの異なる図2つ以上（multiple angles含む））",
+      "tags": [
+        "multiple views"
+      ]
+    },
+    {
+      "id": 100,
+      "en": "multiple persona",
+      "jp": "複数人格（同一キャラの3つ以上の人格）",
+      "tags": [
+        "multiple persona"
+      ]
+    },
+    {
+      "id": 101,
+      "en": "",
+      "jp": "群衆（crowd）",
+      "tags": []
+    },
+    {
+      "id": 102,
+      "en": "",
+      "jp": "観客（audience）",
+      "tags": []
+    },
+    {
+      "id": 103,
+      "en": "",
+      "jp": "集合絵（everyone）",
+      "tags": []
+    },
+    {
+      "id": 104,
+      "en": "",
+      "jp": "整列（lineup）",
+      "tags": []
+    },
+    {
+      "id": 105,
+      "en": "",
+      "jp": "縦列整列（column lineup）",
+      "tags": []
+    },
+    {
+      "id": 106,
+      "en": "",
+      "jp": "複数画像の組み合わせ（collage）",
+      "tags": []
+    },
+    {
+      "id": 107,
+      "en": "",
+      "jp": "表情集（expressions）",
+      "tags": []
+    },
+    {
+      "id": 108,
+      "en": "",
+      "jp": "表情練習（グリッド）（expression chart）",
+      "tags": []
+    },
+    {
+      "id": 109,
+      "en": "",
+      "jp": "ちびキャラ挿入（chibi inset）",
+      "tags": []
+    },
+    {
+      "id": 110,
+      "en": "",
+      "jp": "投影された挿入画（projected inset）",
+      "tags": []
+    },
+    {
+      "id": 111,
+      "en": "zoom layer",
+      "jp": "ズームレイヤー（一部拡大別レイヤー）",
+      "tags": [
+        "zoom layer"
+      ]
+    },
+    {
+      "id": 112,
+      "en": "",
+      "jp": "ワイドショット/遠景（wide shot）",
+      "tags": []
+    },
+    {
+      "id": 113,
+      "en": "",
+      "jp": "超ワイドショット/極遠景（very wide shot）",
+      "tags": []
+    },
+    {
+      "id": 114,
+      "en": "",
+      "jp": "魚眼レンズ（超広角）（fisheye）",
+      "tags": []
+    },
+    {
+      "id": 115,
+      "en": "perspective",
+      "jp": "遠近法/パース（奥行き・立体感）",
+      "tags": [
+        "perspective"
+      ]
+    },
+    {
+      "id": 116,
+      "en": "isometric",
+      "jp": "アイソメトリック（平行線が消失点に収束しない）",
+      "tags": [
+        "isometric"
+      ]
+    },
+    {
+      "id": 117,
+      "en": "foreshortening",
+      "jp": "フォアショートニング（突き出しを「短く」表現（強い要素のときのみ） / 強い要素のみ）",
+      "tags": [
+        "foreshortening"
+      ]
+    },
+    {
+      "id": 118,
+      "en": "vanishing point",
+      "jp": "消失点（一点収束）",
+      "tags": [
+        "vanishing point"
+      ]
+    },
+    {
+      "id": 119,
+      "en": "depth of field",
+      "jp": "被写界深度/ボケ（前景/背景ぼかし等）",
+      "tags": [
+        "depth of field"
+      ]
+    },
+    {
+      "id": 120,
+      "en": "blurry",
+      "jp": "ぼやけた（ぼやけ）",
+      "tags": [
+        "blurry"
+      ]
+    },
+    {
+      "id": 121,
+      "en": "",
+      "jp": "ボケ（bokeh）",
+      "tags": []
+    },
+    {
+      "id": 122,
+      "en": "",
+      "jp": "高解像度（highres）",
+      "tags": []
+    },
+    {
+      "id": 123,
+      "en": "",
+      "jp": "非常に高い解像度（absurdres）",
+      "tags": []
+    },
+    {
+      "id": 124,
+      "en": "",
+      "jp": "極めて高解像度（incredibly absurdres）",
+      "tags": []
+    },
+    {
+      "id": 125,
+      "en": "",
+      "jp": "低解像度（lowres）",
+      "tags": []
+    },
+    {
+      "id": 126,
+      "en": "",
+      "jp": "モーションブラー（motion blur）",
+      "tags": []
+    },
+    {
+      "id": 127,
+      "en": "",
+      "jp": "残像（afterimage）",
+      "tags": []
+    },
+    {
+      "id": 128,
+      "en": "",
+      "jp": "レンズフレア（lens flare）",
+      "tags": []
+    },
+    {
+      "id": 129,
+      "en": "",
+      "jp": "光の粒子（light particles）",
+      "tags": []
+    },
+    {
+      "id": 130,
+      "en": "",
+      "jp": "光線（light rays）",
+      "tags": []
+    },
+    {
+      "id": 131,
+      "en": "",
+      "jp": "スポットライト（spotlight）",
+      "tags": []
+    },
+    {
+      "id": 132,
+      "en": "",
+      "jp": "逆光（backlighting）",
+      "tags": []
+    },
+    {
+      "id": 133,
+      "en": "",
+      "jp": "色収差（chromatic aberration）",
+      "tags": []
+    },
+    {
+      "id": 134,
+      "en": "",
+      "jp": "フィルムグレイン（film grain）",
+      "tags": []
+    },
+    {
+      "id": 135,
+      "en": "",
+      "jp": "ドロップシャドウ（drop shadow）",
+      "tags": []
+    },
+    {
+      "id": 136,
+      "en": "",
+      "jp": "放射状の光線（diffraction spikes）",
+      "tags": []
+    },
+    {
+      "id": 137,
+      "en": "",
+      "jp": "動線（motion lines）",
+      "tags": []
+    },
+    {
+      "id": 138,
+      "en": "",
+      "jp": "スピード線（speed lines）",
+      "tags": []
+    },
+    {
+      "id": 139,
+      "en": "",
+      "jp": "強調線（emphasis lines）",
+      "tags": []
+    },
+    {
+      "id": 140,
+      "en": "",
+      "jp": "ブルーム（bloom）",
+      "tags": []
+    },
+    {
+      "id": 141,
+      "en": "",
+      "jp": "グリッチ（glitch）",
+      "tags": []
+    },
+    {
+      "id": 142,
+      "en": "",
+      "jp": "コースティクス（水中光）（caustics）",
+      "tags": []
+    },
+    {
+      "id": 143,
+      "en": "",
+      "jp": "漫画（comic）",
+      "tags": []
+    },
+    {
+      "id": 144,
+      "en": "",
+      "jp": "スケッチ（sketch）",
+      "tags": []
+    },
+    {
+      "id": 145,
+      "en": "",
+      "jp": "お絵かき（oekaki）",
+      "tags": []
+    },
+    {
+      "id": 146,
+      "en": "",
+      "jp": "ピクセルアート（pixel art）",
+      "tags": []
+    },
+    {
+      "id": 147,
+      "en": "",
+      "jp": "シルエット（silhouette）",
+      "tags": []
+    },
+    {
+      "id": 148,
+      "en": "",
+      "jp": "アウトライン（outline）",
+      "tags": []
+    },
+    {
+      "id": 149,
+      "en": "",
+      "jp": "線画（lineart）",
+      "tags": []
+    },
+    {
+      "id": 150,
+      "en": "",
+      "jp": "伝統画材（traditional media）",
+      "tags": []
+    },
+    {
+      "id": 151,
+      "en": "",
+      "jp": "枠線（border）",
+      "tags": []
+    },
+    {
+      "id": 152,
+      "en": "",
+      "jp": "外枠（outside border）",
+      "tags": []
+    },
+    {
+      "id": 153,
+      "en": "",
+      "jp": "枠付き（framed）",
+      "tags": []
+    },
+    {
+      "id": 154,
+      "en": "",
+      "jp": "5コマ（5koma）",
+      "tags": []
+    },
+    {
+      "id": 155,
+      "en": "",
+      "jp": "4コマ（4koma）",
+      "tags": []
+    },
+    {
+      "id": 156,
+      "en": "",
+      "jp": "3コマ（3koma）",
+      "tags": []
+    },
+    {
+      "id": 157,
+      "en": "",
+      "jp": "2コマ（2koma）",
+      "tags": []
+    },
+    {
+      "id": 158,
+      "en": "",
+      "jp": "1コマ（1koma）",
+      "tags": []
+    },
+    {
+      "id": 159,
+      "en": "",
+      "jp": "左から右へ読む（left-to-right manga）",
+      "tags": []
+    },
+    {
+      "id": 160,
+      "en": "",
+      "jp": "表紙（cover）",
+      "tags": []
+    },
+    {
+      "id": 161,
+      "en": "",
+      "jp": "表紙ページ（cover page）",
+      "tags": []
+    },
+    {
+      "id": 162,
+      "en": "",
+      "jp": "同人誌表紙（doujin cover）",
+      "tags": []
+    },
+    {
+      "id": 163,
+      "en": "",
+      "jp": "アルバム表紙（album cover）",
+      "tags": []
+    },
+    {
+      "id": 164,
+      "en": "",
+      "jp": "雑誌表紙（magazine cover）",
+      "tags": []
+    },
+    {
+      "id": 165,
+      "en": "",
+      "jp": "レターボックス（上下黒帯）（letterboxed）",
+      "tags": []
+    },
+    {
+      "id": 166,
+      "en": "",
+      "jp": "ピラーボックス（左右黒帯）（pillarboxed）",
+      "tags": []
+    },
+    {
+      "id": 167,
+      "en": "",
+      "jp": "英語に翻訳された投稿（translated）",
+      "tags": []
+    },
+    {
+      "id": 168,
+      "en": "",
+      "jp": "翻訳されていない投稿（translation request）",
+      "tags": []
+    },
+    {
+      "id": 169,
+      "en": "",
+      "jp": "翻訳チェック必要（check translation）",
+      "tags": []
+    },
+    {
+      "id": 170,
+      "en": "",
+      "jp": "非ネイティブ誤英語（engrish text）",
+      "tags": []
+    },
+    {
+      "id": 171,
+      "en": "",
+      "jp": "部分翻訳（partially translated）",
+      "tags": []
+    },
+    {
+      "id": 172,
+      "en": "",
+      "jp": "公式翻訳版/別言語（alternate language）",
+      "tags": []
+    },
+    {
+      "id": 173,
+      "en": "",
+      "jp": "英語（english text）",
+      "tags": []
+    },
+    {
+      "id": 174,
+      "en": "",
+      "jp": "中国語（chinese text）",
+      "tags": []
+    },
+    {
+      "id": 175,
+      "en": "",
+      "jp": "韓国語（korean text）",
+      "tags": []
+    },
+    {
+      "id": 176,
+      "en": "",
+      "jp": "ローマ字（romaji text）",
+      "tags": []
+    },
+    {
+      "id": 177,
+      "en": "",
+      "jp": "ロシア語（russian text）",
+      "tags": []
+    },
+    {
+      "id": 178,
+      "en": "",
+      "jp": "ドイツ語（german text）",
+      "tags": []
+    },
+    {
+      "id": 179,
+      "en": "",
+      "jp": "フランス語（french text）",
+      "tags": []
+    },
+    {
+      "id": 180,
+      "en": "",
+      "jp": "スペイン語（spanish text）",
+      "tags": []
+    },
+    {
+      "id": 181,
+      "en": "",
+      "jp": "イタリア語（italian text）",
+      "tags": []
+    },
+    {
+      "id": 182,
+      "en": "",
+      "jp": "タイ語（thai text）",
+      "tags": []
+    },
+    {
+      "id": 183,
+      "en": "",
+      "jp": "繁体字中国語（traditional chinese text）",
+      "tags": []
+    },
+    {
+      "id": 184,
+      "en": "",
+      "jp": "混合言語（mixed-language text）",
+      "tags": []
+    },
+    {
+      "id": 185,
+      "en": "",
+      "jp": "キリル文字（cyrillic）",
+      "tags": []
+    },
+    {
+      "id": 186,
+      "en": "",
+      "jp": "象形文字（hieroglyphics）",
+      "tags": []
+    },
+    {
+      "id": 187,
+      "en": "",
+      "jp": "ふりがな（furigana）",
+      "tags": []
+    },
+    {
+      "id": 188,
+      "en": "",
+      "jp": "誤字（typo）",
+      "tags": []
+    },
+    {
+      "id": 189,
+      "en": "",
+      "jp": "文字消し（detexted）",
+      "tags": []
+    },
+    {
+      "id": 190,
+      "en": "",
+      "jp": "不正確な解剖学（bad anatomay / [moved_from_danbooru_tag line 192] 原文ママ（綴り注意））",
+      "tags": []
+    },
+    {
+      "id": 191,
+      "en": "",
+      "jp": "不自然な足（bad feet）",
+      "tags": []
+    },
+    {
+      "id": 192,
+      "en": "",
+      "jp": "不自然な手（bad hands）",
+      "tags": []
+    },
+    {
+      "id": 193,
+      "en": "",
+      "jp": "不自然な比率（bad proportions）",
+      "tags": []
+    },
+    {
+      "id": 194,
+      "en": "",
+      "jp": "スキャン画像（scan）",
+      "tags": []
+    },
+    {
+      "id": 195,
+      "en": "",
+      "jp": "スキャンノイズ（scan artifacts）",
+      "tags": []
+    },
+    {
+      "id": 196,
+      "en": "",
+      "jp": "透かし（watermark）",
+      "tags": []
+    },
+    {
+      "id": 197,
+      "en": "",
+      "jp": "アニメスクショ（anime screenshot）",
+      "tags": []
+    },
+    {
+      "id": 198,
+      "en": "",
+      "jp": "偽スクショ（fake screenshot）",
+      "tags": []
+    },
+    {
+      "id": 199,
+      "en": "",
+      "jp": "模擬スマホ画面（fake phone screenshot）",
+      "tags": []
+    },
+    {
+      "id": 200,
+      "en": "",
+      "jp": "動画化（animated）",
+      "tags": []
+    },
+    {
+      "id": 201,
+      "en": "",
+      "jp": "アニメGIF（animated gif）",
+      "tags": []
+    },
+    {
+      "id": 202,
+      "en": "",
+      "jp": "ループGIF（looping animation）",
+      "tags": []
+    },
+    {
+      "id": 203,
+      "en": "",
+      "jp": "動画（video）",
+      "tags": []
+    },
+    {
+      "id": 204,
+      "en": "",
+      "jp": "修正版（revision）",
+      "tags": []
+    },
+    {
+      "id": 205,
+      "en": "",
+      "jp": "検閲済み改訂版（has censored revision）",
+      "tags": []
+    },
+    {
+      "id": 206,
+      "en": "",
+      "jp": "検閲なし（uncensored）",
+      "tags": []
+    },
+    {
+      "id": 207,
+      "en": "",
+      "jp": "複製（duplicate）",
+      "tags": []
+    },
+    {
+      "id": 208,
+      "en": "",
+      "jp": "ピクセル単位複製（pixel-perfect duplicate）",
+      "tags": []
+    },
+    {
+      "id": 209,
+      "en": "",
+      "jp": "縦長（tall image）",
+      "tags": []
+    },
+    {
+      "id": 210,
+      "en": "",
+      "jp": "横長（wide image）",
+      "tags": []
+    },
+    {
+      "id": 211,
+      "en": "",
+      "jp": "横向き（sideways）",
+      "tags": []
+    },
+    {
+      "id": 212,
+      "en": "",
+      "jp": "JPEG劣化（jpeg artifacts）",
+      "tags": []
+    },
+    {
+      "id": 213,
+      "en": "",
+      "jp": "拡大（upscaled）",
+      "tags": []
+    },
+    {
+      "id": 214,
+      "en": "",
+      "jp": "ベクタートレース（vector trace）",
+      "tags": []
+    },
+    {
+      "id": 215,
+      "en": "",
+      "jp": "線画なし（no lineart）",
+      "tags": []
+    },
+    {
+      "id": 216,
+      "en": "",
+      "jp": "設定資料/参考シート（reference sheet）",
+      "tags": []
+    },
+    {
+      "id": 217,
+      "en": "",
+      "jp": "覗き窓（viewfinder）",
+      "tags": []
+    },
+    {
+      "id": 218,
+      "en": "",
+      "jp": "笑顔（歯ほぼ無し/口大きく開けない）（smile）",
+      "tags": []
+    },
+    {
+      "id": 219,
+      "en": "",
+      "jp": "笑う（顔と体の動き＋肺からの音）（laughing）",
+      "tags": []
+    },
+    {
+      "id": 220,
+      "en": "",
+      "jp": "ほほ笑み（優しい笑み）（light smile）",
+      "tags": []
+    },
+    {
+      "id": 221,
+      "en": "",
+      "jp": "指笑顔（指で口角を上げる）（fingersmile）",
+      "tags": []
+    },
+    {
+      "id": 222,
+      "en": "",
+      "jp": "にやり（歯を見せる幅広い笑顔）（grin）",
+      "tags": []
+    },
+    {
+      "id": 223,
+      "en": "",
+      "jp": "ハッピー（喜び/満足/快感）（happy）",
+      "tags": []
+    },
+    {
+      "id": 224,
+      "en": "",
+      "jp": "どや顔（smug）",
+      "tags": []
+    },
+    {
+      "id": 225,
+      "en": "",
+      "jp": "嬉し涙（happy tears）",
+      "tags": []
+    },
+    {
+      "id": 226,
+      "en": "",
+      "jp": "邪悪な笑み（evil smile）",
+      "tags": []
+    },
+    {
+      "id": 227,
+      "en": "",
+      "jp": "邪悪な笑み（グリン）（evil grin）",
+      "tags": []
+    },
+    {
+      "id": 228,
+      "en": "",
+      "jp": "病み（crazy）",
+      "tags": []
+    },
+    {
+      "id": 229,
+      "en": "",
+      "jp": "悪意のある笑み（smirk）",
+      "tags": []
+    },
+    {
+      "id": 230,
+      "en": "",
+      "jp": "不気味な笑顔（影顔/鋭い口角）（crazy smile）",
+      "tags": []
+    },
+    {
+      "id": 231,
+      "en": "",
+      "jp": "レイプ顔（捕食者のような細め目＋笑み）（rape face / [moved_from_danbooru_tag line 233] タグ用途注意）",
+      "tags": []
+    },
+    {
+      "id": 232,
+      "en": "",
+      "jp": "影のかかった顔（shaded face）",
+      "tags": []
+    },
+    {
+      "id": 233,
+      "en": "",
+      "jp": "影のかかった目（shading eyes）",
+      "tags": []
+    },
+    {
+      "id": 234,
+      "en": "",
+      "jp": "狂気の目（crazy eyes）",
+      "tags": []
+    },
+    {
+      "id": 235,
+      "en": "",
+      "jp": "異常に見開いた目（unusually open eyes）",
+      "tags": []
+    },
+    {
+      "id": 236,
+      "en": "",
+      "jp": "見開いた目（wide-eyed）",
+      "tags": []
+    },
+    {
+      "id": 237,
+      "en": "",
+      "jp": "じっと見つめる（staring）",
+      "tags": []
+    },
+    {
+      "id": 238,
+      "en": "",
+      "jp": "閉じた目（closed eyes）",
+      "tags": []
+    },
+    {
+      "id": 239,
+      "en": "",
+      "jp": "細められた目（疑惑/怒り/集中）（narrowed eyes）",
+      "tags": []
+    },
+    {
+      "id": 240,
+      "en": "",
+      "jp": "半目（眠気/誘惑）（half-closed eyes）",
+      "tags": []
+    },
+    {
+      "id": 241,
+      "en": "",
+      "jp": "目を細める（よく見ようとする/強い光）（squinting）",
+      "tags": []
+    },
+    {
+      "id": 242,
+      "en": "",
+      "jp": "ウィンク（one eye closed）",
+      "tags": []
+    },
+    {
+      "id": 243,
+      "en": "",
+      "jp": "まばたき（主にアニメ。静止画はclosed eyes）（blinking）",
+      "tags": []
+    },
+    {
+      "id": 244,
+      "en": "",
+      "jp": "目を回す（rolling eyes）",
+      "tags": []
+    },
+    {
+      "id": 245,
+      "en": "",
+      "jp": "上目遣い（upturned eyes）",
+      "tags": []
+    },
+    {
+      "id": 246,
+      "en": "",
+      "jp": "まぶたを引っ張る（あっかんべー）（eyelid pull）",
+      "tags": []
+    },
+    {
+      "id": 247,
+      "en": "",
+      "jp": "寄り目（cross-eyed）",
+      "tags": []
+    },
+    {
+      "id": 248,
+      "en": "",
+      "jp": "あっかんべー（akanbe）",
+      "tags": []
+    },
+    {
+      "id": 249,
+      "en": "",
+      "jp": "虚ろ目/ハイライトオフ（empty eyes）",
+      "tags": []
+    },
+    {
+      "id": 250,
+      "en": "",
+      "jp": "瞳孔なし（no pupils）",
+      "tags": []
+    },
+    {
+      "id": 251,
+      "en": "",
+      "jp": "白目（虹彩＋瞳孔なし）（blank eyes）",
+      "tags": []
+    },
+    {
+      "id": 252,
+      "en": "",
+      "jp": "無表情な凝視（blank stare）",
+      "tags": []
+    },
+    {
+      "id": 253,
+      "en": "",
+      "jp": "空洞の目（hollow eyes）",
+      "tags": []
+    },
+    {
+      "id": 254,
+      "en": "",
+      "jp": "口を開ける（open mouth）",
+      "tags": []
+    },
+    {
+      "id": 255,
+      "en": "",
+      "jp": "口を閉じる（closed mouth）",
+      "tags": []
+    },
+    {
+      "id": 256,
+      "en": "",
+      "jp": "口を少し開ける（parted lips）",
+      "tags": []
+    },
+    {
+      "id": 257,
+      "en": "",
+      "jp": "栗口（尖口）（chestnut mouth）",
+      "tags": []
+    },
+    {
+      "id": 258,
+      "en": "",
+      "jp": "波打つ口（wavy mouth）",
+      "tags": []
+    },
+    {
+      "id": 259,
+      "en": "",
+      "jp": "途切れ口（split mouth）",
+      "tags": []
+    },
+    {
+      "id": 260,
+      "en": "",
+      "jp": "横向きの口（sideways mouth）",
+      "tags": []
+    },
+    {
+      "id": 261,
+      "en": "",
+      "jp": "ドットマウス（dot mouth）",
+      "tags": []
+    },
+    {
+      "id": 262,
+      "en": "",
+      "jp": "唇を噛む（biting own lip）",
+      "tags": []
+    },
+    {
+      "id": 263,
+      "en": "",
+      "jp": "四角い口（rectangular mouth）",
+      "tags": []
+    },
+    {
+      "id": 264,
+      "en": "",
+      "jp": "口を引っ張る（mouth pull）",
+      "tags": []
+    },
+    {
+      "id": 265,
+      "en": "",
+      "jp": "ひし形の口（diamond mouth）",
+      "tags": []
+    },
+    {
+      "id": 266,
+      "en": "",
+      "jp": "頬を引っ張る（cheek pull）",
+      "tags": []
+    },
+    {
+      "id": 267,
+      "en": "",
+      "jp": "唇をなめる（licking lips）",
+      "tags": []
+    },
+    {
+      "id": 268,
+      "en": "",
+      "jp": "すぼめた唇（o3o）（puckered lips）",
+      "tags": []
+    },
+    {
+      "id": 269,
+      "en": "",
+      "jp": "くしゃみ（sneezing）",
+      "tags": []
+    },
+    {
+      "id": 270,
+      "en": "",
+      "jp": "唾を吐く（spitting）",
+      "tags": []
+    },
+    {
+      "id": 271,
+      "en": "",
+      "jp": "無表情（expressionless）",
+      "tags": []
+    },
+    {
+      "id": 272,
+      "en": "",
+      "jp": "恥じらい（embarrassed）",
+      "tags": []
+    },
+    {
+      "id": 273,
+      "en": "",
+      "jp": "いたずらっぽい/誘惑（naughty face）",
+      "tags": []
+    },
+    {
+      "id": 274,
+      "en": "",
+      "jp": "誘惑的な笑み（seductive smile）",
+      "tags": []
+    },
+    {
+      "id": 275,
+      "en": "",
+      "jp": "赤面（blush）",
+      "tags": []
+    },
+    {
+      "id": 276,
+      "en": "",
+      "jp": "薄い赤面（light blush）",
+      "tags": []
+    },
+    {
+      "id": 277,
+      "en": "",
+      "jp": "顔全体の赤面（full-face blush）",
+      "tags": []
+    },
+    {
+      "id": 278,
+      "en": "",
+      "jp": "鼻の赤面（nose-blush）",
+      "tags": []
+    },
+    {
+      "id": 279,
+      "en": "",
+      "jp": "耳の赤面（ear blush）",
+      "tags": []
+    },
+    {
+      "id": 280,
+      "en": "",
+      "jp": "声を漏らす/オホ声（moaning）",
+      "tags": []
+    },
+    {
+      "id": 281,
+      "en": "",
+      "jp": "息（breath）",
+      "tags": []
+    },
+    {
+      "id": 282,
+      "en": "",
+      "jp": "息が荒い（heavy breathing）",
+      "tags": []
+    },
+    {
+      "id": 283,
+      "en": "",
+      "jp": "息を止める（holding breath）",
+      "tags": []
+    },
+    {
+      "id": 284,
+      "en": "",
+      "jp": "ため息（sigh）",
+      "tags": []
+    },
+    {
+      "id": 285,
+      "en": "",
+      "jp": "余韻（afterglow）",
+      "tags": []
+    },
+    {
+      "id": 286,
+      "en": "",
+      "jp": "舌（tongue）",
+      "tags": []
+    },
+    {
+      "id": 287,
+      "en": "",
+      "jp": "舌を出す（tongue out）",
+      "tags": []
+    },
+    {
+      "id": 288,
+      "en": "",
+      "jp": "唾液（物質）（saliva）",
+      "tags": []
+    },
+    {
+      "id": 289,
+      "en": "",
+      "jp": "唾液の跡（saliva trail）",
+      "tags": []
+    },
+    {
+      "id": 290,
+      "en": "",
+      "jp": "よだれ（実際に漏れる）（drooling）",
+      "tags": []
+    },
+    {
+      "id": 291,
+      "en": "",
+      "jp": "よだれ線（輪郭凹み表現）（mouth drool）",
+      "tags": []
+    },
+    {
+      "id": 292,
+      "en": "",
+      "jp": "アヘ顔（ahegao）",
+      "tags": []
+    },
+    {
+      "id": 293,
+      "en": "",
+      "jp": "トロ顔（torogao）",
+      "tags": []
+    },
+    {
+      "id": 294,
+      "en": "",
+      "jp": "ドヤ顔（doyagao）",
+      "tags": []
+    },
+    {
+      "id": 295,
+      "en": "",
+      "jp": "んほぉ系（fucked silly）",
+      "tags": []
+    },
+    {
+      "id": 296,
+      "en": "",
+      "jp": "笑顔強制（forced smile）",
+      "tags": []
+    },
+    {
+      "id": 297,
+      "en": "",
+      "jp": "顔を手で覆う（愚かさ反応）（facepalm）",
+      "tags": []
+    },
+    {
+      "id": 298,
+      "en": "",
+      "jp": "トロールフェイス（troll face）",
+      "tags": []
+    },
+    {
+      "id": 299,
+      "en": "",
+      "jp": "恋する乙女（lovestruck）",
+      "tags": []
+    },
+    {
+      "id": 300,
+      "en": "",
+      "jp": "決意（determined）",
+      "tags": []
+    },
+    {
+      "id": 301,
+      "en": "",
+      "jp": "考え中（thinking）",
+      "tags": []
+    },
+    {
+      "id": 302,
+      "en": "",
+      "jp": "真剣（serious）",
+      "tags": []
+    },
+    {
+      "id": 303,
+      "en": "",
+      "jp": "酔っ払い（drunk）",
+      "tags": []
+    },
+    {
+      "id": 304,
+      "en": "",
+      "jp": "退屈（bored）",
+      "tags": []
+    },
+    {
+      "id": 305,
+      "en": "",
+      "jp": "震える（寒さ/恐怖/興奮）（trembling）",
+      "tags": []
+    },
+    {
+      "id": 306,
+      "en": "",
+      "jp": "ピクピク/痙攣（twitching）",
+      "tags": []
+    },
+    {
+      "id": 307,
+      "en": "",
+      "jp": "揺れる/揺さぶられる（shaking）",
+      "tags": []
+    },
+    {
+      "id": 308,
+      "en": "",
+      "jp": "首を振る（shaking head）",
+      "tags": []
+    },
+    {
+      "id": 309,
+      "en": "",
+      "jp": "もじもじ（fidgeting）",
+      "tags": []
+    },
+    {
+      "id": 310,
+      "en": "",
+      "jp": "眠い（sleepy）",
+      "tags": []
+    },
+    {
+      "id": 311,
+      "en": "",
+      "jp": "疲れ切った（exhausted）",
+      "tags": []
+    },
+    {
+      "id": 312,
+      "en": "",
+      "jp": "あくび（yawning）",
+      "tags": []
+    },
+    {
+      "id": 313,
+      "en": "",
+      "jp": "目の下のクマ（bags under eyes）",
+      "tags": []
+    },
+    {
+      "id": 314,
+      "en": "",
+      "jp": "ふくれっ面（pout）",
+      "tags": []
+    },
+    {
+      "id": 315,
+      "en": "",
+      "jp": "むっとした唇（pouty lips）",
+      "tags": []
+    },
+    {
+      "id": 316,
+      "en": "",
+      "jp": "眉間にしわ（furrowed brow）",
+      "tags": []
+    },
+    {
+      "id": 317,
+      "en": "",
+      "jp": "嫌悪（disgust）",
+      "tags": []
+    },
+    {
+      "id": 318,
+      "en": "",
+      "jp": "しかめっ面（frown）",
+      "tags": []
+    },
+    {
+      "id": 319,
+      "en": "",
+      "jp": "不満（frustrated）",
+      "tags": []
+    },
+    {
+      "id": 320,
+      "en": "",
+      "jp": "微かなしかめっ面（light frown）",
+      "tags": []
+    },
+    {
+      "id": 321,
+      "en": "",
+      "jp": "顔をしかめる（痛み/不快/恥ずかしさ）（wince）",
+      "tags": []
+    },
+    {
+      "id": 322,
+      "en": "",
+      "jp": "怒り（angry）",
+      "tags": []
+    },
+    {
+      "id": 323,
+      "en": "",
+      "jp": "怒りマーク（anger vein）",
+      "tags": []
+    },
+    {
+      "id": 324,
+      "en": "",
+      "jp": "血管（veins）",
+      "tags": []
+    },
+    {
+      "id": 325,
+      "en": "",
+      "jp": "にらむ/ジト目（glaring）",
+      "tags": []
+    },
+    {
+      "id": 326,
+      "en": "",
+      "jp": "いらだち（annoyed）",
+      "tags": []
+    },
+    {
+      "id": 327,
+      "en": "",
+      "jp": "にらみ/くっ殺せ（scowl）",
+      "tags": []
+    },
+    {
+      "id": 328,
+      "en": "",
+      "jp": "顔をゆがめる（痛み/怒り/嫌悪/不快）（grimace）",
+      "tags": []
+    },
+    {
+      "id": 329,
+      "en": "",
+      "jp": "驚く（surprised）",
+      "tags": []
+    },
+    {
+      "id": 330,
+      "en": "",
+      "jp": "混乱（confused）",
+      "tags": []
+    },
+    {
+      "id": 331,
+      "en": "",
+      "jp": "慌てる（flustered）",
+      "tags": []
+    },
+    {
+      "id": 332,
+      "en": "",
+      "jp": "パニック（panicking）",
+      "tags": []
+    },
+    {
+      "id": 333,
+      "en": "",
+      "jp": "悩み/不安（worried）",
+      "tags": []
+    },
+    {
+      "id": 334,
+      "en": "",
+      "jp": "孤独（lonely）",
+      "tags": []
+    },
+    {
+      "id": 335,
+      "en": "",
+      "jp": "恐れ（scared）",
+      "tags": []
+    },
+    {
+      "id": 336,
+      "en": "",
+      "jp": "緊張（nervous）",
+      "tags": []
+    },
+    {
+      "id": 337,
+      "en": "",
+      "jp": "顔面蒼白（turn pale）",
+      "tags": []
+    },
+    {
+      "id": 338,
+      "en": "",
+      "jp": "引きつった笑顔（nervous smile）",
+      "tags": []
+    },
+    {
+      "id": 339,
+      "en": "",
+      "jp": "負傷/痛み（pain）",
+      "tags": []
+    },
+    {
+      "id": 340,
+      "en": "",
+      "jp": "絶望（despair）",
+      "tags": []
+    },
+    {
+      "id": 341,
+      "en": "",
+      "jp": "恐ろしい（horrified）",
+      "tags": []
+    },
+    {
+      "id": 342,
+      "en": "",
+      "jp": "悲しい（sad）",
+      "tags": []
+    },
+    {
+      "id": 343,
+      "en": "",
+      "jp": "涙（tears）",
+      "tags": []
+    },
+    {
+      "id": 344,
+      "en": "",
+      "jp": "涙ぐむ（tearing up）",
+      "tags": []
+    },
+    {
+      "id": 345,
+      "en": "",
+      "jp": "泣く（crying）",
+      "tags": []
+    },
+    {
+      "id": 346,
+      "en": "",
+      "jp": "目を開けたまま泣く（crying with eyes open）",
+      "tags": []
+    },
+    {
+      "id": 347,
+      "en": "",
+      "jp": "号泣（sobbing）",
+      "tags": []
+    },
+    {
+      "id": 348,
+      "en": "",
+      "jp": "落ち込み（gloom (expression)）",
+      "tags": []
+    },
+    {
+      "id": 349,
+      "en": "",
+      "jp": "抑うつ（depressed）",
+      "tags": []
+    },
+    {
+      "id": 350,
+      "en": "",
+      "jp": "悲しい笑顔（sad smile）",
+      "tags": []
+    },
+    {
+      "id": 351,
+      "en": "",
+      "jp": "不幸せな表情（unhappy）",
+      "tags": []
+    },
+    {
+      "id": 352,
+      "en": "",
+      "jp": "歯（teeth）",
+      "tags": []
+    },
+    {
+      "id": 353,
+      "en": "",
+      "jp": "八重歯/犬歯（fang）",
+      "tags": []
+    },
+    {
+      "id": 354,
+      "en": "",
+      "jp": "上の歯だけ（upper teeth only）",
+      "tags": []
+    },
+    {
+      "id": 355,
+      "en": "",
+      "jp": "複数の犬歯（fangs）",
+      "tags": []
+    },
+    {
+      "id": 356,
+      "en": "",
+      "jp": "下の歯だけ（lower teeth only）",
+      "tags": []
+    },
+    {
+      "id": 357,
+      "en": "",
+      "jp": "肌色の牙（1本）（skin fang）",
+      "tags": []
+    },
+    {
+      "id": 358,
+      "en": "",
+      "jp": "鋭い歯（sharp teeth）",
+      "tags": []
+    },
+    {
+      "id": 359,
+      "en": "",
+      "jp": "肌色の牙（2本）（skin fangs）",
+      "tags": []
+    },
+    {
+      "id": 360,
+      "en": "",
+      "jp": "丸い歯（round teeth）",
+      "tags": []
+    },
+    {
+      "id": 361,
+      "en": "",
+      "jp": "牙を見せる（1本外）（fang out）",
+      "tags": []
+    },
+    {
+      "id": 362,
+      "en": "",
+      "jp": "出っ歯（buck teeth）",
+      "tags": []
+    },
+    {
+      "id": 363,
+      "en": "",
+      "jp": "牙を見せる（2本外）（fangs out）",
+      "tags": []
+    },
+    {
+      "id": 364,
+      "en": "",
+      "jp": "歯ぎしり/咬牙（clenched teeth）",
+      "tags": []
+    },
+    {
+      "id": 365,
+      "en": "",
+      "jp": "下顎の牙（tusks）",
+      "tags": []
+    },
+    {
+      "id": 366,
+      "en": "",
+      "jp": "ドット鼻（dot nose）",
+      "tags": []
+    },
+    {
+      "id": 367,
+      "en": "",
+      "jp": "鼻なし（no nose）",
+      "tags": []
+    },
+    {
+      "id": 368,
+      "en": "",
+      "jp": "V字眉（v-shaped eyebrows）",
+      "tags": []
+    },
+    {
+      "id": 369,
+      "en": "",
+      "jp": "太い眉（thick eyebrows）",
+      "tags": []
+    },
+    {
+      "id": 370,
+      "en": "",
+      "jp": "眉を上げる（raised eyebrows）",
+      "tags": []
+    },
+    {
+      "id": 371,
+      "en": "",
+      "jp": "短い眉（short eyebrows）",
+      "tags": []
+    },
+    {
+      "id": 372,
+      "en": "",
+      "jp": "そばかす（freckles）",
+      "tags": []
+    },
+    {
+      "id": 373,
+      "en": "",
+      "jp": "ホクロ（mole）",
+      "tags": []
+    },
+    {
+      "id": 374,
+      "en": "",
+      "jp": "目の下のホクロ（mole under eye）",
+      "tags": []
+    },
+    {
+      "id": 375,
+      "en": "",
+      "jp": "口の下のホクロ（mole under mouth）",
+      "tags": []
+    },
+    {
+      "id": 376,
+      "en": "",
+      "jp": "顔なし（髪/影で隠れ等）（faceless）",
+      "tags": []
+    },
+    {
+      "id": 377,
+      "en": "",
+      "jp": "顔なし男性（faceless male）",
+      "tags": []
+    },
+    {
+      "id": 378,
+      "en": "",
+      "jp": "顔なし女性（faceless female）",
+      "tags": []
+    },
+    {
+      "id": 379,
+      "en": "",
+      "jp": "化粧（makeup）",
+      "tags": []
+    },
+    {
+      "id": 380,
+      "en": "",
+      "jp": "アイシャドウ（eyeshadow）",
+      "tags": []
+    },
+    {
+      "id": 381,
+      "en": "",
+      "jp": "アイライナー（eyeliner）",
+      "tags": []
+    },
+    {
+      "id": 382,
+      "en": "",
+      "jp": "赤アイライナー（red eyeliner）",
+      "tags": []
+    },
+    {
+      "id": 383,
+      "en": "",
+      "jp": "黒アイライナー（black eyeliner）",
+      "tags": []
+    },
+    {
+      "id": 384,
+      "en": "",
+      "jp": "まつげ（eyelashes）",
+      "tags": []
+    },
+    {
+      "id": 385,
+      "en": "",
+      "jp": "カラーまつ毛（colored eyelashes）",
+      "tags": []
+    },
+    {
+      "id": 386,
+      "en": "",
+      "jp": "長いまつ毛（long eyelashes）",
+      "tags": []
+    },
+    {
+      "id": 387,
+      "en": "",
+      "jp": "太いまつ毛（thick eyelashes）",
+      "tags": []
+    },
+    {
+      "id": 388,
+      "en": "",
+      "jp": "マスカラ（mascara）",
+      "tags": []
+    },
+    {
+      "id": 389,
+      "en": "",
+      "jp": "メイク崩れ（runny makeup）",
+      "tags": []
+    },
+    {
+      "id": 390,
+      "en": "",
+      "jp": "キスマーク（lipstick mark）",
+      "tags": []
+    },
+    {
+      "id": 391,
+      "en": "",
+      "jp": "唇（lips）",
+      "tags": []
+    },
+    {
+      "id": 392,
+      "en": "",
+      "jp": "ぷっくり唇（thick lips）",
+      "tags": []
+    },
+    {
+      "id": 393,
+      "en": "",
+      "jp": "リップグロス（lipgloss）",
+      "tags": []
+    },
+    {
+      "id": 394,
+      "en": "",
+      "jp": "口紅（lipstick）",
+      "tags": []
+    },
+    {
+      "id": 395,
+      "en": "",
+      "jp": "ピンク唇（pink lips）",
+      "tags": []
+    },
+    {
+      "id": 396,
+      "en": "",
+      "jp": "赤唇（red lips）",
+      "tags": []
+    },
+    {
+      "id": 397,
+      "en": "",
+      "jp": "紫唇（purple lips）",
+      "tags": []
+    },
+    {
+      "id": 398,
+      "en": "",
+      "jp": "黒唇（black lips）",
+      "tags": []
+    },
+    {
+      "id": 399,
+      "en": "",
+      "jp": "青唇（blue lips）",
+      "tags": []
+    },
+    {
+      "id": 400,
+      "en": "",
+      "jp": "緑唇（green lips）",
+      "tags": []
+    },
+    {
+      "id": 401,
+      "en": "",
+      "jp": "フェイスペイント（facepaint）",
+      "tags": []
+    },
+    {
+      "id": 402,
+      "en": "",
+      "jp": "塗られた服（painted clothes）",
+      "tags": []
+    },
+    {
+      "id": 403,
+      "en": "",
+      "jp": "ボディペイント（bodypaint）",
+      "tags": []
+    },
+    {
+      "id": 404,
+      "en": "",
+      "jp": "顔のマーク（facial mark）",
+      "tags": []
+    },
+    {
+      "id": 405,
+      "en": "",
+      "jp": "顔のタトゥー（facial tattoo）",
+      "tags": []
+    },
+    {
+      "id": 406,
+      "en": "",
+      "jp": "ピースサイン（v）",
+      "tags": []
+    },
+    {
+      "id": 407,
+      "en": "",
+      "jp": "ダブルピース（double v）",
+      "tags": []
+    },
+    {
+      "id": 408,
+      "en": "",
+      "jp": "目の上でピース（v over eye）",
+      "tags": []
+    },
+    {
+      "id": 409,
+      "en": "",
+      "jp": "口の上でピース（v over mouth）",
+      "tags": []
+    },
+    {
+      "id": 410,
+      "en": "",
+      "jp": "3本指ジェスチャー（w）",
+      "tags": []
+    },
+    {
+      "id": 411,
+      "en": "",
+      "jp": "グッドサイン（thumbs up）",
+      "tags": []
+    },
+    {
+      "id": 412,
+      "en": "",
+      "jp": "バッドサイン（thumbs down）",
+      "tags": []
+    },
+    {
+      "id": 413,
+      "en": "",
+      "jp": "OKサイン（ok sign）",
+      "tags": []
+    },
+    {
+      "id": 414,
+      "en": "",
+      "jp": "手でハート（heart hands）",
+      "tags": []
+    },
+    {
+      "id": 415,
+      "en": "",
+      "jp": "指でハート（finger heart）",
+      "tags": []
+    },
+    {
+      "id": 416,
+      "en": "",
+      "jp": "4本指ハート（4-finger heart hands）",
+      "tags": []
+    },
+    {
+      "id": 417,
+      "en": "",
+      "jp": "指でフレーム（finger frame）",
+      "tags": []
+    },
+    {
+      "id": 418,
+      "en": "",
+      "jp": "狐影絵（fox shadow puppet）",
+      "tags": []
+    },
+    {
+      "id": 419,
+      "en": "",
+      "jp": "両手狐影絵（double fox shadow puppet）",
+      "tags": []
+    },
+    {
+      "id": 420,
+      "en": "",
+      "jp": "人差し指立て（index finger raised）",
+      "tags": []
+    },
+    {
+      "id": 421,
+      "en": "",
+      "jp": "両手人差し指立て（index fingers raised）",
+      "tags": []
+    },
+    {
+      "id": 422,
+      "en": "",
+      "jp": "中指立て（middle finger）",
+      "tags": []
+    },
+    {
+      "id": 423,
+      "en": "",
+      "jp": "両手中指（double middle finger）",
+      "tags": []
+    },
+    {
+      "id": 424,
+      "en": "",
+      "jp": "小指立て（pinky out）",
+      "tags": []
+    },
+    {
+      "id": 425,
+      "en": "",
+      "jp": "しーっ（shushing）",
+      "tags": []
+    },
+    {
+      "id": 426,
+      "en": "",
+      "jp": "指合わせ（補助）（fingers together）",
+      "tags": []
+    },
+    {
+      "id": 427,
+      "en": "",
+      "jp": "指先ピラミッド（steepled fingers）",
+      "tags": []
+    },
+    {
+      "id": 428,
+      "en": "",
+      "jp": "人差し指合わせ（index fingers together）",
+      "tags": []
+    },
+    {
+      "id": 429,
+      "en": "",
+      "jp": "指笑顔（fingersmile）",
+      "tags": []
+    },
+    {
+      "id": 430,
+      "en": "",
+      "jp": "指の間に物（between fingers / [moved_from_danbooru_tag line 432] 例: weapon/ofuda/card/cigarette）",
+      "tags": []
+    },
+    {
+      "id": 431,
+      "en": "",
+      "jp": "指間ナイフ（knives between fingers）",
+      "tags": []
+    },
+    {
+      "id": 432,
+      "en": "",
+      "jp": "指間お札（ofuda between fingers）",
+      "tags": []
+    },
+    {
+      "id": 433,
+      "en": "",
+      "jp": "指隙間から覗く（peeking through fingers）",
+      "tags": []
+    },
+    {
+      "id": 434,
+      "en": "",
+      "jp": "指で銃（finger gun）",
+      "tags": []
+    },
+    {
+      "id": 435,
+      "en": "",
+      "jp": "指パッチン（snapping fingers）",
+      "tags": []
+    },
+    {
+      "id": 436,
+      "en": "",
+      "jp": "指で髪巻く（twirling hair）",
+      "tags": []
+    },
+    {
+      "id": 437,
+      "en": "",
+      "jp": "指を丸く曲げる（curled fingers）",
+      "tags": []
+    },
+    {
+      "id": 438,
+      "en": "",
+      "jp": "猫の手（paw pose）",
+      "tags": []
+    },
+    {
+      "id": 439,
+      "en": "",
+      "jp": "ガオー（claw pose）",
+      "tags": []
+    },
+    {
+      "id": 440,
+      "en": "",
+      "jp": "うさぎ（rabbit pose）",
+      "tags": []
+    },
+    {
+      "id": 441,
+      "en": "",
+      "jp": "ゾンビ（zombie pose）",
+      "tags": []
+    },
+    {
+      "id": 442,
+      "en": "",
+      "jp": "お嬢様ポーズ（ojou-sama pose）",
+      "tags": []
+    },
+    {
+      "id": 443,
+      "en": "",
+      "jp": "幽霊（ghost pose）",
+      "tags": []
+    },
+    {
+      "id": 444,
+      "en": "",
+      "jp": "勝利のポーズ（victory pose）",
+      "tags": []
+    },
+    {
+      "id": 445,
+      "en": "",
+      "jp": "筋肉自慢（flexing）",
+      "tags": []
+    },
+    {
+      "id": 446,
+      "en": "",
+      "jp": "手を振る（waving）",
+      "tags": []
+    },
+    {
+      "id": 447,
+      "en": "",
+      "jp": "腕組み（crossed arms）",
+      "tags": []
+    },
+    {
+      "id": 448,
+      "en": "",
+      "jp": "手を開く（open hand）",
+      "tags": []
+    },
+    {
+      "id": 449,
+      "en": "",
+      "jp": "両手を開く（open hands）",
+      "tags": []
+    },
+    {
+      "id": 450,
+      "en": "",
+      "jp": "指を広げる（spread fingers）",
+      "tags": []
+    },
+    {
+      "id": 451,
+      "en": "",
+      "jp": "握りこぶし（clenched hand）",
+      "tags": []
+    },
+    {
+      "id": 452,
+      "en": "",
+      "jp": "両手握りこぶし（clenched hands）",
+      "tags": []
+    },
+    {
+      "id": 453,
+      "en": "",
+      "jp": "拳を挙げる（raised fist）",
+      "tags": []
+    },
+    {
+      "id": 454,
+      "en": "",
+      "jp": "ガッツポーズ（fist pump）",
+      "tags": []
+    },
+    {
+      "id": 455,
+      "en": "",
+      "jp": "片手を上げる（hand up / [moved_from_danbooru_tag line 457] 手が目より上ならarm up）",
+      "tags": []
+    },
+    {
+      "id": 456,
+      "en": "",
+      "jp": "両手を上げる（hands up / [moved_from_danbooru_tag line 458] 手が目より上ならarms up）",
+      "tags": []
+    },
+    {
+      "id": 457,
+      "en": "",
+      "jp": "片腕を上げる（arm up）",
+      "tags": []
+    },
+    {
+      "id": 458,
+      "en": "",
+      "jp": "両腕を上げる（arms up）",
+      "tags": []
+    },
+    {
+      "id": 459,
+      "en": "",
+      "jp": "手を伸ばす（reaching）",
+      "tags": []
+    },
+    {
+      "id": 460,
+      "en": "",
+      "jp": "視聴者に向かって手を伸ばす（reaching towards viewer）",
+      "tags": []
+    },
+    {
+      "id": 461,
+      "en": "",
+      "jp": "W字腕（w arms）",
+      "tags": []
+    },
+    {
+      "id": 462,
+      "en": "",
+      "jp": "両腕を横に広げる（spread arms）",
+      "tags": []
+    },
+    {
+      "id": 463,
+      "en": "",
+      "jp": "片腕を伸ばす（outstretched arm）",
+      "tags": []
+    },
+    {
+      "id": 464,
+      "en": "",
+      "jp": "両腕を伸ばす（outstretched arms）",
+      "tags": []
+    },
+    {
+      "id": 465,
+      "en": "",
+      "jp": "伸ばした手（outstretched hand）",
+      "tags": []
+    },
+    {
+      "id": 466,
+      "en": "",
+      "jp": "帽子に手（hand on headwear）",
+      "tags": []
+    },
+    {
+      "id": 467,
+      "en": "",
+      "jp": "帽子に両手（hands on headwear）",
+      "tags": []
+    },
+    {
+      "id": 468,
+      "en": "",
+      "jp": "ヘッドホンに手（hand on headphones）",
+      "tags": []
+    },
+    {
+      "id": 469,
+      "en": "",
+      "jp": "眼鏡を直す（adjusting eyewear）",
+      "tags": []
+    },
+    {
+      "id": 470,
+      "en": "",
+      "jp": "眼鏡に手（hand on eyewear）",
+      "tags": []
+    },
+    {
+      "id": 471,
+      "en": "",
+      "jp": "ポケットに手（hand in pocket）",
+      "tags": []
+    },
+    {
+      "id": 472,
+      "en": "",
+      "jp": "ポケットに両手（hands in pockets）",
+      "tags": []
+    },
+    {
+      "id": 473,
+      "en": "",
+      "jp": "地面に手（hand on ground）",
+      "tags": []
+    },
+    {
+      "id": 474,
+      "en": "",
+      "jp": "地面に両手（hands on ground）",
+      "tags": []
+    },
+    {
+      "id": 475,
+      "en": "",
+      "jp": "床に手（hand on floor）",
+      "tags": []
+    },
+    {
+      "id": 476,
+      "en": "",
+      "jp": "壁に手（hand on wall）",
+      "tags": []
+    },
+    {
+      "id": 477,
+      "en": "",
+      "jp": "ガラスに手（hand on glass）",
+      "tags": []
+    },
+    {
+      "id": 478,
+      "en": "",
+      "jp": "テーブルに手（hand on table）",
+      "tags": []
+    },
+    {
+      "id": 479,
+      "en": "",
+      "jp": "頬杖（head rest）",
+      "tags": []
+    },
+    {
+      "id": 480,
+      "en": "",
+      "jp": "退屈そうに頬杖（cheek rest）",
+      "tags": []
+    },
+    {
+      "id": 481,
+      "en": "",
+      "jp": "胸を乗せる（breast rest）",
+      "tags": []
+    },
+    {
+      "id": 482,
+      "en": "",
+      "jp": "肘を置く（elbow rest）",
+      "tags": []
+    },
+    {
+      "id": 483,
+      "en": "",
+      "jp": "腕を当てる（arm rest）",
+      "tags": []
+    },
+    {
+      "id": 484,
+      "en": "",
+      "jp": "手を置く（hand rest）",
+      "tags": []
+    },
+    {
+      "id": 485,
+      "en": "",
+      "jp": "片腕下げ（片方だけ自然に下ろす）（arm at side）",
+      "tags": []
+    },
+    {
+      "id": 486,
+      "en": "",
+      "jp": "両腕を自然に下ろす（arms at sides）",
+      "tags": []
+    },
+    {
+      "id": 487,
+      "en": "",
+      "jp": "寄りかかる（reclining）",
+      "tags": []
+    },
+    {
+      "id": 488,
+      "en": "",
+      "jp": "傾く（leaning）",
+      "tags": []
+    },
+    {
+      "id": 489,
+      "en": "",
+      "jp": "前かがみ（leaning forward）",
+      "tags": []
+    },
+    {
+      "id": 490,
+      "en": "",
+      "jp": "後ろに傾く（leaning back）",
+      "tags": []
+    },
+    {
+      "id": 491,
+      "en": "",
+      "jp": "横に傾く（leaning to the side）",
+      "tags": []
+    },
+    {
+      "id": 492,
+      "en": "",
+      "jp": "人に寄りかかる（leaning on person）",
+      "tags": []
+    },
+    {
+      "id": 493,
+      "en": "",
+      "jp": "物に寄りかかる（leaning on object）",
+      "tags": []
+    },
+    {
+      "id": 494,
+      "en": "",
+      "jp": "壁に寄りかかる（leaning on wall）",
+      "tags": []
+    },
+    {
+      "id": 495,
+      "en": "",
+      "jp": "テーブルに寄りかかる（leaning on table）",
+      "tags": []
+    },
+    {
+      "id": 496,
+      "en": "",
+      "jp": "手すりに寄りかかる（leaning on rail）",
+      "tags": []
+    },
+    {
+      "id": 497,
+      "en": "",
+      "jp": "指差し（pointing）",
+      "tags": []
+    },
+    {
+      "id": 498,
+      "en": "",
+      "jp": "こちらを指差す（pointing at viewer）",
+      "tags": []
+    },
+    {
+      "id": 499,
+      "en": "",
+      "jp": "自分を指差す（pointing at self）",
+      "tags": []
+    },
+    {
+      "id": 500,
+      "en": "",
+      "jp": "上を指差す（pointing up）",
+      "tags": []
+    },
+    {
+      "id": 501,
+      "en": "",
+      "jp": "他の人を指差す（pointing at another）",
+      "tags": []
+    },
+    {
+      "id": 502,
+      "en": "",
+      "jp": "腕を何かに乗せる（arm support）",
+      "tags": []
+    },
+    {
+      "id": 503,
+      "en": "",
+      "jp": "テーブルに腕（arm support on table）",
+      "tags": []
+    },
+    {
+      "id": 504,
+      "en": "",
+      "jp": "椅子に腕（arm support on chair）",
+      "tags": []
+    },
+    {
+      "id": 505,
+      "en": "",
+      "jp": "窓枠に腕（arm support on windowsill）",
+      "tags": []
+    },
+    {
+      "id": 506,
+      "en": "",
+      "jp": "手すりに腕（arm support on railing）",
+      "tags": []
+    },
+    {
+      "id": 507,
+      "en": "",
+      "jp": "カウンターに腕（arm support on counter）",
+      "tags": []
+    },
+    {
+      "id": 508,
+      "en": "",
+      "jp": "手人形（hand puppet）",
+      "tags": []
+    },
+    {
+      "id": 509,
+      "en": "",
+      "jp": "血のついた手（blood on hands）",
+      "tags": []
+    },
+    {
+      "id": 510,
+      "en": "",
+      "jp": "土下座（dogeza）",
+      "tags": []
+    },
+    {
+      "id": 511,
+      "en": "",
+      "jp": "裸土下座（naked dogeza）",
+      "tags": []
+    },
+    {
+      "id": 512,
+      "en": "",
+      "jp": "左利き（left-handed）",
+      "tags": []
+    },
+    {
+      "id": 513,
+      "en": "",
+      "jp": "しゃがむ（squatting）",
+      "tags": []
+    },
+    {
+      "id": 514,
+      "en": "",
+      "jp": "正座（seiza）",
+      "tags": []
+    },
+    {
+      "id": 515,
+      "en": "",
+      "jp": "割り座（wariza）",
+      "tags": []
+    },
+    {
+      "id": 516,
+      "en": "",
+      "jp": "横座り（yokozuwari）",
+      "tags": []
+    },
+    {
+      "id": 517,
+      "en": "",
+      "jp": "あぐら（indian style）",
+      "tags": []
+    },
+    {
+      "id": 518,
+      "en": "",
+      "jp": "体育座り（hugging own legs）",
+      "tags": []
+    },
+    {
+      "id": 519,
+      "en": "",
+      "jp": "横向きに座る（sitting sideways）",
+      "tags": []
+    },
+    {
+      "id": 520,
+      "en": "",
+      "jp": "馬乗り/またがる（straddling）",
+      "tags": []
+    },
+    {
+      "id": 521,
+      "en": "",
+      "jp": "騎乗位（cowgirl position）",
+      "tags": []
+    },
+    {
+      "id": 522,
+      "en": "",
+      "jp": "太ももにまたがる（thigh straddling）",
+      "tags": []
+    },
+    {
+      "id": 523,
+      "en": "",
+      "jp": "背面騎乗位（reverse cowgirl position）",
+      "tags": []
+    },
+    {
+      "id": 524,
+      "en": "",
+      "jp": "対面座位（upright straddle）",
+      "tags": []
+    },
+    {
+      "id": 525,
+      "en": "",
+      "jp": "M字騎乗位（squatting cowgirl position）",
+      "tags": []
+    },
+    {
+      "id": 526,
+      "en": "",
+      "jp": "背面座位（reverse upright straddle）",
+      "tags": []
+    },
+    {
+      "id": 527,
+      "en": "",
+      "jp": "女性上位/女攻め（femdom）",
+      "tags": []
+    },
+    {
+      "id": 528,
+      "en": "",
+      "jp": "主体的女性（assertive female）",
+      "tags": []
+    },
+    {
+      "id": 529,
+      "en": "",
+      "jp": "足を広げる（spread legs）",
+      "tags": []
+    },
+    {
+      "id": 530,
+      "en": "",
+      "jp": "脚が開いている（legs apart）",
+      "tags": []
+    },
+    {
+      "id": 531,
+      "en": "",
+      "jp": "大きく開く（wide spread legs）",
+      "tags": []
+    },
+    {
+      "id": 532,
+      "en": "",
+      "jp": "開脚（split）",
+      "tags": []
+    },
+    {
+      "id": 533,
+      "en": "",
+      "jp": "M字開脚（m legs）",
+      "tags": []
+    },
+    {
+      "id": 534,
+      "en": "",
+      "jp": "V字開脚（v legs）",
+      "tags": []
+    },
+    {
+      "id": 535,
+      "en": "",
+      "jp": "がに股（bowlegged pose）",
+      "tags": []
+    },
+    {
+      "id": 536,
+      "en": "",
+      "jp": "膝を合わせて足を開く（knees together feet apart）",
+      "tags": []
+    },
+    {
+      "id": 537,
+      "en": "",
+      "jp": "膝を開いて足を閉じる（knees apart feet together）",
+      "tags": []
+    },
+    {
+      "id": 538,
+      "en": "",
+      "jp": "脚を揃える（legs together）",
+      "tags": []
+    },
+    {
+      "id": 539,
+      "en": "",
+      "jp": "足を組む（crossed legs）",
+      "tags": []
+    },
+    {
+      "id": 540,
+      "en": "",
+      "jp": "足首を組む（crossed ankles）",
+      "tags": []
+    },
+    {
+      "id": 541,
+      "en": "",
+      "jp": "立ち脚交差（watson cross）",
+      "tags": []
+    },
+    {
+      "id": 542,
+      "en": "",
+      "jp": "だいしゅきホールド（leg lock）",
+      "tags": []
+    },
+    {
+      "id": 543,
+      "en": "",
+      "jp": "つま先立ち（tiptoes）",
+      "tags": []
+    },
+    {
+      "id": 544,
+      "en": "",
+      "jp": "足底屈（plantar flexion）",
+      "tags": []
+    },
+    {
+      "id": 545,
+      "en": "",
+      "jp": "足指を開く（spread toes）",
+      "tags": []
+    },
+    {
+      "id": 546,
+      "en": "",
+      "jp": "片膝をつく（on one knee）",
+      "tags": []
+    },
+    {
+      "id": 547,
+      "en": "",
+      "jp": "ひざまずく（kneeling）",
+      "tags": []
+    },
+    {
+      "id": 548,
+      "en": "",
+      "jp": "片ひざ上げ（knee up）",
+      "tags": []
+    },
+    {
+      "id": 549,
+      "en": "",
+      "jp": "膝が空中（knees up）",
+      "tags": []
+    },
+    {
+      "id": 550,
+      "en": "",
+      "jp": "膝を胸に（knees to chest）",
+      "tags": []
+    },
+    {
+      "id": 551,
+      "en": "",
+      "jp": "立つ（standing）",
+      "tags": []
+    },
+    {
+      "id": 552,
+      "en": "",
+      "jp": "コントラポスト（contrapposto）",
+      "tags": []
+    },
+    {
+      "id": 553,
+      "en": "",
+      "jp": "片足で立つ（standing on one leg）",
+      "tags": []
+    },
+    {
+      "id": 554,
+      "en": "",
+      "jp": "かがむ（bent over）",
+      "tags": []
+    },
+    {
+      "id": 555,
+      "en": "",
+      "jp": "反った背中（arched back）",
+      "tags": []
+    },
+    {
+      "id": 556,
+      "en": "",
+      "jp": "ひねった胴体（twisted torso）",
+      "tags": []
+    },
+    {
+      "id": 557,
+      "en": "",
+      "jp": "脚上げ（leg up）",
+      "tags": []
+    },
+    {
+      "id": 558,
+      "en": "",
+      "jp": "片脚挙げ（意図的）（leg lift）",
+      "tags": []
+    },
+    {
+      "id": 559,
+      "en": "",
+      "jp": "両脚上げ（legs up）",
+      "tags": []
+    },
+    {
+      "id": 560,
+      "en": "",
+      "jp": "折り畳まれた姿勢（folded）",
+      "tags": []
+    },
+    {
+      "id": 561,
+      "en": "",
+      "jp": "脚が頭上（legs over head）",
+      "tags": []
+    },
+    {
+      "id": 562,
+      "en": "",
+      "jp": "トップダウン尻上げ（top-down bottom-up）",
+      "tags": []
+    },
+    {
+      "id": 563,
+      "en": "",
+      "jp": "拘束された脚（bound legs）",
+      "tags": []
+    },
+    {
+      "id": 564,
+      "en": "",
+      "jp": "寝そべる/横になる（lying）",
+      "tags": []
+    },
+    {
+      "id": 565,
+      "en": "",
+      "jp": "うつ伏せ（on stomach）",
+      "tags": []
+    },
+    {
+      "id": 566,
+      "en": "",
+      "jp": "横向き（on side）",
+      "tags": []
+    },
+    {
+      "id": 567,
+      "en": "",
+      "jp": "あお向け（on back）",
+      "tags": []
+    },
+    {
+      "id": 568,
+      "en": "",
+      "jp": "四つん這い（all fours）",
+      "tags": []
+    },
+    {
+      "id": 569,
+      "en": "",
+      "jp": "四つん這い前進（crawling）",
+      "tags": []
+    },
+    {
+      "id": 570,
+      "en": "",
+      "jp": "逆立ち（handstand）",
+      "tags": []
+    },
+    {
+      "id": 571,
+      "en": "",
+      "jp": "内股（pigeon-toed）",
+      "tags": []
+    },
+    {
+      "id": 572,
+      "en": "",
+      "jp": "上下逆さま（upside-down）",
+      "tags": []
+    },
+    {
+      "id": 573,
+      "en": "",
+      "jp": "頭を傾ける（head tilt）",
+      "tags": []
+    },
+    {
+      "id": 574,
+      "en": "",
+      "jp": "うつむく（head down）",
+      "tags": []
+    },
+    {
+      "id": 575,
+      "en": "",
+      "jp": "仰け反り（head back）",
+      "tags": []
+    },
+    {
+      "id": 576,
+      "en": "",
+      "jp": "お辞儀（bowing）",
+      "tags": []
+    },
+    {
+      "id": 577,
+      "en": "",
+      "jp": "料理（cooking）",
+      "tags": []
+    },
+    {
+      "id": 578,
+      "en": "",
+      "jp": "食べる（eating）",
+      "tags": []
+    },
+    {
+      "id": 579,
+      "en": "",
+      "jp": "飲む（drinking）",
+      "tags": []
+    },
+    {
+      "id": 580,
+      "en": "",
+      "jp": "読む（reading）",
+      "tags": []
+    },
+    {
+      "id": 581,
+      "en": "",
+      "jp": "書く（writing）",
+      "tags": []
+    },
+    {
+      "id": 582,
+      "en": "",
+      "jp": "話す（talking）",
+      "tags": []
+    },
+    {
+      "id": 583,
+      "en": "",
+      "jp": "笑う（laughing）",
+      "tags": []
+    },
+    {
+      "id": 584,
+      "en": "",
+      "jp": "歌う（singing）",
+      "tags": []
+    },
+    {
+      "id": 585,
+      "en": "",
+      "jp": "踊る（dancing）",
+      "tags": []
+    },
+    {
+      "id": 586,
+      "en": "",
+      "jp": "ポールダンス（pole dancing）",
+      "tags": []
+    },
+    {
+      "id": 587,
+      "en": "",
+      "jp": "応援（cheering）",
+      "tags": []
+    },
+    {
+      "id": 588,
+      "en": "",
+      "jp": "拍手（clapping）",
+      "tags": []
+    },
+    {
+      "id": 589,
+      "en": "",
+      "jp": "祈る（praying）",
+      "tags": []
+    },
+    {
+      "id": 590,
+      "en": "",
+      "jp": "考える（thinking）",
+      "tags": []
+    },
+    {
+      "id": 591,
+      "en": "",
+      "jp": "想像する（imagining）",
+      "tags": []
+    },
+    {
+      "id": 592,
+      "en": "",
+      "jp": "夢を見る（dreaming）",
+      "tags": []
+    },
+    {
+      "id": 593,
+      "en": "",
+      "jp": "ゲームをする（playing games）",
+      "tags": []
+    },
+    {
+      "id": 594,
+      "en": "",
+      "jp": "入浴（bathing）",
+      "tags": []
+    },
+    {
+      "id": 595,
+      "en": "",
+      "jp": "体を洗う（washing）",
+      "tags": []
+    },
+    {
+      "id": 596,
+      "en": "",
+      "jp": "乾かす（drying）",
+      "tags": []
+    },
+    {
+      "id": 597,
+      "en": "",
+      "jp": "髪をブラシ（brushing hair）",
+      "tags": []
+    },
+    {
+      "id": 598,
+      "en": "",
+      "jp": "髪を整える（hairdressing）",
+      "tags": []
+    },
+    {
+      "id": 599,
+      "en": "",
+      "jp": "髪を切る（cutting hair）",
+      "tags": []
+    },
+    {
+      "id": 600,
+      "en": "",
+      "jp": "髪を耳に（tucking hair）",
+      "tags": []
+    },
+    {
+      "id": 601,
+      "en": "",
+      "jp": "服を着る（dressing）",
+      "tags": []
+    },
+    {
+      "id": 602,
+      "en": "",
+      "jp": "結ぶ（tying）",
+      "tags": []
+    },
+    {
+      "id": 603,
+      "en": "",
+      "jp": "ストレッチ（stretching）",
+      "tags": []
+    },
+    {
+      "id": 604,
+      "en": "",
+      "jp": "運ぶ（carrying）",
+      "tags": []
+    },
+    {
+      "id": 605,
+      "en": "",
+      "jp": "お姫様抱っこ（princess carry）",
+      "tags": []
+    },
+    {
+      "id": 606,
+      "en": "",
+      "jp": "隠れる（hiding）",
+      "tags": []
+    },
+    {
+      "id": 607,
+      "en": "",
+      "jp": "覗く（peeking）",
+      "tags": []
+    },
+    {
+      "id": 608,
+      "en": "",
+      "jp": "覗き見（voyeurism）",
+      "tags": []
+    },
+    {
+      "id": 609,
+      "en": "",
+      "jp": "歩く（walking）",
+      "tags": []
+    },
+    {
+      "id": 610,
+      "en": "",
+      "jp": "走る（running）",
+      "tags": []
+    },
+    {
+      "id": 611,
+      "en": "",
+      "jp": "跳ぶ（jumping）",
+      "tags": []
+    },
+    {
+      "id": 612,
+      "en": "",
+      "jp": "落ちる（falling）",
+      "tags": []
+    },
+    {
+      "id": 613,
+      "en": "",
+      "jp": "滑る（slipping）",
+      "tags": []
+    },
+    {
+      "id": 614,
+      "en": "",
+      "jp": "こぼす（spilling）",
+      "tags": []
+    },
+    {
+      "id": 615,
+      "en": "",
+      "jp": "盗む（theft）",
+      "tags": []
+    },
+    {
+      "id": 616,
+      "en": "",
+      "jp": "いじめる（bullying）",
+      "tags": []
+    },
+    {
+      "id": 617,
+      "en": "",
+      "jp": "からかう（teasing）",
+      "tags": []
+    },
+    {
+      "id": 618,
+      "en": "",
+      "jp": "慰める（comforting）",
+      "tags": []
+    },
+    {
+      "id": 619,
+      "en": "",
+      "jp": "抱きしめる（hug）",
+      "tags": []
+    },
+    {
+      "id": 620,
+      "en": "",
+      "jp": "背後からハグ（hug from behind）",
+      "tags": []
+    },
+    {
+      "id": 621,
+      "en": "",
+      "jp": "寄り添う（spooning）",
+      "tags": []
+    },
+    {
+      "id": 622,
+      "en": "",
+      "jp": "キス（kiss）",
+      "tags": []
+    },
+    {
+      "id": 623,
+      "en": "",
+      "jp": "舐める（licking）",
+      "tags": []
+    },
+    {
+      "id": 624,
+      "en": "",
+      "jp": "喫煙（smoking）",
+      "tags": []
+    },
+    {
+      "id": 625,
+      "en": "",
+      "jp": "釣り（fishing）",
+      "tags": []
+    },
+    {
+      "id": 626,
+      "en": "",
+      "jp": "泳ぐ（swimming）",
+      "tags": []
+    },
+    {
+      "id": 627,
+      "en": "",
+      "jp": "潜る（diving）",
+      "tags": []
+    },
+    {
+      "id": 628,
+      "en": "",
+      "jp": "飛ぶ（空中移動）（flying）",
+      "tags": []
+    },
+    {
+      "id": 629,
+      "en": "",
+      "jp": "浮かぶ（floating）",
+      "tags": []
+    },
+    {
+      "id": 630,
+      "en": "",
+      "jp": "水に浮く（afloat）",
+      "tags": []
+    },
+    {
+      "id": 631,
+      "en": "",
+      "jp": "水遊び（wading）",
+      "tags": []
+    },
+    {
+      "id": 632,
+      "en": "",
+      "jp": "水しぶき（splashing）",
+      "tags": []
+    },
+    {
+      "id": 633,
+      "en": "",
+      "jp": "溶ける（melting）",
+      "tags": []
+    },
+    {
+      "id": 634,
+      "en": "",
+      "jp": "溶解（dissolving）",
+      "tags": []
+    },
+    {
+      "id": 635,
+      "en": "",
+      "jp": "注ぐ（pouring）",
+      "tags": []
+    },
+    {
+      "id": 636,
+      "en": "",
+      "jp": "嗅ぐ（smelling）",
+      "tags": []
+    },
+    {
+      "id": 637,
+      "en": "",
+      "jp": "囁く（whispering）",
+      "tags": []
+    },
+    {
+      "id": 638,
+      "en": "",
+      "jp": "手招き（beckoning）",
+      "tags": []
+    },
+    {
+      "id": 639,
+      "en": "",
+      "jp": "混浴（mixed-sex bathing）",
+      "tags": []
+    },
+    {
+      "id": 640,
+      "en": "",
+      "jp": "つまづく（tripping）",
+      "tags": []
+    },
+    {
+      "id": 641,
+      "en": "",
+      "jp": "不器用（clumsy）",
+      "tags": []
+    },
+    {
+      "id": 642,
+      "en": "",
+      "jp": "ドジっ娘（dojikko）",
+      "tags": []
+    },
+    {
+      "id": 643,
+      "en": "",
+      "jp": "こぼした後（spill）",
+      "tags": []
+    },
+    {
+      "id": 644,
+      "en": "",
+      "jp": "失敗（failure）",
+      "tags": []
+    },
+    {
+      "id": 645,
+      "en": "",
+      "jp": "事故（accident）",
+      "tags": []
+    },
+    {
+      "id": 646,
+      "en": "",
+      "jp": "絡まる（entangled）",
+      "tags": []
+    },
+    {
+      "id": 647,
+      "en": "",
+      "jp": "どうしてこうなった（unlikely accident）",
+      "tags": []
+    },
+    {
+      "id": 648,
+      "en": "",
+      "jp": "違うそうじゃない（you're doing it wrong）",
+      "tags": []
+    },
+    {
+      "id": 649,
+      "en": "",
+      "jp": "ラッキースケベ（accidental pervert）",
+      "tags": []
+    },
+    {
+      "id": 650,
+      "en": "",
+      "jp": "偶然露出（accidental exposure）",
+      "tags": []
+    },
+    {
+      "id": 651,
+      "en": "",
+      "jp": "脱がす（assisted exposure）",
+      "tags": []
+    },
+    {
+      "id": 652,
+      "en": "",
+      "jp": "顔面着地（faceplant）",
+      "tags": []
+    },
+    {
+      "id": 653,
+      "en": "",
+      "jp": "服が下ろされた/下ろす（clothes pull）",
+      "tags": []
+    },
+    {
+      "id": 654,
+      "en": "",
+      "jp": "たくし上げ（clothes lift）",
+      "tags": []
+    },
+    {
+      "id": 655,
+      "en": "",
+      "jp": "裾を引っ張る（clothes tug）",
+      "tags": []
+    },
+    {
+      "id": 656,
+      "en": "",
+      "jp": "股布ずらし（clothing aside）",
+      "tags": []
+    },
+    {
+      "id": 657,
+      "en": "",
+      "jp": "手で持つ（基本）（holding）",
+      "tags": []
+    },
+    {
+      "id": 658,
+      "en": "",
+      "jp": "携帯電話（holding phone）",
+      "tags": []
+    },
+    {
+      "id": 659,
+      "en": "",
+      "jp": "本（holding book）",
+      "tags": []
+    },
+    {
+      "id": 660,
+      "en": "",
+      "jp": "傘（holding umbrella）",
+      "tags": []
+    },
+    {
+      "id": 661,
+      "en": "",
+      "jp": "棒/枝（holding stick）",
+      "tags": []
+    },
+    {
+      "id": 662,
+      "en": "",
+      "jp": "杖/スタッフ（holding staff）",
+      "tags": []
+    },
+    {
+      "id": 663,
+      "en": "",
+      "jp": "花（1輪以上）（holding flower）",
+      "tags": []
+    },
+    {
+      "id": 664,
+      "en": "",
+      "jp": "花束（holding bouquet）",
+      "tags": []
+    },
+    {
+      "id": 665,
+      "en": "",
+      "jp": "衣服（着ていない）（holding clothes / [moved_from_danbooru_tag line 667] ※持ち上げ/引き下げは別タグ）",
+      "tags": []
+    },
+    {
+      "id": 666,
+      "en": "",
+      "jp": "ぬいぐるみ（holding stuffed toy）",
+      "tags": []
+    },
+    {
+      "id": 667,
+      "en": "",
+      "jp": "食べ物（holding food）",
+      "tags": []
+    },
+    {
+      "id": 668,
+      "en": "",
+      "jp": "バッグ（holding bag）",
+      "tags": []
+    },
+    {
+      "id": 669,
+      "en": "",
+      "jp": "ボトル（holding bottle）",
+      "tags": []
+    },
+    {
+      "id": 670,
+      "en": "",
+      "jp": "カップ（holding cup）",
+      "tags": []
+    },
+    {
+      "id": 671,
+      "en": "",
+      "jp": "皿（holding plate）",
+      "tags": []
+    },
+    {
+      "id": 672,
+      "en": "",
+      "jp": "トレイ（holding tray）",
+      "tags": []
+    },
+    {
+      "id": 673,
+      "en": "",
+      "jp": "ペン（holding pen）",
+      "tags": []
+    },
+    {
+      "id": 674,
+      "en": "",
+      "jp": "紙（holding paper）",
+      "tags": []
+    },
+    {
+      "id": 675,
+      "en": "",
+      "jp": "カメラ（holding camera）",
+      "tags": []
+    },
+    {
+      "id": 676,
+      "en": "",
+      "jp": "缶（holding can）",
+      "tags": []
+    },
+    {
+      "id": 677,
+      "en": "",
+      "jp": "カード（holding card）",
+      "tags": []
+    },
+    {
+      "id": 678,
+      "en": "",
+      "jp": "タバコ（holding cigarette）",
+      "tags": []
+    },
+    {
+      "id": 679,
+      "en": "",
+      "jp": "座る（sitting）",
+      "tags": []
+    },
+    {
+      "id": 680,
+      "en": "",
+      "jp": "椅子に座る（sitting on chair）",
+      "tags": []
+    },
+    {
+      "id": 681,
+      "en": "",
+      "jp": "人の上に座る（sitting on person）",
+      "tags": []
+    },
+    {
+      "id": 682,
+      "en": "",
+      "jp": "膝の上に座る（sitting on lap）",
+      "tags": []
+    },
+    {
+      "id": 683,
+      "en": "",
+      "jp": "顔の上に座る（sitting on face）",
+      "tags": []
+    },
+    {
+      "id": 684,
+      "en": "",
+      "jp": "逆座り（sitting backwards）",
+      "tags": []
+    },
+    {
+      "id": 685,
+      "en": "",
+      "jp": "階段に座る（sitting on stairs）",
+      "tags": []
+    },
+    {
+      "id": 686,
+      "en": "",
+      "jp": "窓辺に座る（sitting in window）",
+      "tags": []
+    },
+    {
+      "id": 687,
+      "en": "",
+      "jp": "ベッド上（on bed）",
+      "tags": []
+    },
+    {
+      "id": 688,
+      "en": "",
+      "jp": "椅子上（on chair）",
+      "tags": []
+    },
+    {
+      "id": 689,
+      "en": "",
+      "jp": "ソファ上（on couch）",
+      "tags": []
+    },
+    {
+      "id": 690,
+      "en": "",
+      "jp": "机上（on desk）",
+      "tags": []
+    },
+    {
+      "id": 691,
+      "en": "",
+      "jp": "手すり上（on railing）",
+      "tags": []
+    },
+    {
+      "id": 692,
+      "en": "",
+      "jp": "テーブル上（on table）",
+      "tags": []
+    },
+    {
+      "id": 693,
+      "en": "",
+      "jp": "床上（on floor）",
+      "tags": []
+    },
+    {
+      "id": 694,
+      "en": "",
+      "jp": "地面上（on ground）",
+      "tags": []
+    },
+    {
+      "id": 695,
+      "en": "",
+      "jp": "草の上（on grass）",
+      "tags": []
+    },
+    {
+      "id": 696,
+      "en": "",
+      "jp": "乗り物上（on vehicle）",
+      "tags": []
+    },
+    {
+      "id": 697,
+      "en": "",
+      "jp": "頭の上（on head）",
+      "tags": []
+    },
+    {
+      "id": 698,
+      "en": "",
+      "jp": "肩の上（on shoulder）",
+      "tags": []
+    },
+    {
+      "id": 699,
+      "en": "",
+      "jp": "膝の上（on lap）",
+      "tags": []
+    },
+    {
+      "id": 700,
+      "en": "",
+      "jp": "人の上（on person）",
+      "tags": []
+    },
+    {
+      "id": 701,
+      "en": "",
+      "jp": "動物が頭の上（animal on head）",
+      "tags": []
+    },
+    {
+      "id": 702,
+      "en": "",
+      "jp": "物体が頭の上（object on head）",
+      "tags": []
+    },
+    {
+      "id": 703,
+      "en": "",
+      "jp": "鳥が頭の上（bird on head）",
+      "tags": []
+    },
+    {
+      "id": 704,
+      "en": "",
+      "jp": "猫が頭の上（cat on head）",
+      "tags": []
+    },
+    {
+      "id": 705,
+      "en": "",
+      "jp": "葉っぱが頭の上（leaf on head）",
+      "tags": []
+    },
+    {
+      "id": 706,
+      "en": "",
+      "jp": "花が頭の上（flower on head）",
+      "tags": []
+    },
+    {
+      "id": 707,
+      "en": "",
+      "jp": "食べ物が頭の上（food on head）",
+      "tags": []
+    },
+    {
+      "id": 708,
+      "en": "",
+      "jp": "果物が頭の上（fruit on head）",
+      "tags": []
+    },
+    {
+      "id": 709,
+      "en": "",
+      "jp": "人が頭の上（person on head）",
+      "tags": []
+    },
+    {
+      "id": 710,
+      "en": "",
+      "jp": "ちびが頭の上（chibi on head）",
+      "tags": []
+    },
+    {
+      "id": 711,
+      "en": "ofuda on head",
+      "jp": "お札が頭（on head）",
+      "tags": [
+        "ofuda on head"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "key": "camera_comp",
+      "label": "camera_comp",
+      "start": 0,
+      "end": 13
+    },
+    {
+      "key": "focus",
+      "label": "focus",
+      "start": 13,
+      "end": 33
+    },
+    {
+      "key": "angle",
+      "label": "angle",
+      "start": 33,
+      "end": 46
+    },
+    {
+      "key": "gaze",
+      "label": "gaze",
+      "start": 46,
+      "end": 62
+    },
+    {
+      "key": "pov",
+      "label": "pov",
+      "start": 62,
+      "end": 68
+    },
+    {
+      "key": "tech",
+      "label": "tech",
+      "start": 68,
+      "end": 70
+    },
+    {
+      "key": "count",
+      "label": "count",
+      "start": 70,
+      "end": 88
+    },
+    {
+      "key": "relationship",
+      "label": "relationship",
+      "start": 88,
+      "end": 96
+    },
+    {
+      "key": "misc_people",
+      "label": "misc_people",
+      "start": 96,
+      "end": 102
+    },
+    {
+      "key": "layout",
+      "label": "layout",
+      "start": 102,
+      "end": 111
+    },
+    {
+      "key": "tech2",
+      "label": "tech2",
+      "start": 111,
+      "end": 121
+    },
+    {
+      "key": "quality",
+      "label": "quality",
+      "start": 121,
+      "end": 125
+    },
+    {
+      "key": "effect",
+      "label": "effect",
+      "start": 125,
+      "end": 142
+    },
+    {
+      "key": "style",
+      "label": "style",
+      "start": 142,
+      "end": 153
+    },
+    {
+      "key": "manga_panel",
+      "label": "manga_panel",
+      "start": 153,
+      "end": 158
+    },
+    {
+      "key": "manga_read",
+      "label": "manga_read",
+      "start": 158,
+      "end": 159
+    },
+    {
+      "key": "cover",
+      "label": "cover",
+      "start": 159,
+      "end": 164
+    },
+    {
+      "key": "frame",
+      "label": "frame",
+      "start": 164,
+      "end": 166
+    },
+    {
+      "key": "meta_text",
+      "label": "meta_text",
+      "start": 166,
+      "end": 189
+    },
+    {
+      "key": "qc",
+      "label": "qc",
+      "start": 189,
+      "end": 193
+    },
+    {
+      "key": "artifact",
+      "label": "artifact",
+      "start": 193,
+      "end": 203
+    },
+    {
+      "key": "revision",
+      "label": "revision",
+      "start": 203,
+      "end": 206
+    },
+    {
+      "key": "dup",
+      "label": "dup",
+      "start": 206,
+      "end": 208
+    },
+    {
+      "key": "shape",
+      "label": "shape",
+      "start": 208,
+      "end": 210
+    },
+    {
+      "key": "orientation",
+      "label": "orientation",
+      "start": 210,
+      "end": 211
+    },
+    {
+      "key": "quality2",
+      "label": "quality2",
+      "start": 211,
+      "end": 212
+    },
+    {
+      "key": "effect2",
+      "label": "effect2",
+      "start": 212,
+      "end": 214
+    },
+    {
+      "key": "style2",
+      "label": "style2",
+      "start": 214,
+      "end": 215
+    },
+    {
+      "key": "doc",
+      "label": "doc",
+      "start": 215,
+      "end": 216
+    },
+    {
+      "key": "ui",
+      "label": "ui",
+      "start": 216,
+      "end": 217
+    },
+    {
+      "key": "expr_smile",
+      "label": "expr_smile",
+      "start": 217,
+      "end": 225
+    },
+    {
+      "key": "expr_evil",
+      "label": "expr_evil",
+      "start": 225,
+      "end": 235
+    },
+    {
+      "key": "eye",
+      "label": "eye",
+      "start": 235,
+      "end": 248
+    },
+    {
+      "key": "eye_empty",
+      "label": "eye_empty",
+      "start": 248,
+      "end": 253
+    },
+    {
+      "key": "mouth",
+      "label": "mouth",
+      "start": 253,
+      "end": 270
+    },
+    {
+      "key": "expr_misc",
+      "label": "expr_misc",
+      "start": 270,
+      "end": 304
+    },
+    {
+      "key": "shake",
+      "label": "shake",
+      "start": 304,
+      "end": 309
+    },
+    {
+      "key": "tired",
+      "label": "tired",
+      "start": 309,
+      "end": 313
+    },
+    {
+      "key": "mood_bad",
+      "label": "mood_bad",
+      "start": 313,
+      "end": 321
+    },
+    {
+      "key": "anger",
+      "label": "anger",
+      "start": 321,
+      "end": 328
+    },
+    {
+      "key": "confusion",
+      "label": "confusion",
+      "start": 328,
+      "end": 332
+    },
+    {
+      "key": "anxiety",
+      "label": "anxiety",
+      "start": 332,
+      "end": 334
+    },
+    {
+      "key": "fear",
+      "label": "fear",
+      "start": 334,
+      "end": 341
+    },
+    {
+      "key": "sad",
+      "label": "sad",
+      "start": 341,
+      "end": 351
+    },
+    {
+      "key": "teeth",
+      "label": "teeth",
+      "start": 351,
+      "end": 365
+    },
+    {
+      "key": "nose",
+      "label": "nose",
+      "start": 365,
+      "end": 367
+    },
+    {
+      "key": "brow",
+      "label": "brow",
+      "start": 367,
+      "end": 371
+    },
+    {
+      "key": "face_feature",
+      "label": "face_feature",
+      "start": 371,
+      "end": 378
+    },
+    {
+      "key": "makeup",
+      "label": "makeup",
+      "start": 378,
+      "end": 390
+    },
+    {
+      "key": "lip",
+      "label": "lip",
+      "start": 390,
+      "end": 400
+    },
+    {
+      "key": "paint",
+      "label": "paint",
+      "start": 400,
+      "end": 403
+    },
+    {
+      "key": "mark",
+      "label": "mark",
+      "start": 403,
+      "end": 405
+    },
+    {
+      "key": "pose_hand",
+      "label": "pose_hand",
+      "start": 405,
+      "end": 454
+    },
+    {
+      "key": "pose_arm",
+      "label": "pose_arm",
+      "start": 454,
+      "end": 465
+    },
+    {
+      "key": "touch_self",
+      "label": "touch_self",
+      "start": 465,
+      "end": 472
+    },
+    {
+      "key": "touch_env",
+      "label": "touch_env",
+      "start": 472,
+      "end": 478
+    },
+    {
+      "key": "rest",
+      "label": "rest",
+      "start": 478,
+      "end": 496
+    },
+    {
+      "key": "point",
+      "label": "point",
+      "start": 496,
+      "end": 501
+    },
+    {
+      "key": "support",
+      "label": "support",
+      "start": 501,
+      "end": 507
+    },
+    {
+      "key": "misc_pose",
+      "label": "misc_pose",
+      "start": 507,
+      "end": 512
+    },
+    {
+      "key": "sit",
+      "label": "sit",
+      "start": 512,
+      "end": 519
+    },
+    {
+      "key": "sexpos",
+      "label": "sexpos",
+      "start": 519,
+      "end": 528
+    },
+    {
+      "key": "legs",
+      "label": "legs",
+      "start": 528,
+      "end": 542
+    },
+    {
+      "key": "feet",
+      "label": "feet",
+      "start": 542,
+      "end": 545
+    },
+    {
+      "key": "kneel",
+      "label": "kneel",
+      "start": 545,
+      "end": 550
+    },
+    {
+      "key": "stand",
+      "label": "stand",
+      "start": 550,
+      "end": 553
+    },
+    {
+      "key": "torso",
+      "label": "torso",
+      "start": 553,
+      "end": 556
+    },
+    {
+      "key": "legmove",
+      "label": "legmove",
+      "start": 556,
+      "end": 559
+    },
+    {
+      "key": "other_pose",
+      "label": "other_pose",
+      "start": 559,
+      "end": 563
+    },
+    {
+      "key": "uncat",
+      "label": "uncat",
+      "start": 563,
+      "end": 575
+    },
+    {
+      "key": "action",
+      "label": "action",
+      "start": 575,
+      "end": 639
+    },
+    {
+      "key": "trouble",
+      "label": "trouble",
+      "start": 639,
+      "end": 652
+    },
+    {
+      "key": "clothes",
+      "label": "clothes",
+      "start": 652,
+      "end": 656
+    },
+    {
+      "key": "hold",
+      "label": "hold",
+      "start": 656,
+      "end": 678
+    },
+    {
+      "key": "prep",
+      "label": "prep",
+      "start": 678,
+      "end": 711
+    }
+  ]
+}
