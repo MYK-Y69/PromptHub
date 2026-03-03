@@ -319,25 +319,29 @@ function renderExpressionCards(items, searching) {
   const agenda = document.createElement("div");
   agenda.className = "emotion-agenda";
 
-  sections.forEach(section => {
-    // セクション行（見出し + ボタン群を1行に）
-    const row = document.createElement("div");
-    row.style.cssText = "display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin-bottom:2px;";
+  sections.forEach((section, si) => {
+    // セクションブロック（見出し行 + ボタン行を縦に並べる）
+    const block = document.createElement("div");
+    block.style.cssText = si > 0 ? "margin-top:16px;" : "";
 
-    const lbl = document.createElement("span");
+    // 見出し行（単独行）
+    const lbl = document.createElement("div");
     lbl.textContent = section.label;
     lbl.style.cssText = [
-      "display:inline-flex",
-      "align-items:center",
-      "padding:2px 8px",
+      "display:block",
+      "padding:2px 4px",
       "font-size:10px",
       "font-weight:700",
       "color:#4a9eff",
       "text-transform:uppercase",
-      "letter-spacing:.06em",
-      "min-width:72px",
+      "letter-spacing:.08em",
+      "margin-bottom:4px",
     ].join(";");
-    row.appendChild(lbl);
+    block.appendChild(lbl);
+
+    // ボタン行（見出しの下に別行）
+    const btnRow = document.createElement("div");
+    btnRow.style.cssText = "display:flex;flex-wrap:wrap;gap:4px;";
 
     section.groups.forEach(({ key, emoji, label }) => {
       const btn = document.createElement("button");
@@ -355,10 +359,11 @@ function renderExpressionCards(items, searching) {
           document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       });
-      row.appendChild(btn);
+      btnRow.appendChild(btn);
     });
 
-    agenda.appendChild(row);
+    block.appendChild(btnRow);
+    agenda.appendChild(block);
   });
 
   cardGrid.appendChild(agenda);
