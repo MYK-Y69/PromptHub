@@ -35,6 +35,16 @@ EMOTION_RULES = [
     (["neutral", "blank", "expressionless", "calm"],         "neutral"),
 ]
 
+PART_RULES = [
+    # (keywords, tag) — 順序は eye→mouth→teeth→brow→sweat→blush_detail
+    (["eye", "eyes", "eyelid", "pupil", "gaze", "stare"],   "eye"),
+    (["mouth", "lip", "lips", "tongue"],                     "mouth"),
+    (["teeth", "tooth", "fang", "fangs", "clenched teeth"],  "teeth"),   # mouth も追加される
+    (["brow", "eyebrow", "eyebrows"],                        "brow"),
+    (["sweat", "sweating", "sweatdrop"],                     "sweat"),
+    (["blush", "blushing", "flushed"],                       "blush_detail"),
+]
+
 def infer_emotion(en: str) -> str:
     lower = en.lower()
     for keywords, tag in EMOTION_RULES:
@@ -42,12 +52,24 @@ def infer_emotion(en: str) -> str:
             return tag
     return "neutral"
 
+def infer_parts(en: str) -> list[str]:
+    """enからパーツタグを推定して返す（eye→mouth→teeth→brow→sweat→blush_detail 順）。"""
+    lower = en.lower()
+    parts = []
+    for keywords, tag in PART_RULES:
+        if any(kw in lower for kw in keywords):
+            if tag == "teeth" and "mouth" not in parts:
+                parts.append("mouth")   # teeth は mouth も含む
+            if tag not in parts:
+                parts.append(tag)
+    return parts
+
 def to_snake(en: str) -> str:
     s = re.sub(r"[^a-z0-9]+", "_", en.lower().strip())
     return "expression_" + s.strip("_")
 
 def merge_tags(*tag_lists) -> list[str]:
-    """重複を除去しながらタグをマージ。順序: expression > emotion > emotion_tag > extra."""
+    """重複を除去しながらタグをマージ。順序: expression > emotion > emotion_tag > parts > extra."""
     seen, result = set(), []
     for tags in tag_lists:
         for t in tags:
@@ -83,7 +105,8 @@ def parse_lines(raw: str) -> list[dict]:
             continue
 
         emotion = infer_emotion(en)
-        tags = merge_tags(["expression", "emotion", emotion], extra_tags)
+        parts   = infer_parts(en)
+        tags = merge_tags(["expression", "emotion", emotion], parts, extra_tags)
 
         items.append({
             "id":     to_snake(en),
@@ -128,6 +151,9 @@ def parse_lines(raw: str) -> list[dict]:
 ⏭  スキップ: M 件（重複）
 📦 expression 合計: T 件
 
+追加された項目:
+  - <id>: <en> → tags: [<tag1>, <tag2>, ...]
+
 スキップされた項目:
   - <id>: <en>（理由: id重複 or en重複）
 ```
@@ -136,12 +162,15 @@ def parse_lines(raw: str) -> list[dict]:
 
 ## 対応フォーマット早見表
 
-| 入力例 | 判定 | en | jp | emotion推定 |
-|---|---|---|---|---|
-| `smiling` | Mode A | smiling | "" | joy |
-| `smirk\tニヤリ` | Mode B | smirk | ニヤリ | smug |
-| `crying face\t泣き顔\temotion,sadness` | Mode B | crying face | 泣き顔 | sadness |
-| `vacant eyes\tうつろな目\temotion,tired` | Mode B | vacant eyes | うつろな目 | tired |
+| 入力例 | 判定 | en | jp | emotion推定 | parts推定 |
+|---|---|---|---|---|---|
+| `smiling` | Mode A | smiling | "" | joy | — |
+| `smirk\tニヤリ` | Mode B | smirk | ニヤリ | neutral | — |
+| `crying face\t泣き顔\temotion,sadness` | Mode B | crying face | 泣き顔 | sadness | — |
+| `vacant eyes\tうつろな目\temotion,tired` | Mode B | vacant eyes | うつろな目 | tired | eye |
+| `clenched teeth` | Mode A | clenched teeth | "" | determined | mouth, teeth |
+| `angry eyes` | Mode A | angry eyes | "" | anger | eye |
+| `blushing cheeks` | Mode A | blushing cheeks | "" | shy | blush_detail |
 
 ---
 
