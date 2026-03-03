@@ -51,6 +51,8 @@ const PARTS_GROUPS = [
 
 const REACTION_GROUPS = [
   { key: "arousal",     emoji: "🔥",  label: "Arousal" },
+  { key: "blush_detail",emoji: "🌸",  label: "Blush" },
+  { key: "sweat",       emoji: "💧",  label: "Sweat" },
   { key: "breathing",   emoji: "💨",  label: "Breathing" },
   { key: "saliva",      emoji: "💦",  label: "Saliva" },
   { key: "heat_steam",  emoji: "♨️",  label: "Heat / Steam" },
@@ -317,7 +319,11 @@ function renderExpressionCards(items, searching) {
   const agenda = document.createElement("div");
   agenda.className = "emotion-agenda";
 
-  sections.forEach((section, si) => {
+  sections.forEach(section => {
+    // セクション行（見出し + ボタン群を1行に）
+    const row = document.createElement("div");
+    row.style.cssText = "display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin-bottom:2px;";
+
     const lbl = document.createElement("span");
     lbl.textContent = section.label;
     lbl.style.cssText = [
@@ -329,9 +335,9 @@ function renderExpressionCards(items, searching) {
       "color:#4a9eff",
       "text-transform:uppercase",
       "letter-spacing:.06em",
-      si > 0 ? "margin-left:8px" : "",
-    ].filter(Boolean).join(";");
-    agenda.appendChild(lbl);
+      "min-width:72px",
+    ].join(";");
+    row.appendChild(lbl);
 
     section.groups.forEach(({ key, emoji, label }) => {
       const btn = document.createElement("button");
@@ -349,8 +355,10 @@ function renderExpressionCards(items, searching) {
           document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       });
-      agenda.appendChild(btn);
+      row.appendChild(btn);
     });
+
+    agenda.appendChild(row);
   });
 
   cardGrid.appendChild(agenda);
