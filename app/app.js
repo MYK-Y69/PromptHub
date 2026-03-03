@@ -49,6 +49,14 @@ const PARTS_GROUPS = [
   { key: "blush_detail", emoji: "🌸",  label: "Blush" },
 ];
 
+const REACTION_GROUPS = [
+  { key: "arousal",     emoji: "🔥",  label: "Arousal" },
+  { key: "breathing",   emoji: "💨",  label: "Breathing" },
+  { key: "saliva",      emoji: "💦",  label: "Saliva" },
+  { key: "heat_steam",  emoji: "♨️",  label: "Heat / Steam" },
+  { key: "react_other", emoji: "💫",  label: "Other" },
+];
+
 const FACE_MAKEUP_GROUPS = [
   { key: "makeup",      emoji: "💄",  label: "Makeup" },
   { key: "lips",        emoji: "💋",  label: "Lips" },
@@ -233,11 +241,12 @@ function filteredItems() {
 }
 
 // ---- Expression unified grouping ----
-// Priority: emotion subtag → parts → face/makeup → neutral → other
+// Priority: reaction → emotion subtag → parts → face/makeup → neutral → other
 function groupAllExpression(items) {
-  const emotionBuckets = Object.fromEntries(EMOTION_GROUPS.map(g => [g.key, []]));
-  const partsBuckets   = Object.fromEntries(PARTS_GROUPS.map(g => [g.key, []]));
-  const faceBuckets    = Object.fromEntries(FACE_MAKEUP_GROUPS.map(g => [g.key, []]));
+  const emotionBuckets   = Object.fromEntries(EMOTION_GROUPS.map(g => [g.key, []]));
+  const reactionBuckets  = Object.fromEntries(REACTION_GROUPS.map(g => [g.key, []]));
+  const partsBuckets     = Object.fromEntries(PARTS_GROUPS.map(g => [g.key, []]));
+  const faceBuckets      = Object.fromEntries(FACE_MAKEUP_GROUPS.map(g => [g.key, []]));
 
   const emotionSubtags = EMOTION_GROUPS
     .filter(g => g.key !== "neutral" && g.key !== "other")
@@ -246,32 +255,41 @@ function groupAllExpression(items) {
   for (const item of items) {
     const tags = safeTags(item);
 
-    // 1. emotion tag あり
+    // 1. reaction タグあり → Reaction セクション
+    if (tags.includes("reaction")) {
+      const match = REACTION_GROUPS.find(g => g.key !== "react_other" && tags.includes(g.key));
+      reactionBuckets[match ? match.key : "react_other"].push(item);
+      continue;
+    }
+
+    // 2. emotion タグあり → Emotion セクション
     if (tags.includes("emotion")) {
       const match = EMOTION_GROUPS.find(g => g.key !== "neutral" && g.key !== "other" && tags.includes(g.key));
       if (match) { emotionBuckets[match.key].push(item); continue; }
-      // neutral または未分類の emotion
       emotionBuckets[tags.includes("neutral") ? "neutral" : "other"].push(item);
       continue;
     }
 
-    // 2. parts タグ（emotion サブタグを持たないもの）
+    // 3. parts タグ（emotion サブタグを持たないもの）
     if (!tags.some(t => emotionSubtags.includes(t))) {
       const partsMatch = PARTS_GROUPS.find(g => tags.includes(g.key));
       if (partsMatch) { partsBuckets[partsMatch.key].push(item); continue; }
     }
 
-    // 3. face/makeup タグ
+    // 4. face/makeup タグ
     const faceMatch = FACE_MAKEUP_GROUPS.find(g => tags.includes(g.key));
     if (faceMatch) { faceBuckets[faceMatch.key].push(item); continue; }
 
-    // 4. その他
+    // 5. その他
     emotionBuckets.other.push(item);
   }
 
   return {
     emotionGroups: EMOTION_GROUPS
       .map(g => ({ ...g, items: emotionBuckets[g.key] }))
+      .filter(g => g.items.length > 0),
+    reactionGroups: REACTION_GROUPS
+      .map(g => ({ ...g, items: reactionBuckets[g.key] }))
       .filter(g => g.items.length > 0),
     partsGroups: PARTS_GROUPS
       .map(g => ({ ...g, items: partsBuckets[g.key] }))
@@ -284,12 +302,13 @@ function groupAllExpression(items) {
 
 // ---- Expression rendering (unified agenda + accordion groups) ----
 function renderExpressionCards(items, searching) {
-  const { emotionGroups, partsGroups, faceGroups } = groupAllExpression(items);
+  const { emotionGroups, reactionGroups, partsGroups, faceGroups } = groupAllExpression(items);
 
   const sections = [
-    { label: "Emotion", groups: emotionGroups },
-    { label: "Parts",   groups: partsGroups },
-    { label: "Face",    groups: faceGroups },
+    { label: "Emotion",      groups: emotionGroups },
+    { label: "Reaction",     groups: reactionGroups },
+    { label: "Parts",        groups: partsGroups },
+    { label: "Face & Makeup", groups: faceGroups },
   ].filter(s => s.groups.length > 0);
 
   if (sections.length === 0) return;
