@@ -544,6 +544,17 @@
       "source": ""
     },
     {
+      "id": "expression_furious_glare",
+      "jp": "怒りのにらみ",
+      "en": "furious glare",
+      "tags": [
+        "expression",
+        "emotion",
+        "anger"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_glare",
       "jp": "睨み",
       "en": "glare",
@@ -1052,6 +1063,18 @@
       "source": "https://sorenuts.jp/1954/"
     },
     {
+      "id": "expression_smirk",
+      "jp": "ニヤリ",
+      "en": "smirk",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "smug"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_smug",
       "jp": "得意げ",
       "en": "smug",
@@ -1137,6 +1160,18 @@
         "cute",
         "expression",
         "emotion",
+        "sadness"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_tearful_smile",
+      "jp": "泣き笑い",
+      "en": "tearful smile",
+      "tags": [
+        "expression",
+        "emotion",
+        "joy",
         "sadness"
       ],
       "source": ""

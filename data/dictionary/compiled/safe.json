@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-02T18:42:22",
-  "count": 223,
+  "generated_at": "2026-03-03T09:42:50",
+  "count": 226,
   "items": [
     {
       "id": "act_blowing_kiss",
@@ -994,6 +994,17 @@
       "source": ""
     },
     {
+      "id": "expression_furious_glare",
+      "jp": "怒りのにらみ",
+      "en": "furious glare",
+      "tags": [
+        "expression",
+        "emotion",
+        "anger"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_furrowed_brows",
       "jp": "眉をひそめる",
       "en": "furrowed brows",
@@ -1728,6 +1739,18 @@
       "source": "https://sorenuts.jp/1954/"
     },
     {
+      "id": "expression_smirk",
+      "jp": "ニヤリ",
+      "en": "smirk",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "smug"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_smug",
       "jp": "得意げ",
       "en": "smug",
@@ -1825,6 +1848,18 @@
         "expression",
         "emotion",
         "anger"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_tearful_smile",
+      "jp": "泣き笑い",
+      "en": "tearful smile",
+      "tags": [
+        "expression",
+        "emotion",
+        "joy",
+        "sadness"
       ],
       "source": ""
     },
@@ -3295,6 +3330,17 @@
           "source": ""
         },
         {
+          "id": "expression_furious_glare",
+          "jp": "怒りのにらみ",
+          "en": "furious glare",
+          "tags": [
+            "expression",
+            "emotion",
+            "anger"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_furrowed_brows",
           "jp": "眉をひそめる",
           "en": "furrowed brows",
@@ -3825,6 +3871,18 @@
           "source": "https://sorenuts.jp/1954/"
         },
         {
+          "id": "expression_smirk",
+          "jp": "ニヤリ",
+          "en": "smirk",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "smug"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_smug",
           "jp": "得意げ",
           "en": "smug",
@@ -3898,6 +3956,18 @@
             "expression",
             "emotion",
             "anger"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_tearful_smile",
+          "jp": "泣き笑い",
+          "en": "tearful smile",
+          "tags": [
+            "expression",
+            "emotion",
+            "joy",
+            "sadness"
           ],
           "source": ""
         },
