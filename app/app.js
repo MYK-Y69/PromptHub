@@ -168,6 +168,96 @@ async function loadMode(mode) {
 // ---- Sidebar ----
 function renderSidebar() {
   categoryList.innerHTML = "";
+
+  // TAGS mode: show major categories (not over-fragmented sections)
+  if (activeMode === "tags") {
+    const MAJORS = [
+      { key: "camera", label: "カメラワーク" },
+      { key: "pose",   label: "ポーズ" },
+      { key: "expr",   label: "表情" },
+      { key: "act",    label: "動作" },
+      { key: "cloth",  label: "服装" },
+      { key: "comp",   label: "構図" },
+      { key: "bg",     label: "背景" },
+      { key: "style",  label: "スタイル" },
+    ];
+
+    // Map small section keys -> major key
+    const MAP = {
+      // camera work
+      camera_comp: "camera",
+      angle: "camera",
+      pov: "camera",
+      gaze: "camera",
+      frame: "camera",
+
+      // composition
+      count: "comp",
+      relationship: "comp",
+      misc_people: "comp",
+      layout: "comp",
+
+      // expressions (reserved)
+      expression: "expr",
+      emotion: "expr",
+      reaction: "expr",
+
+      // pose/action/clothing/background (reserved)
+      pose: "pose",
+      action: "act",
+      clothing: "cloth",
+      background: "bg",
+
+      // style (your rule: effect=style, keep style as style)
+      style: "style",
+      effect: "style",
+      quality: "style",
+      tech: "style",
+      tech2: "style",
+      qc: "style",
+      meta_text: "style",
+      manga_panel: "style",
+      manga_read: "style",
+      cover: "style",
+    };
+
+    // Use ALL(tags) as source pool
+    const allCat = allCategories.find(c => c.key === "__all__") || { items: [] };
+
+    // Build pseudo categories for majors
+    const pseudoCats = MAJORS.map(m => ({ key: m.key, label: m.label, items: [] }));
+
+    for (const it of (allCat.items || [])) {
+      const ts = Array.isArray(it.tags) ? it.tags : [];
+      let major = null;
+      for (const t of ts) {
+        if (MAP[t]) { major = MAP[t]; break; }
+      }
+      if (!major) major = "style"; // safe fallback
+      const cat = pseudoCats.find(c => c.key === major);
+      if (cat) cat.items.push(it);
+    }
+
+    // Render majors with counts
+    pseudoCats.forEach(cat => {
+      const el = document.createElement("div");
+      el.className = "cat-item";
+      el.dataset.key = cat.key;
+      el.innerHTML = `<span>${cat.label}</span><span class="cat-count">${cat.items.length}</span>`;
+      el.addEventListener("click", () => {
+        // swap allCategories to majors view without destroying original:
+        // store majors in a hidden field on window
+        window.__tags_major_categories = pseudoCats;
+        allCategories = [{ key: "__all__", label: `ALL (TAGS)`, items: allCat.items }, ...pseudoCats];
+        selectCategory(cat.key);
+      });
+      categoryList.appendChild(el);
+    });
+
+    return;
+  }
+
+  // default (safe/full)
   allCategories.forEach(cat => {
     const el = document.createElement("div");
     el.className = "cat-item";
