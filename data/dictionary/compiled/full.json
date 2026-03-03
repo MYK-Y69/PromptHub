@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-03T09:42:50",
-  "count": 226,
+  "generated_at": "2026-03-03T11:59:50",
+  "count": 410,
   "items": [
     {
       "id": "act_blowing_kiss",
@@ -365,6 +365,17 @@
       "source": ""
     },
     {
+      "id": "expression_afterglow",
+      "jp": "余韻に浸る",
+      "en": "afterglow",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_agitation",
       "jp": "興奮",
       "en": "agitation",
@@ -376,12 +387,45 @@
       "source": ""
     },
     {
+      "id": "expression_akanbe",
+      "jp": "あっかんべー",
+      "en": "akanbe",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_anger",
       "jp": "怒り",
       "en": "anger",
       "tags": [
         "emotion",
         "expression",
+        "anger"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_anger_vein",
+      "jp": "怒りマーク",
+      "en": "anger vein",
+      "tags": [
+        "expression",
+        "emotion",
+        "anger"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_angry",
+      "jp": "怒り",
+      "en": "angry",
+      "tags": [
+        "expression",
+        "emotion",
         "anger"
       ],
       "source": ""
@@ -421,6 +465,17 @@
       "source": ""
     },
     {
+      "id": "expression_annoyed",
+      "jp": "いらだち",
+      "en": "annoyed",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_armpit_focus",
       "jp": "焦点（腋）",
       "en": "armpit focus",
@@ -429,6 +484,17 @@
         "emotion",
         "neutral",
         "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_aroused",
+      "jp": "興奮",
+      "en": "aroused",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
       ],
       "source": ""
     },
@@ -468,6 +534,18 @@
       "source": ""
     },
     {
+      "id": "expression_bags_under_eyes",
+      "jp": "目の下のクマ",
+      "en": "bags under eyes",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_bara",
       "jp": "薔薇",
       "en": "bara",
@@ -475,6 +553,89 @@
         "expression",
         "emotion",
         "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_biting_own_lip",
+      "jp": "唇を噛む",
+      "en": "biting own lip",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_black_eyeliner",
+      "jp": "アイライナー（黒）",
+      "en": "black eyeliner",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_black_lips",
+      "jp": "黒い唇",
+      "en": "black lips",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_blank_eyes",
+      "jp": "白目",
+      "en": "blank eyes",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_blank_stare",
+      "jp": "無表情な凝視",
+      "en": "blank stare",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_blinking",
+      "jp": "まばたき",
+      "en": "blinking",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_blue_lips",
+      "jp": "青い唇",
+      "en": "blue lips",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
       ],
       "source": ""
     },
@@ -491,6 +652,64 @@
       "source": "https://sorenuts.jp/1954/"
     },
     {
+      "id": "expression_blush_stickers",
+      "jp": "赤面ステッカー",
+      "en": "blush stickers",
+      "tags": [
+        "expression",
+        "emotion",
+        "shy",
+        "blush_detail"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_blushing_cheeks",
+      "jp": "頬を赤らめる",
+      "en": "blushing cheeks",
+      "tags": [
+        "expression",
+        "emotion",
+        "shy",
+        "blush_detail"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_body_blush",
+      "jp": "身体の赤面",
+      "en": "body blush",
+      "tags": [
+        "expression",
+        "emotion",
+        "shy",
+        "blush_detail"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_bodypaint",
+      "jp": "ボディペイント",
+      "en": "bodypaint",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_bored",
+      "jp": "退屈",
+      "en": "bored",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_breast_focus",
       "jp": "焦点（胸）",
       "en": "breast focus",
@@ -499,6 +718,41 @@
         "emotion",
         "neutral",
         "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_breath",
+      "jp": "息",
+      "en": "breath",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_buck_teeth",
+      "jp": "出っ歯",
+      "en": "buck teeth",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth",
+        "teeth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_cheek_pull",
+      "jp": "頬を引っ張る",
+      "en": "cheek pull",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
       ],
       "source": ""
     },
@@ -536,6 +790,30 @@
       "source": ""
     },
     {
+      "id": "expression_closed_eyes",
+      "jp": "閉じた目",
+      "en": "closed eyes",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_closed_mouth",
+      "jp": "口を閉じる",
+      "en": "closed mouth",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_cold_glare",
       "jp": "冷たい視線",
       "en": "cold glare",
@@ -558,6 +836,18 @@
       "source": ""
     },
     {
+      "id": "expression_colored_eyelashes",
+      "jp": "カラーまつ毛",
+      "en": "colored eyelashes",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_column_lineup",
       "jp": "縦列整列",
       "en": "column lineup",
@@ -565,6 +855,17 @@
         "expression",
         "emotion",
         "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_confused",
+      "jp": "混乱",
+      "en": "confused",
+      "tags": [
+        "expression",
+        "emotion",
+        "confused"
       ],
       "source": ""
     },
@@ -587,6 +888,40 @@
         "expression",
         "emotion",
         "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_crazy",
+      "jp": "病み",
+      "en": "crazy",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_crazy_eyes",
+      "jp": "狂気の目",
+      "en": "crazy eyes",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_crazy_smile",
+      "jp": "不気味な笑顔",
+      "en": "crazy smile",
+      "tags": [
+        "expression",
+        "emotion",
+        "joy"
       ],
       "source": ""
     },
@@ -624,6 +959,18 @@
       "source": ""
     },
     {
+      "id": "expression_cross_eyed",
+      "jp": "寄り目",
+      "en": "cross-eyed",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_crowd",
       "jp": "群衆",
       "en": "crowd",
@@ -631,6 +978,17 @@
         "expression",
         "emotion",
         "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_crying",
+      "jp": "泣く",
+      "en": "crying",
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness"
       ],
       "source": ""
     },
@@ -647,6 +1005,18 @@
       "source": ""
     },
     {
+      "id": "expression_crying_with_eyes_open",
+      "jp": "目を開けたまま泣く",
+      "en": "crying with eyes open",
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_dejection",
       "jp": "落ち込み",
       "en": "dejection",
@@ -654,6 +1024,17 @@
         "expression",
         "emotion",
         "sadness"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_depressed",
+      "jp": "抑うつ",
+      "en": "depressed",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
       ],
       "source": ""
     },
@@ -669,6 +1050,29 @@
       "source": ""
     },
     {
+      "id": "expression_determined",
+      "jp": "決意に満ちた",
+      "en": "determined",
+      "tags": [
+        "expression",
+        "emotion",
+        "determined"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_diamond_mouth",
+      "jp": "ひし形の口",
+      "en": "diamond mouth",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_disappointment",
       "jp": "失望",
       "en": "disappointment",
@@ -680,6 +1084,17 @@
       "source": ""
     },
     {
+      "id": "expression_disgust",
+      "jp": "嫌悪",
+      "en": "disgust",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_displeasure",
       "jp": "不満",
       "en": "displeasure",
@@ -687,6 +1102,29 @@
         "expression",
         "emotion",
         "anger"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_dot_mouth",
+      "jp": "ドットマウス",
+      "en": "dot mouth",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_dot_nose",
+      "jp": "ドット鼻",
+      "en": "dot nose",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
       ],
       "source": ""
     },
@@ -709,6 +1147,28 @@
         "expression",
         "emotion",
         "sadness"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_drooling",
+      "jp": "よだれ",
+      "en": "drooling",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_drunk",
+      "jp": "酔っ払い",
+      "en": "drunk",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
       ],
       "source": ""
     },
@@ -736,6 +1196,18 @@
       "source": ""
     },
     {
+      "id": "expression_ear_blush",
+      "jp": "耳の赤面",
+      "en": "ear blush",
+      "tags": [
+        "expression",
+        "emotion",
+        "shy",
+        "blush_detail"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_embarrassed",
       "jp": "恥ずかし",
       "en": "embarrassed",
@@ -749,9 +1221,65 @@
       "source": ""
     },
     {
+      "id": "expression_empty_eyes",
+      "jp": "虚ろ目",
+      "en": "empty eyes",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_everyone",
       "jp": "集合絵",
       "en": "everyone",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_evil_grin",
+      "jp": "邪悪な笑み",
+      "en": "evil grin",
+      "tags": [
+        "expression",
+        "emotion",
+        "joy"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_evil_smile",
+      "jp": "邪悪な笑み",
+      "en": "evil smile",
+      "tags": [
+        "expression",
+        "emotion",
+        "joy"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_excited",
+      "jp": "興奮",
+      "en": "excited",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_exhausted",
+      "jp": "疲れ切った",
+      "en": "exhausted",
       "tags": [
         "expression",
         "emotion",
@@ -785,6 +1313,98 @@
       "id": "expression_expressions",
       "jp": "表情集",
       "en": "expressions",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_eyelashes",
+      "jp": "まつげ",
+      "en": "eyelashes",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_eyelid_pull",
+      "jp": "まぶたを引っ張る",
+      "en": "eyelid pull",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_eyeliner",
+      "jp": "アイライナー",
+      "en": "eyeliner",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_eyeshadow",
+      "jp": "アイシャドウ",
+      "en": "eyeshadow",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_facepaint",
+      "jp": "フェイスペイント",
+      "en": "facepaint",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_facepalm",
+      "jp": "顔を手で覆う仕草",
+      "en": "facepalm",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_facial_mark",
+      "jp": "顔のマーク・デザイン",
+      "en": "facial mark",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_facial_tattoo",
+      "jp": "顔のタトゥー",
+      "en": "facial tattoo",
       "tags": [
         "expression",
         "emotion",
@@ -881,6 +1501,69 @@
       "source": ""
     },
     {
+      "id": "expression_false_smile",
+      "jp": "怖い笑顔",
+      "en": "false smile",
+      "tags": [
+        "expression",
+        "emotion",
+        "joy"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_fang",
+      "jp": "八重歯",
+      "en": "fang",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth",
+        "teeth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_fang_out",
+      "jp": "牙を見せる",
+      "en": "fang out",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth",
+        "teeth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_fangs",
+      "jp": "複数の犬歯",
+      "en": "fangs",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth",
+        "teeth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_fangs_out",
+      "jp": "牙を見せる（2本）",
+      "en": "fangs out",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth",
+        "teeth"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_faux_figurine",
       "jp": "ヴィネット",
       "en": "faux figurine",
@@ -915,6 +1598,51 @@
       "source": ""
     },
     {
+      "id": "expression_fidgeting",
+      "jp": "もじもじ",
+      "en": "fidgeting",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_fingersmile",
+      "jp": "指笑顔",
+      "en": "fingersmile",
+      "tags": [
+        "expression",
+        "emotion",
+        "joy"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_flustered",
+      "jp": "慌てる",
+      "en": "flustered",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_flying_sweatdrops",
+      "jp": "汗マーク（ぼのぼの汗）",
+      "en": "flying sweatdrops",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "sweat"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_food_focus",
       "jp": "焦点（食べ物）",
       "en": "food focus",
@@ -935,6 +1663,28 @@
         "emotion",
         "neutral",
         "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_forced_smile",
+      "jp": "笑顔強制",
+      "en": "forced smile",
+      "tags": [
+        "expression",
+        "emotion",
+        "joy"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_freckles",
+      "jp": "そばかす",
+      "en": "freckles",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
       ],
       "source": ""
     },
@@ -983,6 +1733,28 @@
       "source": ""
     },
     {
+      "id": "expression_frown",
+      "jp": "しかめっ面",
+      "en": "frown",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_frustrated",
+      "jp": "不満",
+      "en": "frustrated",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_full_body",
       "jp": "全身",
       "en": "full body",
@@ -994,6 +1766,18 @@
       "source": ""
     },
     {
+      "id": "expression_full_face_blush",
+      "jp": "顔全体の赤面",
+      "en": "full-face blush",
+      "tags": [
+        "expression",
+        "emotion",
+        "shy",
+        "blush_detail"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_furious_glare",
       "jp": "怒りのにらみ",
       "en": "furious glare",
@@ -1001,6 +1785,18 @@
         "expression",
         "emotion",
         "anger"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_furrowed_brow",
+      "jp": "眉間にしわ",
+      "en": "furrowed brow",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "brow"
       ],
       "source": ""
     },
@@ -1039,6 +1835,17 @@
       "source": ""
     },
     {
+      "id": "expression_glaring",
+      "jp": "にらむ",
+      "en": "glaring",
+      "tags": [
+        "expression",
+        "emotion",
+        "anger"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_glaring_eyes",
       "jp": "睨みつける",
       "en": "glaring eyes",
@@ -1050,6 +1857,40 @@
       "source": ""
     },
     {
+      "id": "expression_glasgow_smile",
+      "jp": "グラスゴースマイル",
+      "en": "glasgow smile",
+      "tags": [
+        "expression",
+        "emotion",
+        "joy"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_gloom_expression",
+      "jp": "落ち込み",
+      "en": "gloom (expression)",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_green_lips",
+      "jp": "緑の唇",
+      "en": "green lips",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_grief",
       "jp": "悲嘆",
       "en": "grief",
@@ -1057,6 +1898,17 @@
         "expression",
         "emotion",
         "sadness"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_grimace",
+      "jp": "顔をゆがめる",
+      "en": "grimace",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
       ],
       "source": ""
     },
@@ -1095,9 +1947,42 @@
       "source": ""
     },
     {
+      "id": "expression_happy",
+      "jp": "ハッピー",
+      "en": "happy",
+      "tags": [
+        "expression",
+        "emotion",
+        "joy"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_happy_tears",
+      "jp": "嬉し涙",
+      "en": "happy tears",
+      "tags": [
+        "expression",
+        "emotion",
+        "joy"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_head_out_of_frame",
       "jp": "フレームアウトした顔",
       "en": "head out of frame",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_head_steam",
+      "jp": "頭から湯気",
+      "en": "head steam",
       "tags": [
         "expression",
         "emotion",
@@ -1113,6 +1998,17 @@
         "expression",
         "emotion",
         "sadness"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_heavy_breathing",
+      "jp": "息が荒い",
+      "en": "heavy breathing",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
       ],
       "source": ""
     },
@@ -1140,6 +2036,51 @@
       "source": ""
     },
     {
+      "id": "expression_holding_breath",
+      "jp": "息を止める",
+      "en": "holding breath",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_hollow_eyes",
+      "jp": "空洞の目",
+      "en": "hollow eyes",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_horrified",
+      "jp": "恐ろしい",
+      "en": "horrified",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_hot",
+      "jp": "熱い",
+      "en": "hot",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_implied_pantyshot",
       "jp": "見えないパンチラ",
       "en": "implied pantyshot",
@@ -1162,6 +2103,17 @@
       "source": ""
     },
     {
+      "id": "expression_in_heat",
+      "jp": "発情",
+      "en": "in heat",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_irritation",
       "jp": "苛立ち",
       "en": "irritation",
@@ -1169,6 +2121,63 @@
         "expression",
         "emotion",
         "anger"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_laughing",
+      "jp": "笑う",
+      "en": "laughing",
+      "tags": [
+        "expression",
+        "emotion",
+        "joy"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_licking_lips",
+      "jp": "唇をなめる",
+      "en": "licking lips",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_light_blush",
+      "jp": "薄い赤面",
+      "en": "light blush",
+      "tags": [
+        "expression",
+        "emotion",
+        "shy",
+        "blush_detail"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_light_frown",
+      "jp": "微かなしかめっ面",
+      "en": "light frown",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_light_smile",
+      "jp": "ほほ笑み",
+      "en": "light smile",
+      "tags": [
+        "expression",
+        "emotion",
+        "joy"
       ],
       "source": ""
     },
@@ -1184,6 +2193,54 @@
       "source": ""
     },
     {
+      "id": "expression_lipgloss",
+      "jp": "リップグロス",
+      "en": "lipgloss",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_lips",
+      "jp": "唇",
+      "en": "lips",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_lipstick",
+      "jp": "カラーリップ、口紅",
+      "en": "lipstick",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_lipstick_mark",
+      "jp": "キスマーク",
+      "en": "lipstick mark",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_loneliness",
       "jp": "寂しさ",
       "en": "loneliness",
@@ -1191,6 +2248,29 @@
         "expression",
         "emotion",
         "sadness"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_lonely",
+      "jp": "孤独",
+      "en": "lonely",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_long_eyelashes",
+      "jp": "長いまつ毛",
+      "en": "long eyelashes",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
       ],
       "source": ""
     },
@@ -1305,9 +2385,44 @@
       "source": ""
     },
     {
+      "id": "expression_lovestruck",
+      "jp": "恋する乙女",
+      "en": "lovestruck",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_lower_body",
       "jp": "下半身",
       "en": "lower body",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_lower_teeth_only",
+      "jp": "下の歯だけ",
+      "en": "lower teeth only",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth",
+        "teeth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_makeup",
+      "jp": "化粧",
+      "en": "makeup",
       "tags": [
         "expression",
         "emotion",
@@ -1324,6 +2439,17 @@
         "emotion",
         "neutral",
         "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_mascara",
+      "jp": "マスカラ",
+      "en": "mascara",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
       ],
       "source": ""
     },
@@ -1347,6 +2473,76 @@
         "expression",
         "emotion",
         "sadness"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_moaning",
+      "jp": "声を漏らす",
+      "en": "moaning",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_mole",
+      "jp": "ホクロ",
+      "en": "mole",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_mole_under_eye",
+      "jp": "目の下のホクロ",
+      "en": "mole under eye",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_mole_under_mouth",
+      "jp": "口の下のホクロ",
+      "en": "mole under mouth",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_mouth_drool",
+      "jp": "よだれ線",
+      "en": "mouth drool",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_mouth_pull",
+      "jp": "口を引っ張る",
+      "en": "mouth pull",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
       ],
       "source": ""
     },
@@ -1398,6 +2594,29 @@
       "source": ""
     },
     {
+      "id": "expression_narrowed_eyes",
+      "jp": "細められた目",
+      "en": "narrowed eyes",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_naughty_face",
+      "jp": "いたずらっぽく",
+      "en": "naughty face",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_navel_focus",
       "jp": "焦点（へそ）",
       "en": "navel focus",
@@ -1410,6 +2629,40 @@
       "source": ""
     },
     {
+      "id": "expression_nervous",
+      "jp": "緊張",
+      "en": "nervous",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_nervous_smile",
+      "jp": "引きつった笑顔",
+      "en": "nervous smile",
+      "tags": [
+        "expression",
+        "emotion",
+        "joy"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_nervous_sweating",
+      "jp": "冷や汗",
+      "en": "nervous sweating",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "sweat"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_no_humans",
       "jp": "人物なし",
       "en": "no humans",
@@ -1418,6 +2671,53 @@
         "emotion",
         "neutral",
         "count"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_no_nose",
+      "jp": "鼻なし",
+      "en": "no nose",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_no_pupils",
+      "jp": "瞳孔なし",
+      "en": "no pupils",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_nose_blush",
+      "jp": "鼻の赤面",
+      "en": "nose-blush",
+      "tags": [
+        "expression",
+        "emotion",
+        "shy",
+        "blush_detail"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_one_eye_closed",
+      "jp": "ウィンク",
+      "en": "one eye closed",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
       ],
       "source": ""
     },
@@ -1451,6 +2751,18 @@
         "expression",
         "emotion",
         "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_open_mouth",
+      "jp": "口を開ける",
+      "en": "open mouth",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
       ],
       "source": ""
     },
@@ -1489,6 +2801,28 @@
       "source": ""
     },
     {
+      "id": "expression_pain",
+      "jp": "負傷",
+      "en": "pain",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_panicking",
+      "jp": "パニック",
+      "en": "panicking",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_pantyshot",
       "jp": "パンチラ",
       "en": "pantyshot",
@@ -1496,6 +2830,18 @@
         "expression",
         "emotion",
         "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_parted_lips",
+      "jp": "口を少しだけ開ける",
+      "en": "parted lips",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
       ],
       "source": ""
     },
@@ -1523,9 +2869,32 @@
       "source": ""
     },
     {
+      "id": "expression_pink_lips",
+      "jp": "ピンクの唇",
+      "en": "pink lips",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_portrait",
       "jp": "人物の顔に焦点",
       "en": "portrait",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_pout",
+      "jp": "ふくれっ面",
+      "en": "pout",
       "tags": [
         "expression",
         "emotion",
@@ -1541,6 +2910,18 @@
         "expression",
         "emotion",
         "anger"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_pouty_lips",
+      "jp": "むっとした唇",
+      "en": "pouty lips",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
       ],
       "source": ""
     },
@@ -1639,6 +3020,30 @@
       "source": ""
     },
     {
+      "id": "expression_puckered_lips",
+      "jp": "すぼめた唇",
+      "en": "puckered lips",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_purple_lips",
+      "jp": "紫の唇",
+      "en": "purple lips",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_rage",
       "jp": "激怒",
       "en": "rage",
@@ -1646,6 +3051,78 @@
         "expression",
         "emotion",
         "anger"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_raised_eyebrow",
+      "jp": "眉を上げる",
+      "en": "raised eyebrow",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye",
+        "brow"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_raised_eyebrows",
+      "jp": "眉を上げる",
+      "en": "raised eyebrows",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "brow"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_rape_face",
+      "jp": "不気味な笑顔",
+      "en": "rape face",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_rectangular_mouth",
+      "jp": "四角い口",
+      "en": "rectangular mouth",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_red_eyeliner",
+      "jp": "アイライナー（赤）",
+      "en": "red eyeliner",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_red_lips",
+      "jp": "赤い唇",
+      "en": "red lips",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
       ],
       "source": ""
     },
@@ -1672,6 +3149,64 @@
       "source": ""
     },
     {
+      "id": "expression_rolling_eyes",
+      "jp": "目を回す",
+      "en": "rolling eyes",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_round_teeth",
+      "jp": "丸い歯",
+      "en": "round teeth",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth",
+        "teeth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_runny_makeup",
+      "jp": "メイク崩れ",
+      "en": "runny makeup",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_sad",
+      "jp": "悲しい",
+      "en": "sad",
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_sad_smile",
+      "jp": "悲しい笑顔",
+      "en": "sad smile",
+      "tags": [
+        "expression",
+        "emotion",
+        "joy"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_sadness",
       "jp": "悲しみ",
       "en": "sadness",
@@ -1679,6 +3214,72 @@
         "expression",
         "emotion",
         "sadness"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_saliva",
+      "jp": "唾液",
+      "en": "saliva",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_saliva_trail",
+      "jp": "唾液が流れた跡",
+      "en": "saliva trail",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_scared",
+      "jp": "恐れ",
+      "en": "scared",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_scowl",
+      "jp": "にらみ",
+      "en": "scowl",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_screaming",
+      "jp": "叫ぶ（本能的）",
+      "en": "screaming",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_seductive_smile",
+      "jp": "誘惑的な笑み",
+      "en": "seductive smile",
+      "tags": [
+        "expression",
+        "emotion",
+        "joy"
       ],
       "source": ""
     },
@@ -1705,9 +3306,90 @@
       "source": ""
     },
     {
+      "id": "expression_shaded_face",
+      "jp": "影のかかった顔",
+      "en": "shaded face",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_shading_eyes",
+      "jp": "影のかかった目",
+      "en": "shading eyes",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_shaking",
+      "jp": "揺れる",
+      "en": "shaking",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_shaking_head",
+      "jp": "首を振る",
+      "en": "shaking head",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_sharp_teeth",
+      "jp": "鋭い歯",
+      "en": "sharp teeth",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth",
+        "teeth"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_shoe_soles",
       "jp": "靴底",
       "en": "shoe soles",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_short_eyebrows",
+      "jp": "短い眉",
+      "en": "short eyebrows",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "brow"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_shouting",
+      "jp": "叫ぶ（意図的）",
+      "en": "shouting",
       "tags": [
         "expression",
         "emotion",
@@ -1723,6 +3405,66 @@
         "expression",
         "emotion",
         "anger"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_sideways_mouth",
+      "jp": "横向きの口",
+      "en": "sideways mouth",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_sigh",
+      "jp": "ため息",
+      "en": "sigh",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_skin_fang",
+      "jp": "肌色の牙",
+      "en": "skin fang",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth",
+        "teeth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_skin_fangs",
+      "jp": "肌色の牙（2本）",
+      "en": "skin fangs",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth",
+        "teeth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_sleepy",
+      "jp": "眠い",
+      "en": "sleepy",
+      "tags": [
+        "expression",
+        "emotion",
+        "tired"
       ],
       "source": ""
     },
@@ -1762,6 +3504,17 @@
       "source": ""
     },
     {
+      "id": "expression_sneezing",
+      "jp": "くしゃみをする",
+      "en": "sneezing",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_sobbing",
       "jp": "すすり泣き",
       "en": "sobbing",
@@ -1797,6 +3550,62 @@
       "source": ""
     },
     {
+      "id": "expression_spitting",
+      "jp": "唾を吐く",
+      "en": "spitting",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_squinting",
+      "jp": "目を細める",
+      "en": "squinting",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_staring",
+      "jp": "じっと見つめる",
+      "en": "staring",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_steam",
+      "jp": "湯気・蒸気",
+      "en": "steam",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_steaming_body",
+      "jp": "体から湯気",
+      "en": "steaming body",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_stern_face",
       "jp": "険しい顔",
       "en": "stern face",
@@ -1826,6 +3635,30 @@
         "emotion",
         "expression",
         "surprise"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_sweat",
+      "jp": "汗",
+      "en": "sweat",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "sweat"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_sweatdrop",
+      "jp": "汗",
+      "en": "sweatdrop",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "sweat"
       ],
       "source": ""
     },
@@ -1864,6 +3697,28 @@
       "source": ""
     },
     {
+      "id": "expression_tearing_up",
+      "jp": "涙ぐむ",
+      "en": "tearing up",
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_tears",
+      "jp": "涙",
+      "en": "tears",
+      "tags": [
+        "expression",
+        "emotion",
+        "sadness"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_teary_eyes",
       "jp": "涙目",
       "en": "teary eyes",
@@ -1873,6 +3728,19 @@
         "expression",
         "emotion",
         "sadness"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_teeth",
+      "jp": "歯",
+      "en": "teeth",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth",
+        "teeth"
       ],
       "source": ""
     },
@@ -1889,9 +3757,102 @@
       "source": ""
     },
     {
+      "id": "expression_thick_eyebrows",
+      "jp": "太い眉",
+      "en": "thick eyebrows",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "brow"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_thick_eyelashes",
+      "jp": "太いまつ毛",
+      "en": "thick eyelashes",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_thick_lips",
+      "jp": "ぷっくりした唇",
+      "en": "thick lips",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_thigh_gap",
       "jp": "絶対空域",
       "en": "thigh gap",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_thinking",
+      "jp": "考え中",
+      "en": "thinking",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_tongue",
+      "jp": "舌",
+      "en": "tongue",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_tongue_out",
+      "jp": "舌を出す",
+      "en": "tongue out",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_trembling",
+      "jp": "震える",
+      "en": "trembling",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_troll_face",
+      "jp": "トロールフェイス",
+      "en": "troll face",
       "tags": [
         "expression",
         "emotion",
@@ -1912,6 +3873,62 @@
       "source": ""
     },
     {
+      "id": "expression_turn_pale",
+      "jp": "顔面蒼白",
+      "en": "turn pale",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_tusks",
+      "jp": "下顎の牙",
+      "en": "tusks",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_twitching",
+      "jp": "ピクピクする",
+      "en": "twitching",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_unhappy",
+      "jp": "不幸せな表情",
+      "en": "unhappy",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_unusually_open_eyes",
+      "jp": "異常に見開いた目",
+      "en": "unusually open eyes",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_upper_body",
       "jp": "上半身",
       "en": "upper body",
@@ -1919,6 +3936,19 @@
         "expression",
         "emotion",
         "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_upper_teeth_only",
+      "jp": "上の歯だけ",
+      "en": "upper teeth only",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "mouth",
+        "teeth"
       ],
       "source": ""
     },
@@ -1967,6 +3997,30 @@
       "source": ""
     },
     {
+      "id": "expression_upturned_eyes",
+      "jp": "上目遣い",
+      "en": "upturned eyes",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_v_shaped_eyebrows",
+      "jp": "V字の眉",
+      "en": "v-shaped eyebrows",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "brow"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_vacant_eyes",
       "jp": "うつろな目",
       "en": "vacant eyes",
@@ -1990,6 +4044,29 @@
       "source": ""
     },
     {
+      "id": "expression_veins",
+      "jp": "血管",
+      "en": "veins",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_very_sweaty",
+      "jp": "大量の汗",
+      "en": "very sweaty",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "sweat"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_weapon_focus",
       "jp": "焦点（武器）",
       "en": "weapon focus",
@@ -1998,6 +4075,29 @@
         "emotion",
         "neutral",
         "focus"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_wide_eyed",
+      "jp": "見開いた目",
+      "en": "wide-eyed",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral",
+        "eye"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_wince",
+      "jp": "顔をしかめる",
+      "en": "wince",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
       ],
       "source": ""
     },
@@ -2014,9 +4114,31 @@
       "source": "https://sorenuts.jp/1954/"
     },
     {
+      "id": "expression_worried",
+      "jp": "悩み",
+      "en": "worried",
+      "tags": [
+        "expression",
+        "emotion",
+        "confused"
+      ],
+      "source": ""
+    },
+    {
       "id": "expression_yaoi",
       "jp": "やおい",
       "en": "yaoi",
+      "tags": [
+        "expression",
+        "emotion",
+        "neutral"
+      ],
+      "source": ""
+    },
+    {
+      "id": "expression_yawning",
+      "jp": "あくびをする",
+      "en": "yawning",
       "tags": [
         "expression",
         "emotion",
@@ -2809,6 +4931,17 @@
       "label": "Expression",
       "items": [
         {
+          "id": "expression_afterglow",
+          "jp": "余韻に浸る",
+          "en": "afterglow",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_agitation",
           "jp": "興奮",
           "en": "agitation",
@@ -2820,12 +4953,45 @@
           "source": ""
         },
         {
+          "id": "expression_akanbe",
+          "jp": "あっかんべー",
+          "en": "akanbe",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_anger",
           "jp": "怒り",
           "en": "anger",
           "tags": [
             "emotion",
             "expression",
+            "anger"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_anger_vein",
+          "jp": "怒りマーク",
+          "en": "anger vein",
+          "tags": [
+            "expression",
+            "emotion",
+            "anger"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_angry",
+          "jp": "怒り",
+          "en": "angry",
+          "tags": [
+            "expression",
+            "emotion",
             "anger"
           ],
           "source": ""
@@ -2853,6 +5019,28 @@
           "source": ""
         },
         {
+          "id": "expression_annoyed",
+          "jp": "いらだち",
+          "en": "annoyed",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_aroused",
+          "jp": "興奮",
+          "en": "aroused",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_audience",
           "jp": "観客",
           "en": "audience",
@@ -2860,6 +5048,18 @@
             "expression",
             "emotion",
             "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_bags_under_eyes",
+          "jp": "目の下のクマ",
+          "en": "bags under eyes",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
           ],
           "source": ""
         },
@@ -2875,6 +5075,89 @@
           "source": ""
         },
         {
+          "id": "expression_biting_own_lip",
+          "jp": "唇を噛む",
+          "en": "biting own lip",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_black_eyeliner",
+          "jp": "アイライナー（黒）",
+          "en": "black eyeliner",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_black_lips",
+          "jp": "黒い唇",
+          "en": "black lips",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_blank_eyes",
+          "jp": "白目",
+          "en": "blank eyes",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_blank_stare",
+          "jp": "無表情な凝視",
+          "en": "blank stare",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_blinking",
+          "jp": "まばたき",
+          "en": "blinking",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_blue_lips",
+          "jp": "青い唇",
+          "en": "blue lips",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_blush",
           "jp": "赤面",
           "en": "blush",
@@ -2885,6 +5168,99 @@
             "shy"
           ],
           "source": "https://sorenuts.jp/1954/"
+        },
+        {
+          "id": "expression_blush_stickers",
+          "jp": "赤面ステッカー",
+          "en": "blush stickers",
+          "tags": [
+            "expression",
+            "emotion",
+            "shy",
+            "blush_detail"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_blushing_cheeks",
+          "jp": "頬を赤らめる",
+          "en": "blushing cheeks",
+          "tags": [
+            "expression",
+            "emotion",
+            "shy",
+            "blush_detail"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_body_blush",
+          "jp": "身体の赤面",
+          "en": "body blush",
+          "tags": [
+            "expression",
+            "emotion",
+            "shy",
+            "blush_detail"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_bodypaint",
+          "jp": "ボディペイント",
+          "en": "bodypaint",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_bored",
+          "jp": "退屈",
+          "en": "bored",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_breath",
+          "jp": "息",
+          "en": "breath",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_buck_teeth",
+          "jp": "出っ歯",
+          "en": "buck teeth",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth",
+            "teeth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_cheek_pull",
+          "jp": "頬を引っ張る",
+          "en": "cheek pull",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
         },
         {
           "id": "expression_chibi_inset",
@@ -2920,6 +5296,30 @@
           "source": ""
         },
         {
+          "id": "expression_closed_eyes",
+          "jp": "閉じた目",
+          "en": "closed eyes",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_closed_mouth",
+          "jp": "口を閉じる",
+          "en": "closed mouth",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_cold_glare",
           "jp": "冷たい視線",
           "en": "cold glare",
@@ -2942,6 +5342,18 @@
           "source": ""
         },
         {
+          "id": "expression_colored_eyelashes",
+          "jp": "カラーまつ毛",
+          "en": "colored eyelashes",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_column_lineup",
           "jp": "縦列整列",
           "en": "column lineup",
@@ -2949,6 +5361,17 @@
             "expression",
             "emotion",
             "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_confused",
+          "jp": "混乱",
+          "en": "confused",
+          "tags": [
+            "expression",
+            "emotion",
+            "confused"
           ],
           "source": ""
         },
@@ -2971,6 +5394,40 @@
             "expression",
             "emotion",
             "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_crazy",
+          "jp": "病み",
+          "en": "crazy",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_crazy_eyes",
+          "jp": "狂気の目",
+          "en": "crazy eyes",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_crazy_smile",
+          "jp": "不気味な笑顔",
+          "en": "crazy smile",
+          "tags": [
+            "expression",
+            "emotion",
+            "joy"
           ],
           "source": ""
         },
@@ -3008,6 +5465,18 @@
           "source": ""
         },
         {
+          "id": "expression_cross_eyed",
+          "jp": "寄り目",
+          "en": "cross-eyed",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_crowd",
           "jp": "群衆",
           "en": "crowd",
@@ -3015,6 +5484,17 @@
             "expression",
             "emotion",
             "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_crying",
+          "jp": "泣く",
+          "en": "crying",
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness"
           ],
           "source": ""
         },
@@ -3031,6 +5511,18 @@
           "source": ""
         },
         {
+          "id": "expression_crying_with_eyes_open",
+          "jp": "目を開けたまま泣く",
+          "en": "crying with eyes open",
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_dejection",
           "jp": "落ち込み",
           "en": "dejection",
@@ -3038,6 +5530,17 @@
             "expression",
             "emotion",
             "sadness"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_depressed",
+          "jp": "抑うつ",
+          "en": "depressed",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
           ],
           "source": ""
         },
@@ -3053,6 +5556,29 @@
           "source": ""
         },
         {
+          "id": "expression_determined",
+          "jp": "決意に満ちた",
+          "en": "determined",
+          "tags": [
+            "expression",
+            "emotion",
+            "determined"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_diamond_mouth",
+          "jp": "ひし形の口",
+          "en": "diamond mouth",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_disappointment",
           "jp": "失望",
           "en": "disappointment",
@@ -3064,6 +5590,17 @@
           "source": ""
         },
         {
+          "id": "expression_disgust",
+          "jp": "嫌悪",
+          "en": "disgust",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_displeasure",
           "jp": "不満",
           "en": "displeasure",
@@ -3071,6 +5608,29 @@
             "expression",
             "emotion",
             "anger"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_dot_mouth",
+          "jp": "ドットマウス",
+          "en": "dot mouth",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_dot_nose",
+          "jp": "ドット鼻",
+          "en": "dot nose",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
           ],
           "source": ""
         },
@@ -3097,6 +5657,28 @@
           "source": ""
         },
         {
+          "id": "expression_drooling",
+          "jp": "よだれ",
+          "en": "drooling",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_drunk",
+          "jp": "酔っ払い",
+          "en": "drunk",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_dutch_angle",
           "jp": "傾いた角度からの撮影",
           "en": "dutch angle",
@@ -3104,6 +5686,18 @@
             "expression",
             "emotion",
             "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_ear_blush",
+          "jp": "耳の赤面",
+          "en": "ear blush",
+          "tags": [
+            "expression",
+            "emotion",
+            "shy",
+            "blush_detail"
           ],
           "source": ""
         },
@@ -3121,9 +5715,65 @@
           "source": ""
         },
         {
+          "id": "expression_empty_eyes",
+          "jp": "虚ろ目",
+          "en": "empty eyes",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_everyone",
           "jp": "集合絵",
           "en": "everyone",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_evil_grin",
+          "jp": "邪悪な笑み",
+          "en": "evil grin",
+          "tags": [
+            "expression",
+            "emotion",
+            "joy"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_evil_smile",
+          "jp": "邪悪な笑み",
+          "en": "evil smile",
+          "tags": [
+            "expression",
+            "emotion",
+            "joy"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_excited",
+          "jp": "興奮",
+          "en": "excited",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_exhausted",
+          "jp": "疲れ切った",
+          "en": "exhausted",
           "tags": [
             "expression",
             "emotion",
@@ -3157,6 +5807,98 @@
           "id": "expression_expressions",
           "jp": "表情集",
           "en": "expressions",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_eyelashes",
+          "jp": "まつげ",
+          "en": "eyelashes",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_eyelid_pull",
+          "jp": "まぶたを引っ張る",
+          "en": "eyelid pull",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_eyeliner",
+          "jp": "アイライナー",
+          "en": "eyeliner",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_eyeshadow",
+          "jp": "アイシャドウ",
+          "en": "eyeshadow",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_facepaint",
+          "jp": "フェイスペイント",
+          "en": "facepaint",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_facepalm",
+          "jp": "顔を手で覆う仕草",
+          "en": "facepalm",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_facial_mark",
+          "jp": "顔のマーク・デザイン",
+          "en": "facial mark",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_facial_tattoo",
+          "jp": "顔のタトゥー",
+          "en": "facial tattoo",
           "tags": [
             "expression",
             "emotion",
@@ -3253,6 +5995,69 @@
           "source": ""
         },
         {
+          "id": "expression_false_smile",
+          "jp": "怖い笑顔",
+          "en": "false smile",
+          "tags": [
+            "expression",
+            "emotion",
+            "joy"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_fang",
+          "jp": "八重歯",
+          "en": "fang",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth",
+            "teeth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_fang_out",
+          "jp": "牙を見せる",
+          "en": "fang out",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth",
+            "teeth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_fangs",
+          "jp": "複数の犬歯",
+          "en": "fangs",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth",
+            "teeth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_fangs_out",
+          "jp": "牙を見せる（2本）",
+          "en": "fangs out",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth",
+            "teeth"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_faux_figurine",
           "jp": "ヴィネット",
           "en": "faux figurine",
@@ -3267,6 +6072,73 @@
           "id": "expression_feet_out_of_frame",
           "jp": "フレームアウトした足先",
           "en": "feet out of frame",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_fidgeting",
+          "jp": "もじもじ",
+          "en": "fidgeting",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_fingersmile",
+          "jp": "指笑顔",
+          "en": "fingersmile",
+          "tags": [
+            "expression",
+            "emotion",
+            "joy"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_flustered",
+          "jp": "慌てる",
+          "en": "flustered",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_flying_sweatdrops",
+          "jp": "汗マーク（ぼのぼの汗）",
+          "en": "flying sweatdrops",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "sweat"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_forced_smile",
+          "jp": "笑顔強制",
+          "en": "forced smile",
+          "tags": [
+            "expression",
+            "emotion",
+            "joy"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_freckles",
+          "jp": "そばかす",
+          "en": "freckles",
           "tags": [
             "expression",
             "emotion",
@@ -3319,6 +6191,28 @@
           "source": ""
         },
         {
+          "id": "expression_frown",
+          "jp": "しかめっ面",
+          "en": "frown",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_frustrated",
+          "jp": "不満",
+          "en": "frustrated",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_full_body",
           "jp": "全身",
           "en": "full body",
@@ -3330,6 +6224,18 @@
           "source": ""
         },
         {
+          "id": "expression_full_face_blush",
+          "jp": "顔全体の赤面",
+          "en": "full-face blush",
+          "tags": [
+            "expression",
+            "emotion",
+            "shy",
+            "blush_detail"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_furious_glare",
           "jp": "怒りのにらみ",
           "en": "furious glare",
@@ -3337,6 +6243,18 @@
             "expression",
             "emotion",
             "anger"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_furrowed_brow",
+          "jp": "眉間にしわ",
+          "en": "furrowed brow",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "brow"
           ],
           "source": ""
         },
@@ -3375,6 +6293,17 @@
           "source": ""
         },
         {
+          "id": "expression_glaring",
+          "jp": "にらむ",
+          "en": "glaring",
+          "tags": [
+            "expression",
+            "emotion",
+            "anger"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_glaring_eyes",
           "jp": "睨みつける",
           "en": "glaring eyes",
@@ -3386,6 +6315,40 @@
           "source": ""
         },
         {
+          "id": "expression_glasgow_smile",
+          "jp": "グラスゴースマイル",
+          "en": "glasgow smile",
+          "tags": [
+            "expression",
+            "emotion",
+            "joy"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_gloom_expression",
+          "jp": "落ち込み",
+          "en": "gloom (expression)",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_green_lips",
+          "jp": "緑の唇",
+          "en": "green lips",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_grief",
           "jp": "悲嘆",
           "en": "grief",
@@ -3393,6 +6356,17 @@
             "expression",
             "emotion",
             "sadness"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_grimace",
+          "jp": "顔をゆがめる",
+          "en": "grimace",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
           ],
           "source": ""
         },
@@ -3419,9 +6393,42 @@
           "source": ""
         },
         {
+          "id": "expression_happy",
+          "jp": "ハッピー",
+          "en": "happy",
+          "tags": [
+            "expression",
+            "emotion",
+            "joy"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_happy_tears",
+          "jp": "嬉し涙",
+          "en": "happy tears",
+          "tags": [
+            "expression",
+            "emotion",
+            "joy"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_head_out_of_frame",
           "jp": "フレームアウトした顔",
           "en": "head out of frame",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_head_steam",
+          "jp": "頭から湯気",
+          "en": "head steam",
           "tags": [
             "expression",
             "emotion",
@@ -3441,6 +6448,17 @@
           "source": ""
         },
         {
+          "id": "expression_heavy_breathing",
+          "jp": "息が荒い",
+          "en": "heavy breathing",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_helplessness",
           "jp": "やるせなさ",
           "en": "helplessness",
@@ -3448,6 +6466,51 @@
             "expression",
             "emotion",
             "sadness"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_holding_breath",
+          "jp": "息を止める",
+          "en": "holding breath",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_hollow_eyes",
+          "jp": "空洞の目",
+          "en": "hollow eyes",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_horrified",
+          "jp": "恐ろしい",
+          "en": "horrified",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_hot",
+          "jp": "熱い",
+          "en": "hot",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
           ],
           "source": ""
         },
@@ -3474,6 +6537,17 @@
           "source": ""
         },
         {
+          "id": "expression_in_heat",
+          "jp": "発情",
+          "en": "in heat",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_irritation",
           "jp": "苛立ち",
           "en": "irritation",
@@ -3481,6 +6555,63 @@
             "expression",
             "emotion",
             "anger"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_laughing",
+          "jp": "笑う",
+          "en": "laughing",
+          "tags": [
+            "expression",
+            "emotion",
+            "joy"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_licking_lips",
+          "jp": "唇をなめる",
+          "en": "licking lips",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_light_blush",
+          "jp": "薄い赤面",
+          "en": "light blush",
+          "tags": [
+            "expression",
+            "emotion",
+            "shy",
+            "blush_detail"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_light_frown",
+          "jp": "微かなしかめっ面",
+          "en": "light frown",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_light_smile",
+          "jp": "ほほ笑み",
+          "en": "light smile",
+          "tags": [
+            "expression",
+            "emotion",
+            "joy"
           ],
           "source": ""
         },
@@ -3496,6 +6627,54 @@
           "source": ""
         },
         {
+          "id": "expression_lipgloss",
+          "jp": "リップグロス",
+          "en": "lipgloss",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_lips",
+          "jp": "唇",
+          "en": "lips",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_lipstick",
+          "jp": "カラーリップ、口紅",
+          "en": "lipstick",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_lipstick_mark",
+          "jp": "キスマーク",
+          "en": "lipstick mark",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_loneliness",
           "jp": "寂しさ",
           "en": "loneliness",
@@ -3503,6 +6682,29 @@
             "expression",
             "emotion",
             "sadness"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_lonely",
+          "jp": "孤独",
+          "en": "lonely",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_long_eyelashes",
+          "jp": "長いまつ毛",
+          "en": "long eyelashes",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
           ],
           "source": ""
         },
@@ -3617,9 +6819,55 @@
           "source": ""
         },
         {
+          "id": "expression_lovestruck",
+          "jp": "恋する乙女",
+          "en": "lovestruck",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_lower_body",
           "jp": "下半身",
           "en": "lower body",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_lower_teeth_only",
+          "jp": "下の歯だけ",
+          "en": "lower teeth only",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth",
+            "teeth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_makeup",
+          "jp": "化粧",
+          "en": "makeup",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_mascara",
+          "jp": "マスカラ",
+          "en": "mascara",
           "tags": [
             "expression",
             "emotion",
@@ -3639,6 +6887,76 @@
           "source": ""
         },
         {
+          "id": "expression_moaning",
+          "jp": "声を漏らす",
+          "en": "moaning",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_mole",
+          "jp": "ホクロ",
+          "en": "mole",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_mole_under_eye",
+          "jp": "目の下のホクロ",
+          "en": "mole under eye",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_mole_under_mouth",
+          "jp": "口の下のホクロ",
+          "en": "mole under mouth",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_mouth_drool",
+          "jp": "よだれ線",
+          "en": "mouth drool",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_mouth_pull",
+          "jp": "口を引っ張る",
+          "en": "mouth pull",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_multiple_views",
           "jp": "複数の視点 / 三面図",
           "en": "multiple views",
@@ -3646,6 +6964,110 @@
             "expression",
             "emotion",
             "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_narrowed_eyes",
+          "jp": "細められた目",
+          "en": "narrowed eyes",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_naughty_face",
+          "jp": "いたずらっぽく",
+          "en": "naughty face",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_nervous",
+          "jp": "緊張",
+          "en": "nervous",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_nervous_smile",
+          "jp": "引きつった笑顔",
+          "en": "nervous smile",
+          "tags": [
+            "expression",
+            "emotion",
+            "joy"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_nervous_sweating",
+          "jp": "冷や汗",
+          "en": "nervous sweating",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "sweat"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_no_nose",
+          "jp": "鼻なし",
+          "en": "no nose",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_no_pupils",
+          "jp": "瞳孔なし",
+          "en": "no pupils",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_nose_blush",
+          "jp": "鼻の赤面",
+          "en": "nose-blush",
+          "tags": [
+            "expression",
+            "emotion",
+            "shy",
+            "blush_detail"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_one_eye_closed",
+          "jp": "ウィンク",
+          "en": "one eye closed",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
           ],
           "source": ""
         },
@@ -3683,6 +7105,18 @@
           "source": ""
         },
         {
+          "id": "expression_open_mouth",
+          "jp": "口を開ける",
+          "en": "open mouth",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_otoko_no_ko",
           "jp": "男の娘",
           "en": "otoko no ko",
@@ -3705,6 +7139,28 @@
           "source": ""
         },
         {
+          "id": "expression_pain",
+          "jp": "負傷",
+          "en": "pain",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_panicking",
+          "jp": "パニック",
+          "en": "panicking",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_pantyshot",
           "jp": "パンチラ",
           "en": "pantyshot",
@@ -3712,6 +7168,18 @@
             "expression",
             "emotion",
             "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_parted_lips",
+          "jp": "口を少しだけ開ける",
+          "en": "parted lips",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
           ],
           "source": ""
         },
@@ -3727,9 +7195,32 @@
           "source": ""
         },
         {
+          "id": "expression_pink_lips",
+          "jp": "ピンクの唇",
+          "en": "pink lips",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_portrait",
           "jp": "人物の顔に焦点",
           "en": "portrait",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_pout",
+          "jp": "ふくれっ面",
+          "en": "pout",
           "tags": [
             "expression",
             "emotion",
@@ -3745,6 +7236,18 @@
             "expression",
             "emotion",
             "anger"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_pouty_lips",
+          "jp": "むっとした唇",
+          "en": "pouty lips",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
           ],
           "source": ""
         },
@@ -3771,6 +7274,30 @@
           "source": ""
         },
         {
+          "id": "expression_puckered_lips",
+          "jp": "すぼめた唇",
+          "en": "puckered lips",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_purple_lips",
+          "jp": "紫の唇",
+          "en": "purple lips",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_rage",
           "jp": "激怒",
           "en": "rage",
@@ -3778,6 +7305,78 @@
             "expression",
             "emotion",
             "anger"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_raised_eyebrow",
+          "jp": "眉を上げる",
+          "en": "raised eyebrow",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye",
+            "brow"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_raised_eyebrows",
+          "jp": "眉を上げる",
+          "en": "raised eyebrows",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "brow"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_rape_face",
+          "jp": "不気味な笑顔",
+          "en": "rape face",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_rectangular_mouth",
+          "jp": "四角い口",
+          "en": "rectangular mouth",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_red_eyeliner",
+          "jp": "アイライナー（赤）",
+          "en": "red eyeliner",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_red_lips",
+          "jp": "赤い唇",
+          "en": "red lips",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
           ],
           "source": ""
         },
@@ -3804,6 +7403,64 @@
           "source": ""
         },
         {
+          "id": "expression_rolling_eyes",
+          "jp": "目を回す",
+          "en": "rolling eyes",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_round_teeth",
+          "jp": "丸い歯",
+          "en": "round teeth",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth",
+            "teeth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_runny_makeup",
+          "jp": "メイク崩れ",
+          "en": "runny makeup",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_sad",
+          "jp": "悲しい",
+          "en": "sad",
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_sad_smile",
+          "jp": "悲しい笑顔",
+          "en": "sad smile",
+          "tags": [
+            "expression",
+            "emotion",
+            "joy"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_sadness",
           "jp": "悲しみ",
           "en": "sadness",
@@ -3811,6 +7468,72 @@
             "expression",
             "emotion",
             "sadness"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_saliva",
+          "jp": "唾液",
+          "en": "saliva",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_saliva_trail",
+          "jp": "唾液が流れた跡",
+          "en": "saliva trail",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_scared",
+          "jp": "恐れ",
+          "en": "scared",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_scowl",
+          "jp": "にらみ",
+          "en": "scowl",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_screaming",
+          "jp": "叫ぶ（本能的）",
+          "en": "screaming",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_seductive_smile",
+          "jp": "誘惑的な笑み",
+          "en": "seductive smile",
+          "tags": [
+            "expression",
+            "emotion",
+            "joy"
           ],
           "source": ""
         },
@@ -3837,9 +7560,90 @@
           "source": ""
         },
         {
+          "id": "expression_shaded_face",
+          "jp": "影のかかった顔",
+          "en": "shaded face",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_shading_eyes",
+          "jp": "影のかかった目",
+          "en": "shading eyes",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_shaking",
+          "jp": "揺れる",
+          "en": "shaking",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_shaking_head",
+          "jp": "首を振る",
+          "en": "shaking head",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_sharp_teeth",
+          "jp": "鋭い歯",
+          "en": "sharp teeth",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth",
+            "teeth"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_shoe_soles",
           "jp": "靴底",
           "en": "shoe soles",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_short_eyebrows",
+          "jp": "短い眉",
+          "en": "short eyebrows",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "brow"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_shouting",
+          "jp": "叫ぶ（意図的）",
+          "en": "shouting",
           "tags": [
             "expression",
             "emotion",
@@ -3855,6 +7659,66 @@
             "expression",
             "emotion",
             "anger"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_sideways_mouth",
+          "jp": "横向きの口",
+          "en": "sideways mouth",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_sigh",
+          "jp": "ため息",
+          "en": "sigh",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_skin_fang",
+          "jp": "肌色の牙",
+          "en": "skin fang",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth",
+            "teeth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_skin_fangs",
+          "jp": "肌色の牙（2本）",
+          "en": "skin fangs",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth",
+            "teeth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_sleepy",
+          "jp": "眠い",
+          "en": "sleepy",
+          "tags": [
+            "expression",
+            "emotion",
+            "tired"
           ],
           "source": ""
         },
@@ -3894,6 +7758,17 @@
           "source": ""
         },
         {
+          "id": "expression_sneezing",
+          "jp": "くしゃみをする",
+          "en": "sneezing",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_sobbing",
           "jp": "すすり泣き",
           "en": "sobbing",
@@ -3901,6 +7776,62 @@
             "expression",
             "emotion",
             "sadness"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_spitting",
+          "jp": "唾を吐く",
+          "en": "spitting",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_squinting",
+          "jp": "目を細める",
+          "en": "squinting",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_staring",
+          "jp": "じっと見つめる",
+          "en": "staring",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_steam",
+          "jp": "湯気・蒸気",
+          "en": "steam",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_steaming_body",
+          "jp": "体から湯気",
+          "en": "steaming body",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
           ],
           "source": ""
         },
@@ -3934,6 +7865,30 @@
             "emotion",
             "expression",
             "surprise"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_sweat",
+          "jp": "汗",
+          "en": "sweat",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "sweat"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_sweatdrop",
+          "jp": "汗",
+          "en": "sweatdrop",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "sweat"
           ],
           "source": ""
         },
@@ -3972,6 +7927,28 @@
           "source": ""
         },
         {
+          "id": "expression_tearing_up",
+          "jp": "涙ぐむ",
+          "en": "tearing up",
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_tears",
+          "jp": "涙",
+          "en": "tears",
+          "tags": [
+            "expression",
+            "emotion",
+            "sadness"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_teary_eyes",
           "jp": "涙目",
           "en": "teary eyes",
@@ -3985,9 +7962,115 @@
           "source": ""
         },
         {
+          "id": "expression_teeth",
+          "jp": "歯",
+          "en": "teeth",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth",
+            "teeth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_thick_eyebrows",
+          "jp": "太い眉",
+          "en": "thick eyebrows",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "brow"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_thick_eyelashes",
+          "jp": "太いまつ毛",
+          "en": "thick eyelashes",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_thick_lips",
+          "jp": "ぷっくりした唇",
+          "en": "thick lips",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_thigh_gap",
           "jp": "絶対空域",
           "en": "thigh gap",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_thinking",
+          "jp": "考え中",
+          "en": "thinking",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_tongue",
+          "jp": "舌",
+          "en": "tongue",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_tongue_out",
+          "jp": "舌を出す",
+          "en": "tongue out",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_trembling",
+          "jp": "震える",
+          "en": "trembling",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_troll_face",
+          "jp": "トロールフェイス",
+          "en": "troll face",
           "tags": [
             "expression",
             "emotion",
@@ -4008,6 +8091,62 @@
           "source": ""
         },
         {
+          "id": "expression_turn_pale",
+          "jp": "顔面蒼白",
+          "en": "turn pale",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_tusks",
+          "jp": "下顎の牙",
+          "en": "tusks",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_twitching",
+          "jp": "ピクピクする",
+          "en": "twitching",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_unhappy",
+          "jp": "不幸せな表情",
+          "en": "unhappy",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_unusually_open_eyes",
+          "jp": "異常に見開いた目",
+          "en": "unusually open eyes",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_upper_body",
           "jp": "上半身",
           "en": "upper body",
@@ -4015,6 +8154,19 @@
             "expression",
             "emotion",
             "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_upper_teeth_only",
+          "jp": "上の歯だけ",
+          "en": "upper teeth only",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "mouth",
+            "teeth"
           ],
           "source": ""
         },
@@ -4063,6 +8215,30 @@
           "source": ""
         },
         {
+          "id": "expression_upturned_eyes",
+          "jp": "上目遣い",
+          "en": "upturned eyes",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_v_shaped_eyebrows",
+          "jp": "V字の眉",
+          "en": "v-shaped eyebrows",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "brow"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_vacant_eyes",
           "jp": "うつろな目",
           "en": "vacant eyes",
@@ -4070,6 +8246,52 @@
             "expression",
             "emotion",
             "tired"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_veins",
+          "jp": "血管",
+          "en": "veins",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_very_sweaty",
+          "jp": "大量の汗",
+          "en": "very sweaty",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "sweat"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_wide_eyed",
+          "jp": "見開いた目",
+          "en": "wide-eyed",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral",
+            "eye"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_wince",
+          "jp": "顔をしかめる",
+          "en": "wince",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
           ],
           "source": ""
         },
@@ -4086,9 +8308,31 @@
           "source": "https://sorenuts.jp/1954/"
         },
         {
+          "id": "expression_worried",
+          "jp": "悩み",
+          "en": "worried",
+          "tags": [
+            "expression",
+            "emotion",
+            "confused"
+          ],
+          "source": ""
+        },
+        {
           "id": "expression_yaoi",
           "jp": "やおい",
           "en": "yaoi",
+          "tags": [
+            "expression",
+            "emotion",
+            "neutral"
+          ],
+          "source": ""
+        },
+        {
+          "id": "expression_yawning",
+          "jp": "あくびをする",
+          "en": "yawning",
           "tags": [
             "expression",
             "emotion",

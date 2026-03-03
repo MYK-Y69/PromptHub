@@ -1,0 +1,196 @@
+category	jp	en	tags	source
+expression	笑顔、スマイル	smile	expression,emotion,joy
+expression	笑う	laughing	expression,emotion,joy
+expression	ほほ笑み	light smile	expression,emotion,joy
+expression	指笑顔	fingersmile	expression,emotion,joy
+expression	にやり	grin	expression,emotion,smug
+expression	ハッピー	happy	expression,emotion,joy
+expression	どや顔	smug	expression,emotion,smug
+expression	嬉し涙	happy tears	expression,emotion,joy
+expression	邪悪な笑み	evil smile	expression,emotion,joy
+expression	邪悪な笑み	evil grin	expression,emotion,joy
+expression	病み	crazy	expression,emotion,neutral
+expression	悪意のある笑み	smirk	expression,emotion,neutral,smug
+expression	不気味な笑顔	crazy smile	expression,emotion,joy
+expression	不気味な笑顔	rape face	expression,emotion,neutral
+expression	影のかかった顔	shaded face	expression,emotion,neutral
+expression	怖い笑顔	false smile	expression,emotion,joy
+expression	影のかかった目	shading eyes	expression,emotion,neutral,eye
+expression	狂気の目	crazy eyes	expression,emotion,neutral,eye
+expression	異常に見開いた目	unusually open eyes	expression,emotion,neutral,eye
+expression	見開いた目	wide-eyed	expression,emotion,neutral,eye
+expression	じっと見つめる	staring	expression,emotion,neutral,eye
+expression	閉じた目	closed eyes	expression,emotion,neutral,eye
+expression	細められた目	narrowed eyes	expression,emotion,neutral,eye
+expression	半目	half-closed eyes	expression,emotion,tired,eye
+expression	目を細める	squinting	expression,emotion,neutral
+expression	ウィンク	one eye closed	expression,emotion,neutral,eye
+expression	まばたき	blinking	expression,emotion,neutral
+expression	目を回す	rolling eyes	expression,emotion,neutral,eye
+expression	上目遣い	upturned eyes	expression,emotion,neutral,eye
+expression	まぶたを引っ張る	eyelid pull	expression,emotion,neutral,eye
+expression	寄り目	cross-eyed	expression,emotion,neutral,eye
+expression	あっかんべー	akanbe	expression,emotion,neutral
+expression	虚ろ目	empty eyes	expression,emotion,neutral,eye
+expression	瞳孔なし	no pupils	expression,emotion,neutral,eye
+expression	白目	blank eyes	expression,emotion,neutral,eye
+expression	無表情な凝視	blank stare	expression,emotion,neutral,eye
+expression	空洞の目	hollow eyes	expression,emotion,neutral,eye
+expression	口を開ける	open mouth	expression,emotion,neutral,mouth
+expression	口を閉じる	closed mouth	expression,emotion,neutral,mouth
+expression	口を少しだけ開ける	parted lips	expression,emotion,neutral,mouth
+expression	横向きの口	sideways mouth	expression,emotion,neutral,mouth
+expression	ドットマウス	dot mouth	expression,emotion,neutral,mouth
+expression	唇を噛む	biting own lip	expression,emotion,neutral,mouth
+expression	四角い口	rectangular mouth	expression,emotion,neutral,mouth
+expression	口を引っ張る	mouth pull	expression,emotion,neutral,mouth
+expression	ひし形の口	diamond mouth	expression,emotion,neutral,mouth
+expression	頬を引っ張る	cheek pull	expression,emotion,neutral
+expression	唇をなめる	licking lips	expression,emotion,neutral,mouth
+expression	すぼめた唇	puckered lips	expression,emotion,neutral,mouth
+expression	くしゃみをする	sneezing	expression,emotion,neutral
+expression	唾を吐く	spitting	expression,emotion,neutral
+expression	無表情	expressionless	expression,emotion,neutral
+expression	恥じらい	embarrassed	expression,emotion,shy
+expression	いたずらっぽく	naughty face	expression,emotion,neutral
+expression	赤面、頬染め	blush	expression,emotion,shy
+expression	誘惑的な笑み	seductive smile	expression,emotion,joy
+expression	薄い赤面	light blush	expression,emotion,shy,blush_detail
+expression	顔全体の赤面	full-face blush	expression,emotion,shy,blush_detail
+expression	鼻の赤面	nose-blush	expression,emotion,shy,blush_detail
+expression	耳の赤面	ear blush	expression,emotion,shy,blush_detail
+expression	声を漏らす	moaning	expression,emotion,neutral
+expression	身体の赤面	body blush	expression,emotion,shy,blush_detail
+expression	息	breath	expression,emotion,neutral
+expression	赤面ステッカー	blush stickers	expression,emotion,shy,blush_detail
+expression	息が荒い	heavy breathing	expression,emotion,neutral
+expression	発情	in heat	expression,emotion,neutral
+expression	息を止める	holding breath	expression,emotion,neutral
+expression	興奮	aroused	expression,emotion,neutral
+expression	ため息	sigh	expression,emotion,neutral
+expression	余韻に浸る	afterglow	expression,emotion,neutral
+expression	舌	tongue	expression,emotion,neutral,mouth
+expression	熱い	hot	expression,emotion,neutral
+expression	舌を出す	tongue out	expression,emotion,neutral,mouth
+expression	湯気・蒸気	steam	expression,emotion,neutral
+expression	唾液	saliva	expression,emotion,neutral
+expression	頭から湯気	head steam	expression,emotion,neutral
+expression	唾液が流れた跡	saliva trail	expression,emotion,neutral
+expression	体から湯気	steaming body	expression,emotion,neutral
+expression	よだれ	drooling	expression,emotion,neutral
+expression	よだれ線	mouth drool	expression,emotion,neutral,mouth
+expression	汗	sweat	expression,emotion,neutral,sweat
+expression	大量の汗	very sweaty	expression,emotion,neutral,sweat
+expression	冷や汗	nervous sweating	expression,emotion,neutral,sweat
+expression	汗マーク	sweatdrop	expression,emotion,neutral,sweat
+expression	汗マーク（ぼのぼの汗）	flying sweatdrops	expression,emotion,neutral,sweat
+expression	笑顔強制	forced smile	expression,emotion,joy
+expression	叫ぶ（意図的）	shouting	expression,emotion,neutral
+expression	顔を手で覆う仕草	facepalm	expression,emotion,neutral
+expression	叫ぶ（本能的）	screaming	expression,emotion,neutral
+expression	トロールフェイス	troll face	expression,emotion,neutral
+expression	興奮	excited	expression,emotion,neutral
+expression	恋する乙女	lovestruck	expression,emotion,neutral
+expression	決意に満ちた	determined	expression,emotion,determined
+expression	考え中	thinking	expression,emotion,neutral
+expression	酔っ払い	drunk	expression,emotion,neutral
+expression	退屈	bored	expression,emotion,neutral
+expression	震える	trembling	expression,emotion,neutral
+expression	ピクピクする	twitching	expression,emotion,neutral
+expression	揺れる	shaking	expression,emotion,neutral
+expression	首を振る	shaking head	expression,emotion,neutral
+expression	もじもじ	fidgeting	expression,emotion,neutral
+expression	眠い	sleepy	expression,emotion,tired
+expression	疲れ切った	exhausted	expression,emotion,neutral
+expression	あくびをする	yawning	expression,emotion,neutral
+expression	目の下のクマ	bags under eyes	expression,emotion,neutral,eye
+expression	ふくれっ面	pout	expression,emotion,neutral
+expression	むっとした唇	pouty lips	expression,emotion,neutral,mouth
+expression	眉間にしわ	furrowed brow	expression,emotion,neutral,brow
+expression	嫌悪	disgust	expression,emotion,neutral
+expression	しかめっ面	frown	expression,emotion,neutral
+expression	不満	frustrated	expression,emotion,neutral
+expression	微かなしかめっ面	light frown	expression,emotion,neutral
+expression	顔をしかめる	wince	expression,emotion,neutral
+expression	怒り	angry	expression,emotion,anger
+expression	にらむ	glaring	expression,emotion,anger
+expression	怒りマーク	anger vein	expression,emotion,anger
+expression	いらだち	annoyed	expression,emotion,neutral
+expression	血管	veins	expression,emotion,neutral
+expression	にらみ	scowl	expression,emotion,neutral
+expression	顔をゆがめる	grimace	expression,emotion,neutral
+expression	驚く	surprised	expression,emotion,surprise
+expression	混乱	confused	expression,emotion,confused
+expression	慌てる	flustered	expression,emotion,neutral
+expression	パニック	panicking	expression,emotion,neutral
+expression	悩み	worried	expression,emotion,confused
+expression	孤独	lonely	expression,emotion,neutral
+expression	恐れ	scared	expression,emotion,neutral
+expression	緊張	nervous	expression,emotion,neutral
+expression	顔面蒼白	turn pale	expression,emotion,neutral
+expression	引きつった笑顔	nervous smile	expression,emotion,joy
+expression	負傷	pain	expression,emotion,neutral
+expression	グラスゴースマイル	glasgow smile	expression,emotion,joy
+expression	絶望	despair	expression,emotion,sadness
+expression	恐ろしい	horrified	expression,emotion,neutral
+expression	悲しい	sad	expression,emotion,sadness
+expression	目を開けたまま泣く	crying with eyes open	expression,emotion,sadness,eye
+expression	涙	tears	expression,emotion,sadness
+expression	落ち込み	gloom (expression)	expression,emotion,neutral
+expression	涙ぐむ	tearing up	expression,emotion,sadness
+expression	抑うつ	depressed	expression,emotion,neutral
+expression	泣く	crying	expression,emotion,sadness
+expression	悲しい笑顔	sad smile	expression,emotion,joy
+expression	号泣	sobbing	expression,emotion,sadness
+expression	不幸せな表情	unhappy	expression,emotion,neutral
+expression	歯	teeth	expression,emotion,neutral,mouth,teeth
+expression	八重歯	fang	expression,emotion,neutral,mouth,teeth
+expression	上の歯だけ	upper teeth only	expression,emotion,neutral,mouth,teeth
+expression	複数の犬歯	fangs	expression,emotion,neutral,mouth,teeth
+expression	下の歯だけ	lower teeth only	expression,emotion,neutral,mouth,teeth
+expression	肌色の牙	skin fang	expression,emotion,neutral,mouth,teeth
+expression	鋭い歯	sharp teeth	expression,emotion,neutral,mouth,teeth
+expression	肌色の牙（2本）	skin fangs	expression,emotion,neutral,mouth,teeth
+expression	丸い歯	round teeth	expression,emotion,neutral,mouth,teeth
+expression	牙を見せる	fang out	expression,emotion,neutral,mouth,teeth
+expression	出っ歯	buck teeth	expression,emotion,neutral,mouth,teeth
+expression	牙を見せる（2本）	fangs out	expression,emotion,neutral,mouth,teeth
+expression	歯ぎしり	clenched teeth	expression,emotion,determined,mouth,teeth
+expression	下顎の牙	tusks	expression,emotion,neutral
+expression	ドット鼻	dot nose	expression,emotion,neutral
+expression	鼻なし	no nose	expression,emotion,neutral
+expression	V字の眉	v-shaped eyebrows	expression,emotion,neutral,brow
+expression	太い眉	thick eyebrows	expression,emotion,neutral,brow
+expression	眉を上げる	raised eyebrows	expression,emotion,neutral,brow
+expression	短い眉	short eyebrows	expression,emotion,neutral,brow
+expression	そばかす	freckles	expression,emotion,neutral
+expression	ホクロ	mole	expression,emotion,neutral
+expression	目の下のホクロ	mole under eye	expression,emotion,neutral,eye
+expression	口の下のホクロ	mole under mouth	expression,emotion,neutral,mouth
+expression	化粧	makeup	expression,emotion,neutral
+expression	唇	lips	expression,emotion,neutral,mouth
+expression	アイシャドウ	eyeshadow	expression,emotion,neutral,eye
+expression	ぷっくりした唇	thick lips	expression,emotion,neutral,mouth
+expression	アイライナー	eyeliner	expression,emotion,neutral,eye
+expression	リップグロス	lipgloss	expression,emotion,neutral,mouth
+expression	アイライナー（赤）	red eyeliner	expression,emotion,neutral,eye
+expression	尖らせた唇	pouty lips	expression,emotion,neutral,mouth
+expression	アイライナー（黒）	black eyeliner	expression,emotion,neutral,eye
+expression	カラーリップ、口紅	lipstick	expression,emotion,neutral,mouth
+expression	まつげ	eyelashes	expression,emotion,neutral,eye
+expression	ピンクの唇	pink lips	expression,emotion,neutral,mouth
+expression	カラーまつ毛	colored eyelashes	expression,emotion,neutral,eye
+expression	赤い唇	red lips	expression,emotion,neutral,mouth
+expression	長いまつ毛	long eyelashes	expression,emotion,neutral,eye
+expression	紫の唇	purple lips	expression,emotion,neutral,mouth
+expression	太いまつ毛	thick eyelashes	expression,emotion,neutral,eye
+expression	黒い唇	black lips	expression,emotion,neutral,mouth
+expression	マスカラ	mascara	expression,emotion,neutral
+expression	青い唇	blue lips	expression,emotion,neutral,mouth
+expression	メイク崩れ	runny makeup	expression,emotion,neutral
+expression	緑の唇	green lips	expression,emotion,neutral,mouth
+expression	キスマーク	lipstick mark	expression,emotion,neutral,mouth
+expression	フェイスペイント	facepaint	expression,emotion,neutral
+expression	顔のマーク・デザイン	facial mark	expression,emotion,neutral
+expression	顔のタトゥー	facial tattoo	expression,emotion,neutral
+expression	ボディペイント	bodypaint	expression,emotion,neutral
