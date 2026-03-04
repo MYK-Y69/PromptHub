@@ -255,22 +255,24 @@ body {
 
 .subcat-jump-bar {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   overflow-x: auto;
+  white-space: nowrap;
   gap: 8px;
   padding: 8px 12px;
-  position: static; /* stickyを一旦OFF */
+  position: static;
   top: auto;
   z-index: auto;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   margin-bottom: 4px;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
 .subcat-jump-bar::-webkit-scrollbar { display: none; }
 
 .subcat-jump-btn {
-  flex-shrink: 0;
+  flex: 0 0 auto;
   padding: 3px 12px;
   border-radius: 99px;
   border: 1.5px solid transparent;
