@@ -244,9 +244,11 @@ body {
 /* ===== Sub-category jump bar (TAGS mode) ===== */
 #subcat-jump-container {
   flex-shrink: 0;
-  background: var(--surface);
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
-  margin: 8px 0;
+  position: sticky;
+  top: 64px;
+  z-index: 5;
 }
 #subcat-jump-container:empty { display: none; }
 
