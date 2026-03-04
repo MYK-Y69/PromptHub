@@ -31,7 +31,7 @@ body {
 /* ===== Layout ===== */
 #layout {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 220px 1fr 280px;
   height: 100vh;
 }
 
@@ -286,6 +286,97 @@ body {
   padding: 60px 20px;
   font-size: 0.95rem;
 }
+
+/* ===== Prompt Builder ===== */
+#builder {
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 14px;
+  overflow-y: auto;
+}
+
+#builder-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+#builder-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+#builder-clear {
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+#builder-clear:hover { color: var(--text); border-color: var(--text-muted); }
+
+#builder-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 36px;
+}
+
+.builder-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px 3px 11px;
+  border-radius: 99px;
+  background: var(--accent);
+  color: var(--chip-active-text);
+  font-size: 0.78rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+}
+.builder-chip:hover { background: var(--accent-hover); }
+.builder-chip-x { opacity: 0.7; font-size: 0.9em; }
+
+#builder-output {
+  flex: 1;
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--text);
+  word-break: break-all;
+  white-space: pre-wrap;
+  overflow-y: auto;
+}
+
+#builder-copy {
+  flex-shrink: 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: var(--sidebar-bg);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+#builder-copy:not(:disabled):hover { background: var(--accent-hover); }
+#builder-copy:disabled { opacity: 0.35; cursor: not-allowed; }
 
 /* ===== Toast ===== */
 #toast {

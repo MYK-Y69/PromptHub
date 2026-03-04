@@ -15,6 +15,7 @@ let activeTag = null;
 let searchQuery = "";
 let selectedIds = new Set();
 let groupOpenState = { neutral: false }; // accordion: false=closed, undefined/true=open
+let builderTags = [];        // Prompt Builder: ordered list of en tags
 
 // ---- DOM refs ----
 const categoryList  = document.getElementById("category-list");
@@ -25,6 +26,10 @@ const searchInput   = document.getElementById("search");
 const copySelected  = document.getElementById("copy-selected");
 const selectedCount = document.getElementById("selected-count");
 const toast         = document.getElementById("toast");
+const builderChips  = document.getElementById("builder-chips");
+const builderOutput = document.getElementById("builder-output");
+const builderCopy   = document.getElementById("builder-copy");
+const builderClear  = document.getElementById("builder-clear");
 
 // ---- Group definitions ----
 const EMOTION_GROUPS = [
@@ -163,6 +168,7 @@ async function loadMode(mode) {
 
   await loadMode("tags");
   bindEvents();
+  renderBuilder();
 })();
 
 // ---- Sidebar ----
@@ -671,6 +677,7 @@ function createCard(item) {
 
   card.addEventListener("click", e => {
     if (e.target.closest(".btn-copy")) return;
+    addToBuilder(safeText(item.en));
     toggleSelect(item.id);
     card.classList.toggle("selected", selectedIds.has(item.id));
   });
@@ -794,11 +801,48 @@ async function copyText(text) {
 }
 
 // ---- Events ----
+// ---- Prompt Builder ----
+function addToBuilder(tag) {
+  if (!tag || builderTags.includes(tag)) return;
+  builderTags.push(tag);
+  renderBuilder();
+}
+
+function removeFromBuilder(tag) {
+  builderTags = builderTags.filter(t => t !== tag);
+  renderBuilder();
+}
+
+function renderBuilder() {
+  builderChips.innerHTML = "";
+  builderTags.forEach(tag => {
+    const chip = document.createElement("span");
+    chip.className = "builder-chip";
+    chip.title = "クリックで削除";
+    chip.innerHTML = `${escHtml(tag)} <span class="builder-chip-x">×</span>`;
+    chip.addEventListener("click", () => removeFromBuilder(tag));
+    builderChips.appendChild(chip);
+  });
+  const output = builderTags.join(", ");
+  builderOutput.textContent = output || "(empty)";
+  builderCopy.disabled = builderTags.length === 0;
+}
+
+async function copyBuilderPrompt() {
+  const text = builderTags.join(", ");
+  if (!text) return;
+  await copyText(text);
+  showToast("Copied!");
+}
+
 function bindEvents() {
   searchInput.addEventListener("input", e => {
     searchQuery = e.target.value.trim();
     renderCards();
   });
+
+  builderCopy.addEventListener("click", copyBuilderPrompt);
+  builderClear.addEventListener("click", () => { builderTags = []; renderBuilder(); });
 
   copySelected.addEventListener("click", async () => {
     const items = filteredItems();
