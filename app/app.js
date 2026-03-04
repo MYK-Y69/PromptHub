@@ -26,6 +26,7 @@ const searchInput   = document.getElementById("search");
 const copySelected  = document.getElementById("copy-selected");
 const selectedCount = document.getElementById("selected-count");
 const toast         = document.getElementById("toast");
+const subcatJumpContainer = document.getElementById("subcat-jump-container");
 const builderChips  = document.getElementById("builder-chips");
 const builderOutput = document.getElementById("builder-output");
 const builderCopy   = document.getElementById("builder-copy");
@@ -712,7 +713,8 @@ function renderTagsSectionCards(items, searching, catKey) {
 
   if (sectionMap.size === 0) return;
 
-  // 目次バー（サブカテゴリジャンプボタン）
+  // 目次バー（サブカテゴリジャンプボタン）— #card-grid の外に描画
+  subcatJumpContainer.innerHTML = "";
   if (sectionMap.size > 1) {
     const bar = document.createElement("div");
     bar.className = "subcat-jump-bar";
@@ -728,7 +730,7 @@ function renderTagsSectionCards(items, searching, catKey) {
       });
       bar.appendChild(btn);
     }
-    cardGrid.appendChild(bar);
+    subcatJumpContainer.appendChild(bar);
   }
 
   for (const [key, sectionItems] of sectionMap) {
@@ -785,6 +787,9 @@ function renderCards() {
   const items = filteredItems();
   cardGrid.innerHTML = "";
   emptyMsg.hidden = items.length > 0;
+
+  // TAGSモード以外ではジャンプバーを消す
+  if (activeMode !== "tags") subcatJumpContainer.innerHTML = "";
 
   if (activeCatKey === "expression") {
     renderExpressionCards(items, searchQuery !== "");
