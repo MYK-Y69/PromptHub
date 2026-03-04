@@ -460,3 +460,14 @@ body {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+
+/* ===== DEBUG: jump bar visibility ===== */
+#subcat-jump-container {
+  outline: 3px solid red !important;
+  background: rgba(255,0,0,0.06) !important;
+}
+
+.subcat-jump-bar {
+  outline: 3px solid blue !important;
+  position: static !important;
+}
