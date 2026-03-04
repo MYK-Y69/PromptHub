@@ -256,10 +256,9 @@ body {
 
 .subcat-jump-bar {
   display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  min-width: max-content;
-  white-space: nowrap;
+  flex-wrap: wrap;
+  overflow: visible;
+  white-space: normal;
   gap: 8px;
   padding: 8px 12px;
   position: static;
@@ -268,8 +267,6 @@ body {
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   margin-bottom: 4px;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
 }
 .subcat-jump-bar::-webkit-scrollbar { display: none; }
 
