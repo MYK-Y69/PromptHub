@@ -250,6 +250,7 @@ body {
   top: 64px;
   z-index: 5;
   max-height: none;
+  overflow-x: auto;
 }
 #subcat-jump-container:empty { display: none; }
 
@@ -257,6 +258,7 @@ body {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
+  min-width: max-content;
   white-space: nowrap;
   gap: 8px;
   padding: 8px 12px;
