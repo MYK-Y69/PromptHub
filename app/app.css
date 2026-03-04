@@ -246,6 +246,7 @@ body {
   flex-shrink: 0;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
+  margin: 8px 0;
 }
 #subcat-jump-container:empty { display: none; }
 
@@ -255,10 +256,10 @@ body {
   overflow-x: auto;
   gap: 6px;
   padding: 8px 12px 10px;
-  position: sticky;
-  top: 0;
+  position: static; /* stickyを一旦OFF */
+  top: auto;
+  z-index: auto;
   background: var(--bg);
-  z-index: 10;
   border-bottom: 1px solid var(--border);
   margin-bottom: 4px;
   scrollbar-width: none;
