@@ -249,15 +249,16 @@ body {
   position: sticky;
   top: 64px;
   z-index: 5;
+  max-height: none;
 }
 #subcat-jump-container:empty { display: none; }
 
 .subcat-jump-bar {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   overflow-x: auto;
-  gap: 6px;
-  padding: 8px 12px 10px;
+  gap: 8px;
+  padding: 8px 12px;
   position: static; /* stickyを一旦OFF */
   top: auto;
   z-index: auto;
