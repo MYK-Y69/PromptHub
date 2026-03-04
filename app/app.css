@@ -250,7 +250,7 @@ body {
   gap: 6px;
   padding: 8px 0 10px;
   position: sticky;
-  top: 64px;
+  top: 64px !important;
   background: var(--bg);
   z-index: 10;
   border-bottom: 1px solid var(--border);
