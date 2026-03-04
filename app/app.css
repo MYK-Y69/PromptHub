@@ -167,6 +167,12 @@ body {
   align-content: start;
 }
 
+#card-grid::after {
+  content: "";
+  display: block;
+  height: 48px;
+}
+
 /* ===== Card ===== */
 .card {
   background: var(--surface);
