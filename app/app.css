@@ -241,6 +241,42 @@ body {
 }
 .btn-copy:hover { background: var(--chip-bg); }
 
+/* ===== Sub-category jump bar (TAGS mode) ===== */
+.subcat-jump-bar {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 6px;
+  padding: 8px 0 10px;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 10;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+  scrollbar-width: none;
+}
+.subcat-jump-bar::-webkit-scrollbar { display: none; }
+
+.subcat-jump-btn {
+  flex-shrink: 0;
+  padding: 3px 12px;
+  border-radius: 99px;
+  border: 1.5px solid transparent;
+  background: var(--chip-bg);
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  user-select: none;
+}
+.subcat-jump-btn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
 /* ===== Emotion agenda (Expression jump menu) ===== */
 .emotion-agenda {
   grid-column: 1 / -1;

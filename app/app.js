@@ -697,6 +697,10 @@ const EXPR_DEFAULT_CLOSED = new Set([
   "confusion", "anxiety", "trouble", "eye_empty", "face_feature", "mark", "nose",
 ]);
 
+function slugify(str) {
+  return str.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
 function renderTagsSectionCards(items, searching, catKey) {
   // tags[0] でグループ化（出現順を維持）
   const sectionMap = new Map();
@@ -708,8 +712,28 @@ function renderTagsSectionCards(items, searching, catKey) {
 
   if (sectionMap.size === 0) return;
 
+  // 目次バー（サブカテゴリジャンプボタン）
+  if (sectionMap.size > 1) {
+    const bar = document.createElement("div");
+    bar.className = "subcat-jump-bar";
+    for (const [key] of sectionMap) {
+      const anchorId = `subcat-${catKey}-${slugify(key)}`;
+      const btn = document.createElement("button");
+      btn.className = "subcat-jump-btn";
+      btn.textContent = key.toUpperCase();
+      btn.addEventListener("click", () => {
+        const target = document.getElementById(anchorId);
+        if (!target) return;
+        cardGrid.scrollTop = target.offsetTop - cardGrid.offsetTop;
+      });
+      bar.appendChild(btn);
+    }
+    cardGrid.appendChild(bar);
+  }
+
   for (const [key, sectionItems] of sectionMap) {
     const stateKey = `tags_${catKey}_${key}`;
+    const anchorId = `subcat-${catKey}-${slugify(key)}`;
 
     // 検索中は強制展開。それ以外は groupOpenState → カテゴリ別デフォルト
     let isOpen;
@@ -728,7 +752,7 @@ function renderTagsSectionCards(items, searching, catKey) {
     // セクション見出し（アコーディオンヘッダー）
     const header = document.createElement("div");
     header.className = "emotion-group-header";
-    header.id = `tags-sect-${catKey}-${key}`;
+    header.id = anchorId;
 
     const title = document.createElement("span");
     title.textContent = `${key.toUpperCase()}  (${sectionItems.length})`;
