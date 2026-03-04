@@ -2,9 +2,9 @@
 
 // ---- Config ----
 const COMPILED = {
-  safe: "../data/dictionary/compiled/safe.json",
-  full: "../data/dictionary/compiled/full.json",
-  tags: "../data/dictionary/compiled/tags.json",
+  safe: "../data/dictionary/compiled/safe.json?v=1",
+  full: "../data/dictionary/compiled/full.json?v=1",
+  tags: "../data/dictionary/compiled/tags.json?v=1",
 };
 let activeMode = "safe";
 
