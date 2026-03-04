@@ -769,6 +769,11 @@ function renderCards() {
   } else {
     items.forEach(item => cardGrid.appendChild(createCard(item)));
   }
+
+  // スクロール末尾の余白
+  const spacer = document.createElement("div");
+  spacer.className = "bottom-spacer";
+  cardGrid.appendChild(spacer);
 }
 
 // ---- Selection ----
