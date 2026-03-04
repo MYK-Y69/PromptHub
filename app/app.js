@@ -376,8 +376,8 @@ function selectCategory(key) {
 function renderTagChips() {
   tagChips.innerHTML = "";
 
-  // TAGSモード＋表情カテゴリはセクション見出しで代替するのでチップ不要
-  if (activeMode === "tags" && activeCatKey === "expr") return;
+  // TAGSモードはセクション見出しで代替するのでチップ不要
+  if (activeMode === "tags") return;
 
   const cat = currentCategory();
   if (!cat) return;
@@ -690,11 +690,14 @@ function createCard(item) {
   return card;
 }
 
-// ---- TAGSモード専用: 表情カテゴリをセクションキー別に折りたたみ表示 ----
-function renderTagsExpressionCards(items, searching) {
-  // デフォルト展開するセクション
-  const DEFAULT_OPEN = new Set(["expr_smile", "eye", "mouth"]);
+// ---- TAGSモード共通: tags[0] をサブカテゴリとして折りたたみ表示 ----
+// expr カテゴリのみ一部セクションをデフォルト折りたたみ、他は全展開
+const EXPR_DEFAULT_CLOSED = new Set([
+  "expr_evil", "mood_bad", "anger", "sad", "fear", "tired",
+  "confusion", "anxiety", "trouble", "eye_empty", "face_feature", "mark", "nose",
+]);
 
+function renderTagsSectionCards(items, searching, catKey) {
   // tags[0] でグループ化（出現順を維持）
   const sectionMap = new Map();
   for (const item of items) {
@@ -706,24 +709,29 @@ function renderTagsExpressionCards(items, searching) {
   if (sectionMap.size === 0) return;
 
   for (const [key, sectionItems] of sectionMap) {
-    const stateKey = "tags_expr_" + key;
+    const stateKey = `tags_${catKey}_${key}`;
 
-    // 検索中は強制展開。それ以外は groupOpenState → DEFAULT_OPEN の順で判定
+    // 検索中は強制展開。それ以外は groupOpenState → カテゴリ別デフォルト
     let isOpen;
     if (searching) {
       isOpen = true;
     } else {
       const stored = groupOpenState[stateKey];
-      isOpen = stored === undefined ? DEFAULT_OPEN.has(key) : stored !== false;
+      if (stored === undefined) {
+        // expr: 一部デフォルト折りたたみ、他カテゴリ: 全展開
+        isOpen = catKey === "expr" ? !EXPR_DEFAULT_CLOSED.has(key) : true;
+      } else {
+        isOpen = stored !== false;
+      }
     }
 
     // セクション見出し（アコーディオンヘッダー）
     const header = document.createElement("div");
     header.className = "emotion-group-header";
-    header.id = "tags-sect-" + key;
+    header.id = `tags-sect-${catKey}-${key}`;
 
     const title = document.createElement("span");
-    title.textContent = `${key}  (${sectionItems.length})`;
+    title.textContent = `${key.toUpperCase()}  (${sectionItems.length})`;
 
     const toggle = document.createElement("span");
     toggle.className = "emotion-group-toggle";
@@ -735,7 +743,8 @@ function renderTagsExpressionCards(items, searching) {
     header.addEventListener("click", () => {
       if (searching) return;
       const stored = groupOpenState[stateKey];
-      const cur = stored === undefined ? DEFAULT_OPEN.has(key) : stored !== false;
+      const def = catKey === "expr" ? !EXPR_DEFAULT_CLOSED.has(key) : true;
+      const cur = stored === undefined ? def : stored !== false;
       groupOpenState[stateKey] = !cur;
       renderCards();
     });
@@ -755,8 +764,8 @@ function renderCards() {
 
   if (activeCatKey === "expression") {
     renderExpressionCards(items, searchQuery !== "");
-  } else if (activeMode === "tags" && activeCatKey === "expr") {
-    renderTagsExpressionCards(items, searchQuery !== "");
+  } else if (activeMode === "tags") {
+    renderTagsSectionCards(items, searchQuery !== "", activeCatKey);
   } else {
     items.forEach(item => cardGrid.appendChild(createCard(item)));
   }
