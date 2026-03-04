@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-03-03T18:27:15",
+  "generated_at": "2026-03-04T15:21:30",
   "source_tsv": "data/inbox/2026-03-03_tags_fixed.tsv",
-  "count_rows": 711,
+  "count_rows": 735,
   "count_sections": 75,
   "sections": [
     {
@@ -345,12 +345,6 @@
           "notes": ""
         },
         {
-          "jp_term": "傾いた角度からの撮影",
-          "definition": "斜め",
-          "danbooru_tag": "dutch angle",
-          "notes": ""
-        },
-        {
           "jp_term": "下を見る",
           "definition": "下を見る",
           "danbooru_tag": "looking down",
@@ -401,6 +395,210 @@
       ]
     },
     {
+      "key": "camera",
+      "label": "camera",
+      "items": [
+        {
+          "jp_term": "傾いた角度からの撮影",
+          "definition": "斜め",
+          "danbooru_tag": "dutch angle",
+          "notes": ""
+        },
+        {
+          "jp_term": "被写界深度/ボケ",
+          "definition": "前景/背景ぼかし等",
+          "danbooru_tag": "depth of field",
+          "notes": ""
+        },
+        {
+          "jp_term": "ボケ",
+          "definition": "bokeh",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "モーションブラー",
+          "definition": "motion blur",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "残像",
+          "definition": "afterimage",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "レンズフレア",
+          "definition": "lens flare",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "色収差",
+          "definition": "chromatic aberration",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "フィルムグレイン",
+          "definition": "film grain",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "動線",
+          "definition": "motion lines",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "動線/誘導線",
+          "definition": "leading lines",
+          "danbooru_tag": "leading lines",
+          "notes": ""
+        },
+        {
+          "jp_term": "構図",
+          "definition": "composition",
+          "danbooru_tag": "composition",
+          "notes": ""
+        },
+        {
+          "jp_term": "フレーミング",
+          "definition": "framing",
+          "danbooru_tag": "framing",
+          "notes": ""
+        },
+        {
+          "jp_term": "三分割法",
+          "definition": "rule of thirds",
+          "danbooru_tag": "rule of thirds",
+          "notes": ""
+        },
+        {
+          "jp_term": "左右対称構図",
+          "definition": "symmetry",
+          "danbooru_tag": "symmetry",
+          "notes": ""
+        },
+        {
+          "jp_term": "中央構図",
+          "definition": "centered composition",
+          "danbooru_tag": "centered composition",
+          "notes": ""
+        },
+        {
+          "jp_term": "ハイアングル",
+          "definition": "high angle shot",
+          "danbooru_tag": "high angle",
+          "notes": ""
+        },
+        {
+          "jp_term": "ローアングル",
+          "definition": "low angle shot",
+          "danbooru_tag": "low angle",
+          "notes": ""
+        },
+        {
+          "jp_term": "俯瞰/鳥瞰",
+          "definition": "bird's-eye view",
+          "danbooru_tag": "bird's-eye view",
+          "notes": ""
+        },
+        {
+          "jp_term": "虫の目視点",
+          "definition": "worm's-eye view",
+          "danbooru_tag": "worm's-eye view",
+          "notes": ""
+        },
+        {
+          "jp_term": "広角レンズ",
+          "definition": "wide-angle",
+          "danbooru_tag": "wide-angle lens",
+          "notes": ""
+        },
+        {
+          "jp_term": "望遠レンズ",
+          "definition": "telephoto",
+          "danbooru_tag": "telephoto lens",
+          "notes": ""
+        },
+        {
+          "jp_term": "魚眼レンズ",
+          "definition": "fisheye optics",
+          "danbooru_tag": "fisheye lens",
+          "notes": ""
+        },
+        {
+          "jp_term": "マクロレンズ",
+          "definition": "macro photography",
+          "danbooru_tag": "macro lens",
+          "notes": ""
+        },
+        {
+          "jp_term": "チルトシフト",
+          "definition": "miniature effect",
+          "danbooru_tag": "tilt-shift",
+          "notes": ""
+        },
+        {
+          "jp_term": "浅い被写界深度",
+          "definition": "shallow dof",
+          "danbooru_tag": "shallow depth of field",
+          "notes": ""
+        },
+        {
+          "jp_term": "深い被写界深度",
+          "definition": "deep dof",
+          "danbooru_tag": "deep depth of field",
+          "notes": ""
+        },
+        {
+          "jp_term": "ソフトフォーカス",
+          "definition": "soft out-of-focus look",
+          "danbooru_tag": "soft focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "シャープフォーカス",
+          "definition": "crisp detail",
+          "danbooru_tag": "sharp focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "高解像度",
+          "definition": "high-res output",
+          "danbooru_tag": "high resolution",
+          "notes": ""
+        },
+        {
+          "jp_term": "4K画質",
+          "definition": "4k resolution",
+          "danbooru_tag": "4k",
+          "notes": ""
+        },
+        {
+          "jp_term": "8K画質",
+          "definition": "8k resolution",
+          "danbooru_tag": "8k",
+          "notes": ""
+        },
+        {
+          "jp_term": "",
+          "definition": "",
+          "danbooru_tag": "dutch_angle",
+          "notes": "auto:danbooru"
+        },
+        {
+          "jp_term": "解像度",
+          "definition": "resolution",
+          "danbooru_tag": "resolution",
+          "notes": ""
+        }
+      ]
+    },
+    {
       "key": "pov",
       "label": "pov",
       "items": [
@@ -443,8 +641,8 @@
       ]
     },
     {
-      "key": "tech",
-      "label": "tech",
+      "key": "clothes",
+      "label": "clothes",
       "items": [
         {
           "jp_term": "絶対領域",
@@ -456,6 +654,30 @@
           "jp_term": "太もも上部の隙間",
           "definition": "絶対空域",
           "danbooru_tag": "thigh gap",
+          "notes": ""
+        },
+        {
+          "jp_term": "服が下ろされた/下ろす",
+          "definition": "clothes pull",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "たくし上げ",
+          "definition": "clothes lift",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "裾を引っ張る",
+          "definition": "clothes tug",
+          "danbooru_tag": "",
+          "notes": ""
+        },
+        {
+          "jp_term": "股布ずらし",
+          "definition": "clothing aside",
+          "danbooru_tag": "",
           "notes": ""
         }
       ]
@@ -777,21 +999,9 @@
           "notes": ""
         },
         {
-          "jp_term": "被写界深度/ボケ",
-          "definition": "前景/背景ぼかし等",
-          "danbooru_tag": "depth of field",
-          "notes": ""
-        },
-        {
           "jp_term": "ぼやけた",
           "definition": "ぼやけ",
           "danbooru_tag": "blurry",
-          "notes": ""
-        },
-        {
-          "jp_term": "ボケ",
-          "definition": "bokeh",
-          "danbooru_tag": "",
           "notes": ""
         }
       ]
@@ -831,24 +1041,6 @@
       "label": "effect",
       "items": [
         {
-          "jp_term": "モーションブラー",
-          "definition": "motion blur",
-          "danbooru_tag": "",
-          "notes": ""
-        },
-        {
-          "jp_term": "残像",
-          "definition": "afterimage",
-          "danbooru_tag": "",
-          "notes": ""
-        },
-        {
-          "jp_term": "レンズフレア",
-          "definition": "lens flare",
-          "danbooru_tag": "",
-          "notes": ""
-        },
-        {
           "jp_term": "光の粒子",
           "definition": "light particles",
           "danbooru_tag": "",
@@ -873,18 +1065,6 @@
           "notes": ""
         },
         {
-          "jp_term": "色収差",
-          "definition": "chromatic aberration",
-          "danbooru_tag": "",
-          "notes": ""
-        },
-        {
-          "jp_term": "フィルムグレイン",
-          "definition": "film grain",
-          "danbooru_tag": "",
-          "notes": ""
-        },
-        {
           "jp_term": "ドロップシャドウ",
           "definition": "drop shadow",
           "danbooru_tag": "",
@@ -893,12 +1073,6 @@
         {
           "jp_term": "放射状の光線",
           "definition": "diffraction spikes",
-          "danbooru_tag": "",
-          "notes": ""
-        },
-        {
-          "jp_term": "動線",
-          "definition": "motion lines",
           "danbooru_tag": "",
           "notes": ""
         },
@@ -4343,36 +4517,6 @@
         {
           "jp_term": "顔面着地",
           "definition": "faceplant",
-          "danbooru_tag": "",
-          "notes": ""
-        }
-      ]
-    },
-    {
-      "key": "clothes",
-      "label": "clothes",
-      "items": [
-        {
-          "jp_term": "服が下ろされた/下ろす",
-          "definition": "clothes pull",
-          "danbooru_tag": "",
-          "notes": ""
-        },
-        {
-          "jp_term": "たくし上げ",
-          "definition": "clothes lift",
-          "danbooru_tag": "",
-          "notes": ""
-        },
-        {
-          "jp_term": "裾を引っ張る",
-          "definition": "clothes tug",
-          "danbooru_tag": "",
-          "notes": ""
-        },
-        {
-          "jp_term": "股布ずらし",
-          "definition": "clothing aside",
           "danbooru_tag": "",
           "notes": ""
         }
