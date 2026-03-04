@@ -185,6 +185,7 @@ function renderSidebar() {
     // Map small section keys -> major key
     const MAP = {
       // camera work
+      camera: "camera",
       camera_comp: "camera",
       angle: "camera",
       pov: "camera",
@@ -213,13 +214,94 @@ function renderSidebar() {
       effect: "style",
       quality: "style",
       tech: "style",
-      tech2: "style",
+      tech2: "camera",
       qc: "style",
       meta_text: "style",
       manga_panel: "style",
       manga_read: "style",
       cover: "style",
-    };
+
+      // ---- expanded section keys (from tags.json) ----
+
+      // actions / motions
+      action: "act",
+      prep: "act",
+      hold: "act",
+      rest: "act",
+      sit: "act",
+      stand: "act",
+      kneel: "act",
+      shake: "act",
+      point: "act",
+      support: "act",
+      touch_env: "act",
+      touch_self: "act",
+      legmove: "act",
+
+      // poses
+      pose_hand: "pose",
+      pose_arm: "pose",
+      misc_pose: "pose",
+      other_pose: "pose",
+
+      // expressions / face parts / emotions
+      expr_misc: "expr",
+      expr_evil: "expr",
+      expr_smile: "expr",
+      mood_bad: "expr",
+      anger: "expr",
+      sad: "expr",
+      fear: "expr",
+      tired: "expr",
+      confusion: "expr",
+      anxiety: "expr",
+      trouble: "expr",
+      eye: "expr",
+      eye_empty: "expr",
+      mouth: "expr",
+      teeth: "expr",
+      brow: "expr",
+      nose: "expr",
+      lip: "expr",
+      face_feature: "expr",
+      mark: "expr",
+
+      // composition / camera-ish
+      focus: "comp",
+      count: "comp",
+      layout: "comp",
+      relationship: "comp",
+      misc_people: "comp",
+      orientation: "comp",
+      frame: "camera",
+
+      // style / rendering / text / meta
+      style: "style",
+      style2: "style",
+      quality: "style",
+      quality2: "style",
+      paint: "style",
+      makeup: "style",
+      clothes: "cloth",
+      camera: "camera",
+      artifact: "style",
+      tech: "style",
+      tech2: "camera",
+      qc: "style",
+      effect: "style",
+      effect2: "style",
+      meta_text: "style",
+      manga_panel: "style",
+      manga_read: "style",
+      cover: "style",
+      doc: "style",
+      ui: "style",
+      revision: "style",
+      shape: "style",
+      dup: "style",
+      uncat: "style",
+      sexpos: "style",
+  };
 
     // Use ALL(tags) as source pool
     const allCat = allCategories.find(c => c.key === "__all__") || { items: [] };
@@ -288,24 +370,66 @@ function selectCategory(key) {
 function renderTagChips() {
   tagChips.innerHTML = "";
 
+  // TAGSモード＋表情カテゴリはセクション見出しで代替するのでチップ不要
+  if (activeMode === "tags" && activeCatKey === "expr") return;
+
   const cat = currentCategory();
   if (!cat) return;
 
+  // ---- settings ----
+  const HIDE_SINGLETONS = true;   // hide tags with count=1 (noise)
+  const DEFAULT_LIMIT   = 20;     // show top N by default
+  const storageKey = `tagchips_expanded_${activeMode}_${activeCatKey}`;
+  const expanded = localStorage.getItem(storageKey) === "1";
+
+  // count tags
   const tagCounts = {};
   cat.items.forEach(item => {
     safeTags(item).forEach(t => { tagCounts[t] = (tagCounts[t] || 0) + 1; });
   });
 
-  const tags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+  let tags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+  if (HIDE_SINGLETONS) tags = tags.filter(([, c]) => c > 1);
+
   if (tags.length === 0) return;
 
-  tags.forEach(([tag, count]) => {
+  const total = tags.length;
+  const shown = expanded ? tags : tags.slice(0, DEFAULT_LIMIT);
+
+  // render chips
+  shown.forEach(([tag, count]) => {
     const el = document.createElement("span");
     el.className = "chip" + (tag === activeTag ? " active" : "");
     el.textContent = `${tag} (${count})`;
     el.addEventListener("click", () => toggleTag(tag));
     tagChips.appendChild(el);
   });
+
+  // more/less toggle (only if there are hidden chips)
+  if (total > shown.length) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "chip-more";
+    btn.textContent = expanded ? "閉じる" : `もっと見る (+${total - shown.length})`;
+    btn.style.cssText = "margin-left:8px;padding:4px 10px;border:1px solid #d1d5db;border-radius:999px;background:#fff;color:#111;cursor:pointer;font-size:12px;";
+    btn.addEventListener("click", () => {
+      localStorage.setItem(storageKey, expanded ? "0" : "1");
+      renderTagChips();
+    });
+    tagChips.appendChild(btn);
+  } else if (expanded && total > DEFAULT_LIMIT) {
+    // expanded but nothing hidden due to filters → still allow collapsing
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "chip-more";
+    btn.textContent = "閉じる";
+    btn.style.cssText = "margin-left:8px;padding:4px 10px;border:1px solid #d1d5db;border-radius:999px;background:#fff;color:#111;cursor:pointer;font-size:12px;";
+    btn.addEventListener("click", () => {
+      localStorage.setItem(storageKey, "0");
+      renderTagChips();
+    });
+    tagChips.appendChild(btn);
+  }
 }
 
 function toggleTag(tag) {
@@ -358,6 +482,15 @@ function groupAllExpression(items) {
 
   for (const item of items) {
     const tags = safeTags(item);
+
+    // 0. tags.json 形式: tags[0] が直接 emotion key（またはエイリアス）の場合（"emotion" タグなし）
+    const SECTION_EMOTION_MAP = { sad: "sadness", confusion: "confused", fear: "other" };
+    const sectionKey = tags[0];
+    const emotionKey = SECTION_EMOTION_MAP[sectionKey] ?? sectionKey;
+    if (emotionBuckets.hasOwnProperty(emotionKey)) {
+      emotionBuckets[emotionKey].push(item);
+      continue;
+    }
 
     // 1. reaction タグあり → Reaction セクション
     if (tags.includes("reaction")) {
@@ -550,6 +683,64 @@ function createCard(item) {
   return card;
 }
 
+// ---- TAGSモード専用: 表情カテゴリをセクションキー別に折りたたみ表示 ----
+function renderTagsExpressionCards(items, searching) {
+  // デフォルト展開するセクション
+  const DEFAULT_OPEN = new Set(["expr_smile", "eye", "mouth"]);
+
+  // tags[0] でグループ化（出現順を維持）
+  const sectionMap = new Map();
+  for (const item of items) {
+    const key = (safeTags(item)[0]) || "other";
+    if (!sectionMap.has(key)) sectionMap.set(key, []);
+    sectionMap.get(key).push(item);
+  }
+
+  if (sectionMap.size === 0) return;
+
+  for (const [key, sectionItems] of sectionMap) {
+    const stateKey = "tags_expr_" + key;
+
+    // 検索中は強制展開。それ以外は groupOpenState → DEFAULT_OPEN の順で判定
+    let isOpen;
+    if (searching) {
+      isOpen = true;
+    } else {
+      const stored = groupOpenState[stateKey];
+      isOpen = stored === undefined ? DEFAULT_OPEN.has(key) : stored !== false;
+    }
+
+    // セクション見出し（アコーディオンヘッダー）
+    const header = document.createElement("div");
+    header.className = "emotion-group-header";
+    header.id = "tags-sect-" + key;
+
+    const title = document.createElement("span");
+    title.textContent = `${key}  (${sectionItems.length})`;
+
+    const toggle = document.createElement("span");
+    toggle.className = "emotion-group-toggle";
+    toggle.textContent = isOpen ? "▼" : "▶";
+
+    header.appendChild(title);
+    header.appendChild(toggle);
+
+    header.addEventListener("click", () => {
+      if (searching) return;
+      const stored = groupOpenState[stateKey];
+      const cur = stored === undefined ? DEFAULT_OPEN.has(key) : stored !== false;
+      groupOpenState[stateKey] = !cur;
+      renderCards();
+    });
+
+    cardGrid.appendChild(header);
+
+    if (isOpen) {
+      sectionItems.forEach(item => cardGrid.appendChild(createCard(item)));
+    }
+  }
+}
+
 function renderCards() {
   const items = filteredItems();
   cardGrid.innerHTML = "";
@@ -557,6 +748,8 @@ function renderCards() {
 
   if (activeCatKey === "expression") {
     renderExpressionCards(items, searchQuery !== "");
+  } else if (activeMode === "tags" && activeCatKey === "expr") {
+    renderTagsExpressionCards(items, searchQuery !== "");
   } else {
     items.forEach(item => cardGrid.appendChild(createCard(item)));
   }
@@ -609,9 +802,20 @@ function bindEvents() {
 
   copySelected.addEventListener("click", async () => {
     const items = filteredItems();
+
     const texts = items
       .filter(i => selectedIds.has(i.id))
-      .map(i => i.en);
+      .map(i => {
+        // EN-only: prefer danbooru_tag (tags=[section, danbooru_tag]) then i.en
+        const ts = safeTags(i);
+        const dan = ts.length >= 2 ? ts[1] : "";
+        if (dan) return dan;
+        if (i.en) return String(i.en);
+        return ""; // skip JP-only
+      })
+      .map(t => t.trim())
+      .filter(Boolean);
+
     if (texts.length === 0) return;
     await copyText(texts.join(", "));
   });
