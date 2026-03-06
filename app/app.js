@@ -219,67 +219,15 @@ async function loadMode(mode) {
 function renderSidebar() {
   categoryList.innerHTML = "";
 
-  // TAGS mode: show major categories (not over-fragmented sections)
+  // TAGS mode: single "センシティブ" entry pointing to __all__
   if (activeMode === "tags") {
-    const MAJORS = [
-      { key: "camera", label: "カメラワーク" },
-      { key: "pose",   label: "ポーズ" },
-      { key: "expr",   label: "表情" },
-      { key: "act",    label: "動作" },
-      { key: "cloth",  label: "服装" },
-      { key: "comp",   label: "構図" },
-      { key: "bg",     label: "背景" },
-      { key: "style",  label: "スタイル" },
-    ];
-
-    // section → major は SECTION_TO_MAJOR（トップレベル定数）を使用
-
-    // Use ALL(tags) as source pool
     const allCat = allCategories.find(c => c.key === "__all__") || { items: [] };
-
-    // Build pseudo categories for majors
-    const pseudoCats = MAJORS.map(m => ({ key: m.key, label: m.label, items: [] }));
-
-    for (const it of (allCat.items || [])) {
-      const ts = Array.isArray(it.tags) ? it.tags : [];
-      let major = null;
-      for (const t of ts) {
-        if (SECTION_TO_MAJOR[t]) { major = SECTION_TO_MAJOR[t]; break; }
-      }
-      if (!major) major = "style"; // safe fallback
-      const cat = pseudoCats.find(c => c.key === major);
-      if (cat) cat.items.push(it);
-    }
-
-    // Render "すべて" (__all__) as first sidebar item
-    {
-      const el = document.createElement("div");
-      el.className = "cat-item";
-      el.dataset.key = "__all__";
-      el.innerHTML = `<span>すべて</span><span class="cat-count">${allCat.items.length}</span>`;
-      el.addEventListener("click", () => {
-        allCategories = [{ key: "__all__", label: "ALL (TAGS)", items: allCat.items }, ...pseudoCats];
-        selectCategory("__all__");
-      });
-      categoryList.appendChild(el);
-    }
-
-    // Render majors with counts
-    pseudoCats.forEach(cat => {
-      const el = document.createElement("div");
-      el.className = "cat-item";
-      el.dataset.key = cat.key;
-      el.innerHTML = `<span>${cat.label}</span><span class="cat-count">${cat.items.length}</span>`;
-      el.addEventListener("click", () => {
-        // swap allCategories to majors view without destroying original:
-        // store majors in a hidden field on window
-        window.__tags_major_categories = pseudoCats;
-        allCategories = [{ key: "__all__", label: `ALL (TAGS)`, items: allCat.items }, ...pseudoCats];
-        selectCategory(cat.key);
-      });
-      categoryList.appendChild(el);
-    });
-
+    const el = document.createElement("div");
+    el.className = "cat-item active";
+    el.dataset.key = "__all__";
+    el.innerHTML = `<span>センシティブ</span><span class="cat-count">${allCat.items.length}</span>`;
+    el.addEventListener("click", () => selectCategory("__all__"));
+    categoryList.appendChild(el);
     return;
   }
 
