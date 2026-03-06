@@ -359,6 +359,7 @@ function renderSidebar() {
 }
 
 function selectCategory(key) {
+  subcatJumpExpanded = false;  // カテゴリ変更時はジャンプバーを折りたたみに戻す
   activeCatKey = key;
   activeTag = null;
   searchQuery = "";
