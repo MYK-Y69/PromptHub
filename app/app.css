@@ -310,6 +310,16 @@ body {
   color: var(--text);
 }
 
+/* ===== Major-category color coding for subcat jump buttons ===== */
+.subcat-jump-btn[data-major="camera"] { background: rgba(137,180,250,0.18); color: #89b4fa; }
+.subcat-jump-btn[data-major="pose"]   { background: rgba(166,227,161,0.18); color: #a6e3a1; }
+.subcat-jump-btn[data-major="expr"]   { background: rgba(249,226,175,0.18); color: #f9e2af; }
+.subcat-jump-btn[data-major="act"]    { background: rgba(250,179,135,0.18); color: #fab387; }
+.subcat-jump-btn[data-major="cloth"]  { background: rgba(203,166,247,0.18); color: #cba6f7; }
+.subcat-jump-btn[data-major="comp"]   { background: rgba(148,226,213,0.18); color: #94e2d5; }
+.subcat-jump-btn[data-major="bg"]     { background: rgba(116,199,236,0.18); color: #74c7ec; }
+.subcat-jump-btn[data-major="style"]  { background: rgba(108,112,134,0.18); color: #9399b2; }
+
 .subcat-jump-toggle {
   flex-shrink: 0;
   margin-left: auto;

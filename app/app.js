@@ -18,6 +18,48 @@ let groupOpenState = { neutral: false }; // accordion: false=closed, undefined/t
 let builderTags = [];        // Prompt Builder: ordered list of en tags
 let subcatJumpExpanded = false; // subcat jump bar: false=collapsed(1行), true=expanded(wrap)
 
+// ---- Section → major mapping (used in sidebar grouping & jump-btn color coding) ----
+const SECTION_TO_MAJOR = {
+  // camera work
+  camera: "camera", camera_comp: "camera", angle: "camera", pov: "camera",
+  gaze: "camera", frame: "camera", tech2: "camera",
+
+  // composition
+  count: "comp", relationship: "comp", misc_people: "comp", layout: "comp",
+  focus: "comp", orientation: "comp",
+
+  // expressions / face parts / emotions
+  expression: "expr", emotion: "expr", reaction: "expr",
+  expr_misc: "expr", expr_evil: "expr", expr_smile: "expr",
+  mood_bad: "expr", anger: "expr", sad: "expr", fear: "expr", tired: "expr",
+  confusion: "expr", anxiety: "expr", trouble: "expr",
+  eye: "expr", eye_empty: "expr", mouth: "expr", teeth: "expr", brow: "expr",
+  nose: "expr", lip: "expr", face_feature: "expr", mark: "expr",
+
+  // pose
+  pose: "pose", pose_hand: "pose", pose_arm: "pose", misc_pose: "pose", other_pose: "pose",
+  legs: "pose", feet: "pose", torso: "pose",
+
+  // actions / motions
+  action: "act", prep: "act", hold: "act", rest: "act", sit: "act", stand: "act",
+  kneel: "act", shake: "act", point: "act", support: "act",
+  touch_env: "act", touch_self: "act", legmove: "act",
+
+  // clothing / body
+  clothing: "cloth", clothes: "cloth",
+
+  // background
+  background: "bg",
+
+  // style / rendering / text / meta
+  style: "style", style2: "style", quality: "style", quality2: "style",
+  paint: "style", makeup: "style", artifact: "style", tech: "style",
+  qc: "style", effect: "style", effect2: "style", meta_text: "style",
+  manga_panel: "style", manga_read: "style", cover: "style", doc: "style",
+  ui: "style", revision: "style", shape: "style", dup: "style",
+  uncat: "style", sexpos: "style",
+};
+
 // ---- DOM refs ----
 const categoryList  = document.getElementById("category-list");
 const tagChips      = document.getElementById("tag-chips");
@@ -190,126 +232,7 @@ function renderSidebar() {
       { key: "style",  label: "スタイル" },
     ];
 
-    // Map small section keys -> major key
-    const MAP = {
-      // camera work
-      camera: "camera",
-      camera_comp: "camera",
-      angle: "camera",
-      pov: "camera",
-      gaze: "camera",
-      frame: "camera",
-
-      // composition
-      count: "comp",
-      relationship: "comp",
-      misc_people: "comp",
-      layout: "comp",
-
-      // expressions (reserved)
-      expression: "expr",
-      emotion: "expr",
-      reaction: "expr",
-
-      // pose/action/clothing/background (reserved)
-      pose: "pose",
-      action: "act",
-      clothing: "cloth",
-      background: "bg",
-
-      // style (your rule: effect=style, keep style as style)
-      style: "style",
-      effect: "style",
-      quality: "style",
-      tech: "style",
-      tech2: "camera",
-      qc: "style",
-      meta_text: "style",
-      manga_panel: "style",
-      manga_read: "style",
-      cover: "style",
-
-      // ---- expanded section keys (from tags.json) ----
-
-      // actions / motions
-      action: "act",
-      prep: "act",
-      hold: "act",
-      rest: "act",
-      sit: "act",
-      stand: "act",
-      kneel: "act",
-      shake: "act",
-      point: "act",
-      support: "act",
-      touch_env: "act",
-      touch_self: "act",
-      legmove: "act",
-
-      // poses
-      pose_hand: "pose",
-      pose_arm: "pose",
-      misc_pose: "pose",
-      other_pose: "pose",
-
-      // expressions / face parts / emotions
-      expr_misc: "expr",
-      expr_evil: "expr",
-      expr_smile: "expr",
-      mood_bad: "expr",
-      anger: "expr",
-      sad: "expr",
-      fear: "expr",
-      tired: "expr",
-      confusion: "expr",
-      anxiety: "expr",
-      trouble: "expr",
-      eye: "expr",
-      eye_empty: "expr",
-      mouth: "expr",
-      teeth: "expr",
-      brow: "expr",
-      nose: "expr",
-      lip: "expr",
-      face_feature: "expr",
-      mark: "expr",
-
-      // composition / camera-ish
-      focus: "comp",
-      count: "comp",
-      layout: "comp",
-      relationship: "comp",
-      misc_people: "comp",
-      orientation: "comp",
-      frame: "camera",
-
-      // style / rendering / text / meta
-      style: "style",
-      style2: "style",
-      quality: "style",
-      quality2: "style",
-      paint: "style",
-      makeup: "style",
-      clothes: "cloth",
-      camera: "camera",
-      artifact: "style",
-      tech: "style",
-      tech2: "camera",
-      qc: "style",
-      effect: "style",
-      effect2: "style",
-      meta_text: "style",
-      manga_panel: "style",
-      manga_read: "style",
-      cover: "style",
-      doc: "style",
-      ui: "style",
-      revision: "style",
-      shape: "style",
-      dup: "style",
-      uncat: "style",
-      sexpos: "style",
-  };
+    // section → major は SECTION_TO_MAJOR（トップレベル定数）を使用
 
     // Use ALL(tags) as source pool
     const allCat = allCategories.find(c => c.key === "__all__") || { items: [] };
@@ -321,7 +244,7 @@ function renderSidebar() {
       const ts = Array.isArray(it.tags) ? it.tags : [];
       let major = null;
       for (const t of ts) {
-        if (MAP[t]) { major = MAP[t]; break; }
+        if (SECTION_TO_MAJOR[t]) { major = SECTION_TO_MAJOR[t]; break; }
       }
       if (!major) major = "style"; // safe fallback
       const cat = pseudoCats.find(c => c.key === major);
@@ -743,6 +666,7 @@ function renderTagsSectionCards(items, searching, catKey) {
       const btn = document.createElement("button");
       btn.className = "subcat-jump-btn";
       btn.textContent = key.toUpperCase();
+      btn.dataset.major = SECTION_TO_MAJOR[key] || "style";
       btn.addEventListener("click", () => {
         const target = document.getElementById(anchorId);
         if (!target) return;
