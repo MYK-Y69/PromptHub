@@ -751,15 +751,20 @@ function renderTagsSectionCards(items, searching, catKey) {
 
     subcatJumpContainer.appendChild(bar);
 
-    // 溢れ判定：DOM 挿入後に chips の scrollWidth と clientWidth を比較
-    // collapsed のときだけ判定（expanded 中は常に「折りたたむ」を表示）
+    // 溢れ判定：DOM 挿入後に判定（toggle を隠した状態で chips 幅を測る）
     requestAnimationFrame(() => {
       if (subcatJumpExpanded) {
-        toggleBtn.style.display = "";   // 展開中は常時表示
-      } else {
+        toggleBtn.style.display = "";
+        toggleBtn.textContent = "折りたたむ";
+        return;
+      }
+      // collapsed: toggle を一旦隠して chips の実幅を正確に測る
+      toggleBtn.style.display = "none";
+      requestAnimationFrame(() => {
         const overflowed = chips.scrollWidth > chips.clientWidth;
         toggleBtn.style.display = overflowed ? "" : "none";
-      }
+        toggleBtn.textContent = "もっと見る";
+      });
     });
   }
 
