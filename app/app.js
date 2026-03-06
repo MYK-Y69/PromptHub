@@ -720,6 +720,10 @@ function renderTagsSectionCards(items, searching, catKey) {
     const bar = document.createElement("div");
     bar.className = "subcat-jump-bar " + (subcatJumpExpanded ? "is-expanded" : "is-collapsed");
 
+    // チップ群をラップするコンテナ（overflow はここに適用）
+    const chips = document.createElement("div");
+    chips.className = "subcat-jump-chips";
+
     for (const [key] of sectionMap) {
       const anchorId = `subcat-${catKey}-${slugify(key)}`;
       const btn = document.createElement("button");
@@ -730,12 +734,14 @@ function renderTagsSectionCards(items, searching, catKey) {
         if (!target) return;
         cardGrid.scrollTop = target.offsetTop - cardGrid.offsetTop;
       });
-      bar.appendChild(btn);
+      chips.appendChild(btn);
     }
+    bar.appendChild(chips);
 
-    // 折りたたみ/展開トグルボタン
+    // 折りたたみ/展開トグルボタン（chips の外 → 常に表示）
     const toggleBtn = document.createElement("button");
     toggleBtn.className = "subcat-jump-toggle";
+    toggleBtn.type = "button";
     toggleBtn.textContent = subcatJumpExpanded ? "折りたたむ" : "もっと見る";
     toggleBtn.addEventListener("click", () => {
       subcatJumpExpanded = !subcatJumpExpanded;

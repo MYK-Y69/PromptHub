@@ -267,15 +267,24 @@ body {
   margin-bottom: 4px;
 }
 
+/* チップ群コンテナ：flex で伸縮、overflow はここに適用 */
+.subcat-jump-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 /* 折りたたみ状態：1行 + はみ出し非表示 */
-.subcat-jump-bar.is-collapsed {
+.subcat-jump-bar.is-collapsed .subcat-jump-chips {
   flex-wrap: nowrap;
   overflow: hidden;
   white-space: nowrap;
 }
 
 /* 展開状態：複数段 wrap */
-.subcat-jump-bar.is-expanded {
+.subcat-jump-bar.is-expanded .subcat-jump-chips {
   flex-wrap: wrap;
   overflow: visible;
   white-space: normal;
