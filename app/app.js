@@ -661,7 +661,15 @@ function renderTagsSectionCards(items, searching, catKey) {
     const chips = document.createElement("div");
     chips.className = "subcat-jump-chips";
 
-    for (const [key] of sectionMap) {
+    const MAJOR_ORDER = ["camera","pose","expr","act","cloth","comp","bg","style"];
+    const sortedKeys = Array.from(sectionMap.keys()).sort((a, b) => {
+      const ai = MAJOR_ORDER.indexOf(SECTION_TO_MAJOR[a] || "style");
+      const bi = MAJOR_ORDER.indexOf(SECTION_TO_MAJOR[b] || "style");
+      if (ai !== bi) return ai - bi;
+      return a.localeCompare(b);
+    });
+
+    for (const key of sortedKeys) {
       const anchorId = `subcat-${catKey}-${slugify(key)}`;
       const btn = document.createElement("button");
       btn.className = "subcat-jump-btn";
