@@ -184,7 +184,9 @@ async function loadMode(mode) {
   activeMode = mode;
   allCategories = normalizeCategories(data, mode);
   renderSidebar();
-  selectCategory(allCategories[0].key);
+  // TAGSモードは renderSidebar が allCategories を再構築するので "__all__" で初期化
+  const initKey = mode === "tags" ? "__all__" : allCategories[0].key;
+  selectCategory(initKey);
   document.querySelectorAll(".mode-btn").forEach(btn => {
     const on = btn.dataset.mode === mode;
     btn.style.background  = on ? "#4a9eff" : "#2a2a3e";
@@ -247,20 +249,31 @@ function renderSidebar() {
       if (cat) cat.items.push(it);
     }
 
-    // "センシティブ" — shows all items (data separation in a future step)
+    // allCategories に __sensitive__ と __all__ を含めた完全なリストを常に保持
+    const sensitiveItems = []; // データ未投入のため空（将来データ分離）
+    allCategories = [
+      { key: "__sensitive__", label: "センシティブ", items: sensitiveItems },
+      { key: "__all__",       label: "ALL (TAGS)",   items: allCat.items },
+      ...pseudoCats,
+    ];
+
+    // "センシティブ" (empty until data is added)
     {
       const el = document.createElement("div");
       el.className = "cat-item";
       el.dataset.key = "__sensitive__";
-      el.innerHTML = `<span>センシティブ</span><span class="cat-count">${allCat.items.length}</span>`;
-      el.addEventListener("click", () => {
-        allCategories = [
-          { key: "__sensitive__", label: "センシティブ", items: allCat.items },
-          { key: "__all__", label: "ALL (TAGS)", items: allCat.items },
-          ...pseudoCats,
-        ];
-        selectCategory("__sensitive__");
-      });
+      el.innerHTML = `<span>センシティブ</span><span class="cat-count">0</span>`;
+      el.addEventListener("click", () => selectCategory("__sensitive__"));
+      categoryList.appendChild(el);
+    }
+
+    // "すべて" (__all__)
+    {
+      const el = document.createElement("div");
+      el.className = "cat-item";
+      el.dataset.key = "__all__";
+      el.innerHTML = `<span>すべて</span><span class="cat-count">${allCat.items.length}</span>`;
+      el.addEventListener("click", () => selectCategory("__all__"));
       categoryList.appendChild(el);
     }
 
@@ -270,14 +283,7 @@ function renderSidebar() {
       el.className = "cat-item";
       el.dataset.key = cat.key;
       el.innerHTML = `<span>${cat.label}</span><span class="cat-count">${cat.items.length}</span>`;
-      el.addEventListener("click", () => {
-        allCategories = [
-          { key: "__sensitive__", label: "センシティブ", items: allCat.items },
-          { key: "__all__", label: "ALL (TAGS)", items: allCat.items },
-          ...pseudoCats,
-        ];
-        selectCategory(cat.key);
-      });
+      el.addEventListener("click", () => selectCategory(cat.key));
       categoryList.appendChild(el);
     });
 
