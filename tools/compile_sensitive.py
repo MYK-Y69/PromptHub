@@ -1,10 +1,10 @@
 """
 compile_sensitive.py
-  Reads  : data/inbox/sensitive_oral.tsv  (section / jp / en / note)
+  Reads  : data/inbox/sensitive_*.tsv  (section / jp / en / note)
   Writes : data/dictionary/compiled/tags_sensitive.json
 
 Column mapping:
-  section → tags[0]  (section key, e.g. "oral")
+  section → tags[0]  (section key, e.g. "oral", "sex")
   en      → item.en  (danbooru tag / English label)
   jp      → item.jp  (Japanese label)
   note    → stored in jp as suffix （note）when present
@@ -17,31 +17,37 @@ import json
 from datetime import datetime
 from pathlib import Path
 
-ROOT        = Path(__file__).resolve().parent.parent
-SOURCE_TSV  = ROOT / "data/inbox/sensitive_oral.tsv"
-OUT         = ROOT / "data/dictionary/compiled/tags_sensitive.json"
+ROOT  = Path(__file__).resolve().parent.parent
+INBOX = ROOT / "data/inbox"
+OUT   = ROOT / "data/dictionary/compiled/tags_sensitive.json"
 
 
 def main() -> None:
+    # Collect all sensitive_*.tsv files, sorted for deterministic order
+    source_files = sorted(INBOX.glob("sensitive_*.tsv"))
+    if not source_files:
+        print("[WARN] No sensitive_*.tsv files found in data/inbox/")
+        return
+
     rows: list[dict] = []
-    with open(SOURCE_TSV, encoding="utf-8", newline="") as f:
-        reader = csv.DictReader(f, delimiter="\t")
-        for row in reader:
-            if not row.get("section") or row["section"] == "section":
-                continue
-            rows.append(row)
+    for tsv in source_files:
+        with open(tsv, encoding="utf-8", newline="") as f:
+            reader = csv.DictReader(f, delimiter="\t")
+            for row in reader:
+                if not row.get("section") or row["section"] == "section":
+                    continue
+                rows.append(row)
 
     flat_items: list[dict] = []
-    categories: list[dict] = []
     section_map: dict[str, list[dict]] = {}
     section_order: list[str] = []
 
     item_id = 1
     for row in rows:
-        sec = row["section"].strip()
-        en  = row.get("en", "").strip()
+        sec    = row["section"].strip()
+        en     = row.get("en", "").strip()
         jp_raw = row.get("jp", "").strip()
-        note = row.get("note", "").strip()
+        note   = row.get("note", "").strip()
 
         jp = f"{jp_raw}（{note}）" if note else jp_raw
 
@@ -59,16 +65,12 @@ def main() -> None:
         flat_items.append(item)
         item_id += 1
 
+    categories: list[dict] = []
     for sec in section_order:
         items = section_map[sec]
         start = flat_items.index(items[0])
         end   = start + len(items)
-        categories.append({
-            "key":   sec,
-            "label": sec,
-            "start": start,
-            "end":   end,
-        })
+        categories.append({"key": sec, "label": sec, "start": start, "end": end})
 
     doc = {
         "generated_at": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
@@ -82,8 +84,9 @@ def main() -> None:
         f.write("\n")
 
     print(f"=== compile_sensitive ===")
-    print(f"  source : {SOURCE_TSV.relative_to(ROOT)}  ({len(rows)} rows)")
-    print(f"  items  : {len(flat_items)}")
+    print(f"  sources: {[str(p.relative_to(ROOT)) for p in source_files]}")
+    print(f"  total rows : {len(rows)}")
+    print(f"  total items: {len(flat_items)}")
     for sec in section_order:
         print(f"  [{sec}] {len(section_map[sec])} items")
     print(f"  → {OUT.relative_to(ROOT)}")
