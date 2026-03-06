@@ -6,6 +6,7 @@ const COMPILED = {
   full: "../data/dictionary/compiled/full.json?v=1",
   tags: "../data/dictionary/compiled/tags.json?v=1",
 };
+const SENSITIVE_JSON = "../data/dictionary/compiled/tags_sensitive.json?v=1";
 let activeMode = "safe";
 
 // ---- State ----
@@ -250,21 +251,45 @@ function renderSidebar() {
     }
 
     // allCategories に __sensitive__ と __all__ を含めた完全なリストを常に保持
-    const sensitiveItems = []; // データ未投入のため空（将来データ分離）
     allCategories = [
-      { key: "__sensitive__", label: "センシティブ", items: sensitiveItems },
+      { key: "__sensitive__", label: "センシティブ", items: [] },
       { key: "__all__",       label: "ALL (TAGS)",   items: allCat.items },
       ...pseudoCats,
     ];
 
-    // "センシティブ" (empty until data is added)
+    // "センシティブ" — lazy load tags_sensitive.json on first click
     {
       const el = document.createElement("div");
       el.className = "cat-item";
       el.dataset.key = "__sensitive__";
-      el.innerHTML = `<span>センシティブ</span><span class="cat-count">0</span>`;
-      el.addEventListener("click", () => selectCategory("__sensitive__"));
+      el.innerHTML = `<span>センシティブ</span><span class="cat-count" id="sensitive-count">…</span>`;
+      el.addEventListener("click", async () => {
+        const cat = allCategories.find(c => c.key === "__sensitive__");
+        if (cat && cat.items.length === 0) {
+          try {
+            const data = await fetch(SENSITIVE_JSON).then(r => r.json());
+            cat.items = data.items || [];
+            const badge = document.getElementById("sensitive-count");
+            if (badge) badge.textContent = cat.items.length;
+          } catch (e) {
+            console.warn("Failed to load tags_sensitive.json:", e);
+          }
+        }
+        selectCategory("__sensitive__");
+      });
       categoryList.appendChild(el);
+
+      // Preload count on sidebar render
+      fetch(SENSITIVE_JSON).then(r => r.json()).then(data => {
+        const items = data.items || [];
+        const cat = allCategories.find(c => c.key === "__sensitive__");
+        if (cat) cat.items = items;
+        const badge = document.getElementById("sensitive-count");
+        if (badge) badge.textContent = items.length;
+      }).catch(() => {
+        const badge = document.getElementById("sensitive-count");
+        if (badge) badge.textContent = "0";
+      });
     }
 
     // "すべて" (__all__)
