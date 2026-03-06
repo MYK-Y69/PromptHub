@@ -328,6 +328,19 @@ function renderSidebar() {
       if (cat) cat.items.push(it);
     }
 
+    // Render "すべて" (__all__) as first sidebar item
+    {
+      const el = document.createElement("div");
+      el.className = "cat-item";
+      el.dataset.key = "__all__";
+      el.innerHTML = `<span>すべて</span><span class="cat-count">${allCat.items.length}</span>`;
+      el.addEventListener("click", () => {
+        allCategories = [{ key: "__all__", label: "ALL (TAGS)", items: allCat.items }, ...pseudoCats];
+        selectCategory("__all__");
+      });
+      categoryList.appendChild(el);
+    }
+
     // Render majors with counts
     pseudoCats.forEach(cat => {
       const el = document.createElement("div");
