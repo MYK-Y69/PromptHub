@@ -219,15 +219,68 @@ async function loadMode(mode) {
 function renderSidebar() {
   categoryList.innerHTML = "";
 
-  // TAGS mode: single "センシティブ" entry pointing to __all__
+  // TAGS mode: "センシティブ" + normal major categories
   if (activeMode === "tags") {
+    const MAJORS = [
+      { key: "camera", label: "カメラワーク" },
+      { key: "pose",   label: "ポーズ" },
+      { key: "expr",   label: "表情" },
+      { key: "act",    label: "動作" },
+      { key: "cloth",  label: "服装" },
+      { key: "comp",   label: "構図" },
+      { key: "bg",     label: "背景" },
+      { key: "style",  label: "スタイル" },
+    ];
+
     const allCat = allCategories.find(c => c.key === "__all__") || { items: [] };
-    const el = document.createElement("div");
-    el.className = "cat-item active";
-    el.dataset.key = "__all__";
-    el.innerHTML = `<span>センシティブ</span><span class="cat-count">${allCat.items.length}</span>`;
-    el.addEventListener("click", () => selectCategory("__all__"));
-    categoryList.appendChild(el);
+
+    // Build pseudo categories for majors
+    const pseudoCats = MAJORS.map(m => ({ key: m.key, label: m.label, items: [] }));
+    for (const it of (allCat.items || [])) {
+      const ts = Array.isArray(it.tags) ? it.tags : [];
+      let major = null;
+      for (const t of ts) {
+        if (SECTION_TO_MAJOR[t]) { major = SECTION_TO_MAJOR[t]; break; }
+      }
+      if (!major) major = "style";
+      const cat = pseudoCats.find(c => c.key === major);
+      if (cat) cat.items.push(it);
+    }
+
+    // "センシティブ" — shows all items (data separation in a future step)
+    {
+      const el = document.createElement("div");
+      el.className = "cat-item";
+      el.dataset.key = "__sensitive__";
+      el.innerHTML = `<span>センシティブ</span><span class="cat-count">${allCat.items.length}</span>`;
+      el.addEventListener("click", () => {
+        allCategories = [
+          { key: "__sensitive__", label: "センシティブ", items: allCat.items },
+          { key: "__all__", label: "ALL (TAGS)", items: allCat.items },
+          ...pseudoCats,
+        ];
+        selectCategory("__sensitive__");
+      });
+      categoryList.appendChild(el);
+    }
+
+    // Normal major categories
+    pseudoCats.forEach(cat => {
+      const el = document.createElement("div");
+      el.className = "cat-item";
+      el.dataset.key = cat.key;
+      el.innerHTML = `<span>${cat.label}</span><span class="cat-count">${cat.items.length}</span>`;
+      el.addEventListener("click", () => {
+        allCategories = [
+          { key: "__sensitive__", label: "センシティブ", items: allCat.items },
+          { key: "__all__", label: "ALL (TAGS)", items: allCat.items },
+          ...pseudoCats,
+        ];
+        selectCategory(cat.key);
+      });
+      categoryList.appendChild(el);
+    });
+
     return;
   }
 
