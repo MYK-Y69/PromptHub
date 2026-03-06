@@ -16,6 +16,7 @@ let searchQuery = "";
 let selectedIds = new Set();
 let groupOpenState = { neutral: false }; // accordion: false=closed, undefined/true=open
 let builderTags = [];        // Prompt Builder: ordered list of en tags
+let subcatJumpExpanded = false; // subcat jump bar: false=collapsed(1行), true=expanded(wrap)
 
 // ---- DOM refs ----
 const categoryList  = document.getElementById("category-list");
@@ -717,7 +718,8 @@ function renderTagsSectionCards(items, searching, catKey) {
   subcatJumpContainer.innerHTML = "";
   if (sectionMap.size > 1) {
     const bar = document.createElement("div");
-    bar.className = "subcat-jump-bar";
+    bar.className = "subcat-jump-bar " + (subcatJumpExpanded ? "is-expanded" : "is-collapsed");
+
     for (const [key] of sectionMap) {
       const anchorId = `subcat-${catKey}-${slugify(key)}`;
       const btn = document.createElement("button");
@@ -730,6 +732,17 @@ function renderTagsSectionCards(items, searching, catKey) {
       });
       bar.appendChild(btn);
     }
+
+    // 折りたたみ/展開トグルボタン
+    const toggleBtn = document.createElement("button");
+    toggleBtn.className = "subcat-jump-toggle";
+    toggleBtn.textContent = subcatJumpExpanded ? "折りたたむ" : "もっと見る";
+    toggleBtn.addEventListener("click", () => {
+      subcatJumpExpanded = !subcatJumpExpanded;
+      renderTagsSectionCards(items, searching, catKey);
+    });
+    bar.appendChild(toggleBtn);
+
     subcatJumpContainer.appendChild(bar);
   }
 

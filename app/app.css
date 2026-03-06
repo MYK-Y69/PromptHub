@@ -256,9 +256,7 @@ body {
 
 .subcat-jump-bar {
   display: flex;
-  flex-wrap: wrap;
-  overflow: visible;
-  white-space: normal;
+  align-items: center;
   gap: 8px;
   padding: 8px 12px;
   position: static;
@@ -268,6 +266,21 @@ body {
   border-bottom: 1px solid var(--border);
   margin-bottom: 4px;
 }
+
+/* 折りたたみ状態：1行 + はみ出し非表示 */
+.subcat-jump-bar.is-collapsed {
+  flex-wrap: nowrap;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* 展開状態：複数段 wrap */
+.subcat-jump-bar.is-expanded {
+  flex-wrap: wrap;
+  overflow: visible;
+  white-space: normal;
+}
+
 .subcat-jump-bar::-webkit-scrollbar { display: none; }
 
 .subcat-jump-btn {
@@ -287,6 +300,22 @@ body {
   border-color: var(--accent);
   color: var(--text);
 }
+
+.subcat-jump-toggle {
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.74rem;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+  user-select: none;
+}
+.subcat-jump-toggle:hover { color: var(--text); border-color: var(--text-muted); }
 
 /* ===== Emotion agenda (Expression jump menu) ===== */
 .emotion-agenda {
