@@ -738,7 +738,7 @@ function renderTagsSectionCards(items, searching, catKey) {
     }
     bar.appendChild(chips);
 
-    // 折りたたみ/展開トグルボタン（chips の外 → 常に表示）
+    // 折りたたみ/展開トグルボタン（chips の外 → overflow の影響を受けない）
     const toggleBtn = document.createElement("button");
     toggleBtn.className = "subcat-jump-toggle";
     toggleBtn.type = "button";
@@ -750,6 +750,17 @@ function renderTagsSectionCards(items, searching, catKey) {
     bar.appendChild(toggleBtn);
 
     subcatJumpContainer.appendChild(bar);
+
+    // 溢れ判定：DOM 挿入後に chips の scrollWidth と clientWidth を比較
+    // collapsed のときだけ判定（expanded 中は常に「折りたたむ」を表示）
+    requestAnimationFrame(() => {
+      if (subcatJumpExpanded) {
+        toggleBtn.style.display = "";   // 展開中は常時表示
+      } else {
+        const overflowed = chips.scrollWidth > chips.clientWidth;
+        toggleBtn.style.display = overflowed ? "" : "none";
+      }
+    });
   }
 
   for (const [key, sectionItems] of sectionMap) {
