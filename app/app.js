@@ -61,6 +61,86 @@ const SECTION_TO_MAJOR = {
   uncat: "style", sexpos: "style",
 };
 
+// ---- Section label (JP) for non-sensitive jump buttons ----
+const SECTION_LABEL_JP = {
+  "camera_comp": "カメラ構図",
+  "camera":      "カメラ",
+  "angle":       "アングル",
+  "gaze":        "視線",
+  "pov":         "視点",
+  "focus":       "焦点",
+  "layout":      "レイアウト",
+  "frame":       "フレーミング",
+  "composition": "構図",
+  "relationship":"関係",
+  "misc_people": "人物（その他）",
+  "clothes":     "服装",
+  "count":       "人数/数",
+  "quality":     "品質",
+  "effect":      "効果",
+  "style":       "スタイル",
+  "background":  "背景",
+  "tech2":       "技術",
+  "manga_panel": "漫画コマ",
+  "manga_read":  "読み",
+  "meta_text":   "文字/メタ",
+  "orientation": "向き",
+  "qc":          "QC",
+  "artifact":    "アーティファクト",
+  "revision":    "改稿",
+  "dup":         "重複",
+  "shape":       "形状",
+  "ui":          "UI",
+  "doc":         "ドキュメント",
+  "cover":       "カバー",
+  "effect2":     "効果2",
+  "quality2":    "品質2",
+  "style2":      "スタイル2",
+  "uncat":       "未分類",
+  "sexpos":      "体勢/姿勢",
+  "pose_hand":   "手のポーズ",
+  "pose_arm":    "腕のポーズ",
+  "legs":        "脚",
+  "feet":        "足",
+  "torso":       "胴体",
+  "other_pose":  "その他ポーズ",
+  "misc_pose":   "ポーズ（その他）",
+  "touch_self":  "自分に触れる",
+  "touch_env":   "環境に触れる",
+  "rest":        "休憩/横たわる",
+  "sit":         "座る",
+  "stand":       "立つ",
+  "kneel":       "ひざ",
+  "hold":        "持つ",
+  "prep":        "準備",
+  "point":       "指差し",
+  "support":     "支える",
+  "action":      "動作",
+  "trouble":     "トラブル",
+  "mouth":       "口",
+  "eye":         "目",
+  "brow":        "眉",
+  "nose":        "鼻",
+  "teeth":       "歯",
+  "lip":         "唇",
+  "face_feature":"顔特徴",
+  "expr_smile":  "表情：笑い",
+  "expr_evil":   "表情：悪い",
+  "expr_misc":   "表情：その他",
+  "eye_empty":   "目：空虚",
+  "tired":       "疲れ",
+  "mood_bad":    "不機嫌",
+  "anger":       "怒り",
+  "confusion":   "困惑",
+  "anxiety":     "不安",
+  "fear":        "恐怖",
+  "sad":         "悲しみ",
+  "shake":       "揺れ",
+  "makeup":      "メイク",
+  "paint":       "ペイント",
+  "mark":        "マーク",
+};
+
 // ---- DOM refs ----
 const categoryList  = document.getElementById("category-list");
 const tagChips      = document.getElementById("tag-chips");
@@ -705,7 +785,11 @@ function renderTagsSectionCards(items, searching, catKey) {
       const anchorId = `subcat-${catKey}-${slugify(key)}`;
       const btn = document.createElement("button");
       btn.className = "subcat-jump-btn";
-      btn.textContent = key.toUpperCase();
+      if (catKey === "__sensitive__") {
+        btn.textContent = key.toUpperCase(); // センシティブは英語
+      } else {
+        btn.textContent = SECTION_LABEL_JP[key] || key.toUpperCase(); // 通常は日本語優先
+      }
       btn.dataset.major = SECTION_TO_MAJOR[key] || "style";
       btn.addEventListener("click", () => {
         const target = document.getElementById(anchorId);
