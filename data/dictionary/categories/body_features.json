@@ -1,0 +1,294 @@
+{
+  "key": "body_features",
+  "label": "Body Features",
+  "items": [
+    {
+      "id": "bf_abs",
+      "en": "abs",
+      "jp": "腹筋",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "鍛えられた腹部の筋肉"
+    },
+    {
+      "id": "bf_armpits",
+      "en": "armpits",
+      "jp": "腋",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "腕が胴体に接続する部分。ノースリーブや腕を上げたポーズで強調される"
+    },
+    {
+      "id": "bf_backboob",
+      "en": "backboob",
+      "jp": "裏乳",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "キャラクターの背面から見える胸の側面の膨らみ"
+    },
+    {
+      "id": "bf_big_belly",
+      "en": "big belly",
+      "jp": "腹ボテ",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "顕著に大きな腹部。満腹、肥満、妊娠などの状態を示す"
+    },
+    {
+      "id": "bf_cleavage",
+      "en": "cleavage",
+      "jp": "谷間",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "乳房の間にできる窪み。性的魅力を強調する"
+    },
+    {
+      "id": "bf_colored_skin",
+      "en": "colored skin",
+      "jp": "異色肌",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "青や赤など人間にない肌色。ファンタジー種族に使用"
+    },
+    {
+      "id": "bf_covered_navel",
+      "en": "covered navel",
+      "jp": "透けへそ",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "密着した衣服越しにへその形状が確認できる描写"
+    },
+    {
+      "id": "bf_curvy",
+      "en": "curvy",
+      "jp": "グラマラス",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "平均以上の肉付きで、胸や腰の曲線が強調された豊満な体型"
+    },
+    {
+      "id": "bf_dark_skin",
+      "en": "dark skin",
+      "jp": "褐色肌",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "日焼けや生まれつきの濃い肌色。通常の白人/東アジア人より濃い"
+    },
+    {
+      "id": "bf_flat_chest",
+      "en": "flat chest",
+      "jp": "平らな胸",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "完全に平坦な胸部。子供以外のキャラに使用"
+    },
+    {
+      "id": "bf_gigantic_breasts",
+      "en": "gigantic breasts",
+      "jp": "超乳",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "頭部の2倍以上の大きさがある非現実的な巨大胸"
+    },
+    {
+      "id": "bf_huge_breasts",
+      "en": "huge breasts",
+      "jp": "爆乳",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "頭部と同サイズ以上の巨大な胸"
+    },
+    {
+      "id": "bf_inverted_nipples",
+      "en": "inverted nipples",
+      "jp": "陥没乳首",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "外側ではなく内側に向かって凹んでいる乳首"
+    },
+    {
+      "id": "bf_large_areolae",
+      "en": "large areolae",
+      "jp": "巨乳輪",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "乳房の半分以上を占める大きさの乳輪"
+    },
+    {
+      "id": "bf_large_breasts",
+      "en": "large breasts",
+      "jp": "巨乳",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "顔の直径と同程度の球体サイズ。非常に目立つ胸"
+    },
+    {
+      "id": "bf_loli",
+      "en": "loli",
+      "jp": "ロリ",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "幼い少女の外見。性的描写を含む文脈で使用。非性的はchild/petite"
+    },
+    {
+      "id": "bf_mature_female",
+      "en": "mature female",
+      "jp": "熟女",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "成熟した大人の女性。母性的な魅力や曲線的な体型が特徴"
+    },
+    {
+      "id": "bf_medium_breasts",
+      "en": "medium breasts",
+      "jp": "普通乳",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "手のひらより大きく、顔より小さい平均的なサイズの胸"
+    },
+    {
+      "id": "bf_muscular",
+      "en": "muscular",
+      "jp": "筋肉質",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "明確な筋肉の発達が見られる体格"
+    },
+    {
+      "id": "bf_navel",
+      "en": "navel",
+      "jp": "へそ",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "腹部の中央にあるへそ。露出している状態"
+    },
+    {
+      "id": "bf_pale_skin",
+      "en": "pale skin",
+      "jp": "色白",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "雪のように白い、または明るい肌色。Danbooru語ではこれに統一"
+    },
+    {
+      "id": "bf_pectorals",
+      "en": "pectorals",
+      "jp": "胸筋",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "男性の胸部周辺の筋肉。Pony系ではpectoral focusも有効"
+    },
+    {
+      "id": "bf_plump",
+      "en": "plump",
+      "jp": "むちむち",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "太っているとは言えない程度の適度な肉付き。良い場所に肉がついた状態"
+    },
+    {
+      "id": "bf_puffy_nipples",
+      "en": "puffy nipples",
+      "jp": "膨らんだ乳首",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "乳房の通常の曲線を超えて、乳首や乳輪が膨らんだ状態"
+    },
+    {
+      "id": "bf_shota",
+      "en": "shota",
+      "jp": "ショタ",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "幼い少年の外見。性的描写を含む文脈で使用。非性的はchild"
+    },
+    {
+      "id": "bf_sideboob",
+      "en": "sideboob",
+      "jp": "横乳",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "服の脇から見える胸の側面。乳首は非露出"
+    },
+    {
+      "id": "bf_skinny",
+      "en": "skinny",
+      "jp": "痩せ型",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "標準より脂肪が少なく細い体格。肋骨が見える場合もある"
+    },
+    {
+      "id": "bf_small_breasts",
+      "en": "small breasts",
+      "jp": "貧乳",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "控えめなサイズの胸。AAカップ〜Cカップ未満が基準"
+    },
+    {
+      "id": "bf_stomach",
+      "en": "stomach",
+      "jp": "腹部",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "お腹。画像内で目立つ要素として描かれている場合に指定"
+    },
+    {
+      "id": "bf_thick_thighs",
+      "en": "thick thighs",
+      "jp": "太い太もも",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "肉付きがよく逞しい太もも。腰回りとほぼ同サイズの場合もある"
+    },
+    {
+      "id": "bf_underboob",
+      "en": "underboob",
+      "jp": "下乳",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "服の下からはみ出している胸の下部。乳首は非露出"
+    },
+    {
+      "id": "bf_wide_hips",
+      "en": "wide hips",
+      "jp": "幅広い腰",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "肩幅以上の幅がある腰。デカ尻と関連"
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "key": "pose_action",
+  "label": "Poses & Actions",
+  "items": [
+    {
+      "id": "pa_adjusting_eyewear",
+      "en": "adjusting eyewear",
+      "jp": "眼鏡を直す",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "指で眼鏡の位置を調整する仕草"
+    },
+    {
+      "id": "pa_clothes_pull",
+      "en": "clothes pull",
+      "jp": "服を引っ張る",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "服を下ろす行為や襟を引っ張る動作の総称"
+    },
+    {
+      "id": "pa_clothing_aside",
+      "en": "clothing aside",
+      "jp": "股布ずらし",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "下着などを脱がずに横にずらして局部を露出させる状態"
+    },
+    {
+      "id": "pa_crossed_arms",
+      "en": "crossed arms",
+      "jp": "腕組み",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "胸の前で腕を交差させるポーズ"
+    },
+    {
+      "id": "pa_double_v",
+      "en": "double v",
+      "jp": "ダブルピース",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "両手でピースサインをするポーズ"
+    },
+    {
+      "id": "pa_fighting_stance",
+      "en": "fighting stance",
+      "jp": "戦闘態勢",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "戦うための構えをとっているポーズ"
+    },
+    {
+      "id": "pa_hands_up",
+      "en": "hands up",
+      "jp": "両手を上げる",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "両手を上半身より高い位置に上げる動作"
+    },
+    {
+      "id": "pa_head_tilt",
+      "en": "head tilt",
+      "jp": "頭を傾ける",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "首をかしげて頭を斜めにする仕草"
+    },
+    {
+      "id": "pa_headpat",
+      "en": "headpat",
+      "jp": "なでなで",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "誰かの頭を撫でる、または撫でられている動作"
+    },
+    {
+      "id": "pa_heart_hands",
+      "en": "heart hands",
+      "jp": "手でハート",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "両手でハートの形を作るポーズ"
+    },
+    {
+      "id": "pa_leaning_forward",
+      "en": "leaning forward",
+      "jp": "前かがみ",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "上体を前に倒して屈む姿勢"
+    },
+    {
+      "id": "pa_lying",
+      "en": "lying",
+      "jp": "横になる",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "寝そべっている状態。on stomach（うつ伏せ）/on back（仰向け）"
+    },
+    {
+      "id": "pa_ojou_sama_pose",
+      "en": "ojou-sama pose",
+      "jp": "お嬢様ポーズ",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "口元に手を当てて高笑いするような仕草"
+    },
+    {
+      "id": "pa_paw_pose",
+      "en": "paw pose",
+      "jp": "猫の手",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "手を猫の肉球のように丸めるポーズ"
+    },
+    {
+      "id": "pa_peace_sign",
+      "en": "peace sign",
+      "jp": "ピースサイン",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "人差し指と中指を立てるVサインのハンドジェスチャー"
+    },
+    {
+      "id": "pa_pointing_at_viewer",
+      "en": "pointing at viewer",
+      "jp": "こちらを指差す",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "視聴者に向かって指を指す動作"
+    },
+    {
+      "id": "pa_reaching",
+      "en": "reaching",
+      "jp": "手を伸ばす",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "何かに向かって手や腕を伸ばす動作"
+    },
+    {
+      "id": "pa_seiza",
+      "en": "seiza",
+      "jp": "正座",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "日本の伝統的な、膝を地面につけて揃える座り方"
+    },
+    {
+      "id": "pa_shirt_lift",
+      "en": "shirt lift",
+      "jp": "シャツをめくる",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "自分でシャツの裾を持ち上げる動作。raised shirt状態を作る"
+    },
+    {
+      "id": "pa_skirt_lift",
+      "en": "skirt lift",
+      "jp": "スカートをめくる",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "自分でスカートを持ち上げる動作。中を見せる意図がある"
+    },
+    {
+      "id": "pa_squatting",
+      "en": "squatting",
+      "jp": "しゃがむ",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "膝を曲げ足の裏で体重を支える姿勢。お尻は地面につけない"
+    },
+    {
+      "id": "pa_thumbs_up",
+      "en": "thumbs up",
+      "jp": "グッドサイン",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "親指を立てる肯定的なジェスチャー"
+    },
+    {
+      "id": "pa_wariza",
+      "en": "wariza",
+      "jp": "女の子座り",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "お尻を床につき、両足を左右に開いた座り方"
+    }
+  ]
+}
