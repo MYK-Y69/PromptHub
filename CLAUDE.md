@@ -1,0 +1,112 @@
+# PromptHub — Claude Code 運用ガイド
+
+## リポジトリ概要
+
+画像生成プロンプト語彙ハブ。
+`data/dictionary/categories/*.json` に語彙を格納し、`tools/compile_dictionary.py` でコンパイルして UI（`app/app.js`）に表示する。
+
+### 主要パス
+
+| パス | 役割 |
+|------|------|
+| `data/dictionary/categories/*.json` | 語彙ソース（カテゴリ別） |
+| `data/dictionary/compiled/safe.json` | コンパイル済み（SAFE版） |
+| `data/dictionary/compiled/full.json` | コンパイル済み（FULL版） |
+| `data/dictionary/compiled/tags.json` | TAGS モード用（別パイプライン） |
+| `tools/compile_dictionary.py` | SAFE/FULL コンパイラ |
+| `tools/compile_tags.py` | TAGS コンパイラ（別系統） |
+| `data2/` | 外部原本ファイル置き場（NotebookLM 等） |
+| `app/app.js` | フロントエンド（SECTION_TO_MAJOR 等を定義） |
+
+### アーキテクチャ上の注意
+
+- **SAFE/FULL** と **TAGS** は別パイプライン。`data2` 取り込みは SAFE/FULL 側のみ。
+- 新カテゴリを追加したら `app.js` の `SECTION_TO_MAJOR` と `SECTION_LABEL_JP` も更新する。
+- `compile_dictionary.py` は同一 ID の重複があると fail-fast で終了する。
+
+---
+
+## 確認削減ルール
+
+### 確認なしで進めてよい操作
+
+- 読み取り専用コマンド（`git status` / `git log` / `git diff` / `git fetch` / `ls` / `cat` / `find` / `grep`）
+- Python によるデータ整形・集計・重複チェック・JSON 生成
+- `data/dictionary/categories/` への新規ファイル追加・既存ファイルへのアイテム追記
+- `python3 tools/compile_dictionary.py` の実行
+- `git add` / `git commit`（add/commit 自体の実行は確認不要）
+- `git checkout -b <branch>` によるブランチ作成
+- `/tmp/` への一時ファイル出力
+- ローカル HTTP サーバーの起動・再起動（ポート 8765）
+- Playwright によるスクリーンショット取得・UI 確認
+- `app/app.js` の `SECTION_TO_MAJOR` / `SECTION_LABEL_JP` への追記
+
+### 必ず確認してから実行する操作
+
+- `git push`（push 先・内容を明示してから承認を得る）
+- `git reset --hard`（破壊的リセット）
+- 既存アイテムの削除・置換（`data/dictionary/categories/` 内の既存 JSON のアイテム削除）
+- `git branch -D` / `git push --delete`（ブランチ削除）
+- `data/inbox/*.tsv` の直接編集（TAGS パイプラインの変更）
+- 想定外の大規模アーキ変更
+
+---
+
+## カスタムコマンド一覧
+
+| コマンド | 役割 |
+|---------|------|
+| `/import_expression` | テキスト貼り付けから expression に追加 |
+| `/import_expression_from_url` | URL から expression を抽出して追加 |
+| `/paste-expression` | bash スクリプト経由で expression を追加 |
+| `/prompthub-import-data2` | `data2/` 原本から未収録語彙を branch に追加して compile |
+| `/prompthub-review-import` | import branch をレビューし最小修正 → 再 compile |
+| `/prompthub-merge-import` | review 済み branch を main へ merge → push → UI 確認 |
+
+---
+
+## data2 取り込みフロー（標準）
+
+```
+1. NotebookLM で複数サイト情報を統合
+2. 4列構造に正規化 (英語名 / 日本語訳 / カテゴリー / 詳細・説明)
+3. data2/ に原本配置
+4. /prompthub-import-data2 → branch 作成・追加・compile
+5. /prompthub-review-import → 誤分類修正・再 compile
+6. /prompthub-merge-import → main merge → push → UI 確認
+```
+
+## category JSON スキーマ
+
+```json
+{
+  "key": "category_key",
+  "label": "Display Label",
+  "items": [
+    {
+      "id":   "prefix_slug",
+      "en":   "english term",
+      "jp":   "日本語訳",
+      "tags": ["category_key"],
+      "desc": "説明文（任意）"
+    }
+  ]
+}
+```
+
+ID プレフィックス規則:
+
+| カテゴリ | prefix |
+|---------|--------|
+| camera_comp | cc |
+| body_features | bf |
+| pose_action | pa |
+| clothing | cl |
+| accessories | acc |
+| e621_pony | e6 |
+| expression | expression |
+| action | act |
+| pose | pose |
+| pov | pov |
+| focus | foc |
+| angle | ang |
