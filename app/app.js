@@ -152,6 +152,7 @@ const SECTION_LABEL_JP = {
   "makeup":      "メイク",
   "paint":       "ペイント",
   "mark":        "マーク",
+  "legmove":     "脚の動き",
 };
 
 // ---- DOM refs ----
@@ -909,7 +910,10 @@ function renderTagsSectionCards(items, searching, catKey) {
     header.id = anchorId;
 
     const title = document.createElement("span");
-    title.textContent = `${key.toUpperCase()}  (${sectionItems.length})`;
+    const headerLabel = catKey === "__sensitive__"
+      ? key.toUpperCase()
+      : (SECTION_LABEL_JP[key] || key.toUpperCase());
+    title.textContent = `${headerLabel}  (${sectionItems.length})`;
 
     const toggle = document.createElement("span");
     toggle.className = "emotion-group-toggle";
