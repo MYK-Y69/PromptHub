@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-03-04T15:21:30",
+  "generated_at": "2026-03-24T18:10:35",
   "source_tsv": "data/inbox/2026-03-03_tags_fixed.tsv",
-  "count_rows": 735,
-  "count_sections": 75,
+  "count_rows": 834,
+  "count_sections": 79,
   "sections": [
     {
       "key": "camera_comp",
@@ -85,6 +85,18 @@
           "definition": "一部が水中",
           "danbooru_tag": "partially underwater shot",
           "notes": ""
+        },
+        {
+          "jp_term": "マグショット",
+          "definition": "警察の記録用写真のような、正面と横顔を並べた構図",
+          "danbooru_tag": "mugshot",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "台座",
+          "definition": "フィギュアや模型のように装飾的な台座の上に立っている演出",
+          "danbooru_tag": "pedestal",
+          "notes": "from:data2"
         }
       ]
     },
@@ -595,6 +607,12 @@
           "definition": "resolution",
           "danbooru_tag": "resolution",
           "notes": ""
+        },
+        {
+          "jp_term": "解像度",
+          "definition": "resolution",
+          "danbooru_tag": "resolution",
+          "notes": ""
         }
       ]
     },
@@ -679,6 +697,180 @@
           "definition": "clothing aside",
           "danbooru_tag": "",
           "notes": ""
+        },
+        {
+          "jp_term": "ビキニ",
+          "definition": "上下が分かれた水着。string bikini/micro bikini等",
+          "danbooru_tag": "bikini",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "ブラウス",
+          "definition": "柔らかい生地で作られた女性用のシャツ",
+          "danbooru_tag": "blouse",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "ブラジャー",
+          "definition": "胸を支えるための下着。sports bra/strapless bra等",
+          "danbooru_tag": "bra",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "キャミソール",
+          "definition": "細い肩紐のインナーウェア的トップス",
+          "danbooru_tag": "camisole",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "チャイナドレス",
+          "definition": "横に深いスリットが入った中国風ドレス",
+          "danbooru_tag": "china dress",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "コート",
+          "definition": "太もも丈以上の長さがある厚手のアウター。lab coat（白衣）等も含む",
+          "danbooru_tag": "coat",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "クロップトップ",
+          "definition": "へそ出し丈の短いトップス",
+          "danbooru_tag": "crop top",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "ドレス",
+          "definition": "上下が一体となった女性用の正装・ワンピース。wedding dress等",
+          "danbooru_tag": "dress",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "ドレスシャツ",
+          "definition": "ボタン留めの襟付きフォーマルシャツ。Yシャツ",
+          "danbooru_tag": "dress shirt",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "袴スカート",
+          "definition": "和装の袴に似た形状のスカート",
+          "danbooru_tag": "hakama skirt",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "パーカー",
+          "definition": "頭を覆うフードが付いた上着",
+          "danbooru_tag": "hoodie",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "ジャケット",
+          "definition": "腰丈程度の軽めのアウター。open jacket（前開き）等の指定が可能",
+          "danbooru_tag": "jacket",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "かりゆしウェア",
+          "definition": "襟付き半袖の柄シャツ。沖縄の伝統的モチーフ",
+          "danbooru_tag": "kariyushi shirt",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "巫女服",
+          "definition": "白い小袖と赤い袴からなる神社の奉仕用装束",
+          "danbooru_tag": "miko",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "パンティー",
+          "definition": "女性用の下着。striped panties（縞パン）等",
+          "danbooru_tag": "panties",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "ズボン",
+          "definition": "足首までを覆う長ズボン。jeans（ジーンズ）等を含む",
+          "danbooru_tag": "pants",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "タイトスカート",
+          "definition": "ストレートでぴったりとしたシルエットのスカート",
+          "danbooru_tag": "pencil skirt",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "セーラーシャツ",
+          "definition": "セーラー襟が特徴の上着。ボトムスとの組み合わせは自由",
+          "danbooru_tag": "sailor shirt",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "スクール水着",
+          "definition": "学校指定の標準的な一体型水着。old school swimsuit（旧スク）等",
+          "danbooru_tag": "school swimsuit",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "学生服",
+          "definition": "学校指定の制服。gakuran/serafuku/blazer等",
+          "danbooru_tag": "school uniform",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "シャツ",
+          "definition": "最も一般的な上半身用衣類",
+          "danbooru_tag": "shirt",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "ショートパンツ",
+          "definition": "膝上丈の短いズボン。hot pants/bike shorts等",
+          "danbooru_tag": "shorts",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "スカート",
+          "definition": "腰から下を覆う筒状の衣類。miniskirt/microskirtなどのバリエーション",
+          "danbooru_tag": "skirt",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "セーター",
+          "definition": "ニット素材の上着。virgin killer sweater（童貞を殺すセーター）等がある",
+          "danbooru_tag": "sweater",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "Tシャツ",
+          "definition": "襟のないカジュアルな半袖シャツ",
+          "danbooru_tag": "t-shirt",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "タンクシャツ",
+          "definition": "袖のないトップス。ジムシャツなど",
+          "danbooru_tag": "tank top",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "トップレス",
+          "definition": "上半身に何も着ていない状態。女性キャラクター専用",
+          "danbooru_tag": "topless",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "タートルネック",
+          "definition": "首元が高く立ち上がったデザインのシャツ",
+          "danbooru_tag": "turtleneck shirt",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "肌着",
+          "definition": "上着の下に着用する、通常襟のないシャツ",
+          "danbooru_tag": "undershirt",
+          "notes": "from:data2"
         }
       ]
     },
@@ -4861,6 +5053,432 @@
           "definition": "on head",
           "danbooru_tag": "ofuda on head",
           "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "body",
+      "label": "body",
+      "items": [
+        {
+          "jp_term": "腹筋",
+          "definition": "鍛えられた腹部の筋肉",
+          "danbooru_tag": "abs",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "腋",
+          "definition": "腕が胴体に接続する部分。ノースリーブや腕を上げたポーズで強調される",
+          "danbooru_tag": "armpits",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "裏乳",
+          "definition": "キャラクターの背面から見える胸の側面の膨らみ",
+          "danbooru_tag": "backboob",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "腹ボテ",
+          "definition": "顕著に大きな腹部。満腹、肥満、妊娠などの状態を示す",
+          "danbooru_tag": "big belly",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "谷間",
+          "definition": "乳房の間にできる窪み。性的魅力を強調する",
+          "danbooru_tag": "cleavage",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "異色肌",
+          "definition": "青や赤など人間にない肌色。ファンタジー種族に使用",
+          "danbooru_tag": "colored skin",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "透けへそ",
+          "definition": "密着した衣服越しにへその形状が確認できる描写",
+          "danbooru_tag": "covered navel",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "グラマラス",
+          "definition": "平均以上の肉付きで、胸や腰の曲線が強調された豊満な体型",
+          "danbooru_tag": "curvy",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "褐色肌",
+          "definition": "日焼けや生まれつきの濃い肌色。通常の白人/東アジア人より濃い",
+          "danbooru_tag": "dark skin",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "平らな胸",
+          "definition": "完全に平坦な胸部。子供以外のキャラに使用",
+          "danbooru_tag": "flat chest",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "超乳",
+          "definition": "頭部の2倍以上の大きさがある非現実的な巨大胸",
+          "danbooru_tag": "gigantic breasts",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "角",
+          "definition": "頭部から生えている硬い突起。demon horns等",
+          "danbooru_tag": "horns",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "爆乳",
+          "definition": "頭部と同サイズ以上の巨大な胸",
+          "danbooru_tag": "huge breasts",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "陥没乳首",
+          "definition": "外側ではなく内側に向かって凹んでいる乳首",
+          "danbooru_tag": "inverted nipples",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "巨乳輪",
+          "definition": "乳房の半分以上を占める大きさの乳輪",
+          "danbooru_tag": "large areolae",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "巨乳",
+          "definition": "顔の直径と同程度の球体サイズ。非常に目立つ胸",
+          "danbooru_tag": "large breasts",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "ロリ",
+          "definition": "幼い少女の外見。性的描写を含む文脈で使用。非性的はchild/petite",
+          "danbooru_tag": "loli",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "熟女",
+          "definition": "成熟した大人の女性。母性的な魅力や曲線的な体型が特徴",
+          "danbooru_tag": "mature female",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "普通乳",
+          "definition": "手のひらより大きく、顔より小さい平均的なサイズの胸",
+          "danbooru_tag": "medium breasts",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "筋肉質",
+          "definition": "明確な筋肉の発達が見られる体格",
+          "danbooru_tag": "muscular",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "へそ",
+          "definition": "腹部の中央にあるへそ。露出している状態",
+          "danbooru_tag": "navel",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "色白",
+          "definition": "雪のように白い、または明るい肌色。Danbooru語ではこれに統一",
+          "danbooru_tag": "pale skin",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "胸筋",
+          "definition": "男性の胸部周辺の筋肉。Pony系ではpectoral focusも有効",
+          "danbooru_tag": "pectorals",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "むちむち",
+          "definition": "太っているとは言えない程度の適度な肉付き。良い場所に肉がついた状態",
+          "danbooru_tag": "plump",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "膨らんだ乳首",
+          "definition": "乳房の通常の曲線を超えて、乳首や乳輪が膨らんだ状態",
+          "danbooru_tag": "puffy nipples",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "ショタ",
+          "definition": "幼い少年の外見。性的描写を含む文脈で使用。非性的はchild",
+          "danbooru_tag": "shota",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "横乳",
+          "definition": "服の脇から見える胸の側面。乳首は非露出",
+          "danbooru_tag": "sideboob",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "痩せ型",
+          "definition": "標準より脂肪が少なく細い体格。肋骨が見える場合もある",
+          "danbooru_tag": "skinny",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "貧乳",
+          "definition": "控えめなサイズの胸。AAカップ〜Cカップ未満が基準",
+          "danbooru_tag": "small breasts",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "腹部",
+          "definition": "お腹。画像内で目立つ要素として描かれている場合に指定",
+          "danbooru_tag": "stomach",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "尻尾",
+          "definition": "臀部から生えている動物的な尾。multiple tails（多尾）等",
+          "danbooru_tag": "tails",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "太い太もも",
+          "definition": "肉付きがよく逞しい太もも。腰回りとほぼ同サイズの場合もある",
+          "danbooru_tag": "thick thighs",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "下乳",
+          "definition": "服の下からはみ出している胸の下部。乳首は非露出",
+          "danbooru_tag": "underboob",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "幅広い腰",
+          "definition": "肩幅以上の幅がある腰。デカ尻と関連",
+          "danbooru_tag": "wide hips",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "翼",
+          "definition": "背中から生えている羽根や膜状の翼。angel wings/bat wings等",
+          "danbooru_tag": "wings",
+          "notes": "from:data2"
+        }
+      ]
+    },
+    {
+      "key": "pose_action",
+      "label": "pose_action",
+      "items": [
+        {
+          "jp_term": "戦闘態勢",
+          "definition": "戦うための構えをとっているポーズ",
+          "danbooru_tag": "fighting stance",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "なでなで",
+          "definition": "誰かの頭を撫でる、または撫でられている動作",
+          "danbooru_tag": "headpat",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "ピースサイン",
+          "definition": "人差し指と中指を立てるVサインのハンドジェスチャー",
+          "danbooru_tag": "peace sign",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "シャツをめくる",
+          "definition": "自分でシャツの裾を持ち上げる動作。raised shirt状態を作る",
+          "danbooru_tag": "shirt lift",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "スカートをめくる",
+          "definition": "自分でスカートを持ち上げる動作。中を見せる意図がある",
+          "danbooru_tag": "skirt lift",
+          "notes": "from:data2"
+        }
+      ]
+    },
+    {
+      "key": "accessories",
+      "label": "accessories",
+      "items": [
+        {
+          "jp_term": "バッグ",
+          "definition": "物を運ぶための鞄。backpack/handbag等",
+          "danbooru_tag": "bag",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "ベルト",
+          "definition": "腰に巻いて服を固定する帯。buckleが特徴",
+          "danbooru_tag": "belt",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "チョーカー",
+          "definition": "首に密着させて着ける短いネックレス。鈴付き首輪等も含む",
+          "danbooru_tag": "choker",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "王冠",
+          "definition": "君主などが頭に乗せる装飾品",
+          "danbooru_tag": "crown",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "眼鏡",
+          "definition": "視力補正やおしゃれ用のレンズ器具。sunglasses等",
+          "danbooru_tag": "glasses",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "手袋",
+          "definition": "手を保護・装飾する衣類。elbow gloves（肘丈）等",
+          "danbooru_tag": "gloves",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "銃",
+          "definition": "遠距離攻撃用の射撃武器。handgun/rifle等",
+          "danbooru_tag": "gun",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "帽子",
+          "definition": "頭に被る装飾品の総称。witch hat/top hat等",
+          "danbooru_tag": "hat",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "マスク",
+          "definition": "顔を覆う仮面や衛生用具。mouth mask等",
+          "danbooru_tag": "mask",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "ネクタイ",
+          "definition": "シャツの襟の下に締める細長い布",
+          "danbooru_tag": "necktie",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "盾",
+          "definition": "攻撃を防ぐための防具",
+          "danbooru_tag": "shield",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "剣",
+          "definition": "格闘用の刃物武器。katana/dagger等",
+          "danbooru_tag": "sword",
+          "notes": "from:data2"
+        }
+      ]
+    },
+    {
+      "key": "e621_pony",
+      "label": "e621_pony",
+      "items": [
+        {
+          "jp_term": "擬人化",
+          "definition": "動物に人間的な特徴を持たせたキャラクター（ケモノ）",
+          "danbooru_tag": "anthro",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "二足歩行",
+          "definition": "二本の足で直立・歩行する状態",
+          "danbooru_tag": "biped",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "逆陰影",
+          "definition": "体の上部と下部で色が異なる配色。お腹が白い動物的な特徴",
+          "danbooru_tag": "countershading",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "趾行性",
+          "definition": "犬や猫のようにつま先立ちで歩く動物的な足の構造",
+          "danbooru_tag": "digitigrade",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "野生動物",
+          "definition": "擬人化されていない、純粋な四足歩行等の動物的な姿",
+          "danbooru_tag": "feral",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "ケモノ耳ピアス",
+          "definition": "動物の耳の構造に合わせた特有のピアッシング",
+          "danbooru_tag": "furry-specific piercing",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "エラ",
+          "definition": "魚類や水生生物に見られる呼吸器官",
+          "danbooru_tag": "gills",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "ハイパー",
+          "definition": "胸や筋肉などが物理的に不可能なほど極端に誇張された表現",
+          "danbooru_tag": "hyper",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "巨大化",
+          "definition": "周囲の建物や人間より遥かに巨大なサイズのキャラクター。giantess等",
+          "danbooru_tag": "macro",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "小人化",
+          "definition": "周囲より極端に小さいサイズのキャラクター。minigirl等",
+          "danbooru_tag": "micro",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "ムスク",
+          "definition": "動物が分泌する強い匂いを視覚的に表現する文脈で使用",
+          "danbooru_tag": "musk",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "蹠行性",
+          "definition": "人間のように足の裏全体を地面につけて歩く構造",
+          "danbooru_tag": "plantigrade",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "四足歩行",
+          "definition": "四本の足で歩行する動物的な姿勢",
+          "danbooru_tag": "quadruped",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "体格差",
+          "definition": "キャラクター間の極端な身長や体格の違い",
+          "danbooru_tag": "size difference",
+          "notes": "from:data2"
+        },
+        {
+          "jp_term": "吻",
+          "definition": "動物の突き出た鼻と口の部分",
+          "danbooru_tag": "snout",
+          "notes": "from:data2"
         }
       ]
     }

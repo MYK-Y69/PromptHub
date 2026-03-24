@@ -49,8 +49,8 @@ const SECTION_TO_MAJOR = {
   // pose / action (data2)
   pose_action: "act",
 
-  // clothing / body (data2)
-  body_features: "cloth", accessories: "cloth",
+  // clothing / body (data2 SAFE/FULL + TAGS)
+  body_features: "cloth", body: "cloth", accessories: "cloth",
   clothing: "cloth", clothes: "cloth",
 
   // furry / pony (data2)
@@ -84,6 +84,7 @@ const SECTION_LABEL_JP = {
   "clothes":       "服装",
   "clothing":      "服装",
   "body_features": "身体特徴",
+  "body":          "身体特徴",
   "accessories":   "アクセサリー",
   "pose_action":   "ポーズ・動作",
   "e621_pony":     "e621/Pony",

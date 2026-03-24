@@ -3,26 +3,31 @@
 ## リポジトリ概要
 
 画像生成プロンプト語彙ハブ。
-`data/dictionary/categories/*.json` に語彙を格納し、`tools/compile_dictionary.py` でコンパイルして UI（`app/app.js`）に表示する。
+**主更新先は TAGS pipeline**（`data/inbox/*.tsv` → `compile_tags.py` → `compiled/tags.json`）。
 
 ### 主要パス
 
 | パス | 役割 |
 |------|------|
-| `data/dictionary/categories/*.json` | 語彙ソース（カテゴリ別） |
-| `data/dictionary/compiled/safe.json` | コンパイル済み（SAFE版） |
-| `data/dictionary/compiled/full.json` | コンパイル済み（FULL版） |
-| `data/dictionary/compiled/tags.json` | TAGS モード用（別パイプライン） |
-| `tools/compile_dictionary.py` | SAFE/FULL コンパイラ |
-| `tools/compile_tags.py` | TAGS コンパイラ（別系統） |
+| `data/inbox/2026-03-03_tags_fixed.tsv` | **TAGS ソース TSV**（gitignore・ローカル管理） |
+| `data/dictionary/tags.json` | TAGS 中間 JSON（gitignore） |
+| `data/dictionary/compiled/tags.json` | **TAGS 公開物**（app が読む） |
+| `tools/compile_tags.py` | TAGS コンパイラ（TSV → compiled/tags.json） |
+| `tools/restore_tsv_from_tags.py` | tags.json → TSV 逆生成（TSV 紛失時用） |
+| `data/dictionary/categories/*.json` | SAFE/FULL 語彙ソース（静止・更新しない） |
+| `data/dictionary/compiled/safe.json` | コンパイル済み SAFE 版（静止） |
+| `data/dictionary/compiled/full.json` | コンパイル済み FULL 版（静止） |
+| `tools/compile_dictionary.py` | SAFE/FULL コンパイラ（静止） |
 | `data2/` | 外部原本ファイル置き場（NotebookLM 等） |
 | `app/app.js` | フロントエンド（SECTION_TO_MAJOR 等を定義） |
 
 ### アーキテクチャ上の注意
 
-- **SAFE/FULL** と **TAGS** は別パイプライン。`data2` 取り込みは SAFE/FULL 側のみ。
-- 新カテゴリを追加したら `app.js` の `SECTION_TO_MAJOR` と `SECTION_LABEL_JP` も更新する。
-- `compile_dictionary.py` は同一 ID の重複があると fail-fast で終了する。
+- **data2 取り込みは TAGS pipeline のみ**。`data/dictionary/categories/*.json`（SAFE/FULL 側）には書かない。
+- SAFE/FULL pipeline は過去データの静止保管として残存。今後は更新しない。
+- TAGS TSV は gitignore（`data/inbox/`）。紛失時は `tools/restore_tsv_from_tags.py` で `data/dictionary/tags.json` から再生成する。
+- TSV への追記は **`danbooru_tag` と `definition` 両方を正規化照合**して重複除外する。
+- 新 TAGS section を追加したら `app.js` の `SECTION_TO_MAJOR` と `SECTION_LABEL_JP` も更新する。
 
 ### 静的アセットのキャッシュ対策
 
@@ -40,6 +45,8 @@
 - 読み取り専用コマンド（`git status` / `git log` / `git diff` / `git fetch` / `ls` / `cat` / `find` / `grep`）
 - Python によるデータ整形・集計・重複チェック・JSON 生成
 - `data/dictionary/categories/` への新規ファイル追加・既存ファイルへのアイテム追記
+- `data/inbox/*.tsv` への追記（重複チェック済みの場合）
+- `python3 tools/compile_tags.py` の実行
 - `python3 tools/compile_dictionary.py` の実行
 - `git add` / `git commit`（add/commit 自体の実行は確認不要）
 - `git checkout -b <branch>` によるブランチ作成

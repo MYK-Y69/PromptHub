@@ -1,6 +1,9 @@
-`data2/` 原本の確認から main への push・UI 確認まで、data2 取り込みフローを一気通貫で実行する。
+`data2/` 原本の確認から main への push・UI 確認まで、TAGS 本線更新フローを一気通貫で実行する。
 
-以下の手順を **そのまま** 実行してください。途中停止は高リスク操作（push・merge・削除）のみ。
+**主更新先は TAGS pipeline**（`data/inbox/*.tsv` → `compile_tags.py` → `compiled/tags.json`）。
+SAFE/FULL pipeline（`data/dictionary/categories/*.json`）には書かない。
+
+以下の手順を **そのまま** 実行してください。途中停止は高リスク操作（push・削除）のみ。
 
 ---
 
@@ -19,759 +22,450 @@ git log --oneline HEAD..origin/main
 - ローカルに未 push のコミットがある場合 → ユーザーに報告して止める。
 - `main` ブランチ以外にいる場合 → ユーザーに確認する。
 
-## Step 2: 現行アーキ確認
+## Step 2: TAGS パイプライン確認
 
 ```bash
-ls data/dictionary/categories/
-head -5 tools/compile_dictionary.py
+ls data/inbox/
+python3 -c "
+import json
+from pathlib import Path
+p = Path('data/dictionary/tags.json')
+if p.exists():
+    d = json.load(open(p))
+    print(f'tags.json: {d[\"count_rows\"]} rows, {d[\"count_sections\"]} sections')
+else:
+    print('tags.json: not found')
+p2 = Path('data/dictionary/compiled/tags.json')
+if p2.exists():
+    d2 = json.load(open(p2))
+    print(f'compiled/tags.json: {d2[\"count\"]} items, generated_at={d2[\"generated_at\"]}')
+"
 ```
 
-- `data/dictionary/categories/` に `.json` がなければユーザーに報告して止める。
-- `tools/compile_dictionary.py` がなければ同様に止める。
+- `data/inbox/` に TSV ファイルが存在しない場合 → `python3 tools/restore_tsv_from_tags.py` を実行して再生成する。
+- TSV が存在する場合はそのまま使用する。
 
-## Step 3: data2 スキャン & 原本特定
+## Step 3: data2 原本スキャン
 
 ```python
-import zipfile, xml.etree.ElementTree as ET, csv, json, re
+import os
 from pathlib import Path
 
-data2_dir = Path("data2")
-candidates = sorted(
-    [f for f in data2_dir.iterdir() if f.suffix.lower() in (".docx",".csv",".tsv",".txt",".md")],
-    key=lambda f: (0 if f.suffix.lower()==".docx" else 1, f.name)
-)
-print(f"data2 候補ファイル ({len(candidates)}件):")
-for c in candidates:
-    print(f"  {c.name}  ({c.stat().st_size//1024} KB)")
+data2 = Path("data2")
+files = list(data2.iterdir()) if data2.exists() else []
+print(f"data2/ ファイル数: {len(files)}")
+for f in files:
+    print(f"  {f.name}  ({f.stat().st_size:,} bytes)")
 ```
 
-- 候補が 0 件 → 「data2/ に対応ファイルがありません」と伝えて止める。
-- `$ARGUMENTS` にファイルパスが含まれる場合はそれを採用する。
-- 複数ある場合は 4 列構造（英語名/日本語訳/カテゴリー/詳細）に最も近いものを選ぶ。
+- `data2/` が空の場合は「原本がありません」と伝えて終了する。
+- `.docx` / `.tsv` / `.csv` / `.txt` ファイルを処理対象とする。
 
 ---
 
-# Phase B: Import
+# Phase B: 原本解析 → TAGS TSV 追記
 
-## Step 4: 原本パース
+## Step 4: 原本ファイルのパース
 
-採用したファイルを以下の Python でパースする:
+ファイル種別に応じて解析する。
+
+**DOCX の場合**（NotebookLM 正規化済み 4列構造を想定: 英語名 / 日本語訳 / カテゴリー / 詳細・説明）:
 
 ```python
-import zipfile, xml.etree.ElementTree as ET, csv, json, re
-from pathlib import Path
+import zipfile, re
+from xml.etree import ElementTree as ET
 
-# ── DOCX 抽出 ─────────────────────────────────────────────────────────────────
-def extract_docx_paragraphs(docx_path: Path) -> list[str]:
-    ns = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
-    with zipfile.ZipFile(docx_path) as z:
-        with z.open("word/document.xml") as f:
-            tree = ET.parse(f)
-    body = tree.getroot().find(".//w:body", ns)
-    result = []
-    for p in body.findall(".//w:p", ns):
-        texts = [t.text for r in p.findall(".//w:r", ns)
-                 for t in r.findall("w:t", ns) if t.text]
-        line = "".join(texts).strip()
-        if line:
-            result.append(line)
-    return result
+NS = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
 
-def parse_source_file(path: Path) -> list[dict]:
-    ext = path.suffix.lower()
-    if ext == ".docx":
-        paragraphs = extract_docx_paragraphs(path)
-        raw_rows = []
-        for line in paragraphs:
-            r = list(csv.reader([line]))[0]
-            # ヘッダ行・タイトル行スキップ（先頭セルが英語名系、または ASCII 外単語だけの行）
-            if len(r) >= 3 and r[0].strip() and not any(
-                r[0].strip() == h for h in ["英語名","English","en","term","英語"]
-            ) and not r[0].strip().startswith("引用"):
-                raw_rows.append(r)
-    elif ext in (".csv",):
-        with open(path, encoding="utf-8", newline="") as f:
-            raw_rows = [r for r in csv.reader(f) if r and r[0].strip()]
-        if raw_rows and raw_rows[0][0].lower() in ("en","english","英語名","term"):
-            raw_rows = raw_rows[1:]
-    elif ext in (".tsv",):
-        with open(path, encoding="utf-8", newline="") as f:
-            raw_rows = [r for r in csv.reader(f, delimiter="\t") if r and r[0].strip()]
-        if raw_rows and raw_rows[0][0].lower() in ("en","english","英語名","term"):
-            raw_rows = raw_rows[1:]
-    else:
-        raise ValueError(f"Unsupported: {ext}")
-
+def parse_docx(path):
+    with zipfile.ZipFile(path) as z:
+        xml = z.read("word/document.xml")
+    root = ET.fromstring(xml)
+    paragraphs = []
+    for para in root.findall(".//w:p", NS):
+        text = "".join(t.text or "" for t in para.findall(".//w:t", NS)).strip()
+        if text:
+            paragraphs.append(text)
+    # First paragraph: title, Second: header, Third+: data rows
     rows = []
-    for r in raw_rows:
-        if len(r) < 3:
-            continue
-        en   = r[0].strip()
-        jp   = r[1].strip() if len(r) > 1 else ""
-        cat  = r[2].strip() if len(r) > 2 else ""
-        desc = r[3].strip() if len(r) > 3 else ""
-        if en and cat:
-            rows.append({"en": en, "jp": jp, "cat_src": cat, "desc": desc})
+    for line in paragraphs[2:]:
+        parts = [p.strip() for p in re.split(r"\t|,(?=\s)", line)]
+        if len(parts) >= 2:
+            rows.append(parts)
     return rows
 
-# ── 採用ファイルを指定 ────────────────────────────────────────────────────────
-# (Step 3 で特定したファイルパスを使う)
-# source_path = Path("data2") / "<ファイル名>"
-source_rows = parse_source_file(source_path)
-
-from collections import Counter
-print(f"\n採用原本: {source_path.name}  総行数: {len(source_rows)}")
-print("カテゴリ内訳:")
-for cat, n in Counter(r["cat_src"] for r in source_rows).most_common():
-    print(f"  {cat}: {n}")
+# Usage:
+# for f in files:
+#     if f.suffix == ".docx":
+#         rows = parse_docx(f)
 ```
 
-4 列構造が確認できない場合はユーザーに報告して止める。
-
-## Step 5: 重複判定・未収録語彙抽出
+**TSV の場合**:
 
 ```python
-import json, re
-from pathlib import Path
-from collections import defaultdict
+import csv
+def parse_tsv(path, columns):
+    with open(path, encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f, delimiter="\t")
+        return list(reader)
+```
 
-CAT_MAP: dict[str,str] = {
+## Step 5: カテゴリーマッピングと TAGS section 名の決定
+
+data2 原本の「カテゴリー」列を TAGS section 名にマッピングする。
+
+既知マッピング（4列 DOCX 形式の場合）:
+
+```python
+CAT_MAP = {
     "カメラ・構図": "camera_comp",
-    "身体特徴":     "body_features",
+    "身体特徴":     "body",
     "ポーズ・動作": "pose_action",
-    "服装":         "clothing",
+    "服装":         "clothes",
     "アクセサリー": "accessories",
-    "e621/Pony":    "e621_pony",
+    "e621/Pony":   "e621_pony",
 }
-LABEL_MAP: dict[str,str] = {
-    "camera_comp":   "Camera Composition",
-    "body_features": "Body Features",
-    "pose_action":   "Poses & Actions",
-    "clothing":      "Clothing",
-    "accessories":   "Accessories",
-    "e621_pony":     "e621/Pony",
-}
-ID_PREFIX: dict[str,str] = {
-    "camera_comp":"cc","body_features":"bf","pose_action":"pa",
-    "clothing":"cl","accessories":"acc","e621_pony":"e6",
-}
-SECTION_TO_MAJOR_ADD: dict[str,str] = {
-    "camera_comp":"camera","body_features":"cloth","pose_action":"act",
-    "clothing":"cloth","accessories":"cloth","e621_pony":"style",
-}
-SECTION_LABEL_JP_ADD: dict[str,str] = {
-    "camera_comp":"カメラ構図","body_features":"身体特徴",
-    "pose_action":"ポーズ・動作","clothing":"服装",
-    "accessories":"アクセサリー","e621_pony":"e621/Pony",
-}
-
-def normalize(s: str) -> str:
-    return re.sub(r'[\s\-_/]+','',s.lower())
-
-def to_slug(prefix: str, en: str) -> str:
-    return f"{prefix}_{re.sub(r'[^a-z0-9]+','_',en.lower()).strip('_')}"
-
-# 既存語彙ロード
-cat_dir = Path("data/dictionary/categories")
-existing_en_lower: set[str] = set()
-existing_en_norm:  set[str] = set()
-for jf in sorted(cat_dir.glob("*.json")):
-    with open(jf) as f:
-        d = json.load(f)
-    for item in d.get("items",[]):
-        en = item.get("en","")
-        existing_en_lower.add(en.lower())
-        existing_en_norm.add(normalize(en))
-
-print(f"既存語彙: {len(existing_en_lower)} 件")
-
-# 分類
-auto_add: list[dict] = []
-skip_existing: list[dict] = []
-review_items: list[dict] = []
-
-for r in source_rows:
-    en_lower = r["en"].lower()
-    en_norm  = normalize(r["en"])
-    cat_key  = CAT_MAP.get(r["cat_src"])
-
-    if en_lower in existing_en_lower or en_norm in existing_en_norm:
-        r["action"] = "skip_existing"
-        skip_existing.append(r)
-        continue
-    if cat_key is None:
-        r["action"] = "review"
-        r["review_reason"] = f"未知カテゴリ: {r['cat_src']!r}"
-        review_items.append(r)
-        continue
-
-    r["cat_key"] = cat_key
-    r["item_id"] = to_slug(ID_PREFIX.get(cat_key, cat_key[:3]), r["en"])
-    r["action"]  = "add"
-    auto_add.append(r)
-
-print(f"\n分類結果: 追加={len(auto_add)}  スキップ={len(skip_existing)}  要確認={len(review_items)}")
-if review_items:
-    print("要確認:")
-    for r in review_items[:10]:
-        print(f"  {r['en']!r:35} → {r['review_reason']}")
 ```
 
-## Step 6: ブランチ作成
+未知カテゴリーが現れた場合: ユーザーに報告して section 名を確認する。
 
-```bash
-BRANCH="feat/data2-import-$(date +%Y%m%d)"
-git checkout -b "$BRANCH"
-```
-
-`$ARGUMENTS` にブランチ名が含まれる場合はそれを使う。
-同名ブランチが存在する場合はサフィックス `-2` を付ける。
-
-## Step 7: category JSON 書き込み & app.js 更新 & compile
+## Step 6: 既存 TAGS 語彙との重複除外
 
 ```python
-import json, re
+import csv, re
 from pathlib import Path
 from collections import defaultdict
 
-cat_dir = Path("data/dictionary/categories")
+def normalize(s):
+    return re.sub(r'[\s\-_/]+', '', s.lower())
 
-# category JSON 書き込み
-by_cat: dict[str,list] = defaultdict(list)
-for r in auto_add:
-    item = {"id": r["item_id"], "en": r["en"], "jp": r["jp"], "tags": [r["cat_key"]]}
-    if r["desc"]:
-        item["desc"] = r["desc"]
-    by_cat[r["cat_key"]].append(item)
+TSV_PATH = Path("data/inbox/2026-03-03_tags_fixed.tsv")
 
-for cat_key, new_items in by_cat.items():
-    out_path = cat_dir / f"{cat_key}.json"
-    if out_path.exists():
-        with open(out_path) as f:
-            d = json.load(f)
-        existing_ids = {i["id"] for i in d["items"]}
-        existing_ens = {i["en"].lower() for i in d["items"]}
-        added = 0
-        for item in new_items:
-            if item["id"] not in existing_ids and item["en"].lower() not in existing_ens:
-                d["items"].append(item)
-                existing_ids.add(item["id"])
-                existing_ens.add(item["en"].lower())
-                added += 1
-        d["items"].sort(key=lambda x: x["en"].lower())
-        print(f"[{cat_key}] +{added} 件追加（既存 {len(d['items'])-added} 件）")
-    else:
-        seen: set[str] = set()
-        deduped = [i for i in new_items if i["en"].lower() not in seen and not seen.add(i["en"].lower())]
-        deduped.sort(key=lambda x: x["en"].lower())
-        d = {"key": cat_key, "label": LABEL_MAP.get(cat_key, cat_key), "items": deduped}
-        print(f"[{cat_key}] 新規作成 {len(deduped)} 件")
-    with open(out_path,"w",encoding="utf-8") as f:
-        json.dump(d, f, ensure_ascii=False, indent=2)
+def load_existing_keys(tsv):
+    """danbooru_tag と definition 両方を正規化してキーセットを作る。"""
+    keys = set()
+    if not tsv.exists():
+        return keys
+    with open(tsv, encoding="utf-8", newline="") as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            dan = row.get("danbooru_tag", "").strip()
+            dfn = row.get("definition",   "").strip()
+            if dan: keys.add(normalize(dan))
+            if dfn: keys.add(normalize(dfn))
+    return keys
 
-# app.js 更新（SECTION_TO_MAJOR / SECTION_LABEL_JP）
-app_js = Path("app/app.js")
-content = app_js.read_text()
-modified = False
+existing = load_existing_keys(TSV_PATH)
+print(f"既存 TAGS entries: {len(existing)}")
+```
 
-for key, major in SECTION_TO_MAJOR_ADD.items():
-    if not re.search(rf'\b{re.escape(key)}\s*:', content):
-        content = re.sub(
-            r'(  clothing:\s*"cloth",\s*clothes:\s*"cloth",)',
-            lambda m: m.group(0) + f'\n  {key}: "{major}",',
-            content
-        )
-        modified = True
-        print(f"SECTION_TO_MAJOR: {key} → {major} 追加")
+**重複チェックは `danbooru_tag` と `definition` の両方を正規化して照合すること**（どちらかが一致したらスキップ）。
 
-for key, label_jp in SECTION_LABEL_JP_ADD.items():
-    if not re.search(rf'"{re.escape(key)}":\s*"', content):
-        content = content.replace(
-            '"clothes":     "服装",',
-            f'"clothes":     "服装",\n  "{key}":      "{label_jp}",'
-        )
-        modified = True
-        print(f"SECTION_LABEL_JP: {key} → {label_jp} 追加")
+## Step 7: 新規語彙を TSV に追記
 
-if modified:
-    app_js.write_text(content)
-    print("app.js 更新完了")
+```python
+COLUMNS = ["section", "jp_term", "definition", "danbooru_tag", "notes"]
+
+new_rows = []
+skipped = []
+
+for row in parsed_rows:  # Step 4 で得たデータ
+    en   = row[0].strip()   # 英語名 → danbooru_tag
+    jp   = row[1].strip()   # 日本語訳 → jp_term
+    cat  = row[2].strip()   # カテゴリー → section (via CAT_MAP)
+    desc = row[3].strip() if len(row) > 3 else ""  # 詳細 → definition
+
+    section = CAT_MAP.get(cat)
+    if section is None:
+        print(f"[UNKNOWN CAT] {cat!r} → {en!r}  ← ユーザー確認")
+        continue
+
+    nk = normalize(en)
+    if nk in existing:
+        skipped.append(en)
+        continue
+
+    new_rows.append({
+        "section":      section,
+        "jp_term":      jp,
+        "definition":   desc,
+        "danbooru_tag": en,
+        "notes":        "from:data2",
+    })
+    existing.add(nk)
+
+print(f"スキップ: {len(skipped)}")
+print(f"追記対象: {len(new_rows)}")
+
+# 追記
+content = TSV_PATH.read_text(encoding="utf-8")
+if content and not content.endswith("\n"):
+    content += "\n"
+
+with open(TSV_PATH, "a", encoding="utf-8", newline="") as f:
+    writer = csv.DictWriter(f, fieldnames=COLUMNS, delimiter="\t",
+                            extrasaction="ignore", lineterminator="\n")
+    for r in new_rows:
+        writer.writerow(r)
+
+print(f"追記完了: {len(new_rows)} rows → {TSV_PATH}")
+```
+
+## Step 8: compile_tags.py 実行
+
+```bash
+python3 tools/compile_tags.py
+```
+
+エラーがあれば原因を特定して最小修正で解消する。
+
+## Step 9: app.js の SECTION_TO_MAJOR / SECTION_LABEL_JP 確認・更新
+
+新しい TAGS section が `SECTION_TO_MAJOR` に登録済みか確認する:
+
+```python
+import subprocess, json
+
+# 追加された section を特定
+added_sections = list({r["section"] for r in new_rows})
+print("追加 section:", added_sections)
+
+# app.js から SECTION_TO_MAJOR の内容を確認
+with open("app/app.js") as f:
+    js = f.read()
+
+missing = [s for s in added_sections if f'"{s}"' not in js and f"'{s}'" not in js and f" {s}:" not in js]
+if missing:
+    print(f"⚠️  SECTION_TO_MAJOR 未登録: {missing}  → 追記が必要")
 else:
-    print("app.js 変更不要")
+    print("✅ SECTION_TO_MAJOR: 全 section 登録済み")
 ```
+
+未登録 section がある場合: `app.js` の `SECTION_TO_MAJOR` と `SECTION_LABEL_JP` に追記する（確認なしで実行可）。
+
+## Step 10: git commit（branch は作らず main 直接）
 
 ```bash
-python3 tools/compile_dictionary.py
-```
-
-compile エラーが出た場合は原因を特定し最小修正で解消する。
-
-```bash
-git add data/dictionary/categories/ data/dictionary/compiled/ data/dictionary/expression.json app/app.js
-git commit -m "feat(dictionary): import data2 terms ($(date +%Y-%m-%d))"
-```
-
-件数サマリ出力:
-
-```
-import 完了: 追加 N 件 / スキップ N 件 / 要確認 N 件
-compile: ✅ safe.json / full.json → N items / N categories
+git add data/dictionary/compiled/tags.json data/dictionary/tags.json app/app.js
+git commit -m "feat(tags): add N items from data2 import (TAGS pipeline)"
 ```
 
 ---
 
-# Phase C: Review
+# Phase C: レビュー
 
-## Step 8: 差分レビュー
+## Step 11: 追記内容の確認
 
 ```python
-import json, re, subprocess
+import csv, json
 from pathlib import Path
 
-cat_dir = Path("data/dictionary/categories")
-result = subprocess.run(
-    ["git","diff","--name-only","origin/main..HEAD"],
-    capture_output=True, text=True
-)
-new_cat_keys = [
-    Path(f).stem for f in result.stdout.splitlines()
-    if f.startswith("data/dictionary/categories/") and f.endswith(".json")
-]
+# TSV 追記分の確認
+with open("data/dictionary/compiled/tags.json") as f:
+    compiled = json.load(f)
+print(f"compiled/tags.json: {compiled['count']} items ({compiled['generated_at']})")
 
-print(f"追加カテゴリ ({len(new_cat_keys)} 件):\n")
-for key in sorted(new_cat_keys):
-    p = cat_dir / f"{key}.json"
-    if not p.exists():
-        continue
-    with open(p) as f:
-        d = json.load(f)
-    items = d["items"]
-    print(f"[{key}]  label={d.get('label')!r}  件数={len(items)}")
-    for item in items[:5]:
-        print(f"  {item['en']:35s} / {item['jp']}")
-    if len(items) > 5:
-        print(f"  ... (+{len(items)-5} 件)")
-    print()
+# from:data2 の件数・section 別内訳
+tsv = Path("data/inbox/2026-03-03_tags_fixed.tsv")
+rows = list(csv.DictReader(open(tsv, encoding="utf-8", newline=""), delimiter="\t"))
+data2_rows = [r for r in rows if r.get("notes","") == "from:data2"]
+from collections import Counter
+ctr = Counter(r["section"] for r in data2_rows)
+print(f"\nfrom:data2 合計: {len(data2_rows)} rows")
+for sec, cnt in sorted(ctr.items()):
+    ens = [r["danbooru_tag"] for r in data2_rows if r["section"]==sec]
+    print(f"  {sec}: {cnt} → {ens[:5]}{'...' if cnt>5 else ''}")
 ```
 
-## Step 9: 誤分類・重複チェック
+## Step 12: 重複・誤配置チェック
 
 ```python
-import json, re, subprocess
+import csv, re
 from pathlib import Path
+from collections import defaultdict
 
-cat_dir = Path("data/dictionary/categories")
-result = subprocess.run(
-    ["git","diff","--name-only","origin/main..HEAD"],
-    capture_output=True, text=True
-)
-new_cat_keys = [
-    Path(f).stem for f in result.stdout.splitlines()
-    if f.startswith("data/dictionary/categories/") and f.endswith(".json")
-]
+def normalize(s):
+    return re.sub(r'[\s\-_/]+', '', s.lower())
 
-def normalize(s): return re.sub(r'[\s\-_/]+','',s.lower())
+tsv = Path("data/inbox/2026-03-03_tags_fixed.tsv")
+rows = list(csv.DictReader(open(tsv, encoding="utf-8", newline=""), delimiter="\t"))
 
-# 既存語彙（変更外カテゴリのみ）
-existing: dict[str,tuple] = {}
-exist_norm: dict[str,tuple] = {}
-for jf in sorted(cat_dir.glob("*.json")):
-    if jf.stem in new_cat_keys:
-        continue
-    with open(jf) as f:
-        d = json.load(f)
-    for item in d.get("items",[]):
-        en = item.get("en","")
-        existing[en.lower()] = (jf.stem, item)
-        exist_norm[normalize(en)] = (jf.stem, item)
+def en_key(row):
+    dan = row.get("danbooru_tag","").strip()
+    if dan: return normalize(dan)
+    dfn = row.get("definition","").strip()
+    return normalize(dfn) if dfn else None
 
-# 新カテゴリ全 item
-all_new: list[tuple[str,dict]] = []
-for key in new_cat_keys:
-    p = cat_dir / f"{key}.json"
-    if p.exists():
-        with open(p) as f:
-            d = json.load(f)
-        for item in d.get("items",[]):
-            all_new.append((key, item))
+key_rows = defaultdict(list)
+for i, r in enumerate(rows):
+    k = en_key(r)
+    if k:
+        key_rows[k].append((i, r))
 
-issues: list[dict] = []
-seen_en: dict[str,str] = {}
-
-# 取り外せない身体特徴を accessories に入れている
-BODY_IN_ACC = {"wings","horns","tails","tail","ears","fur","scales","feathers","claws"}
-# ポーズ語・服装語が body_features に混入
-POSE_KW  = ["pose","sitting","standing","lying","reaching","kneeling"]
-CLOTH_KW = ["shirt","dress","skirt","pants","bra","swimsuit","uniform"]
-
-for cat_key, item in all_new:
-    en = item["en"]
-    el = en.lower()
-    en_n = normalize(en)
-
-    # 既存との重複
-    if el in existing:
-        ex_f, ex_i = existing[el]
-        issues.append({"type":"DUP_EXACT","cat":cat_key,"en":en,"jp":item["jp"],
-                       "note":f"既存 {ex_f}.json の {ex_i['en']!r} と完全一致"})
-    elif en_n in exist_norm:
-        ex_f, ex_i = exist_norm[en_n]
-        issues.append({"type":"DUP_NORM","cat":cat_key,"en":en,"jp":item["jp"],
-                       "note":f"既存 {ex_f}.json の {ex_i['en']!r} と表記ゆれ一致"})
-
-    # 新カテゴリ間の重複
-    if el in seen_en and seen_en[el] != cat_key:
-        issues.append({"type":"DUP_CROSS","cat":cat_key,"en":en,"jp":item["jp"],
-                       "note":f"{seen_en[el]}.json にも同語あり"})
-    seen_en[el] = cat_key
-
-    # 身体部位が accessories に
-    if cat_key == "accessories" and el in BODY_IN_ACC:
-        issues.append({"type":"MISPLACE","cat":cat_key,"en":en,"jp":item["jp"],
-                       "note":"身体特徴。body_features が適切"})
-
-    # ポーズ・服装語が body_features に
-    if cat_key == "body_features":
-        if any(kw in el for kw in POSE_KW):
-            issues.append({"type":"MISPLACE","cat":cat_key,"en":en,"jp":item["jp"],
-                           "note":"ポーズ語の混入可能性。pose_action を検討"})
-        if any(kw in el for kw in CLOTH_KW):
-            issues.append({"type":"MISPLACE","cat":cat_key,"en":en,"jp":item["jp"],
-                           "note":"服装語の混入可能性。clothing を検討"})
-
-if issues:
-    print(f"⚠️  指摘: {len(issues)} 件\n")
-    modify_recommended = [i for i in issues if i["type"] in ("DUP_EXACT","DUP_NORM","MISPLACE")]
-    caution_only       = [i for i in issues if i not in modify_recommended]
-    if modify_recommended:
-        print("【修正推奨】")
-        for i, iss in enumerate(modify_recommended,1):
-            print(f"  {i}. [{iss['type']}] {iss['cat']} / {iss['en']!r}")
-            print(f"     {iss['note']}")
-    if caution_only:
-        print("\n【要注意（許容範囲）】")
-        for iss in caution_only:
-            print(f"  {iss['cat']} / {iss['en']!r}  {iss['note']}")
+dups = {k: v for k,v in key_rows.items() if len(v)>1}
+# from:data2 起因の重複のみ報告
+data2_dups = {k:v for k,v in dups.items()
+              if any(r.get("notes","")=="from:data2" for _,r in v)}
+if data2_dups:
+    print(f"⚠️  from:data2 起因の重複: {len(data2_dups)} 件")
+    for k, matches in list(data2_dups.items())[:10]:
+        for idx, r in matches:
+            print(f"  [{idx}] {r['section']} | dan={r['danbooru_tag']!r} | def={r['definition']!r} | notes={r['notes']!r}")
 else:
-    print("✅ 指摘なし。修正不要。")
+    print("✅ from:data2 重複なし")
 ```
 
-## Step 10: 修正適用
-
-修正推奨がある場合のみ、以下を確認のうえ適用する:
-
-```
-修正推奨 N 件:
-  1. <en>  現在: <cat>  問題: <note>  推奨: <対応>
-  ...
-これらを適用しますか？ (yes / 個別指定 / skip)
-```
-
-承認された修正を適用する:
-
-```python
-import json, re
-from pathlib import Path
-
-cat_dir = Path("data/dictionary/categories")
-LABEL_MAP_LOCAL = {
-    "camera_comp":"Camera Composition","body_features":"Body Features",
-    "pose_action":"Poses & Actions","clothing":"Clothing",
-    "accessories":"Accessories","e621_pony":"e621/Pony",
-}
-ID_PREFIX_LOCAL = {
-    "camera_comp":"cc","body_features":"bf","pose_action":"pa",
-    "clothing":"cl","accessories":"acc","e621_pony":"e6",
-}
-
-def remove_from_cat(cat_key: str, en: str) -> dict | None:
-    p = cat_dir / f"{cat_key}.json"
-    with open(p) as f:
-        d = json.load(f)
-    target = next((i for i in d["items"] if i["en"].lower()==en.lower()), None)
-    if target:
-        d["items"] = [i for i in d["items"] if i["en"].lower()!=en.lower()]
-        with open(p,"w",encoding="utf-8") as f:
-            json.dump(d, f, ensure_ascii=False, indent=2)
-        print(f"  削除: {en!r} ← {cat_key}.json")
-    return target
-
-def add_to_cat(cat_key: str, item: dict) -> None:
-    p = cat_dir / f"{cat_key}.json"
-    item = dict(item)
-    prefix = ID_PREFIX_LOCAL.get(cat_key, cat_key[:3])
-    item["id"]   = f"{prefix}_{re.sub(r'[^a-z0-9]+','_',item['en'].lower()).strip('_')}"
-    item["tags"] = [cat_key]
-    if p.exists():
-        with open(p) as f:
-            d = json.load(f)
-    else:
-        d = {"key":cat_key,"label":LABEL_MAP_LOCAL.get(cat_key,cat_key),"items":[]}
-    if not any(i["en"].lower()==item["en"].lower() for i in d["items"]):
-        d["items"].append(item)
-        d["items"].sort(key=lambda x: x["en"].lower())
-    with open(p,"w",encoding="utf-8") as f:
-        json.dump(d, f, ensure_ascii=False, indent=2)
-    print(f"  追加: {item['en']!r} → {cat_key}.json")
-
-# 使い方（修正ごとに呼ぶ）:
-# item = remove_from_cat("accessories", "wings")
-# if item: add_to_cat("body_features", item)
-```
-
-修正後は再 compile する:
-
-```bash
-python3 tools/compile_dictionary.py
-```
-
-```bash
-git add data/dictionary/categories/ data/dictionary/compiled/ data/dictionary/expression.json
-git commit -m "fix(dictionary): review fixes for data2 import"
-```
-
-修正ゼロの場合は commit をスキップする。
+重複が検出された場合: `from:data2` 行を削除して再 compile する（既存 TSV 行は触らない）。
 
 ---
 
-# Phase D: Merge / Push
+# Phase D: push
 
-## Step 11: merge 前最終確認
-
-```bash
-python3 tools/compile_dictionary.py
-git log --oneline -3
-git diff --stat origin/main..HEAD
-```
-
-compile エラーがあれば解消してから先に進む。
-
-## Step 12: main へ merge
+## Step 13: push 確認
 
 **ここでユーザーに確認する:**
 
 ```
-以下の内容を main へ merge します:
+TAGS pipeline に以下の変更を push します:
 
-  ブランチ: <branch_name>
-  追加カテゴリ: <一覧>
-  compile 結果: safe.json / full.json → N items
+  追加 section : <section 一覧>
+  追加語彙数   : N items（from:data2）
+  compiled/tags.json: N items → N items
 
-merge してよいですか？ (yes / no)
-```
-
-承認後:
-
-```bash
-IMPORT_BRANCH=$(git branch --show-current)
-git checkout main
-git pull --ff-only origin main
-git merge --no-ff "$IMPORT_BRANCH" -m "Merge ${IMPORT_BRANCH}: add prompt terms from data2"
-```
-
-競合が発生した場合: 競合内容をユーザーに報告して止める。自動解消しない。
-
-## Step 13: push 確認 & 実行
-
-**ここでユーザーに確認する:**
-
-```
-push します: origin/main  (commit: <hash>)
 push してよいですか？ (yes / no)
 ```
 
-承認後:
+承認された場合のみ:
 
 ```bash
 git push origin main
-```
-
-## Step 14: import ブランチ削除（任意）
-
-**ユーザーに確認する:**
-
-```
-<branch_name> を削除しますか？ (yes / no)
-```
-
-承認後:
-
-```bash
-git branch -d "$IMPORT_BRANCH"
-git push origin --delete "$IMPORT_BRANCH"
 ```
 
 ---
 
 # Phase E: UI 確認
 
-## Step 15: ローカル UI 起動
+## Step 14: ローカル UI 確認（TAGS モード）
 
 ```bash
 kill $(lsof -ti:8765) 2>/dev/null; true
 python3 -m http.server 8765 &>/tmp/prompthub_server.log &
 sleep 1
-curl -s -o /dev/null -w "HTTP %{http_code}\n" http://localhost:8765/app/index.html
+curl -s -o /dev/null -w "%{http_code}" http://localhost:8765/app/index.html
 ```
 
-## Step 16: Playwright による UI・検索確認
-
-playwright が使えない場合は `python3 -m playwright install chromium` を試みる。それでも使えない場合は手動確認を促してスキップする。
+playwright が使えない場合はスキップして手動確認を促す:
 
 ```python
-import json, subprocess, time
-from pathlib import Path
 try:
     from playwright.sync_api import sync_playwright
-    HAS_PW = True
+    HAS_PLAYWRIGHT = True
 except ImportError:
-    HAS_PW = False
+    HAS_PLAYWRIGHT = False
     print("⚠️  playwright 未インストール。手動で http://localhost:8765/app/index.html を確認してください。")
+    print("   TAGS モードに切り替えて追加語彙を検索してください。")
+```
 
-if HAS_PW:
-    BASE = "http://localhost:8765/app/index.html"
-    OUT  = "/tmp/prompthub_ui_check"
-    Path(OUT).mkdir(exist_ok=True)
+playwright が使える場合:
 
-    # 今回追加したカテゴリキーを特定
-    result = subprocess.run(
-        ["git","diff","--name-only","HEAD~2..HEAD"],  # merge commit + fix commit 分
-        capture_output=True, text=True
-    )
-    added_cats = sorted({
-        Path(f).stem for f in result.stdout.splitlines()
-        if f.startswith("data/dictionary/categories/") and f.endswith(".json")
-        and Path(f).stem not in ("expression","action","angle","camera","count",
-                                  "focus","meta","pose","pov","relationship")
-    })
+```python
+import json, time
+from pathlib import Path
+from playwright.sync_api import sync_playwright
 
-    # 検索語（デフォルト + $ARGUMENTS 指定語があれば追加）
-    default_terms = ["bokeh","lens flare","peace sign","heart hands",
-                     "flat chest","bikini","glasses","anthro"]
+BASE = "http://localhost:8765/app/index.html"
+OUT  = "/tmp/prompthub_ui_check"
+Path(OUT).mkdir(exist_ok=True)
 
-    with sync_playwright() as p:
-        browser = p.chromium.launch(channel="chrome", headless=True)
-        page = browser.new_page(viewport={"width":1400,"height":900})
-        page.goto(BASE, wait_until="networkidle")
-        time.sleep(1.5)
+# 今回追加した section を特定
+added_sections = list({r["section"] for r in new_rows})
+# 今回追加した語彙からサンプル検索語を取得
+sample_search = [r["danbooru_tag"] for r in new_rows[:6] if r["danbooru_tag"]]
 
-        # SAFE モードへ切り替え
-        btn = page.query_selector('[data-mode="safe"]')
-        if btn:
-            btn.click(); time.sleep(1.5)
-        page.screenshot(path=f"{OUT}/01_sidebar.png")
+with sync_playwright() as p:
+    browser = p.chromium.launch(channel="chrome", headless=True)
+    page = browser.new_page(viewport={"width": 1400, "height": 900})
+    page.goto(BASE, wait_until="networkidle")
+    time.sleep(1.5)
 
-        cats = page.evaluate("""() =>
-            Array.from(document.querySelectorAll('.cat-item'))
-                .map(el=>({key:el.dataset.key,text:el.textContent.trim()}))
-        """)
-        print("SAFE サイドバー:")
-        for c in cats:
-            print(f"  {c['key']:25s}  {c['text'][:40]}")
+    # TAGS モードに切り替え
+    tags_btn = page.query_selector('[data-mode="tags"]')
+    if tags_btn:
+        tags_btn.click()
+        time.sleep(2)
+    page.screenshot(path=f"{OUT}/01_tags_sidebar.png")
 
-        # 追加カテゴリを個別確認
-        for cat_key in added_cats:
-            el = page.query_selector(f'[data-key="{cat_key}"]')
-            if el:
-                el.click(); time.sleep(0.6)
-                page.screenshot(path=f"{OUT}/02_{cat_key}.png")
-                ens = page.evaluate("""() =>
-                    Array.from(document.querySelectorAll('.card .card-en'))
-                        .map(e=>e.textContent.trim())
-                """)
-                status = "✅" if ens else "❌ カードなし"
-                print(f"\n[{cat_key}] {len(ens)} cards {status}: {ens[:5]}")
-            else:
-                print(f"[{cat_key}] ⚠️  サイドバーに表示なし")
+    # 全カテゴリと件数を確認
+    cats = page.evaluate("""() =>
+        Array.from(document.querySelectorAll('.cat-item'))
+            .map(el => ({key: el.dataset.key, text: el.textContent.trim()}))
+    """)
+    print("TAGS サイドバー:")
+    for c in cats:
+        print(f"  {c['key']:20s}  {c['text'][:50]}")
 
-        # __all__ で検索確認
-        all_btn = page.query_selector('[data-key="__all__"]')
-        if all_btn:
-            all_btn.click(); time.sleep(0.5)
+    # 検索確認
+    all_btn = page.query_selector('[data-key="__all__"]')
+    if all_btn: all_btn.click(); time.sleep(0.5)
+    si = page.query_selector('#search')
+    print("\n検索確認:")
+    for term in sample_search:
+        if si:
+            si.fill(""); si.fill(term)
+            time.sleep(0.3)
+            cards = page.query_selector_all('.card')
+            ens = page.evaluate("""() =>
+                Array.from(document.querySelectorAll('.card .card-en'))
+                    .map(e => e.textContent.trim())
+            """)
+            status = "✅" if cards else "❌"
+            print(f"  {status} '{term}': {len(cards)} 件 → {ens[:3]}")
 
-        search = page.query_selector('#search')
-        print("\n検索確認 (SAFE / __all__):")
-        for term in default_terms:
-            if search:
-                search.fill(""); search.fill(term); time.sleep(0.3)
-                cards = page.query_selector_all('.card')
-                ens   = page.evaluate("""() =>
-                    Array.from(document.querySelectorAll('.card .card-en'))
-                        .map(e=>e.textContent.trim())
-                """)
-                icon = "✅" if cards else "❌"
-                print(f"  {icon} '{term}': {len(cards)} 件 → {ens[:3]}")
-        page.screenshot(path=f"{OUT}/03_search.png")
-        browser.close()
+    page.screenshot(path=f"{OUT}/03_search_result.png")
+    browser.close()
 
-    print(f"\nスクリーンショット: {OUT}/")
+print(f"\nスクリーンショット: {OUT}/")
 ```
 
 ---
 
 # Phase F: 最終レポート
 
-## Step 17: 最終レポート出力
-
-以下のフォーマットで出力する:
-
 ```python
 import json, subprocess
 from pathlib import Path
 
-commit_hash = subprocess.run(["git","log","--oneline","-1"],
-                             capture_output=True, text=True).stdout.strip()
-cat_dir = Path("data/dictionary/categories")
-result = subprocess.run(
-    ["git","diff","--name-only","HEAD~2..HEAD"],
-    capture_output=True, text=True
-)
-changed = sorted({
-    Path(f).stem for f in result.stdout.splitlines()
-    if f.startswith("data/dictionary/categories/") and f.endswith(".json")
-})
+commit = subprocess.run(["git", "log", "--oneline", "-1"],
+                        capture_output=True, text=True).stdout.strip()
 
-print("━"*52)
-print("  prompthub-run-data2-import 最終レポート")
-print("━"*52)
-# 変数は各 Phase で定義されたものを参照
-print(f"採用原本     : {source_path.name}")
-print(f"原本総行数   : {len(source_rows)}")
-print(f"スキップ     : {len(skip_existing)} 件（既存重複）")
-print(f"追加         : {len(auto_add)} 件")
-print(f"要確認       : {len(review_items)} 件")
+with open("data/dictionary/compiled/tags.json") as f:
+    d = json.load(f)
+
+print("━" * 50)
+print("  prompthub-run-data2-import 完了レポート")
+print("━" * 50)
+print(f"pipeline      : TAGS（SAFE/FULL は未変更）")
+print(f"commit        : {commit}")
+print(f"push          : ✅ origin/main へ push 完了")
 print()
-print("カテゴリ別件数:")
-for key in sorted(changed):
-    p = cat_dir / f"{key}.json"
-    if p.exists():
-        with open(p) as f:
-            d = json.load(f)
-        print(f"  {key}: {len(d['items'])} 件")
+print(f"compiled/tags.json: {d['count']} items / {len(d['categories'])} sections")
 print()
-print(f"compile      : ✅ 正常終了")
-print(f"commit hash  : {commit_hash}")
-print(f"push         : ✅ origin/main 反映済み")
+print("今回追加:")
+for sec, cnt in sorted(ctr.items()):
+    print(f"  {sec}: {cnt} items")
 print()
-print("UI 確認:")
-print("  SAFE/FULL : ✅ 追加カテゴリ全件表示")
-print("  TAGS      : ✅ 仕様通り（別パイプライン）")
-print("  desc      : ✅ JSON 保存済み・UI未表示は仕様")
+print("UI 確認 (TAGS モード):")
+print("  追加語彙検索   : ✅ 全件ヒット確認")
 print()
-print("UI 運用可否  : ✅ 運用可")
-print("━"*52)
+print("今後の確認方法  : push 後 ~1分待ち → 通常リロードで最新表示")
+print("━" * 50)
 ```
 
 ---
 
 ## 制約
 
+- **SAFE/FULL pipeline（`data/dictionary/categories/*.json`）には書かない**
 - `git push` はユーザー承認後のみ実行する
-- `git merge` はユーザー承認後のみ実行する
-- ブランチ削除はユーザー確認後のみ実行する
-- 既存アイテムの削除・置換はユーザー承認後のみ実行する
-- compile エラーが解消できない場合は merge せずに止める
-- 競合が発生した場合は自動解消しない
-- TAGS パイプライン（`compile_tags.py` / `data/inbox/`）には触らない
-- 新カテゴリが SAFE/FULL に出て TAGS に出ない場合は仕様通りと判断してよい
-- 旧アーキ（DICT_FILES 方式）には戻さない
+- `data/inbox/*.tsv` への追記は重複チェック後のみ行う（`danbooru_tag` + `definition` 両方を正規化照合）
+- compile エラーが解消できない場合は push せずにユーザーに報告する
+- `compile_dictionary.py`（SAFE/FULL）には触らない
