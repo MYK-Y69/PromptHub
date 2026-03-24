@@ -46,8 +46,15 @@ const SECTION_TO_MAJOR = {
   kneel: "act", shake: "act", point: "act", support: "act",
   touch_env: "act", touch_self: "act", legmove: "act",
 
-  // clothing / body
+  // pose / action (data2)
+  pose_action: "act",
+
+  // clothing / body (data2)
+  body_features: "cloth", accessories: "cloth",
   clothing: "cloth", clothes: "cloth",
+
+  // furry / pony (data2)
+  e621_pony: "style",
 
   // background
   background: "bg",
@@ -74,7 +81,12 @@ const SECTION_LABEL_JP = {
   "composition": "構図",
   "relationship":"関係",
   "misc_people": "人物（その他）",
-  "clothes":     "服装",
+  "clothes":       "服装",
+  "clothing":      "服装",
+  "body_features": "身体特徴",
+  "accessories":   "アクセサリー",
+  "pose_action":   "ポーズ・動作",
+  "e621_pony":     "e621/Pony",
   "count":       "人数/数",
   "quality":     "品質",
   "effect":      "効果",

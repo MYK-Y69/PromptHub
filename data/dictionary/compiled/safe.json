@@ -1,7 +1,115 @@
 {
-  "generated_at": "2026-03-03T15:32:57",
-  "count": 410,
+  "generated_at": "2026-03-24T15:15:30",
+  "count": 531,
   "items": [
+    {
+      "id": "acc_bag",
+      "en": "bag",
+      "jp": "バッグ",
+      "tags": [
+        "accessories"
+      ],
+      "desc": "物を運ぶための鞄。backpack/handbag等"
+    },
+    {
+      "id": "acc_belt",
+      "en": "belt",
+      "jp": "ベルト",
+      "tags": [
+        "accessories"
+      ],
+      "desc": "腰に巻いて服を固定する帯。buckleが特徴"
+    },
+    {
+      "id": "acc_choker",
+      "en": "choker",
+      "jp": "チョーカー",
+      "tags": [
+        "accessories"
+      ],
+      "desc": "首に密着させて着ける短いネックレス。鈴付き首輪等も含む"
+    },
+    {
+      "id": "acc_crown",
+      "en": "crown",
+      "jp": "王冠",
+      "tags": [
+        "accessories"
+      ],
+      "desc": "君主などが頭に乗せる装飾品"
+    },
+    {
+      "id": "acc_glasses",
+      "en": "glasses",
+      "jp": "眼鏡",
+      "tags": [
+        "accessories"
+      ],
+      "desc": "視力補正やおしゃれ用のレンズ器具。sunglasses等"
+    },
+    {
+      "id": "acc_gloves",
+      "en": "gloves",
+      "jp": "手袋",
+      "tags": [
+        "accessories"
+      ],
+      "desc": "手を保護・装飾する衣類。elbow gloves（肘丈）等"
+    },
+    {
+      "id": "acc_gun",
+      "en": "gun",
+      "jp": "銃",
+      "tags": [
+        "accessories"
+      ],
+      "desc": "遠距離攻撃用の射撃武器。handgun/rifle等"
+    },
+    {
+      "id": "acc_hat",
+      "en": "hat",
+      "jp": "帽子",
+      "tags": [
+        "accessories"
+      ],
+      "desc": "頭に被る装飾品の総称。witch hat/top hat等"
+    },
+    {
+      "id": "acc_mask",
+      "en": "mask",
+      "jp": "マスク",
+      "tags": [
+        "accessories"
+      ],
+      "desc": "顔を覆う仮面や衛生用具。mouth mask等"
+    },
+    {
+      "id": "acc_necktie",
+      "en": "necktie",
+      "jp": "ネクタイ",
+      "tags": [
+        "accessories"
+      ],
+      "desc": "シャツの襟の下に締める細長い布"
+    },
+    {
+      "id": "acc_shield",
+      "en": "shield",
+      "jp": "盾",
+      "tags": [
+        "accessories"
+      ],
+      "desc": "攻撃を防ぐための防具"
+    },
+    {
+      "id": "acc_sword",
+      "en": "sword",
+      "jp": "剣",
+      "tags": [
+        "accessories"
+      ],
+      "desc": "格闘用の刃物武器。katana/dagger等"
+    },
     {
       "id": "act_blowing_kiss",
       "en": "blowing a kiss",
@@ -197,6 +305,321 @@
       ]
     },
     {
+      "id": "bf_abs",
+      "en": "abs",
+      "jp": "腹筋",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "鍛えられた腹部の筋肉"
+    },
+    {
+      "id": "bf_armpits",
+      "en": "armpits",
+      "jp": "腋",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "腕が胴体に接続する部分。ノースリーブや腕を上げたポーズで強調される"
+    },
+    {
+      "id": "bf_backboob",
+      "en": "backboob",
+      "jp": "裏乳",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "キャラクターの背面から見える胸の側面の膨らみ"
+    },
+    {
+      "id": "bf_big_belly",
+      "en": "big belly",
+      "jp": "腹ボテ",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "顕著に大きな腹部。満腹、肥満、妊娠などの状態を示す"
+    },
+    {
+      "id": "bf_cleavage",
+      "en": "cleavage",
+      "jp": "谷間",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "乳房の間にできる窪み。性的魅力を強調する"
+    },
+    {
+      "id": "bf_colored_skin",
+      "en": "colored skin",
+      "jp": "異色肌",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "青や赤など人間にない肌色。ファンタジー種族に使用"
+    },
+    {
+      "id": "bf_covered_navel",
+      "en": "covered navel",
+      "jp": "透けへそ",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "密着した衣服越しにへその形状が確認できる描写"
+    },
+    {
+      "id": "bf_curvy",
+      "en": "curvy",
+      "jp": "グラマラス",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "平均以上の肉付きで、胸や腰の曲線が強調された豊満な体型"
+    },
+    {
+      "id": "bf_dark_skin",
+      "en": "dark skin",
+      "jp": "褐色肌",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "日焼けや生まれつきの濃い肌色。通常の白人/東アジア人より濃い"
+    },
+    {
+      "id": "bf_flat_chest",
+      "en": "flat chest",
+      "jp": "平らな胸",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "完全に平坦な胸部。子供以外のキャラに使用"
+    },
+    {
+      "id": "bf_gigantic_breasts",
+      "en": "gigantic breasts",
+      "jp": "超乳",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "頭部の2倍以上の大きさがある非現実的な巨大胸"
+    },
+    {
+      "id": "bf_horns",
+      "en": "horns",
+      "jp": "角",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "頭部から生えている硬い突起。demon horns等"
+    },
+    {
+      "id": "bf_huge_breasts",
+      "en": "huge breasts",
+      "jp": "爆乳",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "頭部と同サイズ以上の巨大な胸"
+    },
+    {
+      "id": "bf_inverted_nipples",
+      "en": "inverted nipples",
+      "jp": "陥没乳首",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "外側ではなく内側に向かって凹んでいる乳首"
+    },
+    {
+      "id": "bf_large_areolae",
+      "en": "large areolae",
+      "jp": "巨乳輪",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "乳房の半分以上を占める大きさの乳輪"
+    },
+    {
+      "id": "bf_large_breasts",
+      "en": "large breasts",
+      "jp": "巨乳",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "顔の直径と同程度の球体サイズ。非常に目立つ胸"
+    },
+    {
+      "id": "bf_loli",
+      "en": "loli",
+      "jp": "ロリ",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "幼い少女の外見。性的描写を含む文脈で使用。非性的はchild/petite"
+    },
+    {
+      "id": "bf_mature_female",
+      "en": "mature female",
+      "jp": "熟女",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "成熟した大人の女性。母性的な魅力や曲線的な体型が特徴"
+    },
+    {
+      "id": "bf_medium_breasts",
+      "en": "medium breasts",
+      "jp": "普通乳",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "手のひらより大きく、顔より小さい平均的なサイズの胸"
+    },
+    {
+      "id": "bf_muscular",
+      "en": "muscular",
+      "jp": "筋肉質",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "明確な筋肉の発達が見られる体格"
+    },
+    {
+      "id": "bf_navel",
+      "en": "navel",
+      "jp": "へそ",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "腹部の中央にあるへそ。露出している状態"
+    },
+    {
+      "id": "bf_pale_skin",
+      "en": "pale skin",
+      "jp": "色白",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "雪のように白い、または明るい肌色。Danbooru語ではこれに統一"
+    },
+    {
+      "id": "bf_pectorals",
+      "en": "pectorals",
+      "jp": "胸筋",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "男性の胸部周辺の筋肉。Pony系ではpectoral focusも有効"
+    },
+    {
+      "id": "bf_plump",
+      "en": "plump",
+      "jp": "むちむち",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "太っているとは言えない程度の適度な肉付き。良い場所に肉がついた状態"
+    },
+    {
+      "id": "bf_puffy_nipples",
+      "en": "puffy nipples",
+      "jp": "膨らんだ乳首",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "乳房の通常の曲線を超えて、乳首や乳輪が膨らんだ状態"
+    },
+    {
+      "id": "bf_shota",
+      "en": "shota",
+      "jp": "ショタ",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "幼い少年の外見。性的描写を含む文脈で使用。非性的はchild"
+    },
+    {
+      "id": "bf_sideboob",
+      "en": "sideboob",
+      "jp": "横乳",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "服の脇から見える胸の側面。乳首は非露出"
+    },
+    {
+      "id": "bf_skinny",
+      "en": "skinny",
+      "jp": "痩せ型",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "標準より脂肪が少なく細い体格。肋骨が見える場合もある"
+    },
+    {
+      "id": "bf_small_breasts",
+      "en": "small breasts",
+      "jp": "貧乳",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "控えめなサイズの胸。AAカップ〜Cカップ未満が基準"
+    },
+    {
+      "id": "bf_stomach",
+      "en": "stomach",
+      "jp": "腹部",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "お腹。画像内で目立つ要素として描かれている場合に指定"
+    },
+    {
+      "id": "bf_tails",
+      "en": "tails",
+      "jp": "尻尾",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "臀部から生えている動物的な尾。multiple tails（多尾）等"
+    },
+    {
+      "id": "bf_thick_thighs",
+      "en": "thick thighs",
+      "jp": "太い太もも",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "肉付きがよく逞しい太もも。腰回りとほぼ同サイズの場合もある"
+    },
+    {
+      "id": "bf_underboob",
+      "en": "underboob",
+      "jp": "下乳",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "服の下からはみ出している胸の下部。乳首は非露出"
+    },
+    {
+      "id": "bf_wide_hips",
+      "en": "wide hips",
+      "jp": "幅広い腰",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "肩幅以上の幅がある腰。デカ尻と関連"
+    },
+    {
+      "id": "bf_wings",
+      "en": "wings",
+      "jp": "翼",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "背中から生えている羽根や膜状の翼。angel wings/bat wings等"
+    },
+    {
       "id": "cam_closeup",
       "en": "close-up",
       "jp": "アップ",
@@ -219,6 +642,483 @@
       "tags": [
         "camera"
       ]
+    },
+    {
+      "id": "cc_bokeh",
+      "en": "bokeh",
+      "jp": "ボケ",
+      "tags": [
+        "camera_comp"
+      ],
+      "desc": "光の点などがぼやけて見える背景の視覚効果"
+    },
+    {
+      "id": "cc_depth_of_field",
+      "en": "depth of field",
+      "jp": "被写界深度",
+      "tags": [
+        "camera_comp"
+      ],
+      "desc": "ピントの合う範囲を調整し、前景や背景をぼかす効果"
+    },
+    {
+      "id": "cc_foreshortening",
+      "en": "foreshortening",
+      "jp": "フォアショートニング",
+      "tags": [
+        "camera_comp"
+      ],
+      "desc": "視聴者に突き出す対象を実際より短く、かつ大きく表現する技法"
+    },
+    {
+      "id": "cc_isometric",
+      "en": "isometric",
+      "jp": "アイソメトリック",
+      "tags": [
+        "camera_comp"
+      ],
+      "desc": "3次元物体を2次元に投影する技法。平行線が消失点に収束しない"
+    },
+    {
+      "id": "cc_lens_flare",
+      "en": "lens flare",
+      "jp": "レンズフレア",
+      "tags": [
+        "camera_comp"
+      ],
+      "desc": "強い光がレンズに反射して生じる光の輪や筋"
+    },
+    {
+      "id": "cc_mugshot",
+      "en": "mugshot",
+      "jp": "マグショット",
+      "tags": [
+        "camera_comp"
+      ],
+      "desc": "警察の記録用写真のような、正面と横顔を並べた構図"
+    },
+    {
+      "id": "cc_pedestal",
+      "en": "pedestal",
+      "jp": "台座",
+      "tags": [
+        "camera_comp"
+      ],
+      "desc": "フィギュアや模型のように装飾的な台座の上に立っている演出"
+    },
+    {
+      "id": "cc_perspective",
+      "en": "perspective",
+      "jp": "遠近法",
+      "tags": [
+        "camera_comp"
+      ],
+      "desc": "空間の奥行きや立体感を強調するパース表現"
+    },
+    {
+      "id": "cc_vanishing_point",
+      "en": "vanishing point",
+      "jp": "消失点",
+      "tags": [
+        "camera_comp"
+      ],
+      "desc": "背景の線が一点に収束する遠近法的表現。道路の中央からの視点など"
+    },
+    {
+      "id": "cl_bikini",
+      "en": "bikini",
+      "jp": "ビキニ",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "上下が分かれた水着。string bikini/micro bikini等"
+    },
+    {
+      "id": "cl_blouse",
+      "en": "blouse",
+      "jp": "ブラウス",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "柔らかい生地で作られた女性用のシャツ"
+    },
+    {
+      "id": "cl_bra",
+      "en": "bra",
+      "jp": "ブラジャー",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "胸を支えるための下着。sports bra/strapless bra等"
+    },
+    {
+      "id": "cl_camisole",
+      "en": "camisole",
+      "jp": "キャミソール",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "細い肩紐のインナーウェア的トップス"
+    },
+    {
+      "id": "cl_china_dress",
+      "en": "china dress",
+      "jp": "チャイナドレス",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "横に深いスリットが入った中国風ドレス"
+    },
+    {
+      "id": "cl_coat",
+      "en": "coat",
+      "jp": "コート",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "太もも丈以上の長さがある厚手のアウター。lab coat（白衣）等も含む"
+    },
+    {
+      "id": "cl_crop_top",
+      "en": "crop top",
+      "jp": "クロップトップ",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "へそ出し丈の短いトップス"
+    },
+    {
+      "id": "cl_dress",
+      "en": "dress",
+      "jp": "ドレス",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "上下が一体となった女性用の正装・ワンピース。wedding dress等"
+    },
+    {
+      "id": "cl_dress_shirt",
+      "en": "dress shirt",
+      "jp": "ドレスシャツ",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "ボタン留めの襟付きフォーマルシャツ。Yシャツ"
+    },
+    {
+      "id": "cl_hakama_skirt",
+      "en": "hakama skirt",
+      "jp": "袴スカート",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "和装の袴に似た形状のスカート"
+    },
+    {
+      "id": "cl_hoodie",
+      "en": "hoodie",
+      "jp": "パーカー",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "頭を覆うフードが付いた上着"
+    },
+    {
+      "id": "cl_jacket",
+      "en": "jacket",
+      "jp": "ジャケット",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "腰丈程度の軽めのアウター。open jacket（前開き）等の指定が可能"
+    },
+    {
+      "id": "cl_kariyushi_shirt",
+      "en": "kariyushi shirt",
+      "jp": "かりゆしウェア",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "襟付き半袖の柄シャツ。沖縄の伝統的モチーフ"
+    },
+    {
+      "id": "cl_miko",
+      "en": "miko",
+      "jp": "巫女服",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "白い小袖と赤い袴からなる神社の奉仕用装束"
+    },
+    {
+      "id": "cl_panties",
+      "en": "panties",
+      "jp": "パンティー",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "女性用の下着。striped panties（縞パン）等"
+    },
+    {
+      "id": "cl_pants",
+      "en": "pants",
+      "jp": "ズボン",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "足首までを覆う長ズボン。jeans（ジーンズ）等を含む"
+    },
+    {
+      "id": "cl_pencil_skirt",
+      "en": "pencil skirt",
+      "jp": "タイトスカート",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "ストレートでぴったりとしたシルエットのスカート"
+    },
+    {
+      "id": "cl_sailor_shirt",
+      "en": "sailor shirt",
+      "jp": "セーラーシャツ",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "セーラー襟が特徴の上着。ボトムスとの組み合わせは自由"
+    },
+    {
+      "id": "cl_school_swimsuit",
+      "en": "school swimsuit",
+      "jp": "スクール水着",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "学校指定の標準的な一体型水着。old school swimsuit（旧スク）等"
+    },
+    {
+      "id": "cl_school_uniform",
+      "en": "school uniform",
+      "jp": "学生服",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "学校指定の制服。gakuran/serafuku/blazer等"
+    },
+    {
+      "id": "cl_shirt",
+      "en": "shirt",
+      "jp": "シャツ",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "最も一般的な上半身用衣類"
+    },
+    {
+      "id": "cl_shorts",
+      "en": "shorts",
+      "jp": "ショートパンツ",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "膝上丈の短いズボン。hot pants/bike shorts等"
+    },
+    {
+      "id": "cl_skirt",
+      "en": "skirt",
+      "jp": "スカート",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "腰から下を覆う筒状の衣類。miniskirt/microskirtなどのバリエーション"
+    },
+    {
+      "id": "cl_sweater",
+      "en": "sweater",
+      "jp": "セーター",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "ニット素材の上着。virgin killer sweater（童貞を殺すセーター）等がある"
+    },
+    {
+      "id": "cl_t_shirt",
+      "en": "t-shirt",
+      "jp": "Tシャツ",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "襟のないカジュアルな半袖シャツ"
+    },
+    {
+      "id": "cl_tank_top",
+      "en": "tank top",
+      "jp": "タンクシャツ",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "袖のないトップス。ジムシャツなど"
+    },
+    {
+      "id": "cl_topless",
+      "en": "topless",
+      "jp": "トップレス",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "上半身に何も着ていない状態。女性キャラクター専用"
+    },
+    {
+      "id": "cl_turtleneck_shirt",
+      "en": "turtleneck shirt",
+      "jp": "タートルネック",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "首元が高く立ち上がったデザインのシャツ"
+    },
+    {
+      "id": "cl_undershirt",
+      "en": "undershirt",
+      "jp": "肌着",
+      "tags": [
+        "clothing"
+      ],
+      "desc": "上着の下に着用する、通常襟のないシャツ"
+    },
+    {
+      "id": "e6_anthro",
+      "en": "anthro",
+      "jp": "擬人化",
+      "tags": [
+        "e621_pony"
+      ],
+      "desc": "動物に人間的な特徴を持たせたキャラクター（ケモノ）"
+    },
+    {
+      "id": "e6_biped",
+      "en": "biped",
+      "jp": "二足歩行",
+      "tags": [
+        "e621_pony"
+      ],
+      "desc": "二本の足で直立・歩行する状態"
+    },
+    {
+      "id": "e6_countershading",
+      "en": "countershading",
+      "jp": "逆陰影",
+      "tags": [
+        "e621_pony"
+      ],
+      "desc": "体の上部と下部で色が異なる配色。お腹が白い動物的な特徴"
+    },
+    {
+      "id": "e6_digitigrade",
+      "en": "digitigrade",
+      "jp": "趾行性",
+      "tags": [
+        "e621_pony"
+      ],
+      "desc": "犬や猫のようにつま先立ちで歩く動物的な足の構造"
+    },
+    {
+      "id": "e6_feral",
+      "en": "feral",
+      "jp": "野生動物",
+      "tags": [
+        "e621_pony"
+      ],
+      "desc": "擬人化されていない、純粋な四足歩行等の動物的な姿"
+    },
+    {
+      "id": "e6_furry_specific_piercing",
+      "en": "furry-specific piercing",
+      "jp": "ケモノ耳ピアス",
+      "tags": [
+        "e621_pony"
+      ],
+      "desc": "動物の耳の構造に合わせた特有のピアッシング"
+    },
+    {
+      "id": "e6_gills",
+      "en": "gills",
+      "jp": "エラ",
+      "tags": [
+        "e621_pony"
+      ],
+      "desc": "魚類や水生生物に見られる呼吸器官"
+    },
+    {
+      "id": "e6_hyper",
+      "en": "hyper",
+      "jp": "ハイパー",
+      "tags": [
+        "e621_pony"
+      ],
+      "desc": "胸や筋肉などが物理的に不可能なほど極端に誇張された表現"
+    },
+    {
+      "id": "e6_macro",
+      "en": "macro",
+      "jp": "巨大化",
+      "tags": [
+        "e621_pony"
+      ],
+      "desc": "周囲の建物や人間より遥かに巨大なサイズのキャラクター。giantess等"
+    },
+    {
+      "id": "e6_micro",
+      "en": "micro",
+      "jp": "小人化",
+      "tags": [
+        "e621_pony"
+      ],
+      "desc": "周囲より極端に小さいサイズのキャラクター。minigirl等"
+    },
+    {
+      "id": "e6_musk",
+      "en": "musk",
+      "jp": "ムスク",
+      "tags": [
+        "e621_pony"
+      ],
+      "desc": "動物が分泌する強い匂いを視覚的に表現する文脈で使用"
+    },
+    {
+      "id": "e6_plantigrade",
+      "en": "plantigrade",
+      "jp": "蹠行性",
+      "tags": [
+        "e621_pony"
+      ],
+      "desc": "人間のように足の裏全体を地面につけて歩く構造"
+    },
+    {
+      "id": "e6_quadruped",
+      "en": "quadruped",
+      "jp": "四足歩行",
+      "tags": [
+        "e621_pony"
+      ],
+      "desc": "四本の足で歩行する動物的な姿勢"
+    },
+    {
+      "id": "e6_size_difference",
+      "en": "size difference",
+      "jp": "体格差",
+      "tags": [
+        "e621_pony"
+      ],
+      "desc": "キャラクター間の極端な身長や体格の違い"
+    },
+    {
+      "id": "e6_snout",
+      "en": "snout",
+      "jp": "吻",
+      "tags": [
+        "e621_pony"
+      ],
+      "desc": "動物の突き出た鼻と口の部分"
     },
     {
       "id": "expression_1boy",
@@ -4248,6 +5148,195 @@
       ]
     },
     {
+      "id": "pa_adjusting_eyewear",
+      "en": "adjusting eyewear",
+      "jp": "眼鏡を直す",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "指で眼鏡の位置を調整する仕草"
+    },
+    {
+      "id": "pa_clothes_pull",
+      "en": "clothes pull",
+      "jp": "服を引っ張る",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "服を下ろす行為や襟を引っ張る動作の総称"
+    },
+    {
+      "id": "pa_clothing_aside",
+      "en": "clothing aside",
+      "jp": "股布ずらし",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "下着などを脱がずに横にずらして局部を露出させる状態"
+    },
+    {
+      "id": "pa_crossed_arms",
+      "en": "crossed arms",
+      "jp": "腕組み",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "胸の前で腕を交差させるポーズ"
+    },
+    {
+      "id": "pa_double_v",
+      "en": "double v",
+      "jp": "ダブルピース",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "両手でピースサインをするポーズ"
+    },
+    {
+      "id": "pa_fighting_stance",
+      "en": "fighting stance",
+      "jp": "戦闘態勢",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "戦うための構えをとっているポーズ"
+    },
+    {
+      "id": "pa_hands_up",
+      "en": "hands up",
+      "jp": "両手を上げる",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "両手を上半身より高い位置に上げる動作"
+    },
+    {
+      "id": "pa_head_tilt",
+      "en": "head tilt",
+      "jp": "頭を傾ける",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "首をかしげて頭を斜めにする仕草"
+    },
+    {
+      "id": "pa_headpat",
+      "en": "headpat",
+      "jp": "なでなで",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "誰かの頭を撫でる、または撫でられている動作"
+    },
+    {
+      "id": "pa_heart_hands",
+      "en": "heart hands",
+      "jp": "手でハート",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "両手でハートの形を作るポーズ"
+    },
+    {
+      "id": "pa_leaning_forward",
+      "en": "leaning forward",
+      "jp": "前かがみ",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "上体を前に倒して屈む姿勢"
+    },
+    {
+      "id": "pa_ojou_sama_pose",
+      "en": "ojou-sama pose",
+      "jp": "お嬢様ポーズ",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "口元に手を当てて高笑いするような仕草"
+    },
+    {
+      "id": "pa_paw_pose",
+      "en": "paw pose",
+      "jp": "猫の手",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "手を猫の肉球のように丸めるポーズ"
+    },
+    {
+      "id": "pa_peace_sign",
+      "en": "peace sign",
+      "jp": "ピースサイン",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "人差し指と中指を立てるVサインのハンドジェスチャー"
+    },
+    {
+      "id": "pa_pointing_at_viewer",
+      "en": "pointing at viewer",
+      "jp": "こちらを指差す",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "視聴者に向かって指を指す動作"
+    },
+    {
+      "id": "pa_seiza",
+      "en": "seiza",
+      "jp": "正座",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "日本の伝統的な、膝を地面につけて揃える座り方"
+    },
+    {
+      "id": "pa_shirt_lift",
+      "en": "shirt lift",
+      "jp": "シャツをめくる",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "自分でシャツの裾を持ち上げる動作。raised shirt状態を作る"
+    },
+    {
+      "id": "pa_skirt_lift",
+      "en": "skirt lift",
+      "jp": "スカートをめくる",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "自分でスカートを持ち上げる動作。中を見せる意図がある"
+    },
+    {
+      "id": "pa_squatting",
+      "en": "squatting",
+      "jp": "しゃがむ",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "膝を曲げ足の裏で体重を支える姿勢。お尻は地面につけない"
+    },
+    {
+      "id": "pa_thumbs_up",
+      "en": "thumbs up",
+      "jp": "グッドサイン",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "親指を立てる肯定的なジェスチャー"
+    },
+    {
+      "id": "pa_wariza",
+      "en": "wariza",
+      "jp": "女の子座り",
+      "tags": [
+        "pose_action"
+      ],
+      "desc": "お尻を床につき、両足を左右に開いた座り方"
+    },
+    {
       "id": "pose_arms_crossed",
       "en": "arms crossed",
       "jp": "腕組み",
@@ -4537,6 +5626,120 @@
   ],
   "categories": [
     {
+      "key": "accessories",
+      "label": "Accessories",
+      "items": [
+        {
+          "id": "acc_bag",
+          "en": "bag",
+          "jp": "バッグ",
+          "tags": [
+            "accessories"
+          ],
+          "desc": "物を運ぶための鞄。backpack/handbag等"
+        },
+        {
+          "id": "acc_belt",
+          "en": "belt",
+          "jp": "ベルト",
+          "tags": [
+            "accessories"
+          ],
+          "desc": "腰に巻いて服を固定する帯。buckleが特徴"
+        },
+        {
+          "id": "acc_choker",
+          "en": "choker",
+          "jp": "チョーカー",
+          "tags": [
+            "accessories"
+          ],
+          "desc": "首に密着させて着ける短いネックレス。鈴付き首輪等も含む"
+        },
+        {
+          "id": "acc_crown",
+          "en": "crown",
+          "jp": "王冠",
+          "tags": [
+            "accessories"
+          ],
+          "desc": "君主などが頭に乗せる装飾品"
+        },
+        {
+          "id": "acc_glasses",
+          "en": "glasses",
+          "jp": "眼鏡",
+          "tags": [
+            "accessories"
+          ],
+          "desc": "視力補正やおしゃれ用のレンズ器具。sunglasses等"
+        },
+        {
+          "id": "acc_gloves",
+          "en": "gloves",
+          "jp": "手袋",
+          "tags": [
+            "accessories"
+          ],
+          "desc": "手を保護・装飾する衣類。elbow gloves（肘丈）等"
+        },
+        {
+          "id": "acc_gun",
+          "en": "gun",
+          "jp": "銃",
+          "tags": [
+            "accessories"
+          ],
+          "desc": "遠距離攻撃用の射撃武器。handgun/rifle等"
+        },
+        {
+          "id": "acc_hat",
+          "en": "hat",
+          "jp": "帽子",
+          "tags": [
+            "accessories"
+          ],
+          "desc": "頭に被る装飾品の総称。witch hat/top hat等"
+        },
+        {
+          "id": "acc_mask",
+          "en": "mask",
+          "jp": "マスク",
+          "tags": [
+            "accessories"
+          ],
+          "desc": "顔を覆う仮面や衛生用具。mouth mask等"
+        },
+        {
+          "id": "acc_necktie",
+          "en": "necktie",
+          "jp": "ネクタイ",
+          "tags": [
+            "accessories"
+          ],
+          "desc": "シャツの襟の下に締める細長い布"
+        },
+        {
+          "id": "acc_shield",
+          "en": "shield",
+          "jp": "盾",
+          "tags": [
+            "accessories"
+          ],
+          "desc": "攻撃を防ぐための防具"
+        },
+        {
+          "id": "acc_sword",
+          "en": "sword",
+          "jp": "剣",
+          "tags": [
+            "accessories"
+          ],
+          "desc": "格闘用の刃物武器。katana/dagger等"
+        }
+      ]
+    },
+    {
       "key": "action",
       "label": "Action",
       "items": [
@@ -4743,6 +5946,327 @@
       ]
     },
     {
+      "key": "body_features",
+      "label": "Body Features",
+      "items": [
+        {
+          "id": "bf_abs",
+          "en": "abs",
+          "jp": "腹筋",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "鍛えられた腹部の筋肉"
+        },
+        {
+          "id": "bf_armpits",
+          "en": "armpits",
+          "jp": "腋",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "腕が胴体に接続する部分。ノースリーブや腕を上げたポーズで強調される"
+        },
+        {
+          "id": "bf_backboob",
+          "en": "backboob",
+          "jp": "裏乳",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "キャラクターの背面から見える胸の側面の膨らみ"
+        },
+        {
+          "id": "bf_big_belly",
+          "en": "big belly",
+          "jp": "腹ボテ",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "顕著に大きな腹部。満腹、肥満、妊娠などの状態を示す"
+        },
+        {
+          "id": "bf_cleavage",
+          "en": "cleavage",
+          "jp": "谷間",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "乳房の間にできる窪み。性的魅力を強調する"
+        },
+        {
+          "id": "bf_colored_skin",
+          "en": "colored skin",
+          "jp": "異色肌",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "青や赤など人間にない肌色。ファンタジー種族に使用"
+        },
+        {
+          "id": "bf_covered_navel",
+          "en": "covered navel",
+          "jp": "透けへそ",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "密着した衣服越しにへその形状が確認できる描写"
+        },
+        {
+          "id": "bf_curvy",
+          "en": "curvy",
+          "jp": "グラマラス",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "平均以上の肉付きで、胸や腰の曲線が強調された豊満な体型"
+        },
+        {
+          "id": "bf_dark_skin",
+          "en": "dark skin",
+          "jp": "褐色肌",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "日焼けや生まれつきの濃い肌色。通常の白人/東アジア人より濃い"
+        },
+        {
+          "id": "bf_flat_chest",
+          "en": "flat chest",
+          "jp": "平らな胸",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "完全に平坦な胸部。子供以外のキャラに使用"
+        },
+        {
+          "id": "bf_gigantic_breasts",
+          "en": "gigantic breasts",
+          "jp": "超乳",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "頭部の2倍以上の大きさがある非現実的な巨大胸"
+        },
+        {
+          "id": "bf_horns",
+          "en": "horns",
+          "jp": "角",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "頭部から生えている硬い突起。demon horns等"
+        },
+        {
+          "id": "bf_huge_breasts",
+          "en": "huge breasts",
+          "jp": "爆乳",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "頭部と同サイズ以上の巨大な胸"
+        },
+        {
+          "id": "bf_inverted_nipples",
+          "en": "inverted nipples",
+          "jp": "陥没乳首",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "外側ではなく内側に向かって凹んでいる乳首"
+        },
+        {
+          "id": "bf_large_areolae",
+          "en": "large areolae",
+          "jp": "巨乳輪",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "乳房の半分以上を占める大きさの乳輪"
+        },
+        {
+          "id": "bf_large_breasts",
+          "en": "large breasts",
+          "jp": "巨乳",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "顔の直径と同程度の球体サイズ。非常に目立つ胸"
+        },
+        {
+          "id": "bf_loli",
+          "en": "loli",
+          "jp": "ロリ",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "幼い少女の外見。性的描写を含む文脈で使用。非性的はchild/petite"
+        },
+        {
+          "id": "bf_mature_female",
+          "en": "mature female",
+          "jp": "熟女",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "成熟した大人の女性。母性的な魅力や曲線的な体型が特徴"
+        },
+        {
+          "id": "bf_medium_breasts",
+          "en": "medium breasts",
+          "jp": "普通乳",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "手のひらより大きく、顔より小さい平均的なサイズの胸"
+        },
+        {
+          "id": "bf_muscular",
+          "en": "muscular",
+          "jp": "筋肉質",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "明確な筋肉の発達が見られる体格"
+        },
+        {
+          "id": "bf_navel",
+          "en": "navel",
+          "jp": "へそ",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "腹部の中央にあるへそ。露出している状態"
+        },
+        {
+          "id": "bf_pale_skin",
+          "en": "pale skin",
+          "jp": "色白",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "雪のように白い、または明るい肌色。Danbooru語ではこれに統一"
+        },
+        {
+          "id": "bf_pectorals",
+          "en": "pectorals",
+          "jp": "胸筋",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "男性の胸部周辺の筋肉。Pony系ではpectoral focusも有効"
+        },
+        {
+          "id": "bf_plump",
+          "en": "plump",
+          "jp": "むちむち",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "太っているとは言えない程度の適度な肉付き。良い場所に肉がついた状態"
+        },
+        {
+          "id": "bf_puffy_nipples",
+          "en": "puffy nipples",
+          "jp": "膨らんだ乳首",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "乳房の通常の曲線を超えて、乳首や乳輪が膨らんだ状態"
+        },
+        {
+          "id": "bf_shota",
+          "en": "shota",
+          "jp": "ショタ",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "幼い少年の外見。性的描写を含む文脈で使用。非性的はchild"
+        },
+        {
+          "id": "bf_sideboob",
+          "en": "sideboob",
+          "jp": "横乳",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "服の脇から見える胸の側面。乳首は非露出"
+        },
+        {
+          "id": "bf_skinny",
+          "en": "skinny",
+          "jp": "痩せ型",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "標準より脂肪が少なく細い体格。肋骨が見える場合もある"
+        },
+        {
+          "id": "bf_small_breasts",
+          "en": "small breasts",
+          "jp": "貧乳",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "控えめなサイズの胸。AAカップ〜Cカップ未満が基準"
+        },
+        {
+          "id": "bf_stomach",
+          "en": "stomach",
+          "jp": "腹部",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "お腹。画像内で目立つ要素として描かれている場合に指定"
+        },
+        {
+          "id": "bf_tails",
+          "en": "tails",
+          "jp": "尻尾",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "臀部から生えている動物的な尾。multiple tails（多尾）等"
+        },
+        {
+          "id": "bf_thick_thighs",
+          "en": "thick thighs",
+          "jp": "太い太もも",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "肉付きがよく逞しい太もも。腰回りとほぼ同サイズの場合もある"
+        },
+        {
+          "id": "bf_underboob",
+          "en": "underboob",
+          "jp": "下乳",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "服の下からはみ出している胸の下部。乳首は非露出"
+        },
+        {
+          "id": "bf_wide_hips",
+          "en": "wide hips",
+          "jp": "幅広い腰",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "肩幅以上の幅がある腰。デカ尻と関連"
+        },
+        {
+          "id": "bf_wings",
+          "en": "wings",
+          "jp": "翼",
+          "tags": [
+            "body_features"
+          ],
+          "desc": "背中から生えている羽根や膜状の翼。angel wings/bat wings等"
+        }
+      ]
+    },
+    {
       "key": "camera",
       "label": "Camera",
       "items": [
@@ -4769,6 +6293,360 @@
           "tags": [
             "camera"
           ]
+        }
+      ]
+    },
+    {
+      "key": "camera_comp",
+      "label": "Camera Composition",
+      "items": [
+        {
+          "id": "cc_bokeh",
+          "en": "bokeh",
+          "jp": "ボケ",
+          "tags": [
+            "camera_comp"
+          ],
+          "desc": "光の点などがぼやけて見える背景の視覚効果"
+        },
+        {
+          "id": "cc_depth_of_field",
+          "en": "depth of field",
+          "jp": "被写界深度",
+          "tags": [
+            "camera_comp"
+          ],
+          "desc": "ピントの合う範囲を調整し、前景や背景をぼかす効果"
+        },
+        {
+          "id": "cc_foreshortening",
+          "en": "foreshortening",
+          "jp": "フォアショートニング",
+          "tags": [
+            "camera_comp"
+          ],
+          "desc": "視聴者に突き出す対象を実際より短く、かつ大きく表現する技法"
+        },
+        {
+          "id": "cc_isometric",
+          "en": "isometric",
+          "jp": "アイソメトリック",
+          "tags": [
+            "camera_comp"
+          ],
+          "desc": "3次元物体を2次元に投影する技法。平行線が消失点に収束しない"
+        },
+        {
+          "id": "cc_lens_flare",
+          "en": "lens flare",
+          "jp": "レンズフレア",
+          "tags": [
+            "camera_comp"
+          ],
+          "desc": "強い光がレンズに反射して生じる光の輪や筋"
+        },
+        {
+          "id": "cc_mugshot",
+          "en": "mugshot",
+          "jp": "マグショット",
+          "tags": [
+            "camera_comp"
+          ],
+          "desc": "警察の記録用写真のような、正面と横顔を並べた構図"
+        },
+        {
+          "id": "cc_pedestal",
+          "en": "pedestal",
+          "jp": "台座",
+          "tags": [
+            "camera_comp"
+          ],
+          "desc": "フィギュアや模型のように装飾的な台座の上に立っている演出"
+        },
+        {
+          "id": "cc_perspective",
+          "en": "perspective",
+          "jp": "遠近法",
+          "tags": [
+            "camera_comp"
+          ],
+          "desc": "空間の奥行きや立体感を強調するパース表現"
+        },
+        {
+          "id": "cc_vanishing_point",
+          "en": "vanishing point",
+          "jp": "消失点",
+          "tags": [
+            "camera_comp"
+          ],
+          "desc": "背景の線が一点に収束する遠近法的表現。道路の中央からの視点など"
+        }
+      ]
+    },
+    {
+      "key": "clothing",
+      "label": "Clothing",
+      "items": [
+        {
+          "id": "cl_bikini",
+          "en": "bikini",
+          "jp": "ビキニ",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "上下が分かれた水着。string bikini/micro bikini等"
+        },
+        {
+          "id": "cl_blouse",
+          "en": "blouse",
+          "jp": "ブラウス",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "柔らかい生地で作られた女性用のシャツ"
+        },
+        {
+          "id": "cl_bra",
+          "en": "bra",
+          "jp": "ブラジャー",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "胸を支えるための下着。sports bra/strapless bra等"
+        },
+        {
+          "id": "cl_camisole",
+          "en": "camisole",
+          "jp": "キャミソール",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "細い肩紐のインナーウェア的トップス"
+        },
+        {
+          "id": "cl_china_dress",
+          "en": "china dress",
+          "jp": "チャイナドレス",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "横に深いスリットが入った中国風ドレス"
+        },
+        {
+          "id": "cl_coat",
+          "en": "coat",
+          "jp": "コート",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "太もも丈以上の長さがある厚手のアウター。lab coat（白衣）等も含む"
+        },
+        {
+          "id": "cl_crop_top",
+          "en": "crop top",
+          "jp": "クロップトップ",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "へそ出し丈の短いトップス"
+        },
+        {
+          "id": "cl_dress",
+          "en": "dress",
+          "jp": "ドレス",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "上下が一体となった女性用の正装・ワンピース。wedding dress等"
+        },
+        {
+          "id": "cl_dress_shirt",
+          "en": "dress shirt",
+          "jp": "ドレスシャツ",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "ボタン留めの襟付きフォーマルシャツ。Yシャツ"
+        },
+        {
+          "id": "cl_hakama_skirt",
+          "en": "hakama skirt",
+          "jp": "袴スカート",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "和装の袴に似た形状のスカート"
+        },
+        {
+          "id": "cl_hoodie",
+          "en": "hoodie",
+          "jp": "パーカー",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "頭を覆うフードが付いた上着"
+        },
+        {
+          "id": "cl_jacket",
+          "en": "jacket",
+          "jp": "ジャケット",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "腰丈程度の軽めのアウター。open jacket（前開き）等の指定が可能"
+        },
+        {
+          "id": "cl_kariyushi_shirt",
+          "en": "kariyushi shirt",
+          "jp": "かりゆしウェア",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "襟付き半袖の柄シャツ。沖縄の伝統的モチーフ"
+        },
+        {
+          "id": "cl_miko",
+          "en": "miko",
+          "jp": "巫女服",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "白い小袖と赤い袴からなる神社の奉仕用装束"
+        },
+        {
+          "id": "cl_panties",
+          "en": "panties",
+          "jp": "パンティー",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "女性用の下着。striped panties（縞パン）等"
+        },
+        {
+          "id": "cl_pants",
+          "en": "pants",
+          "jp": "ズボン",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "足首までを覆う長ズボン。jeans（ジーンズ）等を含む"
+        },
+        {
+          "id": "cl_pencil_skirt",
+          "en": "pencil skirt",
+          "jp": "タイトスカート",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "ストレートでぴったりとしたシルエットのスカート"
+        },
+        {
+          "id": "cl_sailor_shirt",
+          "en": "sailor shirt",
+          "jp": "セーラーシャツ",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "セーラー襟が特徴の上着。ボトムスとの組み合わせは自由"
+        },
+        {
+          "id": "cl_school_swimsuit",
+          "en": "school swimsuit",
+          "jp": "スクール水着",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "学校指定の標準的な一体型水着。old school swimsuit（旧スク）等"
+        },
+        {
+          "id": "cl_school_uniform",
+          "en": "school uniform",
+          "jp": "学生服",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "学校指定の制服。gakuran/serafuku/blazer等"
+        },
+        {
+          "id": "cl_shirt",
+          "en": "shirt",
+          "jp": "シャツ",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "最も一般的な上半身用衣類"
+        },
+        {
+          "id": "cl_shorts",
+          "en": "shorts",
+          "jp": "ショートパンツ",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "膝上丈の短いズボン。hot pants/bike shorts等"
+        },
+        {
+          "id": "cl_skirt",
+          "en": "skirt",
+          "jp": "スカート",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "腰から下を覆う筒状の衣類。miniskirt/microskirtなどのバリエーション"
+        },
+        {
+          "id": "cl_sweater",
+          "en": "sweater",
+          "jp": "セーター",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "ニット素材の上着。virgin killer sweater（童貞を殺すセーター）等がある"
+        },
+        {
+          "id": "cl_t_shirt",
+          "en": "t-shirt",
+          "jp": "Tシャツ",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "襟のないカジュアルな半袖シャツ"
+        },
+        {
+          "id": "cl_tank_top",
+          "en": "tank top",
+          "jp": "タンクシャツ",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "袖のないトップス。ジムシャツなど"
+        },
+        {
+          "id": "cl_topless",
+          "en": "topless",
+          "jp": "トップレス",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "上半身に何も着ていない状態。女性キャラクター専用"
+        },
+        {
+          "id": "cl_turtleneck_shirt",
+          "en": "turtleneck shirt",
+          "jp": "タートルネック",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "首元が高く立ち上がったデザインのシャツ"
+        },
+        {
+          "id": "cl_undershirt",
+          "en": "undershirt",
+          "jp": "肌着",
+          "tags": [
+            "clothing"
+          ],
+          "desc": "上着の下に着用する、通常襟のないシャツ"
         }
       ]
     },
@@ -4967,6 +6845,147 @@
             "count"
           ],
           "source": ""
+        }
+      ]
+    },
+    {
+      "key": "e621_pony",
+      "label": "e621/Pony",
+      "items": [
+        {
+          "id": "e6_anthro",
+          "en": "anthro",
+          "jp": "擬人化",
+          "tags": [
+            "e621_pony"
+          ],
+          "desc": "動物に人間的な特徴を持たせたキャラクター（ケモノ）"
+        },
+        {
+          "id": "e6_biped",
+          "en": "biped",
+          "jp": "二足歩行",
+          "tags": [
+            "e621_pony"
+          ],
+          "desc": "二本の足で直立・歩行する状態"
+        },
+        {
+          "id": "e6_countershading",
+          "en": "countershading",
+          "jp": "逆陰影",
+          "tags": [
+            "e621_pony"
+          ],
+          "desc": "体の上部と下部で色が異なる配色。お腹が白い動物的な特徴"
+        },
+        {
+          "id": "e6_digitigrade",
+          "en": "digitigrade",
+          "jp": "趾行性",
+          "tags": [
+            "e621_pony"
+          ],
+          "desc": "犬や猫のようにつま先立ちで歩く動物的な足の構造"
+        },
+        {
+          "id": "e6_feral",
+          "en": "feral",
+          "jp": "野生動物",
+          "tags": [
+            "e621_pony"
+          ],
+          "desc": "擬人化されていない、純粋な四足歩行等の動物的な姿"
+        },
+        {
+          "id": "e6_furry_specific_piercing",
+          "en": "furry-specific piercing",
+          "jp": "ケモノ耳ピアス",
+          "tags": [
+            "e621_pony"
+          ],
+          "desc": "動物の耳の構造に合わせた特有のピアッシング"
+        },
+        {
+          "id": "e6_gills",
+          "en": "gills",
+          "jp": "エラ",
+          "tags": [
+            "e621_pony"
+          ],
+          "desc": "魚類や水生生物に見られる呼吸器官"
+        },
+        {
+          "id": "e6_hyper",
+          "en": "hyper",
+          "jp": "ハイパー",
+          "tags": [
+            "e621_pony"
+          ],
+          "desc": "胸や筋肉などが物理的に不可能なほど極端に誇張された表現"
+        },
+        {
+          "id": "e6_macro",
+          "en": "macro",
+          "jp": "巨大化",
+          "tags": [
+            "e621_pony"
+          ],
+          "desc": "周囲の建物や人間より遥かに巨大なサイズのキャラクター。giantess等"
+        },
+        {
+          "id": "e6_micro",
+          "en": "micro",
+          "jp": "小人化",
+          "tags": [
+            "e621_pony"
+          ],
+          "desc": "周囲より極端に小さいサイズのキャラクター。minigirl等"
+        },
+        {
+          "id": "e6_musk",
+          "en": "musk",
+          "jp": "ムスク",
+          "tags": [
+            "e621_pony"
+          ],
+          "desc": "動物が分泌する強い匂いを視覚的に表現する文脈で使用"
+        },
+        {
+          "id": "e6_plantigrade",
+          "en": "plantigrade",
+          "jp": "蹠行性",
+          "tags": [
+            "e621_pony"
+          ],
+          "desc": "人間のように足の裏全体を地面につけて歩く構造"
+        },
+        {
+          "id": "e6_quadruped",
+          "en": "quadruped",
+          "jp": "四足歩行",
+          "tags": [
+            "e621_pony"
+          ],
+          "desc": "四本の足で歩行する動物的な姿勢"
+        },
+        {
+          "id": "e6_size_difference",
+          "en": "size difference",
+          "jp": "体格差",
+          "tags": [
+            "e621_pony"
+          ],
+          "desc": "キャラクター間の極端な身長や体格の違い"
+        },
+        {
+          "id": "e6_snout",
+          "en": "snout",
+          "jp": "吻",
+          "tags": [
+            "e621_pony"
+          ],
+          "desc": "動物の突き出た鼻と口の部分"
         }
       ]
     },
@@ -8903,6 +10922,201 @@
           "tags": [
             "pose"
           ]
+        }
+      ]
+    },
+    {
+      "key": "pose_action",
+      "label": "Poses & Actions",
+      "items": [
+        {
+          "id": "pa_adjusting_eyewear",
+          "en": "adjusting eyewear",
+          "jp": "眼鏡を直す",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "指で眼鏡の位置を調整する仕草"
+        },
+        {
+          "id": "pa_clothes_pull",
+          "en": "clothes pull",
+          "jp": "服を引っ張る",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "服を下ろす行為や襟を引っ張る動作の総称"
+        },
+        {
+          "id": "pa_clothing_aside",
+          "en": "clothing aside",
+          "jp": "股布ずらし",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "下着などを脱がずに横にずらして局部を露出させる状態"
+        },
+        {
+          "id": "pa_crossed_arms",
+          "en": "crossed arms",
+          "jp": "腕組み",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "胸の前で腕を交差させるポーズ"
+        },
+        {
+          "id": "pa_double_v",
+          "en": "double v",
+          "jp": "ダブルピース",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "両手でピースサインをするポーズ"
+        },
+        {
+          "id": "pa_fighting_stance",
+          "en": "fighting stance",
+          "jp": "戦闘態勢",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "戦うための構えをとっているポーズ"
+        },
+        {
+          "id": "pa_hands_up",
+          "en": "hands up",
+          "jp": "両手を上げる",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "両手を上半身より高い位置に上げる動作"
+        },
+        {
+          "id": "pa_head_tilt",
+          "en": "head tilt",
+          "jp": "頭を傾ける",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "首をかしげて頭を斜めにする仕草"
+        },
+        {
+          "id": "pa_headpat",
+          "en": "headpat",
+          "jp": "なでなで",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "誰かの頭を撫でる、または撫でられている動作"
+        },
+        {
+          "id": "pa_heart_hands",
+          "en": "heart hands",
+          "jp": "手でハート",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "両手でハートの形を作るポーズ"
+        },
+        {
+          "id": "pa_leaning_forward",
+          "en": "leaning forward",
+          "jp": "前かがみ",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "上体を前に倒して屈む姿勢"
+        },
+        {
+          "id": "pa_ojou_sama_pose",
+          "en": "ojou-sama pose",
+          "jp": "お嬢様ポーズ",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "口元に手を当てて高笑いするような仕草"
+        },
+        {
+          "id": "pa_paw_pose",
+          "en": "paw pose",
+          "jp": "猫の手",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "手を猫の肉球のように丸めるポーズ"
+        },
+        {
+          "id": "pa_peace_sign",
+          "en": "peace sign",
+          "jp": "ピースサイン",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "人差し指と中指を立てるVサインのハンドジェスチャー"
+        },
+        {
+          "id": "pa_pointing_at_viewer",
+          "en": "pointing at viewer",
+          "jp": "こちらを指差す",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "視聴者に向かって指を指す動作"
+        },
+        {
+          "id": "pa_seiza",
+          "en": "seiza",
+          "jp": "正座",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "日本の伝統的な、膝を地面につけて揃える座り方"
+        },
+        {
+          "id": "pa_shirt_lift",
+          "en": "shirt lift",
+          "jp": "シャツをめくる",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "自分でシャツの裾を持ち上げる動作。raised shirt状態を作る"
+        },
+        {
+          "id": "pa_skirt_lift",
+          "en": "skirt lift",
+          "jp": "スカートをめくる",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "自分でスカートを持ち上げる動作。中を見せる意図がある"
+        },
+        {
+          "id": "pa_squatting",
+          "en": "squatting",
+          "jp": "しゃがむ",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "膝を曲げ足の裏で体重を支える姿勢。お尻は地面につけない"
+        },
+        {
+          "id": "pa_thumbs_up",
+          "en": "thumbs up",
+          "jp": "グッドサイン",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "親指を立てる肯定的なジェスチャー"
+        },
+        {
+          "id": "pa_wariza",
+          "en": "wariza",
+          "jp": "女の子座り",
+          "tags": [
+            "pose_action"
+          ],
+          "desc": "お尻を床につき、両足を左右に開いた座り方"
         }
       ]
     },
