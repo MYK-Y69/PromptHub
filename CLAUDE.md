@@ -59,21 +59,30 @@
 | `/import_expression` | テキスト貼り付けから expression に追加 |
 | `/import_expression_from_url` | URL から expression を抽出して追加 |
 | `/paste-expression` | bash スクリプト経由で expression を追加 |
-| `/prompthub-import-data2` | `data2/` 原本から未収録語彙を branch に追加して compile |
-| `/prompthub-review-import` | import branch をレビューし最小修正 → 再 compile |
-| `/prompthub-merge-import` | review 済み branch を main へ merge → push → UI 確認 |
+| `/prompthub-run-data2-import` | **★ 推奨** data2 原本から main push まで全工程を1コマンドで完結 |
+| `/prompthub-import-data2` | 個別フェーズ: `data2/` 原本から未収録語彙を branch に追加して compile |
+| `/prompthub-review-import` | 個別フェーズ: import branch をレビューし最小修正 → 再 compile |
+| `/prompthub-merge-import` | 個別フェーズ: review 済み branch を main へ merge → push → UI 確認 |
 
 ---
 
 ## data2 取り込みフロー（標準）
 
+**通常はこれ1つでよい:**
+
 ```
-1. NotebookLM で複数サイト情報を統合
-2. 4列構造に正規化 (英語名 / 日本語訳 / カテゴリー / 詳細・説明)
-3. data2/ に原本配置
-4. /prompthub-import-data2 → branch 作成・追加・compile
-5. /prompthub-review-import → 誤分類修正・再 compile
-6. /prompthub-merge-import → main merge → push → UI 確認
+1. data2/ に原本配置
+2. /prompthub-run-data2-import
+   → 原本解析 → 重複除外 → branch作成 → JSON追加 → compile →
+     レビュー → 修正確認 → merge → push → UI確認 → 最終レポート
+```
+
+**個別フェーズを手動で走らせたい場合のみ:**
+
+```
+/prompthub-import-data2   # フェーズA+B: 解析・追加・compile
+/prompthub-review-import  # フェーズC: レビュー・修正
+/prompthub-merge-import   # フェーズD+E+F: merge・push・UI確認
 ```
 
 ## category JSON スキーマ
