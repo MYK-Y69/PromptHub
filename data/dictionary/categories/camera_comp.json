@@ -21,15 +21,6 @@
       "desc": "ピントの合う範囲を調整し、前景や背景をぼかす効果"
     },
     {
-      "id": "cc_fisheye",
-      "en": "fisheye",
-      "jp": "魚眼レンズ",
-      "tags": [
-        "camera_comp"
-      ],
-      "desc": "180度の超広角で端が歪む特殊効果。ネガティブにfishを入れると安定する"
-    },
-    {
       "id": "cc_foreshortening",
       "en": "foreshortening",
       "jp": "フォアショートニング",

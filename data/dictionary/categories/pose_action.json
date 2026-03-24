@@ -102,15 +102,6 @@
       "desc": "上体を前に倒して屈む姿勢"
     },
     {
-      "id": "pa_lying",
-      "en": "lying",
-      "jp": "横になる",
-      "tags": [
-        "pose_action"
-      ],
-      "desc": "寝そべっている状態。on stomach（うつ伏せ）/on back（仰向け）"
-    },
-    {
       "id": "pa_ojou_sama_pose",
       "en": "ojou-sama pose",
       "jp": "お嬢様ポーズ",
@@ -145,15 +136,6 @@
         "pose_action"
       ],
       "desc": "視聴者に向かって指を指す動作"
-    },
-    {
-      "id": "pa_reaching",
-      "en": "reaching",
-      "jp": "手を伸ばす",
-      "tags": [
-        "pose_action"
-      ],
-      "desc": "何かに向かって手や腕を伸ばす動作"
     },
     {
       "id": "pa_seiza",

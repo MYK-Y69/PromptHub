@@ -102,6 +102,15 @@
       "desc": "頭部の2倍以上の大きさがある非現実的な巨大胸"
     },
     {
+      "id": "bf_horns",
+      "en": "horns",
+      "jp": "角",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "頭部から生えている硬い突起。demon horns等"
+    },
+    {
       "id": "bf_huge_breasts",
       "en": "huge breasts",
       "jp": "爆乳",
@@ -264,6 +273,15 @@
       "desc": "お腹。画像内で目立つ要素として描かれている場合に指定"
     },
     {
+      "id": "bf_tails",
+      "en": "tails",
+      "jp": "尻尾",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "臀部から生えている動物的な尾。multiple tails（多尾）等"
+    },
+    {
       "id": "bf_thick_thighs",
       "en": "thick thighs",
       "jp": "太い太もも",
@@ -289,6 +307,15 @@
         "body_features"
       ],
       "desc": "肩幅以上の幅がある腰。デカ尻と関連"
+    },
+    {
+      "id": "bf_wings",
+      "en": "wings",
+      "jp": "翼",
+      "tags": [
+        "body_features"
+      ],
+      "desc": "背中から生えている羽根や膜状の翼。angel wings/bat wings等"
     }
   ]
 }

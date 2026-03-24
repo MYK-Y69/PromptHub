@@ -75,15 +75,6 @@
       "desc": "頭に被る装飾品の総称。witch hat/top hat等"
     },
     {
-      "id": "acc_horns",
-      "en": "horns",
-      "jp": "角",
-      "tags": [
-        "accessories"
-      ],
-      "desc": "頭部から生えている硬い突起。demon horns等"
-    },
-    {
       "id": "acc_mask",
       "en": "mask",
       "jp": "マスク",
@@ -118,24 +109,6 @@
         "accessories"
       ],
       "desc": "格闘用の刃物武器。katana/dagger等"
-    },
-    {
-      "id": "acc_tails",
-      "en": "tails",
-      "jp": "尻尾",
-      "tags": [
-        "accessories"
-      ],
-      "desc": "臀部から生えている動物的な尾。multiple tails（多尾）等"
-    },
-    {
-      "id": "acc_wings",
-      "en": "wings",
-      "jp": "翼",
-      "tags": [
-        "accessories"
-      ],
-      "desc": "背中から生えている羽根や膜状の翼。angel wings/bat wings等"
     }
   ]
 }
