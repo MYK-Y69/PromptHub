@@ -276,6 +276,7 @@ async function loadMode(mode) {
     return;
   }
   activeMode = mode;
+  cardGrid.dataset.mode = mode;          // CSS で TAGS/SAFE/FULL を切り替え
   allCategories = normalizeCategories(data, mode);
   renderSidebar();
   // TAGSモードは renderSidebar が allCategories を再構築するので "__all__" で初期化
@@ -754,6 +755,47 @@ function createCard(item) {
   return card;
 }
 
+function createTagsRow(item) {
+  const row = document.createElement("div");
+  row.className = "tags-row" + (selectedIds.has(item.id) ? " selected" : "");
+  row.dataset.id = item.id;
+
+  const en = document.createElement("span");
+  en.className = "tags-row-en";
+  en.textContent = safeText(item.en);
+
+  const jp = document.createElement("span");
+  jp.className = "tags-row-jp";
+  jp.textContent = safeText(item.jp);
+
+  const actions = document.createElement("span");
+  actions.className = "tags-row-actions";
+  const copyBtn = document.createElement("button");
+  copyBtn.className = "btn-copy";
+  copyBtn.title = "en をコピー";
+  copyBtn.dataset.en = safeText(item.en);
+  copyBtn.textContent = "📋";
+  actions.appendChild(copyBtn);
+
+  row.appendChild(en);
+  row.appendChild(jp);
+  row.appendChild(actions);
+
+  row.addEventListener("click", e => {
+    if (e.target.closest(".btn-copy")) return;
+    addToBuilder(safeText(item.en));
+    toggleSelect(item.id);
+    row.classList.toggle("selected", selectedIds.has(item.id));
+  });
+
+  copyBtn.addEventListener("click", async e => {
+    e.stopPropagation();
+    await copyText(safeText(item.en));
+  });
+
+  return row;
+}
+
 // ---- TAGSモード共通: tags[0] をサブカテゴリとして折りたたみ表示 ----
 // expr カテゴリのみ一部セクションをデフォルト折りたたみ、他は全展開
 const EXPR_DEFAULT_CLOSED = new Set([
@@ -888,7 +930,7 @@ function renderTagsSectionCards(items, searching, catKey) {
     cardGrid.appendChild(header);
 
     if (isOpen) {
-      sectionItems.forEach(item => cardGrid.appendChild(createCard(item)));
+      sectionItems.forEach(item => cardGrid.appendChild(createTagsRow(item)));
     }
   }
 }

@@ -168,6 +168,37 @@ body {
   align-content: start;
 }
 
+/* TAGS mode: single-column list */
+#card-grid[data-mode="tags"] {
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.tags-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.1s;
+  grid-column: 1 / -1;
+}
+.tags-row:hover { background: var(--surface); }
+.tags-row.selected { background: #f0f4ff; }
+.tags-row-en {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  min-width: 180px;
+}
+.tags-row-jp {
+  flex: 1;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.tags-row-actions { flex-shrink: 0; }
+
 #card-grid::after {
   content: "";
   display: block;
