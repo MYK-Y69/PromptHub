@@ -24,6 +24,13 @@
 - 新カテゴリを追加したら `app.js` の `SECTION_TO_MAJOR` と `SECTION_LABEL_JP` も更新する。
 - `compile_dictionary.py` は同一 ID の重複があると fail-fast で終了する。
 
+### 静的アセットのキャッシュ対策
+
+- `app/index.html` と `app/app.js` の静的アセット参照（`app.js`, `app.css`, `safe.json`, `full.json`, `tags.json`）は `?v=<shortsha>` 形式で参照する。
+- `?v=` の値は **push のたびに GitHub Actions (`bump-version.yml`) が自動更新**する。手動で変える必要はない。
+- **push 後の確認は通常リロードでよい**（ハードリロード不要）。Actions が完了（約1分）したあとにリロードすれば最新が表示される。
+- `tools/bump_version.py` を直接実行して手動バンプすることも可能（引数: 任意の版文字列）。
+
 ---
 
 ## 確認削減ルール
