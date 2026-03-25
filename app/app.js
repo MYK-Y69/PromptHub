@@ -2,11 +2,11 @@
 
 // ---- Config ----
 const COMPILED = {
-  safe: "../data/dictionary/compiled/safe.json?v=3a52964",
-  full: "../data/dictionary/compiled/full.json?v=3a52964",
-  tags: "../data/dictionary/compiled/tags.json?v=3a52964",
+  safe: "../data/dictionary/compiled/safe.json?v=dabc2ce",
+  full: "../data/dictionary/compiled/full.json?v=dabc2ce",
+  tags: "../data/dictionary/compiled/tags.json?v=dabc2ce",
 };
-const SENSITIVE_JSON = "../data/dictionary/compiled/tags_sensitive.json?v=3a52964";
+const SENSITIVE_JSON = "../data/dictionary/compiled/tags_sensitive.json?v=dabc2ce";
 let activeMode = "safe";
 
 // ---- State ----
