@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-03-24T18:10:35",
+  "generated_at": "2026-03-25T14:00:48",
   "source_tsv": "data/inbox/2026-03-03_tags_fixed.tsv",
-  "count_rows": 834,
+  "count_rows": 1069,
   "count_sections": 79,
   "sections": [
     {
@@ -97,6 +97,216 @@
           "definition": "フィギュアや模型のように装飾的な台座の上に立っている演出",
           "danbooru_tag": "pedestal",
           "notes": "from:data2"
+        },
+        {
+          "jp_term": "焦点（尻）",
+          "definition": "尻に焦点を当てた構図。e621におけるbutt",
+          "danbooru_tag": "focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "背景のぼかし",
+          "definition": "被写界深度の効果で背景をぼかす表現",
+          "danbooru_tag": "background",
+          "notes": ""
+        },
+        {
+          "jp_term": "前景のぼかし",
+          "definition": "手前にある物体をぼかす表現",
+          "danbooru_tag": "foreground",
+          "notes": ""
+        },
+        {
+          "jp_term": "正面から見える尻",
+          "definition": "正面を向いているが尻も見える状態",
+          "danbooru_tag": "front",
+          "notes": ""
+        },
+        {
+          "jp_term": "コースティクス",
+          "definition": "水面下で見られる光の屈折模様",
+          "danbooru_tag": "caustics",
+          "notes": ""
+        },
+        {
+          "jp_term": "カウボーイショット",
+          "definition": "太もも上部から頭までを映す構図。顔と腰の両方が見える",
+          "danbooru_tag": "shot",
+          "notes": ""
+        },
+        {
+          "jp_term": "被写界深度",
+          "definition": "ピントの合う範囲を限定し、前後をぼかす効果",
+          "danbooru_tag": "field",
+          "notes": ""
+        },
+        {
+          "jp_term": "ダッチアングル",
+          "definition": "カメラをあえて斜めに傾けた構図",
+          "danbooru_tag": "angle",
+          "notes": ""
+        },
+        {
+          "jp_term": "他者に向かい合う",
+          "definition": "他のキャラクターと対面している状態",
+          "danbooru_tag": "another",
+          "notes": ""
+        },
+        {
+          "jp_term": "背面",
+          "definition": "完全に後ろを向いている（180度）状態",
+          "danbooru_tag": "away",
+          "notes": ""
+        },
+        {
+          "jp_term": "振り返り（目閉じ）",
+          "definition": "背後を向いて振り返っているが、目は閉じている状態",
+          "danbooru_tag": "back",
+          "notes": ""
+        },
+        {
+          "jp_term": "正面",
+          "definition": "キャラクターが視聴者の方を向いている状態。目は閉じている場合もある",
+          "danbooru_tag": "viewer",
+          "notes": ""
+        },
+        {
+          "jp_term": "女性主観視点",
+          "definition": "描写されている女性キャラクターの視点",
+          "danbooru_tag": "pov",
+          "notes": ""
+        },
+        {
+          "jp_term": "後方から",
+          "definition": "被写体の真後ろからの視点。e621のrear",
+          "danbooru_tag": "behind",
+          "notes": ""
+        },
+        {
+          "jp_term": "正面図",
+          "definition": "正面から捉えた構図（e621用語）",
+          "danbooru_tag": "view",
+          "notes": ""
+        },
+        {
+          "jp_term": "俯瞰視点",
+          "definition": "上から見下ろすアングル（e621用語）",
+          "danbooru_tag": "view",
+          "notes": ""
+        },
+        {
+          "jp_term": "正面を見る",
+          "definition": "自分の真正面を見ている視線（視聴者とは限らない）",
+          "danbooru_tag": "ahead",
+          "notes": ""
+        },
+        {
+          "jp_term": "視線を少し横に向ける",
+          "definition": "正面から少し外れた方向を見ている視線",
+          "danbooru_tag": "aside",
+          "notes": ""
+        },
+        {
+          "jp_term": "パートナーを見る",
+          "definition": "相手役のキャラクターを見ている視線",
+          "danbooru_tag": "partner",
+          "notes": ""
+        },
+        {
+          "jp_term": "横を見る",
+          "definition": "左右どちらかを見ている状態",
+          "danbooru_tag": "side",
+          "notes": ""
+        },
+        {
+          "jp_term": "ローアングル視点",
+          "definition": "下から見上げるアングル（e621用語）",
+          "danbooru_tag": "view",
+          "notes": ""
+        },
+        {
+          "jp_term": "焦点（メカ）",
+          "definition": "ロボットやメカニカルな要素に焦点を当てた構図",
+          "danbooru_tag": "focus",
+          "notes": ""
+        },
+        {
+          "jp_term": "複数視点",
+          "definition": "一つの画像内に異なる角度からの図を並べたもの（三面図等）",
+          "danbooru_tag": "views",
+          "notes": ""
+        },
+        {
+          "jp_term": "主観視点",
+          "definition": "登場人物の目線で描かれた一人称視点（Point",
+          "danbooru_tag": "pov",
+          "notes": ""
+        },
+        {
+          "jp_term": "ベッド越しの視点",
+          "definition": "ベッドの向こう側にいる相手を見る視点",
+          "danbooru_tag": "bed",
+          "notes": ""
+        },
+        {
+          "jp_term": "テーブル越しの視点",
+          "definition": "テーブルを挟んで向かい合った相手を見る視点",
+          "danbooru_tag": "table",
+          "notes": ""
+        },
+        {
+          "jp_term": "一人称視点（股間）",
+          "definition": "自分自身の股間を見下ろす一人称視点",
+          "danbooru_tag": "crotch",
+          "notes": ""
+        },
+        {
+          "jp_term": "一人称視点（手）",
+          "definition": "自分自身の手が画角に入っている一人称視点",
+          "danbooru_tag": "hands",
+          "notes": ""
+        },
+        {
+          "jp_term": "自撮り",
+          "definition": "キャラクター自身が撮影しているような構図",
+          "danbooru_tag": "selfie",
+          "notes": ""
+        },
+        {
+          "jp_term": "横から見た姿",
+          "definition": "真横方向からの視点",
+          "danbooru_tag": "view",
+          "notes": ""
+        },
+        {
+          "jp_term": "斜め45度の視点",
+          "definition": "斜め前から捉えた一般的なアングル",
+          "danbooru_tag": "view",
+          "notes": ""
+        },
+        {
+          "jp_term": "絶対空域",
+          "definition": "太ももの付け根の間にできる隙間",
+          "danbooru_tag": "gap",
+          "notes": ""
+        },
+        {
+          "jp_term": "極遠景",
+          "definition": "広範囲を写し、被写体が非常に小さく見える極端な遠景",
+          "danbooru_tag": "shot",
+          "notes": ""
+        },
+        {
+          "jp_term": "遠景",
+          "definition": "全身を含め背景を広く捉えた構図",
+          "danbooru_tag": "shot",
+          "notes": ""
+        },
+        {
+          "jp_term": "地面レベルからの視点",
+          "definition": "地面すれすれの極めて低い位置からのアングル",
+          "danbooru_tag": "view",
+          "notes": ""
         }
       ]
     },
@@ -871,6 +1081,180 @@
           "definition": "上着の下に着用する、通常襟のないシャツ",
           "danbooru_tag": "undershirt",
           "notes": "from:data2"
+        },
+        {
+          "jp_term": "エプロン",
+          "definition": "衣服の上から着用する前掛け。naked",
+          "danbooru_tag": "apron",
+          "notes": ""
+        },
+        {
+          "jp_term": "バックレス",
+          "definition": "背中が大きく開いたデザインの衣装",
+          "danbooru_tag": "outfit",
+          "notes": ""
+        },
+        {
+          "jp_term": "ビキニを引く",
+          "definition": "ビキニの布地を指で引っ張る動作",
+          "danbooru_tag": "pull",
+          "notes": ""
+        },
+        {
+          "jp_term": "ボディスーツ",
+          "definition": "上下が一体化した、肌に密着する衣装",
+          "danbooru_tag": "bodysuit",
+          "notes": ""
+        },
+        {
+          "jp_term": "下脱ぎ",
+          "definition": "下半身に衣服を着用していない状態。裸シャツ等",
+          "danbooru_tag": "bottomless",
+          "notes": ""
+        },
+        {
+          "jp_term": "ブラ持ち上げ",
+          "definition": "ブラジャーを胸の上にたくし上げている状態",
+          "danbooru_tag": "lift",
+          "notes": ""
+        },
+        {
+          "jp_term": "ブラ下げ",
+          "definition": "ブラジャーを下に引き下げている状態",
+          "danbooru_tag": "pull",
+          "notes": ""
+        },
+        {
+          "jp_term": "中央開き",
+          "definition": "胸の中央部分が縦に開いているデザイン",
+          "danbooru_tag": "opening",
+          "notes": ""
+        },
+        {
+          "jp_term": "谷間ホール",
+          "definition": "胸元にハートや猫型などの穴が開いたデザイン",
+          "danbooru_tag": "cutout",
+          "notes": ""
+        },
+        {
+          "jp_term": "完全裸",
+          "definition": "首から下に一切の衣服・小物を着用していない状態",
+          "danbooru_tag": "nude",
+          "notes": ""
+        },
+        {
+          "jp_term": "独立袖",
+          "definition": "肩部分で繋がっておらず、独立している袖",
+          "danbooru_tag": "sleeves",
+          "notes": ""
+        },
+        {
+          "jp_term": "ドレスをたくし上げる",
+          "definition": "ドレスの裾を手で持ち上げる動作",
+          "danbooru_tag": "lift",
+          "notes": ""
+        },
+        {
+          "jp_term": "ハイレグ",
+          "definition": "脚の付け根が極めて高い位置までカットされたデザイン",
+          "danbooru_tag": "highleg",
+          "notes": ""
+        },
+        {
+          "jp_term": "レオタード",
+          "definition": "体操やダンス用の、上下が繋がった密着型の衣服",
+          "danbooru_tag": "leotard",
+          "notes": ""
+        },
+        {
+          "jp_term": "メイドエプロン",
+          "definition": "フリルが付いた、メイド用の装飾的なエプロン",
+          "danbooru_tag": "apron",
+          "notes": ""
+        },
+        {
+          "jp_term": "へそ出し",
+          "definition": "トップスとボトムスの間で腹部が露出している状態",
+          "danbooru_tag": "midriff",
+          "notes": ""
+        },
+        {
+          "jp_term": "オフショルダー",
+          "definition": "肩を完全に露出させ、袖が上腕部から始まるデザイン",
+          "danbooru_tag": "shoulder",
+          "notes": ""
+        },
+        {
+          "jp_term": "ワンピース水着",
+          "definition": "上下一体型の水着。スク水（school",
+          "danbooru_tag": "swimsuit",
+          "notes": ""
+        },
+        {
+          "jp_term": "パンツ下ろし",
+          "definition": "下着を下に引き下げている動作。pantyhose",
+          "danbooru_tag": "pull",
+          "notes": ""
+        },
+        {
+          "jp_term": "パンスト",
+          "definition": "ウエストから足先までを一体で覆うストッキング。タイツを含む",
+          "danbooru_tag": "pantyhose",
+          "notes": ""
+        },
+        {
+          "jp_term": "エロ衣装",
+          "definition": "露出度が極めて高く、実用性よりも魅せることを重視した衣装",
+          "danbooru_tag": "clothes",
+          "notes": ""
+        },
+        {
+          "jp_term": "透け",
+          "definition": "薄い素材や濡れによって中が透けて見える状態。シースルー",
+          "danbooru_tag": "see-through",
+          "notes": ""
+        },
+        {
+          "jp_term": "セーラー服",
+          "definition": "日本の女子学生服の代表。襟（sailor",
+          "danbooru_tag": "serafuku",
+          "notes": ""
+        },
+        {
+          "jp_term": "シャツをたくし上げる",
+          "definition": "シャツの裾を上に持ち上げる動作",
+          "danbooru_tag": "lift",
+          "notes": ""
+        },
+        {
+          "jp_term": "シャツを引く",
+          "definition": "シャツの襟や裾を引っ張る動作",
+          "danbooru_tag": "pull",
+          "notes": ""
+        },
+        {
+          "jp_term": "スカートをたくし上げる",
+          "definition": "スカートの裾を持ち上げる動作",
+          "danbooru_tag": "lift",
+          "notes": ""
+        },
+        {
+          "jp_term": "破れた服",
+          "definition": "戦闘やアクシデントで衣服が裂けている状態",
+          "danbooru_tag": "clothes",
+          "notes": ""
+        },
+        {
+          "jp_term": "下着",
+          "definition": "パンティー（panties）やブラジャー（bra）の総称。インナー",
+          "danbooru_tag": "underwear",
+          "notes": ""
+        },
+        {
+          "jp_term": "濡れた",
+          "definition": "水などで濡れて衣服が体に密着している状態",
+          "danbooru_tag": "wet",
+          "notes": ""
         }
       ]
     },
@@ -3529,6 +3913,318 @@
           "definition": "hands in pockets",
           "danbooru_tag": "",
           "notes": ""
+        },
+        {
+          "jp_term": "片腕を頭上へ",
+          "definition": "自分の片腕を頭より高い位置へ伸ばす動作",
+          "danbooru_tag": "head",
+          "notes": ""
+        },
+        {
+          "jp_term": "自分の腰に腕を回す",
+          "definition": "自分の腕を自分の腰に巻きつけるようなポーズ",
+          "danbooru_tag": "waist",
+          "notes": ""
+        },
+        {
+          "jp_term": "片手後頭部",
+          "definition": "自分の片手を後頭部の位置に置く",
+          "danbooru_tag": "head",
+          "notes": ""
+        },
+        {
+          "jp_term": "頭に腕を乗せる",
+          "definition": "自分の腕を頭の上に乗せている状態",
+          "danbooru_tag": "head",
+          "notes": ""
+        },
+        {
+          "jp_term": "片腕胸下支え",
+          "definition": "片方の前腕または上腕で胸を下方から支える",
+          "danbooru_tag": "breasts",
+          "notes": ""
+        },
+        {
+          "jp_term": "両手後頭部",
+          "definition": "自分の両手を頭の後ろに回す",
+          "danbooru_tag": "head",
+          "notes": ""
+        },
+        {
+          "jp_term": "両腕胸下支え",
+          "definition": "両腕を組むようにして、自分の胸を下から支える",
+          "danbooru_tag": "breasts",
+          "notes": ""
+        },
+        {
+          "jp_term": "自分の指を噛む",
+          "definition": "自分の指を口に入れ、軽く噛んでいる状態",
+          "danbooru_tag": "finger",
+          "notes": ""
+        },
+        {
+          "jp_term": "乳持ち上げ",
+          "definition": "自分の手で自分の胸を持ち上げる動作",
+          "danbooru_tag": "lift",
+          "notes": ""
+        },
+        {
+          "jp_term": "乳乗せ",
+          "definition": "自分の胸を自身の腕やテーブル等の物体の上に乗せる",
+          "danbooru_tag": "rest",
+          "notes": ""
+        },
+        {
+          "jp_term": "胸押さえ",
+          "definition": "自分の胸を上方から手で押さえる、または休ませる動作",
+          "danbooru_tag": "suppress",
+          "notes": ""
+        },
+        {
+          "jp_term": "寄せ乳",
+          "definition": "手や腕を使って自分の両胸を中央に強く寄せる",
+          "danbooru_tag": "together",
+          "notes": ""
+        },
+        {
+          "jp_term": "尻隠し",
+          "definition": "恥ずかしさ等から自分の尻を手で隠すポーズ",
+          "danbooru_tag": "ass",
+          "notes": ""
+        },
+        {
+          "jp_term": "手ブラ",
+          "definition": "手や腕で自分の乳首を覆い隠すポーズ。腕ブラも含む",
+          "danbooru_tag": "breasts",
+          "notes": ""
+        },
+        {
+          "jp_term": "股間隠し",
+          "definition": "手や物で自分の股間を覆い隠すポーズ",
+          "danbooru_tag": "crotch",
+          "notes": ""
+        },
+        {
+          "jp_term": "顔隠し",
+          "definition": "両手や物で自分の顔全体を覆う。恥ずかしさや恐怖の表現",
+          "danbooru_tag": "face",
+          "notes": ""
+        },
+        {
+          "jp_term": "乳首隠し",
+          "definition": "指先や手で乳首部分のみをピンポイントで隠す",
+          "danbooru_tag": "nipples",
+          "notes": ""
+        },
+        {
+          "jp_term": "耳塞ぎ",
+          "definition": "大きな音を遮る、または聞きたくない時に耳を覆う動作",
+          "danbooru_tag": "ears",
+          "notes": ""
+        },
+        {
+          "jp_term": "目隠し",
+          "definition": "自分の両目を手で覆う動作。covering",
+          "danbooru_tag": "eyes",
+          "notes": ""
+        },
+        {
+          "jp_term": "口を覆う",
+          "definition": "自分の口を手で覆う動作。驚きや秘密を守る仕草",
+          "danbooru_tag": "mouth",
+          "notes": ""
+        },
+        {
+          "jp_term": "口に指を入れる",
+          "definition": "自分の指を口の中に入れている状態",
+          "danbooru_tag": "mouth",
+          "notes": ""
+        },
+        {
+          "jp_term": "指を頬に当てる",
+          "definition": "人差し指を自分の頬に当てる照れや思考のポーズ",
+          "danbooru_tag": "cheek",
+          "notes": ""
+        },
+        {
+          "jp_term": "指を口に当てる",
+          "definition": "指を口元（唇）に置く仕草。誘惑や静止の意味",
+          "danbooru_tag": "mouth",
+          "notes": ""
+        },
+        {
+          "jp_term": "顎に指を当てる",
+          "definition": "自分の顎に指を当てて考えるような仕草",
+          "danbooru_tag": "chin",
+          "notes": ""
+        },
+        {
+          "jp_term": "自分の尻を掴む",
+          "definition": "自分の尻を手で掴み揉む動作",
+          "danbooru_tag": "ass",
+          "notes": ""
+        },
+        {
+          "jp_term": "セルフ乳揉み",
+          "definition": "自分の胸を自分の手で掴んで揉む動作",
+          "danbooru_tag": "breast",
+          "notes": ""
+        },
+        {
+          "jp_term": "自分の髪を咥える",
+          "definition": "自分の髪の毛を口に含んでいる状態",
+          "danbooru_tag": "mouth",
+          "notes": ""
+        },
+        {
+          "jp_term": "脚の間に手",
+          "definition": "座った状態で自分の手を股の間に置く。arm",
+          "danbooru_tag": "legs",
+          "notes": ""
+        },
+        {
+          "jp_term": "自分の髪に手を入れる",
+          "definition": "自分の髪の中に手を通している、またはかき上げる",
+          "danbooru_tag": "hair",
+          "notes": ""
+        },
+        {
+          "jp_term": "自分の尻に手を置く",
+          "definition": "揉まずに自分の尻に手を当てている状態",
+          "danbooru_tag": "ass",
+          "notes": ""
+        },
+        {
+          "jp_term": "頬に手を当てる",
+          "definition": "自分の頬に手を置くポーズ（頬杖以外）",
+          "danbooru_tag": "cheek",
+          "notes": ""
+        },
+        {
+          "jp_term": "胸に手を当てる",
+          "definition": "心臓付近に手を置く動作。揉むのではなく休ませる",
+          "danbooru_tag": "chest",
+          "notes": ""
+        },
+        {
+          "jp_term": "額に手を置く",
+          "definition": "自分の額に手を当てる動作",
+          "danbooru_tag": "forehead",
+          "notes": ""
+        },
+        {
+          "jp_term": "頭に手を置く",
+          "definition": "自分の頭の上に片手を置く",
+          "danbooru_tag": "head",
+          "notes": ""
+        },
+        {
+          "jp_term": "膝に手を置く",
+          "definition": "自分の膝に片手を置く状態",
+          "danbooru_tag": "knee",
+          "notes": ""
+        },
+        {
+          "jp_term": "首に手を置く",
+          "definition": "自分の首筋に手を当てるポーズ",
+          "danbooru_tag": "neck",
+          "notes": ""
+        },
+        {
+          "jp_term": "肩に手を置く",
+          "definition": "自分の肩に片手を置く状態",
+          "danbooru_tag": "shoulder",
+          "notes": ""
+        },
+        {
+          "jp_term": "太ももに手を置く",
+          "definition": "自分の太ももに手を置く",
+          "danbooru_tag": "thigh",
+          "notes": ""
+        },
+        {
+          "jp_term": "自分の髪に両手を入れる",
+          "definition": "両手を髪の中に差し込んでいる状態",
+          "danbooru_tag": "hair",
+          "notes": ""
+        },
+        {
+          "jp_term": "顎に両手",
+          "definition": "両手で自分の顎を支えるポーズ",
+          "danbooru_tag": "chin",
+          "notes": ""
+        },
+        {
+          "jp_term": "腰に両手",
+          "definition": "両手を腰に当てた姿勢",
+          "danbooru_tag": "hips",
+          "notes": ""
+        },
+        {
+          "jp_term": "膝に両手",
+          "definition": "両膝にそれぞれ手を置いている状態",
+          "danbooru_tag": "knee",
+          "notes": ""
+        },
+        {
+          "jp_term": "頭を手に乗せる",
+          "definition": "腕で頭を支える。cheek",
+          "danbooru_tag": "hand",
+          "notes": ""
+        },
+        {
+          "jp_term": "髪を持つ",
+          "definition": "自分の髪の毛先や束を手で持っている",
+          "danbooru_tag": "hair",
+          "notes": ""
+        },
+        {
+          "jp_term": "自分の腕を持つ",
+          "definition": "自分の片腕をもう一方の手で掴んでいる状態",
+          "danbooru_tag": "arm",
+          "notes": ""
+        },
+        {
+          "jp_term": "自分の足を持つ",
+          "definition": "自分の足先や足首を手で持っているポーズ",
+          "danbooru_tag": "foot",
+          "notes": ""
+        },
+        {
+          "jp_term": "自分の尻尾を持つ",
+          "definition": "自分の尻尾を抱える、または掴んでいる状態",
+          "danbooru_tag": "tail",
+          "notes": ""
+        },
+        {
+          "jp_term": "自分の手を合わせる",
+          "definition": "祈りや合掌、あるいは指を組む動作。interlocked",
+          "danbooru_tag": "together",
+          "notes": ""
+        },
+        {
+          "jp_term": "自分の髪で遊ぶ",
+          "definition": "自分の髪を指でいじる動作",
+          "danbooru_tag": "hair",
+          "notes": ""
+        },
+        {
+          "jp_term": "頬を掻く",
+          "definition": "自分の頬を指で掻く仕草。照れ隠しの表現",
+          "danbooru_tag": "cheek",
+          "notes": ""
+        },
+        {
+          "jp_term": "頭を掻く",
+          "definition": "自分の頭を掻く、または軽く叩く仕草",
+          "danbooru_tag": "head",
+          "notes": ""
+        },
+        {
+          "jp_term": "自分の顎を撫でる",
+          "definition": "考え事をしながら自分の顎を撫でる動作",
+          "danbooru_tag": "chin",
+          "notes": ""
         }
       ]
     },
@@ -4849,6 +5545,228 @@
           "definition": "holding cigarette",
           "danbooru_tag": "",
           "notes": ""
+        },
+        {
+          "jp_term": "首に腕を回す",
+          "definition": "他者の首の後ろに腕を回して抱き寄せる動作",
+          "danbooru_tag": "neck",
+          "notes": ""
+        },
+        {
+          "jp_term": "肩に腕を回す",
+          "definition": "他者の肩を抱くように腕を回す動作",
+          "danbooru_tag": "shoulder",
+          "notes": ""
+        },
+        {
+          "jp_term": "腰に腕を回す",
+          "definition": "他者の腰に腕を回す。引き寄せる動作",
+          "danbooru_tag": "waist",
+          "notes": ""
+        },
+        {
+          "jp_term": "腕を引かれる",
+          "definition": "他者によって自分の腕を後ろに引かれている状態",
+          "danbooru_tag": "back",
+          "notes": ""
+        },
+        {
+          "jp_term": "腕を抱きしめる",
+          "definition": "他者の腕を自分の両腕で抱きしめる",
+          "danbooru_tag": "hug",
+          "notes": ""
+        },
+        {
+          "jp_term": "非対称乳合わせ",
+          "definition": "サイズ差のある胸同士を押し付け合う動作",
+          "danbooru_tag": "docking",
+          "notes": ""
+        },
+        {
+          "jp_term": "他者の目を隠す",
+          "definition": "背後等から他者の目元を自分の手で覆う",
+          "danbooru_tag": "eyes",
+          "notes": ""
+        },
+        {
+          "jp_term": "他者の顔を掴む",
+          "definition": "他人の顔を鷲掴みにする、または固定する動作",
+          "danbooru_tag": "grab",
+          "notes": ""
+        },
+        {
+          "jp_term": "他者の口に指を入れる",
+          "definition": "他人の口の中に指を入れている状態",
+          "danbooru_tag": "mouth",
+          "notes": ""
+        },
+        {
+          "jp_term": "他者の口を制す",
+          "definition": "相手を黙らせるために他人の口に指を当てる",
+          "danbooru_tag": "mouth",
+          "notes": ""
+        },
+        {
+          "jp_term": "平らな胸を掴む",
+          "definition": "胸の平坦なキャラクターの胸部を掴む動作",
+          "danbooru_tag": "grab",
+          "notes": ""
+        },
+        {
+          "jp_term": "他者の腕を掴む",
+          "definition": "他人の腕を手で掴む、または引っ張る",
+          "danbooru_tag": "arm",
+          "notes": ""
+        },
+        {
+          "jp_term": "他者の尻を掴む",
+          "definition": "他人の尻を手で掴み揉む",
+          "danbooru_tag": "ass",
+          "notes": ""
+        },
+        {
+          "jp_term": "乳揉み",
+          "definition": "他人の胸を揉む、または鷲掴みにする動作",
+          "danbooru_tag": "breast",
+          "notes": ""
+        },
+        {
+          "jp_term": "顎クイ",
+          "definition": "他人の顎を下から指で持ち上げる、または固定する",
+          "danbooru_tag": "chin",
+          "notes": ""
+        },
+        {
+          "jp_term": "他者の耳を掴む",
+          "definition": "他人の耳を引っ張る動作",
+          "danbooru_tag": "ear",
+          "notes": ""
+        },
+        {
+          "jp_term": "髪掴み",
+          "definition": "他人の髪を掴んで引っ張る、または固定する",
+          "danbooru_tag": "hair",
+          "notes": ""
+        },
+        {
+          "jp_term": "背後から掴む",
+          "definition": "後ろから相手の体を抱え込んだり掴んだりする",
+          "danbooru_tag": "behind",
+          "notes": ""
+        },
+        {
+          "jp_term": "手掴み",
+          "definition": "一方的に相手の手を積極的に掴む動作",
+          "danbooru_tag": "grab",
+          "notes": ""
+        },
+        {
+          "jp_term": "他者の髪に手を入れる",
+          "definition": "他人の髪の中に指を通す動作",
+          "danbooru_tag": "hair",
+          "notes": ""
+        },
+        {
+          "jp_term": "他者の背中に手を置く",
+          "definition": "他人の背中に手を当てる",
+          "danbooru_tag": "back",
+          "notes": ""
+        },
+        {
+          "jp_term": "他者の頬に手を置く",
+          "definition": "他人の頬に手を添える優しい動作",
+          "danbooru_tag": "cheek",
+          "notes": ""
+        },
+        {
+          "jp_term": "他者の胸に手を置く",
+          "definition": "揉まずに他人の胸（または胸筋）に手を当てる",
+          "danbooru_tag": "chest",
+          "notes": ""
+        },
+        {
+          "jp_term": "他者の頭に手を置く",
+          "definition": "他人の頭の上に手を置く",
+          "danbooru_tag": "head",
+          "notes": ""
+        },
+        {
+          "jp_term": "他者の腰に手を置く",
+          "definition": "他人の腰（ヒップ付近）に手を置く",
+          "danbooru_tag": "hip",
+          "notes": ""
+        },
+        {
+          "jp_term": "他者の肩に手を置く",
+          "definition": "他人の肩に手を置く動作",
+          "danbooru_tag": "shoulder",
+          "notes": ""
+        },
+        {
+          "jp_term": "他者の太ももに手を置く",
+          "definition": "他人の太ももに手を当てる",
+          "danbooru_tag": "thigh",
+          "notes": ""
+        },
+        {
+          "jp_term": "ハンドギャグ",
+          "definition": "他人の口を自分の手で完全に覆い塞ぐ",
+          "danbooru_tag": "mouth",
+          "notes": ""
+        },
+        {
+          "jp_term": "二人でハート",
+          "definition": "二人のキャラクターが片手ずつ使って一つのハートを作る",
+          "danbooru_tag": "duo",
+          "notes": ""
+        },
+        {
+          "jp_term": "恋人繋ぎ",
+          "definition": "指を絡ませて他者と手を繋ぐ動作",
+          "danbooru_tag": "hands",
+          "notes": ""
+        },
+        {
+          "jp_term": "手にキス",
+          "definition": "相手の手の甲や指先にキスをする礼儀的な仕草",
+          "danbooru_tag": "hand",
+          "notes": ""
+        },
+        {
+          "jp_term": "腕を組む",
+          "definition": "互いの腕を肘で絡め合う（腕組み）",
+          "danbooru_tag": "arms",
+          "notes": ""
+        },
+        {
+          "jp_term": "ネクタイを掴む",
+          "definition": "他人のネクタイを掴んで自分の方へ引き寄せる",
+          "danbooru_tag": "grab",
+          "notes": ""
+        },
+        {
+          "jp_term": "指切り",
+          "definition": "二人が小指を絡めて約束をするポーズ",
+          "danbooru_tag": "swear",
+          "notes": ""
+        },
+        {
+          "jp_term": "乳合わせ",
+          "definition": "同程度のサイズの胸同士を正面から押し付け合う",
+          "danbooru_tag": "docking",
+          "notes": ""
+        },
+        {
+          "jp_term": "太もも掴み",
+          "definition": "他人の太ももを強く掴む動作",
+          "danbooru_tag": "grab",
+          "notes": ""
+        },
+        {
+          "jp_term": "舌掴み",
+          "definition": "他人の舌を指で掴む、または引っ張る動作",
+          "danbooru_tag": "grab",
+          "notes": ""
         }
       ]
     },
@@ -5269,6 +6187,114 @@
           "definition": "背中から生えている羽根や膜状の翼。angel wings/bat wings等",
           "danbooru_tag": "wings",
           "notes": "from:data2"
+        },
+        {
+          "jp_term": "乳輪",
+          "definition": "乳首の周囲の着色部分。dark/large/puffy",
+          "danbooru_tag": "areolae",
+          "notes": ""
+        },
+        {
+          "jp_term": "背中",
+          "definition": "身体の背面。backless",
+          "danbooru_tag": "back",
+          "notes": ""
+        },
+        {
+          "jp_term": "生脚",
+          "definition": "衣服で覆われていない脚部（太もも～脛）",
+          "danbooru_tag": "legs",
+          "notes": ""
+        },
+        {
+          "jp_term": "裸足",
+          "definition": "靴も靴下も履いていない、完全に素足の状態",
+          "danbooru_tag": "barefoot",
+          "notes": ""
+        },
+        {
+          "jp_term": "腹肉",
+          "definition": "適度な肉付きのある、または丸みを帯びた腹部",
+          "danbooru_tag": "belly",
+          "notes": ""
+        },
+        {
+          "jp_term": "ボテ腹",
+          "definition": "肥満、満腹、妊娠等で顕著に大きく膨らんだ腹部。inflationを含む",
+          "danbooru_tag": "belly",
+          "notes": ""
+        },
+        {
+          "jp_term": "乳揺れ",
+          "definition": "胸が上下左右に揺れている状態。静止画ではブレ等で表現",
+          "danbooru_tag": "breasts",
+          "notes": ""
+        },
+        {
+          "jp_term": "胸部",
+          "definition": "女性の乳房。乳房が目立つ画像に使用",
+          "danbooru_tag": "breasts",
+          "notes": ""
+        },
+        {
+          "jp_term": "離れた乳房",
+          "definition": "左右の乳房が外側を向き、中央に隙間がある状態",
+          "danbooru_tag": "apart",
+          "notes": ""
+        },
+        {
+          "jp_term": "陰核",
+          "definition": "女性器の主要な性感帯",
+          "danbooru_tag": "clitoris",
+          "notes": ""
+        },
+        {
+          "jp_term": "鎖骨",
+          "definition": "首の付け根に見える骨。デコルテラインの強調",
+          "danbooru_tag": "collarbone",
+          "notes": ""
+        },
+        {
+          "jp_term": "多腕",
+          "definition": "通常の2本を超える腕（4本腕、6本腕等）を持つ体質",
+          "danbooru_tag": "arms",
+          "notes": ""
+        },
+        {
+          "jp_term": "肥満",
+          "definition": "明らかに太っている、または皮下脂肪の多い体格",
+          "danbooru_tag": "fat",
+          "notes": ""
+        },
+        {
+          "jp_term": "平坦な胸",
+          "definition": "乳房の膨らみが全くない完全に平らな胸部",
+          "danbooru_tag": "chest",
+          "notes": ""
+        },
+        {
+          "jp_term": "長い脚",
+          "definition": "上半身に対して顕著に長い脚",
+          "danbooru_tag": "legs",
+          "notes": ""
+        },
+        {
+          "jp_term": "細い腰",
+          "definition": "腰幅が頭部と同程度、またはそれ以下の極めて細い腰",
+          "danbooru_tag": "waist",
+          "notes": ""
+        },
+        {
+          "jp_term": "乳首",
+          "definition": "乳房の先端。puffy（膨らんだ）、covered（着衣越し）等の状態あり",
+          "danbooru_tag": "nipples",
+          "notes": ""
+        },
+        {
+          "jp_term": "女性器",
+          "definition": "女性の外性器。cleft",
+          "danbooru_tag": "pussy",
+          "notes": ""
         }
       ]
     },
@@ -5305,6 +6331,258 @@
           "definition": "自分でスカートを持ち上げる動作。中を見せる意図がある",
           "danbooru_tag": "skirt lift",
           "notes": "from:data2"
+        },
+        {
+          "jp_term": "4本の指でハート",
+          "definition": "人差し指から小指までを使ってハートを作る",
+          "danbooru_tag": "hands",
+          "notes": ""
+        },
+        {
+          "jp_term": "反り返った背中",
+          "definition": "背中を大きく弓なりに反らせたポーズ",
+          "danbooru_tag": "back",
+          "notes": ""
+        },
+        {
+          "jp_term": "片腕を横に下ろす",
+          "definition": "片方の腕を体の横に自然に下げた状態",
+          "danbooru_tag": "side",
+          "notes": ""
+        },
+        {
+          "jp_term": "腕を置く",
+          "definition": "腕を物体や他者の体に乗せて休ませている状態",
+          "danbooru_tag": "rest",
+          "notes": ""
+        },
+        {
+          "jp_term": "腕で支える",
+          "definition": "腕を使って上体を支えている状態",
+          "danbooru_tag": "support",
+          "notes": ""
+        },
+        {
+          "jp_term": "腰に両手",
+          "definition": "両手を腰に当て、肘を外側に張った力強いポーズ",
+          "danbooru_tag": "akimbo",
+          "notes": ""
+        },
+        {
+          "jp_term": "両腕を横に下ろす",
+          "definition": "両腕を体の横に自然に下げた状態",
+          "danbooru_tag": "sides",
+          "notes": ""
+        },
+        {
+          "jp_term": "後ろ手",
+          "definition": "両腕を背後に回した姿勢",
+          "danbooru_tag": "back",
+          "notes": ""
+        },
+        {
+          "jp_term": "両手後頭部",
+          "definition": "両手を頭の後ろに回しているポーズ",
+          "danbooru_tag": "head",
+          "notes": ""
+        },
+        {
+          "jp_term": "腕を曲げる",
+          "definition": "肘を曲げた状態の腕",
+          "danbooru_tag": "bent",
+          "notes": ""
+        },
+        {
+          "jp_term": "腕を脚の間に",
+          "definition": "両腕を脚の間に入れた姿勢",
+          "danbooru_tag": "legs",
+          "notes": ""
+        },
+        {
+          "jp_term": "手招きする",
+          "definition": "他者を呼び寄せる手の動き",
+          "danbooru_tag": "beckoning",
+          "notes": ""
+        },
+        {
+          "jp_term": "手をすくう形",
+          "definition": "両手を丸く合わせ、液体や物を受ける形",
+          "danbooru_tag": "hands",
+          "notes": ""
+        },
+        {
+          "jp_term": "胎児姿勢",
+          "definition": "体を丸めてうずくまる、守りの姿勢",
+          "danbooru_tag": "position",
+          "notes": ""
+        },
+        {
+          "jp_term": "指合わせ",
+          "definition": "両手の指先を互いに触れ合わせる補助的な仕草",
+          "danbooru_tag": "together",
+          "notes": ""
+        },
+        {
+          "jp_term": "腰に手",
+          "definition": "片手を腰の位置に当てたポーズ",
+          "danbooru_tag": "hip",
+          "notes": ""
+        },
+        {
+          "jp_term": "膝に手",
+          "definition": "座った状態で両手を自分の膝（または腿）に置く",
+          "danbooru_tag": "lap",
+          "notes": ""
+        },
+        {
+          "jp_term": "人差し指を立てる",
+          "definition": "人差し指を一本だけ上に向けた仕草",
+          "danbooru_tag": "raised",
+          "notes": ""
+        },
+        {
+          "jp_term": "ジョジョ立ち",
+          "definition": "漫画「ジョジョの奇妙な冒険」風の誇張された独特のポーズ",
+          "danbooru_tag": "pose",
+          "notes": ""
+        },
+        {
+          "jp_term": "横になる",
+          "definition": "地面やベッドに完全に寝そべっている状態",
+          "danbooru_tag": "lying",
+          "notes": ""
+        },
+        {
+          "jp_term": "中指を立てる",
+          "definition": "中指のみを立てる攻撃的なジェスチャー",
+          "danbooru_tag": "finger",
+          "notes": ""
+        },
+        {
+          "jp_term": "仰向け",
+          "definition": "背中を地面につけて横たわった状態",
+          "danbooru_tag": "back",
+          "notes": ""
+        },
+        {
+          "jp_term": "椅子の上",
+          "definition": "椅子に位置している状態での姿勢全般",
+          "danbooru_tag": "chair",
+          "notes": ""
+        },
+        {
+          "jp_term": "床の上",
+          "definition": "屋内の床にいる状態（座る、寝る等）",
+          "danbooru_tag": "floor",
+          "notes": ""
+        },
+        {
+          "jp_term": "地面の上",
+          "definition": "屋外の地面にいる状態。grass（草の上）も含む",
+          "danbooru_tag": "ground",
+          "notes": ""
+        },
+        {
+          "jp_term": "机の上に座る",
+          "definition": "机の表面にお尻をついて座っている状態",
+          "danbooru_tag": "desk",
+          "notes": ""
+        },
+        {
+          "jp_term": "片足立ち",
+          "definition": "片方の脚だけで立っている姿勢",
+          "danbooru_tag": "leg",
+          "notes": ""
+        },
+        {
+          "jp_term": "またがる",
+          "definition": "物体や他者の上に脚を開いて乗っている姿勢",
+          "danbooru_tag": "straddling",
+          "notes": ""
+        },
+        {
+          "jp_term": "W字の腕",
+          "definition": "肘を下げて両腕を曲げ、正面から見てWの形を作るポーズ",
+          "danbooru_tag": "arms",
+          "notes": ""
+        },
+        {
+          "jp_term": "服を掴む",
+          "definition": "自分または他人の服を引っ張る、または掴む。",
+          "danbooru_tag": "grab",
+          "notes": ""
+        },
+        {
+          "jp_term": "カーテンを掴む",
+          "definition": "カーテンを手で持っている、または引き寄せている",
+          "danbooru_tag": "grab",
+          "notes": ""
+        },
+        {
+          "jp_term": "紳士ハンド",
+          "definition": "体の一部が画面外にある、または浮遊して見える手",
+          "danbooru_tag": "hand",
+          "notes": ""
+        },
+        {
+          "jp_term": "ガラスに手を置く",
+          "definition": "窓ガラスや鏡などの表面に手を当てている",
+          "danbooru_tag": "glass",
+          "notes": ""
+        },
+        {
+          "jp_term": "地面に手をつく",
+          "definition": "地面や床に手をついている状態。hand",
+          "danbooru_tag": "ground",
+          "notes": ""
+        },
+        {
+          "jp_term": "剣の柄に手を置く",
+          "definition": "抜刀前やポーズとして刀剣の柄に手を当てている",
+          "danbooru_tag": "hilt",
+          "notes": ""
+        },
+        {
+          "jp_term": "壁に手を置く",
+          "definition": "壁に手をついている状態",
+          "danbooru_tag": "wall",
+          "notes": ""
+        },
+        {
+          "jp_term": "袖手",
+          "definition": "着物の両手を反対側の袖の中に入れている状態",
+          "danbooru_tag": "sleeves",
+          "notes": ""
+        },
+        {
+          "jp_term": "地面に両手をつく",
+          "definition": "地面に両手をついている姿勢",
+          "danbooru_tag": "ground",
+          "notes": ""
+        },
+        {
+          "jp_term": "枕を掴む",
+          "definition": "枕を抱え込む、または掴んでいる状態",
+          "danbooru_tag": "grab",
+          "notes": ""
+        },
+        {
+          "jp_term": "シーツ掴み",
+          "definition": "ベッドのシーツを強く握りしめている状態",
+          "danbooru_tag": "grab",
+          "notes": ""
+        },
+        {
+          "jp_term": "尻尾を掴む",
+          "definition": "自分または他人の尻尾を掴む動作",
+          "danbooru_tag": "grab",
+          "notes": ""
+        },
+        {
+          "jp_term": "触手を掴む",
+          "definition": "触手を自分の手で掴む、または押し返している状態",
+          "danbooru_tag": "grab",
+          "notes": ""
         }
       ]
     },
@@ -5383,6 +6661,138 @@
           "definition": "格闘用の刃物武器。katana/dagger等",
           "danbooru_tag": "sword",
           "notes": "from:data2"
+        },
+        {
+          "jp_term": "アクセサリー",
+          "definition": "ジュエリーや小物などの装飾品全般",
+          "danbooru_tag": "accessories",
+          "notes": ""
+        },
+        {
+          "jp_term": "腕章",
+          "definition": "腕に巻く帯状の標章",
+          "danbooru_tag": "armband",
+          "notes": ""
+        },
+        {
+          "jp_term": "バックパック",
+          "definition": "背負い式の鞄。リュックサック",
+          "danbooru_tag": "backpack",
+          "notes": ""
+        },
+        {
+          "jp_term": "バット",
+          "definition": "木製または金属製のバット。武器としても扱われる",
+          "danbooru_tag": "bat",
+          "notes": ""
+        },
+        {
+          "jp_term": "弓",
+          "definition": "遠距離攻撃用の武器。bow",
+          "danbooru_tag": "bow",
+          "notes": ""
+        },
+        {
+          "jp_term": "チェンソー",
+          "definition": "動力付きの回転鋸",
+          "danbooru_tag": "chainsaw",
+          "notes": ""
+        },
+        {
+          "jp_term": "ダガー",
+          "definition": "刺突用の短剣。ナイフより戦闘向き",
+          "danbooru_tag": "dagger",
+          "notes": ""
+        },
+        {
+          "jp_term": "イヤリング",
+          "definition": "耳飾りの総称。ピアス（piercing）を含む",
+          "danbooru_tag": "earrings",
+          "notes": ""
+        },
+        {
+          "jp_term": "髪飾り",
+          "definition": "リボン、ヘアピン、ヘッドバンド等の総称",
+          "danbooru_tag": "ornament",
+          "notes": ""
+        },
+        {
+          "jp_term": "天使の輪",
+          "definition": "頭上に浮かぶ光輪。色指定可能",
+          "danbooru_tag": "halo",
+          "notes": ""
+        },
+        {
+          "jp_term": "ハンドガン",
+          "definition": "片手で扱える拳銃。ピストル",
+          "danbooru_tag": "handgun",
+          "notes": ""
+        },
+        {
+          "jp_term": "ジュエリー",
+          "definition": "指輪、ネックレス、ブレスレット等の宝飾品",
+          "danbooru_tag": "jewelry",
+          "notes": ""
+        },
+        {
+          "jp_term": "刀",
+          "definition": "日本の伝統的な片刃の剣",
+          "danbooru_tag": "katana",
+          "notes": ""
+        },
+        {
+          "jp_term": "ナイフ",
+          "definition": "切断用の刃物。戦闘用から調理用まで",
+          "danbooru_tag": "knife",
+          "notes": ""
+        },
+        {
+          "jp_term": "クナイ",
+          "definition": "忍者が使用する小型の投擲・刺突武器",
+          "danbooru_tag": "kunai",
+          "notes": ""
+        },
+        {
+          "jp_term": "ネックレス",
+          "definition": "首にかける装飾品。pendantを含む",
+          "danbooru_tag": "necklace",
+          "notes": ""
+        },
+        {
+          "jp_term": "長柄武器",
+          "definition": "槍（spear）や大鎌（scythe）など、柄の長い武器の総称",
+          "danbooru_tag": "polearm",
+          "notes": ""
+        },
+        {
+          "jp_term": "レイピア",
+          "definition": "細身で刺突主体の西洋剣",
+          "danbooru_tag": "rapier",
+          "notes": ""
+        },
+        {
+          "jp_term": "ライフル",
+          "definition": "両手で構える長身の銃。assault",
+          "danbooru_tag": "rifle",
+          "notes": ""
+        },
+        {
+          "jp_term": "鞘",
+          "definition": "刀剣を収納するケース",
+          "danbooru_tag": "sheath",
+          "notes": ""
+        },
+        {
+          "jp_term": "サングラス",
+          "definition": "日差しを遮る、色のついたレンズの眼鏡",
+          "danbooru_tag": "sunglasses",
+          "notes": ""
+        },
+        {
+          "jp_term": "魔法の杖",
+          "definition": "魔法を行使するための細い杖。staff（長い杖）とは区別",
+          "danbooru_tag": "wand",
+          "notes": ""
         }
       ]
     },
