@@ -28,14 +28,18 @@ class Tag:
     jp: str
     target: str | None = None
     target_note: str | None = None
+    desc: str | None = None
 
     def to_dict(self) -> dict:
-        return {
+        d = {
             "en": self.en,
             "jp": self.jp,
             "target": self.target,
             "target_note": self.target_note,
         }
+        if self.desc:
+            d["desc"] = self.desc
+        return d
 
 
 @dataclass
@@ -246,7 +250,7 @@ def get_parser(url: str) -> BaseParser:
     """URL に対応するパーサーインスタンスを返す。"""
     # インポートを確実にトリガー（tools/ が sys.path に入っている前提）
     import importlib
-    for mod_name in ["parsers.sorenuts"]:
+    for mod_name in ["parsers.sorenuts", "parsers.memone_ro"]:
         try:
             importlib.import_module(mod_name)
         except ImportError:

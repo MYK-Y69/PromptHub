@@ -65,6 +65,18 @@ SORENUTS_URLS = [
 ]
 
 # ---------------------------------------------------------------------------
+# memone-ro.com 全対象 URL（104ページ）
+# ---------------------------------------------------------------------------
+
+def _get_memone_urls() -> list[str]:
+    """parsers.memone_ro から URL リストを遅延取得する。"""
+    import importlib
+    mod = importlib.import_module("parsers.memone_ro")
+    return mod.ALL_URLS
+
+MEMONE_RO_URLS: list[str] = []  # 実行時に _get_memone_urls() で取得
+
+# ---------------------------------------------------------------------------
 # v2 JSON 操作ヘルパー
 # ---------------------------------------------------------------------------
 
@@ -255,6 +267,8 @@ def main():
     parser.add_argument("urls", nargs="*", help="インポート対象 URL")
     parser.add_argument("--all-sorenuts", action="store_true",
                         help="全 sorenuts.jp 対象ページを処理")
+    parser.add_argument("--all-memone", action="store_true",
+                        help="全 memone-ro.com 対象ページを処理（104ページ）")
     parser.add_argument("--dry-run", action="store_true",
                         help="JSON を変更せず統計のみ表示")
     parser.add_argument("--force", action="store_true",
@@ -268,6 +282,10 @@ def main():
     urls = list(args.urls)
     if args.all_sorenuts:
         urls = SORENUTS_URLS + [u for u in urls if u not in SORENUTS_URLS]
+    if args.all_memone:
+        memone_urls = _get_memone_urls()
+        existing = set(urls)
+        urls = urls + [u for u in memone_urls if u not in existing]
 
     if not urls:
         parser.print_help()
