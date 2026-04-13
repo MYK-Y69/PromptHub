@@ -68,6 +68,17 @@
 
 ## カスタムコマンド一覧
 
+### v2 パイプライン（現行・v2 ブランチ）
+
+| コマンド | 役割 |
+|---------|------|
+| `/prompthub-import <URL>` | URL スクレイピング → パース → 重複チェック → v2 JSON 追加 → compile |
+| `/prompthub-build` | v2 JSON compile → ローカルサーバー起動 → UI 確認 |
+| `/prompthub-deploy` | 変更を commit → v2 ブランチへ push（push 前に確認あり） |
+| `/prompthub-diagnose` | v2 データ・ツール・sorenuts 疎通を診断してレポート |
+
+### レガシーコマンド（main ブランチ / 旧 TAGS pipeline）
+
 | コマンド | 役割 |
 |---------|------|
 | `/import_expression` | テキスト貼り付けから expression に追加 |
