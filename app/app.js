@@ -4,12 +4,15 @@
 const DATA_URL = "../data/v2/compiled/tags.json";
 
 // ---- State ----
-let v2Data       = null;   // ロード済み JSON { schema_version, count, categories }
+let v2Data       = null;   // ロード済み JSON
 let activeCatId  = null;   // 表示中カテゴリ id
 let searchQuery  = "";     // 検索文字列
 let targetFilter = "";     // "self"|"other"|"mutual"|"object"|"__null__"|""
 let builderTags  = [];     // Prompt Builder: [{en}]
 let searchTimer  = null;
+
+// スクロール追従用: {type:"subcat"|"sec", id, offsetTop} の配列
+let indexItems   = [];
 
 // ---- target ラベル定義 ----
 const TARGET_LABEL = {
@@ -22,13 +25,12 @@ const TARGET_LABEL = {
 // ---- DOM refs ----
 const catNav        = document.getElementById("cat-nav");
 const searchInput   = document.getElementById("search");
-const jumpbar       = document.getElementById("jumpbar");
 const recordList    = document.getElementById("record-list");
 const emptyMsg      = document.getElementById("empty-msg");
-const builderTagsEl = document.getElementById("builder-tags");
-const builderOutput = document.getElementById("builder-output");
+const builderChips  = document.getElementById("builder-chips");
 const builderCopy   = document.getElementById("builder-copy");
 const builderClear  = document.getElementById("builder-clear");
+const indexTree     = document.getElementById("index-tree");
 const toast         = document.getElementById("toast");
 
 // ---- 起動 ----
@@ -46,7 +48,6 @@ const toast         = document.getElementById("toast");
   buildSidebar();
   setupEventListeners();
 
-  // 最初のカテゴリを表示
   if (v2Data.categories.length > 0) {
     selectCategory(v2Data.categories[0].id);
   }
@@ -65,7 +66,6 @@ function catTagCount(cat) {
 function buildSidebar() {
   catNav.innerHTML = "";
   for (const cat of v2Data.categories) {
-    // センシティブカテゴリの前に区切り線を挿入
     if (cat.id === "sensitive") {
       const divider = document.createElement("div");
       divider.className = "cat-divider";
@@ -87,7 +87,6 @@ function buildSidebar() {
 function selectCategory(catId) {
   activeCatId = catId;
 
-  // サイドバーのアクティブ状態
   for (const btn of catNav.querySelectorAll(".cat-item")) {
     btn.classList.toggle("active", btn.dataset.catId === catId);
   }
@@ -100,56 +99,105 @@ function selectCategory(catId) {
     b.classList.toggle("active", b.dataset.target === "");
   }
 
-  renderJumpbar();
   renderRecords();
+  renderIndexPanel();
 }
 
-// ---- ジャンプバー（サブカテゴリ単位） ----
-function renderJumpbar() {
-  // 検索中はジャンプバー非表示
+// ---- インデックスパネル構築 ----
+function renderIndexPanel() {
+  indexTree.innerHTML = "";
+
+  // 検索中は検索モードメッセージ
   if (searchQuery.trim().length > 0) {
-    jumpbar.innerHTML = "";
-    jumpbar.hidden = true;
+    const msg = document.createElement("div");
+    msg.className = "idx-search-msg";
+    msg.textContent = "横断検索中…";
+    indexTree.appendChild(msg);
     return;
   }
-  jumpbar.hidden = false;
 
   const cat = currentCategory();
-  if (!cat) { jumpbar.innerHTML = ""; return; }
+  if (!cat || !cat.subcategories) return;
 
-  jumpbar.innerHTML = "";
+  for (const sc of cat.subcategories) {
+    // サブカテゴリ行
+    const scBtn = document.createElement("button");
+    scBtn.className = "idx-subcat";
+    scBtn.dataset.scId = sc.id;
+    scBtn.textContent = sc.label;
+    scBtn.addEventListener("click", () => scrollToId("subcat-" + sc.id));
+    indexTree.appendChild(scBtn);
 
-  if (cat.subcategories) {
-    for (const sc of cat.subcategories) {
-      const btn = document.createElement("button");
-      btn.className = "jump-btn";
-      btn.dataset.scId = sc.id;
-      btn.textContent = sc.label;
-      btn.addEventListener("click", () => {
-        const el = document.getElementById("subcat-" + sc.id);
-        if (el) scrollToEl(el);
-      });
-      jumpbar.appendChild(btn);
-    }
-  } else {
-    for (const sec of (cat.sections || [])) {
-      const btn = document.createElement("button");
-      btn.className = "jump-btn";
-      btn.textContent = sec.label;
-      btn.addEventListener("click", () => {
-        const el = document.getElementById("sec-" + sec.id);
-        if (el) scrollToEl(el);
-      });
-      jumpbar.appendChild(btn);
+    // セクション行（インデント）
+    for (const sec of sc.sections) {
+      const secBtn = document.createElement("button");
+      secBtn.className = "idx-sec";
+      secBtn.dataset.secId = sec.id;
+      secBtn.textContent = sec.label;
+      secBtn.addEventListener("click", () => scrollToId("sec-" + sec.id));
+      indexTree.appendChild(secBtn);
     }
   }
 }
 
-// スクロール修正: sticky 要素の offsetTop を使って record-list コンテナをスクロール
-function scrollToEl(el) {
+// ---- スクロール: 要素 id → record-list 内スクロール ----
+function scrollToId(elemId) {
+  const el = document.getElementById(elemId);
+  if (!el) return;
   const containerRect = recordList.getBoundingClientRect();
   const elRect = el.getBoundingClientRect();
   recordList.scrollTop += elRect.top - containerRect.top;
+}
+
+// ---- スクロール追従: indexItems 構築 ----
+function buildIndexItems() {
+  indexItems = [];
+  for (const el of recordList.querySelectorAll(".subcat-header, .sec-header")) {
+    indexItems.push({
+      type: el.classList.contains("subcat-header") ? "subcat" : "sec",
+      id:   el.id.replace(/^subcat-|^sec-/, ""),
+      el,
+    });
+  }
+}
+
+// ---- スクロール追従: アクティブ更新 ----
+function updateScrollHighlight() {
+  if (indexItems.length === 0) return;
+
+  const st = recordList.scrollTop + 4; // 4px の余裕
+  let activeScId = null, activeSecId = null;
+
+  for (const item of indexItems) {
+    if (item.el.offsetTop <= st) {
+      if (item.type === "subcat") {
+        activeScId  = item.id;
+        activeSecId = null;
+      } else {
+        activeSecId = item.id;
+      }
+    }
+  }
+
+  // クラス更新
+  for (const btn of indexTree.querySelectorAll(".idx-subcat")) {
+    btn.classList.toggle("active", btn.dataset.scId === activeScId && !activeSecId);
+  }
+  for (const btn of indexTree.querySelectorAll(".idx-sec")) {
+    btn.classList.toggle("active", btn.dataset.secId === activeSecId);
+  }
+  // アクティブなサブカテゴリ行も常に色付け（セクション active 中でも）
+  for (const btn of indexTree.querySelectorAll(".idx-subcat")) {
+    if (btn.dataset.scId === activeScId) btn.classList.add("active");
+  }
+
+  // インデックスパネル内でアクティブ項目を見えるようにスクロール
+  const activeEl =
+    indexTree.querySelector(`.idx-sec.active`) ||
+    indexTree.querySelector(`.idx-subcat.active`);
+  if (activeEl) {
+    activeEl.scrollIntoView({ block: "nearest" });
+  }
 }
 
 // ---- レコード一覧レンダリング ----
@@ -158,7 +206,6 @@ function renderRecords() {
   const tf         = targetFilter;
   const globalMode = q.length > 0;
 
-  // 対象カテゴリ: 検索中は全カテゴリ、それ以外は選択中のみ
   const cats = globalMode
     ? v2Data.categories
     : [currentCategory()].filter(Boolean);
@@ -221,7 +268,6 @@ function renderRecords() {
     if (catVisible === 0) continue;
     totalVisible += catVisible;
 
-    // 検索モード: カテゴリ区切りヘッダを挿入
     if (globalMode) {
       const catHeader = document.createElement("div");
       catHeader.className = "cat-search-header";
@@ -234,6 +280,10 @@ function renderRecords() {
   recordList.innerHTML = "";
   recordList.appendChild(frag);
   emptyMsg.hidden = (totalVisible > 0);
+
+  // スクロール追従: items 再構築
+  buildIndexItems();
+  updateScrollHighlight();
 }
 
 function matchesFilter(tag, q, tf) {
@@ -257,17 +307,14 @@ function makeRecord(tag) {
   const row = document.createElement("div");
   row.className = "record";
 
-  // EN
   const enEl = document.createElement("span");
   enEl.className = "rec-en";
   enEl.textContent = tag.en;
 
-  // JP
   const jpEl = document.createElement("span");
   jpEl.className = "rec-jp";
   jpEl.textContent = tag.jp;
 
-  // target badge（あれば）
   const tbEl = document.createElement("span");
   if (tag.target) {
     tbEl.className = "rec-target tgt-" + tag.target;
@@ -276,7 +323,6 @@ function makeRecord(tag) {
     tbEl.className = "rec-target";
   }
 
-  // コピーボタン
   const copyBtn = document.createElement("button");
   copyBtn.className = "rec-btn btn-copy";
   copyBtn.title = "en をコピー";
@@ -286,7 +332,6 @@ function makeRecord(tag) {
     copyToClipboard(tag.en);
   });
 
-  // Prompt Builder 追加ボタン
   const addBtn = document.createElement("button");
   addBtn.className = "rec-btn btn-add";
   addBtn.title = "Prompt Builder に追加";
@@ -322,21 +367,18 @@ function removeFromBuilder(en) {
 }
 
 function renderBuilder() {
-  builderTagsEl.innerHTML = "";
+  builderChips.innerHTML = "";
   for (const t of builderTags) {
     const chip = document.createElement("div");
     chip.className = "builder-chip";
     chip.innerHTML =
       `<span class="chip-en">${escHtml(t.en)}</span>` +
-      `<button class="chip-remove" data-en="${escHtml(t.en)}">×</button>`;
+      `<button class="chip-remove" title="削除">×</button>`;
     chip.querySelector(".chip-remove").addEventListener("click", () => {
       removeFromBuilder(t.en);
     });
-    builderTagsEl.appendChild(chip);
+    builderChips.appendChild(chip);
   }
-
-  const prompt = builderTags.map(t => t.en).join(", ");
-  builderOutput.value = prompt;
   builderCopy.disabled = (builderTags.length === 0);
 }
 
@@ -347,7 +389,7 @@ function setupEventListeners() {
     clearTimeout(searchTimer);
     searchTimer = setTimeout(() => {
       searchQuery = searchInput.value;
-      renderJumpbar();
+      renderIndexPanel();
       renderRecords();
     }, 150);
   });
@@ -363,9 +405,13 @@ function setupEventListeners() {
     });
   }
 
+  // スクロール追従
+  recordList.addEventListener("scroll", updateScrollHighlight);
+
   // Prompt Builder
   builderCopy.addEventListener("click", () => {
-    copyToClipboard(builderOutput.value);
+    const prompt = builderTags.map(t => t.en).join(", ");
+    copyToClipboard(prompt);
   });
   builderClear.addEventListener("click", () => {
     builderTags = [];
@@ -399,7 +445,6 @@ function copyToClipboard(text) {
   navigator.clipboard.writeText(text).then(
     () => showToast(`コピー: ${text}`),
     () => {
-      // フォールバック
       const ta = document.createElement("textarea");
       ta.value = text;
       ta.style.position = "fixed";

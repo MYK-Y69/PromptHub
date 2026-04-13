@@ -1,5 +1,5 @@
 {
   "_comment": "Google スプレッドシートを「ウェブに公開 → CSV」した URL を csv_url に設定してください。",
   "_template": "https://docs.google.com/spreadsheets/d/SHEET_ID/export?format=csv&gid=0",
-  "csv_url": ""
+  "csv_url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc9FRqgIRcbUg0supaCPPtf3qnQrYq-i7oYQZ5nKUEeXc0nD5FOAr08f2NxWhOwB3g607eNpepSy_a/pub?output=csv"
 }

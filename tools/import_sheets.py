@@ -263,7 +263,11 @@ def main():
     print("CSV を取得中...")
     csv_text = fetch_csv(cfg["csv_url"])
 
-    rows = list(csv.DictReader(StringIO(csv_text)))
+    reader = csv.DictReader(StringIO(csv_text))
+    # ヘッダーの空白を除去（スプレッドシートで列名に空白が入る場合の対策）
+    if reader.fieldnames:
+        reader.fieldnames = [f.strip() for f in reader.fieldnames]
+    rows = list(reader)
     print(f"取得行数: {len(rows)} 行（ヘッダー除く）")
 
     with open(V2_SRC, encoding="utf-8") as f:

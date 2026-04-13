@@ -4,23 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PromptHub v2</title>
-  <link rel="stylesheet" href="app.css?v=85a6903" />
+  <link rel="stylesheet" href="app.css?v=80a0d98" />
 </head>
 <body>
   <div id="layout">
 
-    <!-- Sidebar: カテゴリ一覧 -->
+    <!-- 左サイドバー: カテゴリ一覧 -->
     <aside id="sidebar">
       <div id="logo">PromptHub</div>
       <nav id="cat-nav"><!-- JS で生成 --></nav>
     </aside>
 
-    <!-- Main: フィルタ + ジャンプバー + レコード一覧 -->
+    <!-- メインエリア -->
     <main id="main">
 
       <!-- フィルタバー -->
       <div id="filterbar">
-        <input id="search" type="search" placeholder="en / jp で検索..." autocomplete="off" />
+        <input id="search" type="search" placeholder="全カテゴリを検索 (en / jp)..." autocomplete="off" />
         <div id="target-filters">
           <button class="tf-btn active" data-target="">すべて</button>
           <button class="tf-btn" data-target="self">self</button>
@@ -31,30 +31,31 @@
         </div>
       </div>
 
-      <!-- ジャンプバー: アクティブカテゴリのセクションボタン -->
-      <div id="jumpbar"><!-- JS で生成 --></div>
+      <!-- Prompt Builder バー（旧ジャンプバー位置） -->
+      <div id="builder-bar">
+        <span id="builder-label">Prompt Builder</span>
+        <div id="builder-chips"><!-- JS で生成 --></div>
+        <div id="builder-actions">
+          <button id="builder-copy" disabled>COPY</button>
+          <button id="builder-clear">CLEAR</button>
+        </div>
+      </div>
 
       <!-- レコード一覧 -->
       <div id="record-list"><!-- JS で生成 --></div>
-
       <div id="empty-msg" hidden>該当するタグがありません。</div>
     </main>
 
-    <!-- Prompt Builder -->
-    <aside id="builder">
-      <div id="builder-header">
-        <span id="builder-title">Prompt Builder</span>
-        <button id="builder-clear">CLEAR</button>
-      </div>
-      <div id="builder-tags"><!-- JS で生成 --></div>
-      <textarea id="builder-output" readonly placeholder="(ここにプロンプトが出力されます)"></textarea>
-      <button id="builder-copy" disabled>COPY PROMPT</button>
+    <!-- 右サイドバー: インデックスパネル -->
+    <aside id="index-panel">
+      <div id="index-header">インデックス</div>
+      <nav id="index-tree"><!-- JS で生成 --></nav>
     </aside>
 
   </div>
 
   <div id="toast"></div>
 
-  <script src="./app.js?v=85a6903"></script>
+  <script src="./app.js?v=80a0d98"></script>
 </body>
 </html>
