@@ -106,6 +106,14 @@ function selectCategory(catId) {
 
 // ---- ジャンプバー（サブカテゴリ単位） ----
 function renderJumpbar() {
+  // 検索中はジャンプバー非表示
+  if (searchQuery.trim().length > 0) {
+    jumpbar.innerHTML = "";
+    jumpbar.hidden = true;
+    return;
+  }
+  jumpbar.hidden = false;
+
   const cat = currentCategory();
   if (!cat) { jumpbar.innerHTML = ""; return; }
 
@@ -119,88 +127,108 @@ function renderJumpbar() {
       btn.textContent = sc.label;
       btn.addEventListener("click", () => {
         const el = document.getElementById("subcat-" + sc.id);
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (el) scrollToEl(el);
       });
       jumpbar.appendChild(btn);
     }
   } else {
-    // フォールバック: 旧形式 sections
     for (const sec of (cat.sections || [])) {
       const btn = document.createElement("button");
       btn.className = "jump-btn";
       btn.textContent = sec.label;
       btn.addEventListener("click", () => {
         const el = document.getElementById("sec-" + sec.id);
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (el) scrollToEl(el);
       });
       jumpbar.appendChild(btn);
     }
   }
 }
 
+// スクロール修正: sticky 要素の offsetTop を使って record-list コンテナをスクロール
+function scrollToEl(el) {
+  const containerRect = recordList.getBoundingClientRect();
+  const elRect = el.getBoundingClientRect();
+  recordList.scrollTop += elRect.top - containerRect.top;
+}
+
 // ---- レコード一覧レンダリング ----
 function renderRecords() {
-  const cat = currentCategory();
-  if (!cat) { recordList.innerHTML = ""; return; }
+  const q          = searchQuery.trim().toLowerCase();
+  const tf         = targetFilter;
+  const globalMode = q.length > 0;
 
-  const q  = searchQuery.trim().toLowerCase();
-  const tf = targetFilter;
+  // 対象カテゴリ: 検索中は全カテゴリ、それ以外は選択中のみ
+  const cats = globalMode
+    ? v2Data.categories
+    : [currentCategory()].filter(Boolean);
 
   const frag = document.createDocumentFragment();
   let totalVisible = 0;
 
-  if (cat.subcategories) {
-    // 4階層: subcategory → section → tag
-    for (const sc of cat.subcategories) {
-      let scVisible = 0;
-      const scFrag = document.createDocumentFragment();
+  for (const cat of cats) {
+    const catFrag = document.createDocumentFragment();
+    let catVisible = 0;
 
-      for (const sec of sc.sections) {
+    if (cat.subcategories) {
+      for (const sc of cat.subcategories) {
+        let scVisible = 0;
+        const scFrag = document.createDocumentFragment();
+
+        for (const sec of sc.sections) {
+          const filtered = sec.tags.filter(tag => matchesFilter(tag, q, tf));
+          if (filtered.length === 0) continue;
+          scVisible += filtered.length;
+
+          const header = document.createElement("div");
+          header.className = "sec-header";
+          header.id = "sec-" + sec.id;
+          header.textContent = sec.label;
+          scFrag.appendChild(header);
+
+          for (const tag of filtered) {
+            scFrag.appendChild(makeRecord(tag));
+          }
+        }
+        if (scVisible === 0) continue;
+        catVisible += scVisible;
+
+        const scHeader = document.createElement("div");
+        scHeader.className = "subcat-header";
+        scHeader.id = "subcat-" + sc.id;
+        scHeader.textContent = sc.label;
+        catFrag.appendChild(scHeader);
+        catFrag.appendChild(scFrag);
+      }
+    } else {
+      for (const sec of (cat.sections || [])) {
         const filtered = sec.tags.filter(tag => matchesFilter(tag, q, tf));
         if (filtered.length === 0) continue;
-
-        scVisible += filtered.length;
+        catVisible += filtered.length;
 
         const header = document.createElement("div");
         header.className = "sec-header";
         header.id = "sec-" + sec.id;
         header.textContent = sec.label;
-        scFrag.appendChild(header);
+        catFrag.appendChild(header);
 
         for (const tag of filtered) {
-          scFrag.appendChild(makeRecord(tag));
+          catFrag.appendChild(makeRecord(tag));
         }
       }
-
-      if (scVisible === 0) continue;
-      totalVisible += scVisible;
-
-      // サブカテゴリヘッダ
-      const scHeader = document.createElement("div");
-      scHeader.className = "subcat-header";
-      scHeader.id = "subcat-" + sc.id;
-      scHeader.textContent = sc.label;
-      frag.appendChild(scHeader);
-      frag.appendChild(scFrag);
     }
-  } else {
-    // フォールバック: 旧3階層
-    for (const sec of (cat.sections || [])) {
-      const filtered = sec.tags.filter(tag => matchesFilter(tag, q, tf));
-      if (filtered.length === 0) continue;
 
-      totalVisible += filtered.length;
+    if (catVisible === 0) continue;
+    totalVisible += catVisible;
 
-      const header = document.createElement("div");
-      header.className = "sec-header";
-      header.id = "sec-" + sec.id;
-      header.textContent = sec.label;
-      frag.appendChild(header);
-
-      for (const tag of filtered) {
-        frag.appendChild(makeRecord(tag));
-      }
+    // 検索モード: カテゴリ区切りヘッダを挿入
+    if (globalMode) {
+      const catHeader = document.createElement("div");
+      catHeader.className = "cat-search-header";
+      catHeader.textContent = `${cat.label}  (${catVisible})`;
+      frag.appendChild(catHeader);
     }
+    frag.appendChild(catFrag);
   }
 
   recordList.innerHTML = "";
@@ -319,6 +347,7 @@ function setupEventListeners() {
     clearTimeout(searchTimer);
     searchTimer = setTimeout(() => {
       searchQuery = searchInput.value;
+      renderJumpbar();
       renderRecords();
     }, 150);
   });

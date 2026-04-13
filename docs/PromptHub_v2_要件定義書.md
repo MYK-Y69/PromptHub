@@ -438,4 +438,64 @@ memone-ro.com のページ構造:
 - ジャンプバーにはサブカテゴリのみ表示（セクションは並べない）
 
 ---
+
+## 10. スプレッドシート取り込み（/prompthub-add）
+
+### 10-1. 目的
+Google スプレッドシートを「ウェブに公開（CSV）」してタグを単発追加する仕組み。
+
+### 10-2. 設定ファイル
+`data/v2/sheets_config.json` に CSV URL を記載する。
+
+```json
+{
+  "csv_url": "https://docs.google.com/spreadsheets/d/SHEET_ID/export?format=csv&gid=0"
+}
+```
+
+URL の取得手順:
+1. Google スプレッドシートを開く
+2. ファイル → 共有 → **ウェブに公開**
+3. シートを選択 → 形式「カンマ区切り形式（.csv）」→「公開」
+4. 表示された URL をコピーして `csv_url` に設定
+
+### 10-3. スプレッドシートのカラム構成（1行目はヘッダー行）
+
+| カラム名 | 必須 | 説明 |
+|---------|------|------|
+| `en` | ✅ | 英語タグ（重複チェックキー） |
+| `jp` | ✅ | 日本語訳 |
+| `category` | ✅ | カテゴリ ID（例: `pose`, `expression`, `clothing`） |
+| `subcategory` | - | サブカテゴリ ID（例: `pose_hands`）。空欄時はカテゴリの最後のサブカテゴリに追加 |
+| `section` | - | セクションラベル（存在しなければ自動作成）。空欄時は「スプレッドシート取り込み」 |
+| `target` | - | `self` / `other` / `mutual` / `object`（pose/action カテゴリのみ） |
+| `target_note` | - | target の補足メモ |
+
+### 10-4. 利用可能なカテゴリ ID
+
+| ID | 日本語 |
+|---|---|
+| `camera` | カメラ・構図 |
+| `expression` | 表情・顔 |
+| `pose` | ポーズ |
+| `action` | 動作・行動 |
+| `clothing` | 服装 |
+| `accessories` | アクセサリー |
+| `people` | キャラクター・人物 |
+| `meta` | メタ・技術 |
+| `sensitive` | センシティブ |
+
+### 10-5. 実行コマンド
+
+```
+/prompthub-add              # 通常実行
+/prompthub-add --dry-run    # 変更なし・統計のみ確認
+/prompthub-add --force      # 重複 en の jp を上書き
+```
+
+### 10-6. 取り込みログ
+`data/v2/sheets_import_log.jsonl` に追記（JSONL 形式）。
+各行に `ts`, `en`, `jp`, `category`, `subcategory`, `section`, `status` が記録される。
+
+---
 以上
