@@ -48,13 +48,13 @@ def compile_v2():
     # 生成時刻を更新
     src["generated_at"] = datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z"
 
-    # カウント再計算
-    total = sum(
-        len(sec["tags"])
-        for cat in src["categories"]
-        for sec in cat["sections"]
-    )
-    src["count"] = total
+    # カウント再計算（4階層 / 3階層両対応）
+    def _count_tags(cat: dict) -> int:
+        if "subcategories" in cat:
+            return sum(len(s["tags"]) for sc in cat["subcategories"] for s in sc["sections"])
+        return sum(len(s["tags"]) for s in cat.get("sections", []))
+
+    src["count"] = sum(_count_tags(cat) for cat in src["categories"])
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     with open(OUT_PATH, "w", encoding="utf-8") as f:
@@ -65,9 +65,15 @@ def compile_v2():
     print(f"  total tags     : {src['count']}")
     print(f"  categories     : {len(src['categories'])}")
     for cat in src["categories"]:
-        n_sec = len(cat["sections"])
-        n_tag = sum(len(s["tags"]) for s in cat["sections"])
-        print(f"    {cat['id']:15s}  {n_sec:3d} sections  {n_tag:5d} tags")
+        if "subcategories" in cat:
+            n_sc  = len(cat["subcategories"])
+            n_sec = sum(len(sc["sections"]) for sc in cat["subcategories"])
+            n_tag = _count_tags(cat)
+            print(f"    {cat['id']:15s}  {n_sc:2d} subcats  {n_sec:3d} sections  {n_tag:5d} tags")
+        else:
+            n_sec = len(cat.get("sections", []))
+            n_tag = _count_tags(cat)
+            print(f"    {cat['id']:15s}  {n_sec:3d} sections  {n_tag:5d} tags")
 
 
 if __name__ == "__main__":

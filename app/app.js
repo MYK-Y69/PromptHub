@@ -52,6 +52,15 @@ const toast         = document.getElementById("toast");
   }
 })();
 
+// ---- カテゴリのタグ数 ----
+function catTagCount(cat) {
+  if (cat.subcategories) {
+    return cat.subcategories.reduce(
+      (n, sc) => n + sc.sections.reduce((m, s) => m + s.tags.length, 0), 0);
+  }
+  return (cat.sections || []).reduce((n, s) => n + s.tags.length, 0);
+}
+
 // ---- サイドバー構築 ----
 function buildSidebar() {
   catNav.innerHTML = "";
@@ -62,7 +71,7 @@ function buildSidebar() {
       divider.className = "cat-divider";
       catNav.appendChild(divider);
     }
-    const count = cat.sections.reduce((n, s) => n + s.tags.length, 0);
+    const count = catTagCount(cat);
     const btn = document.createElement("button");
     btn.className = "cat-item" + (cat.id === "sensitive" ? " cat-sensitive" : "");
     btn.dataset.catId = cat.id;
@@ -95,21 +104,37 @@ function selectCategory(catId) {
   renderRecords();
 }
 
-// ---- ジャンプバー ----
+// ---- ジャンプバー（サブカテゴリ単位） ----
 function renderJumpbar() {
   const cat = currentCategory();
   if (!cat) { jumpbar.innerHTML = ""; return; }
 
   jumpbar.innerHTML = "";
-  for (const sec of cat.sections) {
-    const btn = document.createElement("button");
-    btn.className = "jump-btn";
-    btn.textContent = sec.label;
-    btn.addEventListener("click", () => {
-      const el = document.getElementById("sec-" + sec.id);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-    jumpbar.appendChild(btn);
+
+  if (cat.subcategories) {
+    for (const sc of cat.subcategories) {
+      const btn = document.createElement("button");
+      btn.className = "jump-btn";
+      btn.dataset.scId = sc.id;
+      btn.textContent = sc.label;
+      btn.addEventListener("click", () => {
+        const el = document.getElementById("subcat-" + sc.id);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      jumpbar.appendChild(btn);
+    }
+  } else {
+    // フォールバック: 旧形式 sections
+    for (const sec of (cat.sections || [])) {
+      const btn = document.createElement("button");
+      btn.className = "jump-btn";
+      btn.textContent = sec.label;
+      btn.addEventListener("click", () => {
+        const el = document.getElementById("sec-" + sec.id);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      jumpbar.appendChild(btn);
+    }
   }
 }
 
@@ -118,28 +143,63 @@ function renderRecords() {
   const cat = currentCategory();
   if (!cat) { recordList.innerHTML = ""; return; }
 
-  const q   = searchQuery.trim().toLowerCase();
-  const tf  = targetFilter;
+  const q  = searchQuery.trim().toLowerCase();
+  const tf = targetFilter;
 
   const frag = document.createDocumentFragment();
   let totalVisible = 0;
 
-  for (const sec of cat.sections) {
-    const filtered = sec.tags.filter(tag => matchesFilter(tag, q, tf));
-    if (filtered.length === 0) continue;
+  if (cat.subcategories) {
+    // 4階層: subcategory → section → tag
+    for (const sc of cat.subcategories) {
+      let scVisible = 0;
+      const scFrag = document.createDocumentFragment();
 
-    totalVisible += filtered.length;
+      for (const sec of sc.sections) {
+        const filtered = sec.tags.filter(tag => matchesFilter(tag, q, tf));
+        if (filtered.length === 0) continue;
 
-    // セクションヘッダ
-    const header = document.createElement("div");
-    header.className = "sec-header";
-    header.id = "sec-" + sec.id;
-    header.textContent = sec.label;
-    frag.appendChild(header);
+        scVisible += filtered.length;
 
-    // タグレコード
-    for (const tag of filtered) {
-      frag.appendChild(makeRecord(tag));
+        const header = document.createElement("div");
+        header.className = "sec-header";
+        header.id = "sec-" + sec.id;
+        header.textContent = sec.label;
+        scFrag.appendChild(header);
+
+        for (const tag of filtered) {
+          scFrag.appendChild(makeRecord(tag));
+        }
+      }
+
+      if (scVisible === 0) continue;
+      totalVisible += scVisible;
+
+      // サブカテゴリヘッダ
+      const scHeader = document.createElement("div");
+      scHeader.className = "subcat-header";
+      scHeader.id = "subcat-" + sc.id;
+      scHeader.textContent = sc.label;
+      frag.appendChild(scHeader);
+      frag.appendChild(scFrag);
+    }
+  } else {
+    // フォールバック: 旧3階層
+    for (const sec of (cat.sections || [])) {
+      const filtered = sec.tags.filter(tag => matchesFilter(tag, q, tf));
+      if (filtered.length === 0) continue;
+
+      totalVisible += filtered.length;
+
+      const header = document.createElement("div");
+      header.className = "sec-header";
+      header.id = "sec-" + sec.id;
+      header.textContent = sec.label;
+      frag.appendChild(header);
+
+      for (const tag of filtered) {
+        frag.appendChild(makeRecord(tag));
+      }
     }
   }
 

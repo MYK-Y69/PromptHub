@@ -90,11 +90,20 @@ def save_v2(data: dict) -> None:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
+def _iter_sections(cat: dict):
+    """カテゴリから全セクションをイテレートする（4階層/3階層両対応）。"""
+    if "subcategories" in cat:
+        for sc in cat["subcategories"]:
+            yield from sc.get("sections", [])
+    else:
+        yield from cat.get("sections", [])
+
+
 def v2_en_set(data: dict) -> set[str]:
     """v2 JSON 内の全 en 値（lowercase）をセットで返す。"""
     result = set()
     for cat in data.get("categories", []):
-        for sec in cat.get("sections", []):
+        for sec in _iter_sections(cat):
             for tag in sec.get("tags", []):
                 result.add(tag["en"].lower().strip())
     return result
@@ -105,22 +114,30 @@ def find_or_create_category(data: dict, cat_id: str, cat_label: str) -> dict:
     for cat in data["categories"]:
         if cat["id"] == cat_id:
             return cat
-    new_cat = {
-        "id": cat_id,
-        "label": cat_label,
-        "sections": [],
-    }
+    # 新規カテゴリ（4階層: 既存カテゴリと同形式に合わせる）
+    if data["categories"] and "subcategories" in data["categories"][0]:
+        new_cat = {
+            "id": cat_id,
+            "label": cat_label,
+            "subcategories": [{"id": f"{cat_id}_general", "label": "全般", "sections": []}],
+        }
+    else:
+        new_cat = {"id": cat_id, "label": cat_label, "sections": []}
     data["categories"].append(new_cat)
     return new_cat
 
 
 def find_or_create_section(cat_dict: dict, sec_id: str, sec_label: str) -> dict:
-    """カテゴリ内の sec_id セクションを探す。なければ末尾に追加。"""
-    for sec in cat_dict.get("sections", []):
+    """カテゴリ内の sec_id セクションを探す。なければ最後のサブカテゴリに追加。"""
+    for sec in _iter_sections(cat_dict):
         if sec["id"] == sec_id:
             return sec
     new_sec = {"id": sec_id, "label": sec_label, "tags": []}
-    cat_dict.setdefault("sections", []).append(new_sec)
+    # 4階層: 最後のサブカテゴリに追加
+    if "subcategories" in cat_dict:
+        cat_dict["subcategories"][-1]["sections"].append(new_sec)
+    else:
+        cat_dict.setdefault("sections", []).append(new_sec)
     return new_sec
 
 
@@ -196,7 +213,7 @@ def merge_result(
         data["count"] = sum(
             len(sec["tags"])
             for cat in data["categories"]
-            for sec in cat.get("sections", [])
+            for sec in _iter_sections(cat)
         )
 
     return stats

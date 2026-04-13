@@ -196,9 +196,25 @@ body {
   padding-bottom: 40px;
 }
 
+/* サブカテゴリヘッダ（4階層） */
+.subcat-header {
+  padding: 10px 16px 8px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--accent);
+  background: #1a1b2e;
+  border-top: 3px solid var(--accent);
+  border-bottom: 1px solid #2a2b42;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
 /* セクションヘッダ */
 .sec-header {
-  padding: 7px 16px;
+  padding: 7px 16px 7px 24px;
   font-size: 0.82rem;
   font-weight: 700;
   color: var(--sec-header-text);
@@ -209,6 +225,7 @@ body {
   position: relative;
 }
 .sec-header:first-child { border-top: none; }
+.subcat-header + .sec-header { border-top: none; }
 
 /* タグレコード */
 .record {
