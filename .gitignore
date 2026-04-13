@@ -5,3 +5,5 @@ data/imbox/
 
 # generated previews / scratch
 data/dictionary/*.preview.json
+*.pyc
+__pycache__/
