@@ -3,38 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PromptHub</title>
-  <link rel="stylesheet" href="app.css?v=3a52964" />
+  <title>PromptHub v2</title>
+  <link rel="stylesheet" href="app.css?v=bf99bfc" />
 </head>
 <body>
   <div id="layout">
-    <!-- Sidebar -->
+
+    <!-- Sidebar: カテゴリ一覧 -->
     <aside id="sidebar">
       <div id="logo">PromptHub</div>
-      <nav id="category-list">
-        <!-- populated by JS -->
-      </nav>
+      <nav id="cat-nav"><!-- JS で生成 --></nav>
     </aside>
 
-    <!-- Main -->
+    <!-- Main: フィルタ + ジャンプバー + レコード一覧 -->
     <main id="main">
-      <header id="toolbar">
-        <input
-          id="search"
-          type="search"
-          placeholder="jp / en / tags で検索..."
-          autocomplete="off"
-        />
-        <button id="copy-selected" disabled>選択をまとめてコピー (<span id="selected-count">0</span>)</button>
-      </header>
 
-      <div id="tag-chips"></div>
+      <!-- フィルタバー -->
+      <div id="filterbar">
+        <input id="search" type="search" placeholder="en / jp で検索..." autocomplete="off" />
+        <div id="target-filters">
+          <button class="tf-btn active" data-target="">すべて</button>
+          <button class="tf-btn" data-target="self">self</button>
+          <button class="tf-btn" data-target="other">other</button>
+          <button class="tf-btn" data-target="mutual">mutual</button>
+          <button class="tf-btn" data-target="object">object</button>
+          <button class="tf-btn" data-target="__null__">未設定</button>
+        </div>
+      </div>
 
-      <div id="subcat-jump-container"></div>
+      <!-- ジャンプバー: アクティブカテゴリのセクションボタン -->
+      <div id="jumpbar"><!-- JS で生成 --></div>
 
-      <div id="card-grid"></div>
+      <!-- レコード一覧 -->
+      <div id="record-list"><!-- JS で生成 --></div>
 
-      <div id="empty-msg" hidden>該当するアイテムがありません。</div>
+      <div id="empty-msg" hidden>該当するタグがありません。</div>
     </main>
 
     <!-- Prompt Builder -->
@@ -43,14 +46,15 @@
         <span id="builder-title">Prompt Builder</span>
         <button id="builder-clear">CLEAR</button>
       </div>
-      <div id="builder-chips"></div>
-      <div id="builder-output">(empty)</div>
+      <div id="builder-tags"><!-- JS で生成 --></div>
+      <textarea id="builder-output" readonly placeholder="(ここにプロンプトが出力されます)"></textarea>
       <button id="builder-copy" disabled>COPY PROMPT</button>
     </aside>
+
   </div>
 
   <div id="toast"></div>
 
-  <script src="./app.js?v=3a52964"></script>
+  <script src="./app.js?v=bf99bfc"></script>
 </body>
 </html>
