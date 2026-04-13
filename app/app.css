@@ -85,6 +85,19 @@ body {
   font-weight: 600;
 }
 
+/* センシティブカテゴリ */
+.cat-divider {
+  margin: 8px 10px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.cat-item.cat-sensitive { color: #f38ba8; }
+.cat-item.cat-sensitive .cat-count { background: rgba(243,139,168,0.18); }
+.cat-item.cat-sensitive:hover { background: rgba(243,139,168,0.12); }
+.cat-item.cat-sensitive.active {
+  background: rgba(243,139,168,0.22);
+  color: #f38ba8;
+}
+
 .cat-label { flex: 1; }
 .cat-count {
   font-size: 0.72rem;

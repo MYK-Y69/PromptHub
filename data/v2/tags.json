@@ -3710,66 +3710,6 @@
           ]
         },
         {
-          "id": "sexpos",
-          "label": "性的ポーズ",
-          "tags": [
-            {
-              "en": "straddling",
-              "jp": "馬乗り/またがる（straddling）",
-              "target": "self",
-              "target_note": null
-            },
-            {
-              "en": "cowgirl position",
-              "jp": "騎乗位（cowgirl position）",
-              "target": "self",
-              "target_note": null
-            },
-            {
-              "en": "thigh straddling",
-              "jp": "太ももにまたがる（thigh straddling）",
-              "target": "self",
-              "target_note": null
-            },
-            {
-              "en": "reverse cowgirl position",
-              "jp": "背面騎乗位（reverse cowgirl position）",
-              "target": "self",
-              "target_note": null
-            },
-            {
-              "en": "upright straddle",
-              "jp": "対面座位（upright straddle）",
-              "target": "self",
-              "target_note": null
-            },
-            {
-              "en": "squatting cowgirl position",
-              "jp": "M字騎乗位（squatting cowgirl position）",
-              "target": "self",
-              "target_note": null
-            },
-            {
-              "en": "reverse upright straddle",
-              "jp": "背面座位（reverse upright straddle）",
-              "target": "self",
-              "target_note": null
-            },
-            {
-              "en": "femdom",
-              "jp": "女性上位/女攻め（femdom）",
-              "target": "self",
-              "target_note": null
-            },
-            {
-              "en": "assertive female",
-              "jp": "主体的女性（assertive female）",
-              "target": "self",
-              "target_note": null
-            }
-          ]
-        },
-        {
           "id": "legs",
           "label": "脚",
           "tags": [
@@ -8404,9 +8344,69 @@
       ]
     },
     {
-      "id": "e621_pony",
-      "label": "E621・Pony",
+      "id": "sensitive",
+      "label": "センシティブ",
       "sections": [
+        {
+          "id": "sexpos",
+          "label": "性的ポーズ",
+          "tags": [
+            {
+              "en": "straddling",
+              "jp": "馬乗り/またがる（straddling）",
+              "target": "self",
+              "target_note": null
+            },
+            {
+              "en": "cowgirl position",
+              "jp": "騎乗位（cowgirl position）",
+              "target": "self",
+              "target_note": null
+            },
+            {
+              "en": "thigh straddling",
+              "jp": "太ももにまたがる（thigh straddling）",
+              "target": "self",
+              "target_note": null
+            },
+            {
+              "en": "reverse cowgirl position",
+              "jp": "背面騎乗位（reverse cowgirl position）",
+              "target": "self",
+              "target_note": null
+            },
+            {
+              "en": "upright straddle",
+              "jp": "対面座位（upright straddle）",
+              "target": "self",
+              "target_note": null
+            },
+            {
+              "en": "squatting cowgirl position",
+              "jp": "M字騎乗位（squatting cowgirl position）",
+              "target": "self",
+              "target_note": null
+            },
+            {
+              "en": "reverse upright straddle",
+              "jp": "背面座位（reverse upright straddle）",
+              "target": "self",
+              "target_note": null
+            },
+            {
+              "en": "femdom",
+              "jp": "女性上位/女攻め（femdom）",
+              "target": "self",
+              "target_note": null
+            },
+            {
+              "en": "assertive female",
+              "jp": "主体的女性（assertive female）",
+              "target": "self",
+              "target_note": null
+            }
+          ]
+        },
         {
           "id": "e621_pony",
           "label": "E621・Pony",

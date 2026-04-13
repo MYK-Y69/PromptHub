@@ -56,9 +56,15 @@ const toast         = document.getElementById("toast");
 function buildSidebar() {
   catNav.innerHTML = "";
   for (const cat of v2Data.categories) {
+    // センシティブカテゴリの前に区切り線を挿入
+    if (cat.id === "sensitive") {
+      const divider = document.createElement("div");
+      divider.className = "cat-divider";
+      catNav.appendChild(divider);
+    }
     const count = cat.sections.reduce((n, s) => n + s.tags.length, 0);
     const btn = document.createElement("button");
-    btn.className = "cat-item";
+    btn.className = "cat-item" + (cat.id === "sensitive" ? " cat-sensitive" : "");
     btn.dataset.catId = cat.id;
     btn.innerHTML =
       `<span class="cat-label">${escHtml(cat.label)}</span>` +
