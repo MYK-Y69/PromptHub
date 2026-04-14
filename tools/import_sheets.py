@@ -145,12 +145,26 @@ def _cat_list_str(data: dict) -> str:
 
 
 def find_or_create_section_in_sc(sc: dict, sec_label: str) -> dict:
-    """サブカテゴリ内でラベルが一致するセクションを探す。なければ作成。"""
+    """サブカテゴリ内でラベルが一致するセクションを探す。なければ作成。
+
+    マッチング順序:
+      1. 完全一致
+      2. 部分一致（既存ラベルが入力値を含む、または入力値が既存ラベルを含む）
+      3. 該当なし → 新規作成
+    """
+    sec_label_lower = sec_label.strip().lower()
+    # 1. 完全一致
     for sec in sc.get("sections", []):
-        if sec["label"] == sec_label:
+        if sec["label"].strip().lower() == sec_label_lower:
             return sec
+    # 2. 部分一致（"フェラチオの基本と変種" ↔ "1. フェラチオの基本と変種" のような番号付きラベル対応）
+    for sec in sc.get("sections", []):
+        existing_lower = sec["label"].strip().lower()
+        if sec_label_lower in existing_lower or existing_lower in sec_label_lower:
+            print(f"  [INFO] section '{sec_label}' → '{sec['label']}' (部分一致)")
+            return sec
+    # 3. 新規作成
     new_id = "ss_" + slugify(sec_label)
-    # ID 衝突回避
     existing_ids = {s["id"] for s in sc.get("sections", [])}
     if new_id in existing_ids:
         new_id = new_id + "_" + str(len(existing_ids))
