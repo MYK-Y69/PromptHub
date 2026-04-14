@@ -11,6 +11,9 @@ Google スプレッドシート（CSV 公開）から v2 JSON にタグを追加
 スプレッドシートのカラム（1行目はヘッダー行として自動スキップ）:
   en | jp | category | subcategory | section | target | target_note
 
+  category / subcategory は ID（例: pose）または日本語ラベル（例: ポーズ）で入力可。
+  section はラベル（日本語可）。存在しなければ自動作成。
+
 設定ファイル: data/v2/sheets_config.json
   {"csv_url": "https://docs.google.com/spreadsheets/d/SHEET_ID/export?format=csv&gid=0"}
 """
@@ -107,18 +110,38 @@ def build_en_set(data: dict) -> set[str]:
     return result
 
 
-def find_category(data: dict, cat_id: str):
+def resolve_category(data: dict, value: str) -> dict | None:
+    """カテゴリを ID または日本語ラベルで検索する。"""
+    v = value.strip()
+    if not v:
+        return None
+    # 1) ID 完全一致
     for cat in data["categories"]:
-        if cat["id"] == cat_id:
+        if cat["id"] == v:
+            return cat
+    # 2) ラベル完全一致（大文字小文字・前後空白無視）
+    v_lower = v.lower()
+    for cat in data["categories"]:
+        if cat.get("label", "").strip().lower() == v_lower:
             return cat
     return None
 
 
-def find_subcategory(cat: dict, sc_id: str):
+def resolve_subcategory(cat: dict, value: str) -> dict | None:
+    """サブカテゴリを ID または日本語ラベルで検索する。"""
+    v = value.strip()
+    if not v:
+        return None
+    v_lower = v.lower()
     for sc in cat.get("subcategories", []):
-        if sc["id"] == sc_id:
+        if sc["id"] == v or sc.get("label", "").strip().lower() == v_lower:
             return sc
     return None
+
+
+def _cat_list_str(data: dict) -> str:
+    """利用可能なカテゴリ一覧を文字列で返す（エラー時の案内用）。"""
+    return ", ".join(f"{c['id']}({c['label']})" for c in data["categories"])
 
 
 def find_or_create_section_in_sc(sc: dict, sec_label: str) -> dict:
@@ -164,8 +187,8 @@ def process_row(
 
     en  = row.get("en", "").strip()
     jp  = row.get("jp", "").strip()
-    cat_id  = row.get("category", "").strip()
-    sc_id   = row.get("subcategory", "").strip()
+    cat_raw = row.get("category", "").strip()
+    sc_raw  = row.get("subcategory", "").strip()
     sec_lbl = row.get("section", "").strip()
     target  = row.get("target", "").strip() or None
     target_note = row.get("target_note", "").strip() or None
@@ -173,7 +196,7 @@ def process_row(
     if not en or not jp:
         log_entries.append({"ts": now, "en": en, "status": "error", "reason": "en/jp が空"})
         return "error"
-    if not cat_id:
+    if not cat_raw:
         log_entries.append({"ts": now, "en": en, "status": "error", "reason": "category が空"})
         return "error"
 
@@ -182,7 +205,6 @@ def process_row(
     # 重複チェック
     if en_key in en_set:
         if force:
-            # jp を上書き（既存セクションを検索して更新）
             for cat in data["categories"]:
                 for sec in iter_sections(cat):
                     for tag in sec["tags"]:
@@ -198,36 +220,46 @@ def process_row(
         log_entries.append({"ts": now, "en": en, "status": "skipped", "reason": "重複"})
         return "skipped"
 
-    # カテゴリ確認
-    cat = find_category(data, cat_id)
+    # ── カテゴリ解決（ID または日本語ラベル） ──────────────────────────────
+    cat = resolve_category(data, cat_raw)
     if cat is None:
+        avail = _cat_list_str(data)
         log_entries.append({"ts": now, "en": en, "status": "error",
-                            "reason": f"カテゴリ '{cat_id}' が見つかりません"})
+                            "reason": f"カテゴリ '{cat_raw}' が見つかりません"})
+        print(f"  [ERROR] category '{cat_raw}' が見つかりません")
+        print(f"          利用可能: {avail}")
         return "error"
+    if cat["id"] != cat_raw:
+        print(f"  [INFO] category '{cat_raw}' → '{cat['id']}' ({cat['label']})")
 
-    # サブカテゴリ確認
-    if sc_id:
-        sc = find_subcategory(cat, sc_id)
+    # ── サブカテゴリ解決（ID または日本語ラベル） ──────────────────────────
+    if sc_raw:
+        sc = resolve_subcategory(cat, sc_raw)
         if sc is None:
-            # 指定サブカテゴリが存在しない → 最後のサブカテゴリに追加してwarn
+            # 指定値が見つからなければ最後のサブカテゴリにフォールバック
             sc = cat["subcategories"][-1] if cat.get("subcategories") else None
-            print(f"  [WARN] subcategory '{sc_id}' not found in '{cat_id}'"
+            avail_sc = ", ".join(
+                f"{s['id']}({s['label']})" for s in cat.get("subcategories", [])
+            )
+            print(f"  [WARN] subcategory '{sc_raw}' が見つかりません"
                   f" → '{sc['id']}' に追加します")
+            print(f"         利用可能: {avail_sc}")
+        elif sc["id"] != sc_raw:
+            print(f"  [INFO] subcategory '{sc_raw}' → '{sc['id']}' ({sc['label']})")
     else:
-        # サブカテゴリ未指定: 最後のサブカテゴリ（通常 *_other or *_misc）
         sc = cat["subcategories"][-1] if cat.get("subcategories") else None
 
     if sc is None:
         log_entries.append({"ts": now, "en": en, "status": "error",
-                            "reason": f"サブカテゴリを解決できません"})
+                            "reason": "サブカテゴリを解決できません"})
         return "error"
 
-    # セクション確認・作成
+    # ── セクション解決（ラベル一致 or 新規作成） ──────────────────────────
     if not sec_lbl:
         sec_lbl = "スプレッドシート取り込み"
     sec = find_or_create_section_in_sc(sc, sec_lbl)
 
-    # タグ追加
+    # ── タグ追加 ────────────────────────────────────────────────────────────
     new_tag = {
         "en": en,
         "jp": jp,
@@ -241,7 +273,7 @@ def process_row(
 
     log_entries.append({
         "ts": now, "en": en, "jp": jp,
-        "category": cat_id, "subcategory": sc["id"], "section": sec["id"],
+        "category": cat["id"], "subcategory": sc["id"], "section": sec["id"],
         "status": "added",
     })
     return "added"
