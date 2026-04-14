@@ -287,6 +287,7 @@ def main():
     parser = argparse.ArgumentParser(description="スプレッドシート CSV → v2 JSON")
     parser.add_argument("--dry-run", action="store_true", help="JSON を変更しない")
     parser.add_argument("--force",   action="store_true", help="重複 en の jp を上書き")
+    parser.add_argument("--deploy",  action="store_true", help="取り込み後に git commit & push する")
     args = parser.parse_args()
 
     cfg = load_config()
@@ -367,6 +368,77 @@ def main():
             print(f"  [added] {e['en']:30s} → {e.get('category','?')}/{e.get('subcategory','?')}/{e.get('section','?')}")
         if len(added) > 20:
             print(f"  ... 他 {len(added)-20} 件")
+
+    # --deploy: git commit & push
+    if args.deploy and not args.dry_run and (stats["added"] > 0 or stats["updated"] > 0):
+        n_added   = stats["added"]
+        n_updated = stats["updated"]
+        new_total = data["count"]
+
+        # コミットメッセージ生成
+        if n_added > 0 and n_updated > 0:
+            msg_body = f"feat(sheets): {n_added} タグ追加 / {n_updated} タグ更新 (total {new_total})"
+        elif n_added > 0:
+            msg_body = f"feat(sheets): {n_added} タグ追加 (total {new_total})"
+        else:
+            msg_body = f"feat(sheets): {n_updated} タグ更新 (total {new_total})"
+
+        commit_msg = f"{msg_body}\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
+
+        print()
+        print("=" * 50)
+        print("  --deploy: git commit & push を実行します")
+        print("=" * 50)
+
+        # git add
+        ga = subprocess.run(
+            ["git", "add", str(V2_SRC), str(V2_SRC.parent / "compiled" / "tags.json")],
+            capture_output=True, text=True
+        )
+        if ga.returncode != 0:
+            print(f"[deploy] git add ERROR:\n{ga.stderr}")
+            sys.exit(1)
+
+        # git commit
+        gc = subprocess.run(
+            ["git", "commit", "-m", commit_msg],
+            capture_output=True, text=True
+        )
+        if gc.returncode != 0:
+            print(f"[deploy] git commit ERROR:\n{gc.stderr}")
+            sys.exit(1)
+        commit_hash = gc.stdout.strip().splitlines()[0] if gc.stdout else ""
+        print(f"[deploy] commit: {commit_hash}")
+
+        # git pull --rebase（競合防止）
+        gp = subprocess.run(
+            ["git", "pull", "--rebase", "origin", "main"],
+            capture_output=True, text=True
+        )
+        if gp.returncode != 0:
+            print(f"[deploy] git pull --rebase ERROR:\n{gp.stderr}")
+            sys.exit(1)
+
+        # git push
+        gpush = subprocess.run(
+            ["git", "push", "origin", "main"],
+            capture_output=True, text=True
+        )
+        if gpush.returncode != 0:
+            print(f"[deploy] git push ERROR:\n{gpush.stderr}")
+            sys.exit(1)
+
+        print(f"[deploy] push: ✅ origin/main")
+        print()
+        print("━" * 50)
+        print("  deploy 完了")
+        print("━" * 50)
+        print(f"  tags    : {new_total}")
+        print(f"  push    : ✅ origin/main")
+        print("━" * 50)
+        print("Actions 完了後（約1分）にリロードで最新が表示されます。")
+    elif args.deploy and not args.dry_run:
+        print("[deploy] 追加・更新がなかったため push をスキップしました。")
 
 
 if __name__ == "__main__":

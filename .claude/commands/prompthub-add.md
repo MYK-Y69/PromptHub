@@ -1,7 +1,8 @@
 Google スプレッドシート（CSV 公開）からタグを取り込み `data/v2/tags.json` に追加する。
 
 **引数 `$ARGUMENTS`:**
-- 引数なし: 取り込み実行
+- 引数なし: 取り込み実行（JSON追加・コンパイルまで）
+- `--deploy`: 取り込み後に git commit & push まで一気通貫で実行
 - `--dry-run`: JSON を変更せず統計のみ表示
 - `--force`: 重複 en タグの jp を上書き更新
 
@@ -60,10 +61,13 @@ python3 tools/import_sheets.py $ARGUMENTS
 
 - CSV 取得失敗: エラーを表示して終了
 - `--dry-run` 時: 統計を表示して終了（JSON 変更なし）
+- `--deploy` 時: import_sheets.py 内で commit & push まで完結する
 
 ---
 
-## Step 4: 取り込み後の確認
+## Step 4: 取り込み後の確認（--deploy なしの場合のみ）
+
+`$ARGUMENTS` に `--deploy` が含まれる場合はこの Step をスキップする（import_sheets.py が完了レポートを出力済みのため）。
 
 ```python
 import json
@@ -98,5 +102,6 @@ print("次のステップ: /prompthub-deploy で push")
 
 ## 制約
 
-- `git commit` / `git push` は **しない**（`/prompthub-deploy` で行う）
+- `--deploy` なしの場合: `git commit` / `git push` は **しない**（`/prompthub-deploy` で行う）
+- `--deploy` の場合: import_sheets.py 内で commit & push まで完結する
 - `data/v2/` 以外のファイルは変更しない
