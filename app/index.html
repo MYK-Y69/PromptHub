@@ -31,14 +31,31 @@
         </div>
       </div>
 
-      <!-- Prompt Builder バー（旧ジャンプバー位置） -->
+      <!-- Prompt Builder バー -->
       <div id="builder-bar">
         <span id="builder-label">Prompt Builder</span>
         <div id="builder-chips"><!-- JS で生成 --></div>
         <div id="builder-actions">
+          <button id="builder-save" disabled>保存</button>
           <button id="builder-copy" disabled>COPY</button>
           <button id="builder-clear">CLEAR</button>
         </div>
+      </div>
+
+      <!-- 保存済みプロンプトパネル -->
+      <div id="saved-bar">
+        <div id="saved-bar-header">
+          <span id="saved-bar-label">保存済みプロンプト</span>
+          <span id="saved-bar-count"></span>
+          <div id="saved-bar-actions">
+            <button id="saved-export" title="JSONでエクスポート">エクスポート</button>
+            <label id="saved-import-label" title="JSONからインポート">インポート
+              <input id="saved-import-input" type="file" accept=".json" />
+            </label>
+            <button id="saved-toggle" title="開閉">▼</button>
+          </div>
+        </div>
+        <div id="saved-list"><!-- JS で生成 --></div>
       </div>
 
       <!-- レコード一覧 -->
@@ -55,6 +72,26 @@
   </div>
 
   <div id="toast"></div>
+
+  <!-- コンテキストメニュー -->
+  <div id="ctx-menu">
+    <button id="ctx-delete">このタグを削除</button>
+    <div class="ctx-sep"></div>
+    <button id="ctx-copy">コピー</button>
+    <button id="ctx-add">Builder に追加</button>
+  </div>
+
+  <!-- 保存ダイアログ -->
+  <div id="save-dialog">
+    <div id="save-dialog-box">
+      <div id="save-dialog-title">プロンプトを保存</div>
+      <input id="save-name-input" type="text" placeholder="名前を入力（最大40文字）" maxlength="40" autocomplete="off" />
+      <div id="save-dialog-btns">
+        <button id="save-confirm">保存</button>
+        <button id="save-cancel">キャンセル</button>
+      </div>
+    </div>
+  </div>
 
   <script src="./app.js?v=70b2256"></script>
 </body>

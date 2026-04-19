@@ -3,16 +3,27 @@
 // ---- データソース ----
 const DATA_URL = "../data/v2/compiled/tags.json";
 
-// ---- State ----
-let v2Data       = null;   // ロード済み JSON
-let activeCatId  = null;   // 表示中カテゴリ id
-let searchQuery  = "";     // 検索文字列
-let targetFilter = "";     // "self"|"other"|"mutual"|"object"|"__null__"|""
-let builderTags  = [];     // Prompt Builder: [{en}]
-let searchTimer  = null;
+// ---- LocalStorage キー ----
+const LS_DELETED = "prompthub_deleted";
+const LS_SAVED   = "prompthub_saved";
 
-// スクロール追従用: {type:"subcat"|"sec", id, offsetTop} の配列
+// ---- State ----
+let v2Data       = null;
+let activeCatId  = null;
+let searchQuery  = "";
+let targetFilter = "";
+let builderTags  = [];
+let searchTimer  = null;
 let indexItems   = [];
+
+// 削除済みタグ (en.toLowerCase() のセット)
+let deletedTags  = new Set(JSON.parse(localStorage.getItem(LS_DELETED) || "[]"));
+
+// 保存済みプロンプト [{id, name, tags:[{en}], savedAt}]
+let savedPrompts = JSON.parse(localStorage.getItem(LS_SAVED) || "[]");
+
+// コンテキストメニュー対象タグ
+let ctxTargetTag = null;
 
 // ---- target ラベル定義 ----
 const TARGET_LABEL = {
@@ -23,15 +34,34 @@ const TARGET_LABEL = {
 };
 
 // ---- DOM refs ----
-const catNav        = document.getElementById("cat-nav");
-const searchInput   = document.getElementById("search");
-const recordList    = document.getElementById("record-list");
-const emptyMsg      = document.getElementById("empty-msg");
-const builderChips  = document.getElementById("builder-chips");
-const builderCopy   = document.getElementById("builder-copy");
-const builderClear  = document.getElementById("builder-clear");
-const indexTree     = document.getElementById("index-tree");
-const toast         = document.getElementById("toast");
+const catNav          = document.getElementById("cat-nav");
+const searchInput     = document.getElementById("search");
+const recordList      = document.getElementById("record-list");
+const emptyMsg        = document.getElementById("empty-msg");
+const builderChips    = document.getElementById("builder-chips");
+const builderCopy     = document.getElementById("builder-copy");
+const builderClear    = document.getElementById("builder-clear");
+const builderSave     = document.getElementById("builder-save");
+const indexTree       = document.getElementById("index-tree");
+const toast           = document.getElementById("toast");
+
+const ctxMenu         = document.getElementById("ctx-menu");
+const ctxDelete       = document.getElementById("ctx-delete");
+const ctxCopy         = document.getElementById("ctx-copy");
+const ctxAdd          = document.getElementById("ctx-add");
+
+const saveDialog      = document.getElementById("save-dialog");
+const saveNameInput   = document.getElementById("save-name-input");
+const saveConfirm     = document.getElementById("save-confirm");
+const saveCancel      = document.getElementById("save-cancel");
+
+const savedBar        = document.getElementById("saved-bar");
+const savedBarHeader  = document.getElementById("saved-bar-header");
+const savedBarCount   = document.getElementById("saved-bar-count");
+const savedList       = document.getElementById("saved-list");
+const savedToggle     = document.getElementById("saved-toggle");
+const savedExport     = document.getElementById("saved-export");
+const savedImportInput = document.getElementById("saved-import-input");
 
 // ---- 起動 ----
 (async function init() {
@@ -45,8 +75,12 @@ const toast         = document.getElementById("toast");
     return;
   }
 
+  // 削除済みタグをメモリから除去
+  applyDeletions();
+
   buildSidebar();
   setupEventListeners();
+  renderSavedList();
 
   if (v2Data.categories.length > 0) {
     selectCategory(v2Data.categories[0].id);
@@ -91,7 +125,6 @@ function selectCategory(catId) {
     btn.classList.toggle("active", btn.dataset.catId === catId);
   }
 
-  // フィルタリセット
   searchQuery  = "";
   targetFilter = "";
   searchInput.value = "";
@@ -107,7 +140,6 @@ function selectCategory(catId) {
 function renderIndexPanel() {
   indexTree.innerHTML = "";
 
-  // 検索中は検索モードメッセージ
   if (searchQuery.trim().length > 0) {
     const msg = document.createElement("div");
     msg.className = "idx-search-msg";
@@ -120,7 +152,6 @@ function renderIndexPanel() {
   if (!cat || !cat.subcategories) return;
 
   for (const sc of cat.subcategories) {
-    // サブカテゴリ行
     const scBtn = document.createElement("button");
     scBtn.className = "idx-subcat";
     scBtn.dataset.scId = sc.id;
@@ -128,7 +159,6 @@ function renderIndexPanel() {
     scBtn.addEventListener("click", () => scrollToId("subcat-" + sc.id));
     indexTree.appendChild(scBtn);
 
-    // セクション行（インデント）
     for (const sec of sc.sections) {
       const secBtn = document.createElement("button");
       secBtn.className = "idx-sec";
@@ -140,7 +170,7 @@ function renderIndexPanel() {
   }
 }
 
-// ---- スクロール: 要素 id → record-list 内スクロール ----
+// ---- スクロール ----
 function scrollToId(elemId) {
   const el = document.getElementById(elemId);
   if (!el) return;
@@ -149,7 +179,6 @@ function scrollToId(elemId) {
   recordList.scrollTop += elRect.top - containerRect.top;
 }
 
-// ---- スクロール追従: indexItems 構築 ----
 function buildIndexItems() {
   indexItems = [];
   for (const el of recordList.querySelectorAll(".subcat-header, .sec-header")) {
@@ -161,43 +190,33 @@ function buildIndexItems() {
   }
 }
 
-// ---- スクロール追従: アクティブ更新 ----
 function updateScrollHighlight() {
   if (indexItems.length === 0) return;
 
-  const st = recordList.scrollTop + 4; // 4px の余裕
+  const st = recordList.scrollTop + 4;
   let activeScId = null, activeSecId = null;
 
   for (const item of indexItems) {
     if (item.el.offsetTop <= st) {
-      if (item.type === "subcat") {
-        activeScId  = item.id;
-        activeSecId = null;
-      } else {
-        activeSecId = item.id;
-      }
+      if (item.type === "subcat") { activeScId = item.id; activeSecId = null; }
+      else { activeSecId = item.id; }
     }
   }
 
-  // クラス更新
   for (const btn of indexTree.querySelectorAll(".idx-subcat")) {
     btn.classList.toggle("active", btn.dataset.scId === activeScId && !activeSecId);
   }
   for (const btn of indexTree.querySelectorAll(".idx-sec")) {
     btn.classList.toggle("active", btn.dataset.secId === activeSecId);
   }
-  // アクティブなサブカテゴリ行も常に色付け（セクション active 中でも）
   for (const btn of indexTree.querySelectorAll(".idx-subcat")) {
     if (btn.dataset.scId === activeScId) btn.classList.add("active");
   }
 
-  // インデックスパネル内でアクティブ項目を見えるようにスクロール
   const activeEl =
     indexTree.querySelector(`.idx-sec.active`) ||
     indexTree.querySelector(`.idx-subcat.active`);
-  if (activeEl) {
-    activeEl.scrollIntoView({ block: "nearest" });
-  }
+  if (activeEl) activeEl.scrollIntoView({ block: "nearest" });
 }
 
 // ---- レコード一覧レンダリング ----
@@ -281,7 +300,6 @@ function renderRecords() {
   recordList.appendChild(frag);
   emptyMsg.hidden = (totalVisible > 0);
 
-  // スクロール追従: items 再構築
   buildIndexItems();
   updateScrollHighlight();
 }
@@ -341,6 +359,12 @@ function makeRecord(tag) {
     addToBuilder(tag.en);
   });
 
+  // 右クリック: コンテキストメニュー
+  row.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    showCtxMenu(e, tag);
+  });
+
   row.appendChild(enEl);
   row.appendChild(jpEl);
   row.appendChild(tbEl);
@@ -379,12 +403,186 @@ function renderBuilder() {
     });
     builderChips.appendChild(chip);
   }
-  builderCopy.disabled = (builderTags.length === 0);
+  const hasChips = builderTags.length > 0;
+  builderCopy.disabled = !hasChips;
+  builderSave.disabled = !hasChips;
+}
+
+// ---- コンテキストメニュー ----
+function showCtxMenu(e, tag) {
+  ctxTargetTag = tag;
+  // ビューポート端のはみ出し防止
+  const x = Math.min(e.clientX, window.innerWidth  - 170);
+  const y = Math.min(e.clientY, window.innerHeight - 120);
+  ctxMenu.style.left = x + "px";
+  ctxMenu.style.top  = y + "px";
+  ctxMenu.classList.add("show");
+}
+
+function hideCtxMenu() {
+  ctxMenu.classList.remove("show");
+  ctxTargetTag = null;
+}
+
+// ---- タグ削除 ----
+function applyDeletions() {
+  if (deletedTags.size === 0) return;
+  for (const cat of v2Data.categories) {
+    for (const sc of (cat.subcategories || [])) {
+      for (const sec of (sc.sections || [])) {
+        sec.tags = sec.tags.filter(t => !deletedTags.has(t.en.toLowerCase().trim()));
+      }
+    }
+    for (const sec of (cat.sections || [])) {
+      sec.tags = sec.tags.filter(t => !deletedTags.has(t.en.toLowerCase().trim()));
+    }
+  }
+}
+
+function deleteTag(tag) {
+  const key = tag.en.toLowerCase().trim();
+  deletedTags.add(key);
+  localStorage.setItem(LS_DELETED, JSON.stringify([...deletedTags]));
+
+  // メモリから除去
+  for (const cat of v2Data.categories) {
+    for (const sc of (cat.subcategories || [])) {
+      for (const sec of (sc.sections || [])) {
+        sec.tags = sec.tags.filter(t => t.en.toLowerCase().trim() !== key);
+      }
+    }
+    for (const sec of (cat.sections || [])) {
+      sec.tags = sec.tags.filter(t => t.en.toLowerCase().trim() !== key);
+    }
+  }
+
+  renderRecords();
+  buildSidebar();
+  showToast(`削除: ${tag.en}（LocalStorage に記録済み）`);
+}
+
+// ---- 保存済みプロンプト ----
+function openSaveDialog() {
+  saveNameInput.value = "";
+  saveDialog.classList.add("show");
+  setTimeout(() => saveNameInput.focus(), 50);
+}
+
+function closeSaveDialog() {
+  saveDialog.classList.remove("show");
+}
+
+function commitSave() {
+  const name = saveNameInput.value.trim();
+  if (!name) { saveNameInput.focus(); return; }
+
+  const entry = {
+    id:      Date.now().toString(),
+    name,
+    tags:    [...builderTags],
+    savedAt: new Date().toISOString(),
+  };
+  savedPrompts.unshift(entry);
+  localStorage.setItem(LS_SAVED, JSON.stringify(savedPrompts));
+  renderSavedList();
+  closeSaveDialog();
+  showToast(`保存: ${name}`);
+}
+
+function loadPrompt(id) {
+  const entry = savedPrompts.find(p => p.id === id);
+  if (!entry) return;
+  builderTags = [...entry.tags];
+  renderBuilder();
+  showToast(`読み込み: ${entry.name}`);
+}
+
+function deleteSaved(id) {
+  const entry = savedPrompts.find(p => p.id === id);
+  if (!entry) return;
+  if (!confirm(`「${entry.name}」を削除しますか？`)) return;
+  savedPrompts = savedPrompts.filter(p => p.id !== id);
+  localStorage.setItem(LS_SAVED, JSON.stringify(savedPrompts));
+  renderSavedList();
+}
+
+function renderSavedList() {
+  // カウントバッジ
+  if (savedPrompts.length > 0) {
+    savedBarCount.textContent = savedPrompts.length;
+    savedBarCount.classList.add("visible");
+  } else {
+    savedBarCount.classList.remove("visible");
+  }
+
+  if (!savedPrompts.length) {
+    savedList.innerHTML = '<div class="saved-empty">保存済みなし</div>';
+    return;
+  }
+
+  savedList.innerHTML = "";
+  for (const p of savedPrompts) {
+    const date = new Date(p.savedAt).toLocaleDateString("ja-JP", {month:"numeric", day:"numeric"});
+    const preview = p.tags.map(t => t.en).join(", ");
+
+    const item = document.createElement("div");
+    item.className = "saved-item";
+    item.innerHTML =
+      `<div class="saved-item-info">` +
+        `<span class="saved-name">${escHtml(p.name)}</span>` +
+        `<span class="saved-tags-preview">${escHtml(preview)}</span>` +
+        `<span class="saved-meta">${p.tags.length} tags · ${date}</span>` +
+      `</div>` +
+      `<div class="saved-item-btns">` +
+        `<button class="saved-load" data-id="${p.id}">読込</button>` +
+        `<button class="saved-del"  data-id="${p.id}">削除</button>` +
+      `</div>`;
+
+    item.querySelector(".saved-load").addEventListener("click", () => loadPrompt(p.id));
+    item.querySelector(".saved-del").addEventListener("click",  () => deleteSaved(p.id));
+    savedList.appendChild(item);
+  }
+}
+
+function exportSaved() {
+  const json = JSON.stringify(savedPrompts, null, 2);
+  const blob = new Blob([json], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `prompthub_saved_${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function importSaved(file) {
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    try {
+      const data = JSON.parse(ev.target.result);
+      if (!Array.isArray(data)) throw new Error("invalid format");
+      const existingIds = new Set(savedPrompts.map(p => p.id));
+      let added = 0;
+      for (const p of data) {
+        if (p.id && p.name && Array.isArray(p.tags) && !existingIds.has(p.id)) {
+          savedPrompts.push(p);
+          added++;
+        }
+      }
+      savedPrompts.sort((a, b) => b.savedAt.localeCompare(a.savedAt));
+      localStorage.setItem(LS_SAVED, JSON.stringify(savedPrompts));
+      renderSavedList();
+      showToast(`インポート: ${added} 件追加`);
+    } catch {
+      showToast("インポート失敗: 無効なファイル形式");
+    }
+    savedImportInput.value = "";
+  };
+  reader.readAsText(file);
 }
 
 // ---- イベント ----
 function setupEventListeners() {
-  // 検索（デバウンス 150ms）
+  // 検索
   searchInput.addEventListener("input", () => {
     clearTimeout(searchTimer);
     searchTimer = setTimeout(() => {
@@ -416,6 +614,67 @@ function setupEventListeners() {
   builderClear.addEventListener("click", () => {
     builderTags = [];
     renderBuilder();
+  });
+  builderSave.addEventListener("click", openSaveDialog);
+
+  // 保存ダイアログ
+  saveConfirm.addEventListener("click", commitSave);
+  saveCancel.addEventListener("click",  closeSaveDialog);
+  saveDialog.addEventListener("click", (e) => {
+    if (e.target === saveDialog) closeSaveDialog();
+  });
+  saveNameInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter")  commitSave();
+    if (e.key === "Escape") closeSaveDialog();
+  });
+
+  // 保存済みパネル開閉（ヘッダークリック）
+  savedBarHeader.addEventListener("click", (e) => {
+    // ボタン類はクリックイベントが伝播するので除外
+    if (e.target.closest("button, label")) return;
+    savedBar.classList.toggle("open");
+  });
+  savedToggle.addEventListener("click", () => savedBar.classList.toggle("open"));
+
+  // エクスポート / インポート
+  savedExport.addEventListener("click", (e) => { e.stopPropagation(); exportSaved(); });
+  savedImportInput.addEventListener("change", (e) => {
+    if (e.target.files[0]) importSaved(e.target.files[0]);
+  });
+
+  // コンテキストメニュー
+  document.addEventListener("click", (e) => {
+    if (!ctxMenu.contains(e.target)) hideCtxMenu();
+  });
+  document.addEventListener("contextmenu", (e) => {
+    // record 以外での右クリックはメニューを隠す
+    if (!e.target.closest(".record")) hideCtxMenu();
+  });
+
+  ctxDelete.addEventListener("click", () => {
+    if (!ctxTargetTag) return;
+    const tag = ctxTargetTag;
+    hideCtxMenu();
+    if (!confirm(
+      `「${tag.en}」を削除しますか？\n\n` +
+      `注意: この削除はブラウザのLocalStorageに記録されます。\n` +
+      `次回デプロイ後も非表示にするには削除リストのエクスポートが必要です。`
+    )) return;
+    deleteTag(tag);
+  });
+
+  ctxCopy.addEventListener("click", () => {
+    if (!ctxTargetTag) return;
+    const tag = ctxTargetTag;
+    hideCtxMenu();
+    copyToClipboard(tag.en);
+  });
+
+  ctxAdd.addEventListener("click", () => {
+    if (!ctxTargetTag) return;
+    const tag = ctxTargetTag;
+    hideCtxMenu();
+    addToBuilder(tag.en);
   });
 }
 

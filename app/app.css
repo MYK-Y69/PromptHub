@@ -462,6 +462,278 @@ body {
   font-style: italic;
 }
 
+/* ===== Prompt Builder: 保存ボタン ===== */
+#builder-save {
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+  white-space: nowrap;
+  border: 1.5px solid #a6e3a1;
+  background: transparent;
+  color: #1e3a28;
+}
+#builder-save:not(:disabled):hover { background: #a6e3a1; color: #1e3a28; }
+#builder-save:disabled { opacity: 0.35; cursor: not-allowed; }
+
+/* ===== 保存済みプロンプトパネル ===== */
+#saved-bar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+#saved-bar-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  cursor: pointer;
+  user-select: none;
+  min-height: 34px;
+}
+
+#saved-bar-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+#saved-bar-count {
+  font-size: 0.7rem;
+  background: rgba(137,180,250,0.18);
+  color: var(--accent);
+  padding: 1px 6px;
+  border-radius: 99px;
+  min-width: 20px;
+  text-align: center;
+  display: none;
+}
+#saved-bar-count.visible { display: inline-block; }
+
+#saved-bar-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+#saved-bar-actions button,
+#saved-import-label {
+  padding: 2px 8px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+#saved-bar-actions button:hover,
+#saved-import-label:hover { background: var(--bg); color: var(--text); }
+
+#saved-import-label input[type="file"] { display: none; }
+
+#saved-toggle {
+  font-size: 0.65rem !important;
+  padding: 2px 6px !important;
+  transition: transform 0.15s, background 0.1s, color 0.1s !important;
+}
+#saved-bar.open #saved-toggle { transform: rotate(180deg); }
+
+#saved-list {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease;
+  padding: 0 12px;
+}
+#saved-bar.open #saved-list {
+  max-height: 260px;
+  overflow-y: auto;
+  padding: 6px 12px 8px;
+}
+
+.saved-empty {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  padding: 8px 0;
+  text-align: center;
+  font-style: italic;
+}
+
+.saved-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+}
+.saved-item:last-child { border-bottom: none; }
+
+.saved-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+  flex: 1;
+}
+.saved-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.saved-meta {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+.saved-tags-preview {
+  font-size: 0.68rem;
+  color: var(--accent);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.saved-item-btns {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.saved-load, .saved-del {
+  padding: 2px 8px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+  background: transparent;
+  white-space: nowrap;
+}
+.saved-load { color: var(--accent); border-color: var(--accent); }
+.saved-load:hover { background: var(--accent); color: var(--sidebar-bg); }
+.saved-del { color: var(--text-muted); }
+.saved-del:hover { background: #fde8e8; color: #b91c1c; border-color: #fca5a5; }
+
+/* ===== コンテキストメニュー ===== */
+#ctx-menu {
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  padding: 4px 0;
+  z-index: 1000;
+  min-width: 150px;
+}
+#ctx-menu.show { display: flex; }
+
+#ctx-menu button {
+  display: block;
+  width: 100%;
+  padding: 7px 14px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 0.83rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.1s;
+}
+#ctx-menu button:hover { background: var(--bg); }
+#ctx-delete { color: #b91c1c !important; }
+#ctx-delete:hover { background: #fde8e8 !important; }
+
+.ctx-sep {
+  height: 1px;
+  background: var(--border);
+  margin: 3px 0;
+}
+
+/* ===== 保存ダイアログ ===== */
+#save-dialog {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1100;
+  align-items: center;
+  justify-content: center;
+}
+#save-dialog.show { display: flex; }
+
+#save-dialog-box {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 24px 28px;
+  width: 340px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#save-dialog-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+#save-name-input {
+  padding: 8px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 7px;
+  font-size: 0.9rem;
+  outline: none;
+  background: var(--bg);
+  color: var(--text);
+  transition: border-color 0.15s;
+}
+#save-name-input:focus { border-color: var(--accent); }
+
+#save-dialog-btns {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+#save-confirm {
+  padding: 6px 18px;
+  border-radius: 6px;
+  border: none;
+  background: var(--accent);
+  color: var(--sidebar-bg);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+#save-confirm:hover { background: var(--accent-hover); }
+
+#save-cancel {
+  padding: 6px 18px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+#save-cancel:hover { background: var(--bg); }
+
 /* ===== Toast ===== */
 #toast {
   position: fixed;
