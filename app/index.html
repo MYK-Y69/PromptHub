@@ -29,6 +29,7 @@
           <button class="tf-btn" data-target="object">object</button>
           <button class="tf-btn" data-target="__null__">未設定</button>
         </div>
+        <button id="tag-add-btn" title="タグを追加">＋ タグ追加</button>
       </div>
 
       <!-- Prompt Builder バー -->
@@ -89,6 +90,67 @@
       <div id="save-dialog-btns">
         <button id="save-confirm">保存</button>
         <button id="save-cancel">キャンセル</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- タグ追加ダイアログ -->
+  <div id="tag-add-dialog">
+    <div id="tag-add-box">
+      <div id="tag-add-header">
+        <span id="tag-add-title">タグを追加</span>
+        <div id="tad-manage-btns">
+          <button id="tad-export-btn" title="追加済みタグをエクスポート">エクスポート</button>
+          <label id="tad-import-label" title="追加済みタグをインポート">インポート
+            <input id="tad-import-input" type="file" accept=".json" />
+          </label>
+          <span id="tad-user-count"></span>
+        </div>
+      </div>
+      <div class="tad-field">
+        <label class="tad-lbl">EN <span class="tad-req">必須</span></label>
+        <input id="tad-en" class="tad-inp" type="text" placeholder="english_tag" autocomplete="off" />
+      </div>
+      <div class="tad-field">
+        <label class="tad-lbl">JP <span class="tad-req">必須</span></label>
+        <input id="tad-jp" class="tad-inp" type="text" placeholder="日本語説明" autocomplete="off" />
+      </div>
+      <div class="tad-field">
+        <label class="tad-lbl">カテゴリ</label>
+        <select id="tad-cat" class="tad-sel"></select>
+      </div>
+      <div class="tad-field" id="tad-sc-row">
+        <label class="tad-lbl">サブカテゴリ</label>
+        <div class="tad-cascade-wrap">
+          <select id="tad-sc" class="tad-sel"></select>
+          <input id="tad-sc-new" class="tad-inp tad-new-inp" type="text" placeholder="新規サブカテゴリ名" autocomplete="off" />
+        </div>
+      </div>
+      <div class="tad-field" id="tad-sec-row">
+        <label class="tad-lbl">セクション</label>
+        <div class="tad-cascade-wrap">
+          <select id="tad-sec" class="tad-sel"></select>
+          <input id="tad-sec-new" class="tad-inp tad-new-inp" type="text" placeholder="新規セクション名" autocomplete="off" />
+        </div>
+      </div>
+      <div class="tad-field">
+        <label class="tad-lbl">Target</label>
+        <select id="tad-target" class="tad-sel">
+          <option value="">未設定</option>
+          <option value="self">self</option>
+          <option value="other">other</option>
+          <option value="mutual">mutual</option>
+          <option value="object">object</option>
+        </select>
+      </div>
+      <div class="tad-field">
+        <label class="tad-lbl">Target Note</label>
+        <input id="tad-tnote" class="tad-inp" type="text" placeholder="（任意）" autocomplete="off" />
+      </div>
+      <div id="tad-error"></div>
+      <div id="tad-btns">
+        <button id="tad-confirm">追加</button>
+        <button id="tad-close">閉じる</button>
       </div>
     </div>
   </div>

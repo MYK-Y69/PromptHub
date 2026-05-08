@@ -4,8 +4,9 @@
 const DATA_URL = "../data/v2/compiled/tags.json";
 
 // ---- LocalStorage キー ----
-const LS_DELETED = "prompthub_deleted";
-const LS_SAVED   = "prompthub_saved";
+const LS_DELETED    = "prompthub_deleted";
+const LS_SAVED      = "prompthub_saved";
+const LS_USER_TAGS  = "prompthub_user_tags";
 
 // ---- State ----
 let v2Data       = null;
@@ -24,6 +25,9 @@ let savedPrompts = JSON.parse(localStorage.getItem(LS_SAVED) || "[]");
 
 // コンテキストメニュー対象タグ
 let ctxTargetTag = null;
+
+// ユーザーが追加したタグ [{en,jp,catId,scId?,scLabel?,secId,secLabel,target,target_note?,addedAt}]
+let userAddedTags = JSON.parse(localStorage.getItem(LS_USER_TAGS) || "[]");
 
 // ---- target ラベル定義 ----
 const TARGET_LABEL = {
@@ -63,6 +67,26 @@ const savedToggle     = document.getElementById("saved-toggle");
 const savedExport     = document.getElementById("saved-export");
 const savedImportInput = document.getElementById("saved-import-input");
 
+const tagAddBtn      = document.getElementById("tag-add-btn");
+const tagAddDialog   = document.getElementById("tag-add-dialog");
+const tadEn          = document.getElementById("tad-en");
+const tadJp          = document.getElementById("tad-jp");
+const tadCat         = document.getElementById("tad-cat");
+const tadSc          = document.getElementById("tad-sc");
+const tadScNew       = document.getElementById("tad-sc-new");
+const tadSec         = document.getElementById("tad-sec");
+const tadSecNew      = document.getElementById("tad-sec-new");
+const tadTarget      = document.getElementById("tad-target");
+const tadTnote       = document.getElementById("tad-tnote");
+const tadError       = document.getElementById("tad-error");
+const tadConfirm     = document.getElementById("tad-confirm");
+const tadClose       = document.getElementById("tad-close");
+const tadExportBtn   = document.getElementById("tad-export-btn");
+const tadImportInput = document.getElementById("tad-import-input");
+const tadUserCount   = document.getElementById("tad-user-count");
+const tadScRow       = document.getElementById("tad-sc-row");
+const tadSecRow      = document.getElementById("tad-sec-row");
+
 // ---- 起動 ----
 (async function init() {
   try {
@@ -78,9 +102,13 @@ const savedImportInput = document.getElementById("saved-import-input");
   // 削除済みタグをメモリから除去
   applyDeletions();
 
+  // ユーザー追加タグをメモリに注入
+  applyUserAddedTags();
+
   buildSidebar();
   setupEventListeners();
   renderSavedList();
+  updateTadUserCount();
 
   if (v2Data.categories.length > 0) {
     selectCategory(v2Data.categories[0].id);
@@ -323,11 +351,17 @@ function matchesFilter(tag, q, tf) {
 // ---- レコード DOM 生成 ----
 function makeRecord(tag) {
   const row = document.createElement("div");
-  row.className = "record";
+  row.className = "record" + (tag._userAdded ? " user-added" : "");
 
   const enEl = document.createElement("span");
   enEl.className = "rec-en";
-  enEl.textContent = tag.en;
+  if (tag._userAdded) {
+    const badge = document.createElement("span");
+    badge.className = "user-added-badge";
+    badge.textContent = "追加";
+    enEl.appendChild(badge);
+  }
+  enEl.appendChild(document.createTextNode(tag.en));
 
   const jpEl = document.createElement("span");
   jpEl.className = "rec-jp";
@@ -580,6 +614,307 @@ function importSaved(file) {
   reader.readAsText(file);
 }
 
+// ---- タグ追加: LocalStorage → メモリ注入 ----
+function applyUserAddedTags() {
+  for (const entry of userAddedTags) {
+    injectUserTagEntry(entry);
+  }
+}
+
+function injectUserTagEntry(entry) {
+  const cat = v2Data.categories.find(c => c.id === entry.catId);
+  if (!cat) return;
+
+  const tag = { en: entry.en, jp: entry.jp, target: entry.target || null, _userAdded: true };
+  if (entry.target_note) tag.target_note = entry.target_note;
+
+  if (cat.subcategories && entry.scId) {
+    let sc = cat.subcategories.find(s => s.id === entry.scId);
+    if (!sc) {
+      sc = { id: entry.scId, label: entry.scLabel || "ユーザー追加", sections: [] };
+      cat.subcategories.push(sc);
+    }
+    let sec = (sc.sections || []).find(s => s.id === entry.secId);
+    if (!sec) {
+      sec = { id: entry.secId, label: entry.secLabel || "ユーザー追加", tags: [] };
+      if (!sc.sections) sc.sections = [];
+      sc.sections.push(sec);
+    }
+    sec.tags.push(tag);
+  } else {
+    if (!cat.sections) cat.sections = [];
+    let sec = cat.sections.find(s => s.id === entry.secId);
+    if (!sec) {
+      sec = { id: entry.secId, label: entry.secLabel || "ユーザー追加", tags: [] };
+      cat.sections.push(sec);
+    }
+    sec.tags.push(tag);
+  }
+}
+
+function checkDuplicateEn(enKey) {
+  for (const cat of v2Data.categories) {
+    for (const sc of (cat.subcategories || [])) {
+      for (const sec of (sc.sections || [])) {
+        if (sec.tags.some(t => t.en.toLowerCase().trim() === enKey)) return true;
+      }
+    }
+    for (const sec of (cat.sections || [])) {
+      if (sec.tags.some(t => t.en.toLowerCase().trim() === enKey)) return true;
+    }
+  }
+  return false;
+}
+
+// ---- タグ追加ダイアログ ----
+function openAddTagDialog() {
+  showTadError("");
+  tadEn.value = "";
+  tadJp.value = "";
+  tadTarget.value = "";
+  tadTnote.value = "";
+  populateCatSelect();
+  tagAddDialog.classList.add("show");
+  setTimeout(() => tadEn.focus(), 50);
+}
+
+function closeAddTagDialog() {
+  tagAddDialog.classList.remove("show");
+}
+
+function showTadError(msg) {
+  tadError.textContent = msg;
+}
+
+function updateTadUserCount() {
+  tadUserCount.textContent = userAddedTags.length > 0 ? `${userAddedTags.length} 件` : "";
+}
+
+function populateCatSelect() {
+  tadCat.innerHTML = "";
+  for (const cat of v2Data.categories) {
+    const opt = document.createElement("option");
+    opt.value = cat.id;
+    opt.textContent = cat.label;
+    tadCat.appendChild(opt);
+  }
+  onTadCatChange();
+}
+
+function onTadCatChange() {
+  const cat = v2Data.categories.find(c => c.id === tadCat.value);
+  if (!cat) return;
+
+  if (cat.subcategories && cat.subcategories.length > 0) {
+    tadScRow.style.display = "";
+    populateTadScSelect(cat);
+  } else {
+    tadScRow.style.display = "none";
+    tadScNew.style.display = "none";
+    tadSecRow.style.display = "";
+    populateTadSecSelect(cat.sections || []);
+  }
+}
+
+function populateTadScSelect(cat) {
+  tadSc.innerHTML = "";
+  for (const sc of cat.subcategories) {
+    const opt = document.createElement("option");
+    opt.value = sc.id;
+    opt.textContent = sc.label;
+    tadSc.appendChild(opt);
+  }
+  const newOpt = document.createElement("option");
+  newOpt.value = "__new__";
+  newOpt.textContent = "── 新規作成 ──";
+  tadSc.appendChild(newOpt);
+  onTadScChange();
+}
+
+function onTadScChange() {
+  const cat = v2Data.categories.find(c => c.id === tadCat.value);
+  if (!cat || !cat.subcategories) return;
+
+  if (tadSc.value === "__new__") {
+    tadScNew.style.display = "";
+    tadScNew.value = "";
+    // 新規sc時はセクションも新規
+    tadSecRow.style.display = "";
+    tadSec.innerHTML = '<option value="__new__">── 新規作成 ──</option>';
+    tadSecNew.style.display = "";
+    tadSecNew.value = "";
+  } else {
+    tadScNew.style.display = "none";
+    const sc = cat.subcategories.find(s => s.id === tadSc.value);
+    if (sc) {
+      tadSecRow.style.display = "";
+      populateTadSecSelect(sc.sections || []);
+    }
+  }
+}
+
+function populateTadSecSelect(sections) {
+  tadSec.innerHTML = "";
+  for (const sec of sections) {
+    const opt = document.createElement("option");
+    opt.value = sec.id;
+    opt.textContent = sec.label;
+    tadSec.appendChild(opt);
+  }
+  const newOpt = document.createElement("option");
+  newOpt.value = "__new__";
+  newOpt.textContent = "── 新規作成 ──";
+  tadSec.appendChild(newOpt);
+  onTadSecChange();
+}
+
+function onTadSecChange() {
+  if (tadSec.value === "__new__") {
+    tadSecNew.style.display = "";
+    tadSecNew.value = "";
+  } else {
+    tadSecNew.style.display = "none";
+  }
+}
+
+function commitAddTag() {
+  const en = tadEn.value.trim();
+  const jp = tadJp.value.trim();
+
+  if (!en) { showTadError("EN は必須です"); tadEn.focus(); return; }
+  if (!jp) { showTadError("JP は必須です"); tadJp.focus(); return; }
+
+  const enKey = en.toLowerCase();
+  if (checkDuplicateEn(enKey)) {
+    showTadError(`"${en}" は既に存在します`);
+    return;
+  }
+
+  const cat = v2Data.categories.find(c => c.id === tadCat.value);
+  if (!cat) { showTadError("カテゴリを選択してください"); return; }
+
+  const tag = {
+    en, jp,
+    target:     tadTarget.value || null,
+    _userAdded: true,
+  };
+  if (tadTnote.value.trim()) tag.target_note = tadTnote.value.trim();
+
+  const entry = {
+    en, jp, catId: cat.id,
+    target:      tag.target,
+    target_note: tag.target_note,
+    addedAt:     new Date().toISOString(),
+  };
+
+  let targetSec = null;
+
+  if (cat.subcategories && cat.subcategories.length > 0) {
+    if (tadSc.value === "__new__") {
+      const scLabel = tadScNew.value.trim();
+      if (!scLabel) { showTadError("サブカテゴリ名を入力してください"); tadScNew.focus(); return; }
+      const secLabel = tadSecNew.value.trim();
+      if (!secLabel) { showTadError("セクション名を入力してください"); tadSecNew.focus(); return; }
+      const scId  = "user_sc_"  + Date.now();
+      const secId = "user_sec_" + Date.now();
+      const newSc  = { id: scId,  label: scLabel,  sections: [] };
+      targetSec = { id: secId, label: secLabel, tags: [] };
+      newSc.sections.push(targetSec);
+      cat.subcategories.push(newSc);
+      entry.scId = scId; entry.scLabel = scLabel;
+      entry.secId = secId; entry.secLabel = secLabel;
+    } else {
+      const sc = cat.subcategories.find(s => s.id === tadSc.value);
+      entry.scId = sc.id; entry.scLabel = sc.label;
+      if (tadSec.value === "__new__") {
+        const secLabel = tadSecNew.value.trim();
+        if (!secLabel) { showTadError("セクション名を入力してください"); tadSecNew.focus(); return; }
+        const secId = "user_sec_" + Date.now();
+        targetSec = { id: secId, label: secLabel, tags: [] };
+        if (!sc.sections) sc.sections = [];
+        sc.sections.push(targetSec);
+        entry.secId = secId; entry.secLabel = secLabel;
+      } else {
+        targetSec = sc.sections.find(s => s.id === tadSec.value);
+        entry.secId = targetSec.id; entry.secLabel = targetSec.label;
+      }
+    }
+  } else {
+    if (!cat.sections) cat.sections = [];
+    if (tadSec.value === "__new__") {
+      const secLabel = tadSecNew.value.trim();
+      if (!secLabel) { showTadError("セクション名を入力してください"); tadSecNew.focus(); return; }
+      const secId = "user_sec_" + Date.now();
+      targetSec = { id: secId, label: secLabel, tags: [] };
+      cat.sections.push(targetSec);
+      entry.secId = secId; entry.secLabel = secLabel;
+    } else {
+      targetSec = cat.sections.find(s => s.id === tadSec.value);
+      entry.secId = targetSec.id; entry.secLabel = targetSec.label;
+    }
+  }
+
+  targetSec.tags.push(tag);
+  userAddedTags.push(entry);
+  localStorage.setItem(LS_USER_TAGS, JSON.stringify(userAddedTags));
+
+  renderRecords();
+  buildSidebar();
+  renderIndexPanel();
+  updateTadUserCount();
+
+  // 連続追加できるようフォームクリア・モーダル維持
+  tadEn.value = "";
+  tadJp.value = "";
+  tadTarget.value = "";
+  tadTnote.value = "";
+  showTadError("");
+  tadEn.focus();
+  showToast(`追加: ${en}`);
+}
+
+// ---- ユーザー追加タグ エクスポート / インポート ----
+function exportUserTags() {
+  if (userAddedTags.length === 0) { showToast("追加済みタグがありません"); return; }
+  const json = JSON.stringify(userAddedTags, null, 2);
+  const blob = new Blob([json], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `prompthub_user_tags_${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function importUserTags(file) {
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    try {
+      const data = JSON.parse(ev.target.result);
+      if (!Array.isArray(data)) throw new Error("invalid");
+      let added = 0;
+      for (const entry of data) {
+        if (!entry.en || !entry.jp || !entry.catId) continue;
+        const enKey = entry.en.toLowerCase().trim();
+        if (userAddedTags.some(t => t.en.toLowerCase().trim() === enKey)) continue;
+        if (checkDuplicateEn(enKey)) continue;
+        userAddedTags.push(entry);
+        injectUserTagEntry(entry);
+        added++;
+      }
+      localStorage.setItem(LS_USER_TAGS, JSON.stringify(userAddedTags));
+      renderRecords();
+      buildSidebar();
+      renderIndexPanel();
+      updateTadUserCount();
+      showToast(`インポート: ${added} 件追加`);
+    } catch {
+      showToast("インポート失敗: 無効なファイル形式");
+    }
+    tadImportInput.value = "";
+  };
+  reader.readAsText(file);
+}
+
 // ---- イベント ----
 function setupEventListeners() {
   // 検索
@@ -640,6 +975,28 @@ function setupEventListeners() {
   savedExport.addEventListener("click", (e) => { e.stopPropagation(); exportSaved(); });
   savedImportInput.addEventListener("change", (e) => {
     if (e.target.files[0]) importSaved(e.target.files[0]);
+  });
+
+  // タグ追加ダイアログ
+  tagAddBtn.addEventListener("click", openAddTagDialog);
+  tadClose.addEventListener("click", closeAddTagDialog);
+  tagAddDialog.addEventListener("click", (e) => {
+    if (e.target === tagAddDialog) closeAddTagDialog();
+  });
+  tadConfirm.addEventListener("click", commitAddTag);
+  tadEn.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") { e.preventDefault(); commitAddTag(); }
+    if (e.key === "Escape") closeAddTagDialog();
+  });
+  tadJp.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeAddTagDialog();
+  });
+  tadCat.addEventListener("change", onTadCatChange);
+  tadSc.addEventListener("change", onTadScChange);
+  tadSec.addEventListener("change", onTadSecChange);
+  tadExportBtn.addEventListener("click", (e) => { e.stopPropagation(); exportUserTags(); });
+  tadImportInput.addEventListener("change", (e) => {
+    if (e.target.files[0]) importUserTags(e.target.files[0]);
   });
 
   // コンテキストメニュー

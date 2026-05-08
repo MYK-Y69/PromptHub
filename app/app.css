@@ -734,6 +734,201 @@ body {
 }
 #save-cancel:hover { background: var(--bg); }
 
+/* ===== タグ追加ボタン ===== */
+#tag-add-btn {
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1.5px solid #a6e3a1;
+  background: transparent;
+  color: #1a7a45;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+#tag-add-btn:hover { background: #a6e3a1; color: #1e3a28; }
+
+/* ===== タグ追加ダイアログ ===== */
+#tag-add-dialog {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1100;
+  align-items: center;
+  justify-content: center;
+}
+#tag-add-dialog.show { display: flex; }
+
+#tag-add-box {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 22px 26px;
+  width: 500px;
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#tag-add-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+#tag-add-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+#tad-manage-btns {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#tad-manage-btns button,
+#tad-import-label {
+  padding: 2px 8px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: background 0.1s;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+#tad-manage-btns button:hover,
+#tad-import-label:hover { background: var(--bg); color: var(--text); }
+#tad-import-label input[type="file"] { display: none; }
+
+#tad-user-count {
+  font-size: 0.72rem;
+  color: var(--accent);
+  font-weight: 600;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.tad-field {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  align-items: start;
+  gap: 8px;
+}
+
+.tad-lbl {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding-top: 7px;
+}
+
+.tad-req {
+  font-size: 0.65rem;
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+.tad-inp {
+  padding: 6px 10px;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  outline: none;
+  background: var(--bg);
+  color: var(--text);
+  transition: border-color 0.15s;
+  width: 100%;
+}
+.tad-inp:focus { border-color: var(--accent); }
+
+.tad-sel {
+  padding: 5px 8px;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+}
+.tad-sel:focus { border-color: var(--accent); }
+
+.tad-cascade-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tad-new-inp { display: none; }
+
+#tad-error {
+  font-size: 0.8rem;
+  color: #b91c1c;
+  min-height: 18px;
+  padding: 0 0 2px;
+}
+
+#tad-btns {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+#tad-confirm {
+  padding: 7px 20px;
+  border-radius: 6px;
+  border: none;
+  background: #a6e3a1;
+  color: #1e3a28;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+#tad-confirm:hover { background: #7ecb93; }
+
+#tad-close {
+  padding: 7px 20px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+#tad-close:hover { background: var(--bg); }
+
+/* ===== ユーザー追加タグ ===== */
+.record.user-added { border-left: 3px solid #a6e3a1; }
+
+.user-added-badge {
+  display: inline-block;
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #1a7a45;
+  background: #ddf4e8;
+  padding: 1px 4px;
+  border-radius: 3px;
+  margin-right: 5px;
+  vertical-align: middle;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
 /* ===== Toast ===== */
 #toast {
   position: fixed;
