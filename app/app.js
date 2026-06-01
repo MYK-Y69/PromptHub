@@ -5,7 +5,6 @@ const DATA_URL = "../data/v2/compiled/tags.json";
 
 // ---- LocalStorage キー ----
 const LS_DELETED    = "prompthub_deleted";
-const LS_SAVED      = "prompthub_saved";
 const LS_USER_TAGS  = "prompthub_user_tags";
 const LS_SELECT_USAGE = "prompthub_select_builder_usage";
 const LS_SELECT_BLOCKS = "prompthub_select_builder_blocks";
@@ -202,9 +201,6 @@ let editingBlockId = null;
 // 削除済みタグ (en.toLowerCase() のセット)
 let deletedTags  = new Set(JSON.parse(localStorage.getItem(LS_DELETED) || "[]"));
 
-// 保存済みプロンプト [{id, name, tags:[{en}], savedAt}]
-let savedPrompts = JSON.parse(localStorage.getItem(LS_SAVED) || "[]");
-
 // コンテキストメニュー対象タグ
 let ctxTargetTag = null;
 
@@ -234,7 +230,6 @@ const emptyMsg        = document.getElementById("empty-msg");
 const builderChips    = document.getElementById("builder-chips");
 const builderCopy     = document.getElementById("builder-copy");
 const builderClear    = document.getElementById("builder-clear");
-const builderSave     = document.getElementById("builder-save");
 const builderBlockAdd = document.getElementById("builder-block-add");
 const indexTree       = document.getElementById("index-tree");
 const toast           = document.getElementById("toast");
@@ -243,11 +238,6 @@ const ctxMenu         = document.getElementById("ctx-menu");
 const ctxDelete       = document.getElementById("ctx-delete");
 const ctxCopy         = document.getElementById("ctx-copy");
 const ctxAdd          = document.getElementById("ctx-add");
-
-const saveDialog      = document.getElementById("save-dialog");
-const saveNameInput   = document.getElementById("save-name-input");
-const saveConfirm     = document.getElementById("save-confirm");
-const saveCancel      = document.getElementById("save-cancel");
 
 const blockDialog         = document.getElementById("block-dialog");
 const blockNameInput      = document.getElementById("block-name-input");
@@ -258,14 +248,6 @@ const blockFavoriteInput  = document.getElementById("block-favorite-input");
 const blockError          = document.getElementById("block-error");
 const blockConfirm        = document.getElementById("block-confirm");
 const blockCancel         = document.getElementById("block-cancel");
-
-const savedBar        = document.getElementById("saved-bar");
-const savedBarHeader  = document.getElementById("saved-bar-header");
-const savedBarCount   = document.getElementById("saved-bar-count");
-const savedList       = document.getElementById("saved-list");
-const savedToggle     = document.getElementById("saved-toggle");
-const savedExport     = document.getElementById("saved-export");
-const savedImportInput = document.getElementById("saved-import-input");
 
 const tagAddBtn      = document.getElementById("tag-add-btn");
 const tagAddDialog   = document.getElementById("tag-add-dialog");
@@ -319,7 +301,6 @@ const negativeOutput      = document.getElementById("negative-output");
 
   buildSidebar();
   setupEventListeners();
-  renderSavedList();
   renderSelectBuilder();
   updateTadUserCount();
 
@@ -652,7 +633,6 @@ function renderBuilder() {
   }
   const hasChips = builderTags.length > 0;
   builderCopy.disabled = !hasChips;
-  builderSave.disabled = !hasChips;
   builderBlockAdd.disabled = !hasChips;
 }
 
@@ -832,125 +812,6 @@ function deleteTag(tag) {
   renderRecords();
   buildSidebar();
   showToast(`削除: ${tag.en}（LocalStorage に記録済み）`);
-}
-
-// ---- 保存済みプロンプト ----
-function openSaveDialog() {
-  saveNameInput.value = "";
-  saveDialog.classList.add("show");
-  setTimeout(() => saveNameInput.focus(), 50);
-}
-
-function closeSaveDialog() {
-  saveDialog.classList.remove("show");
-}
-
-function commitSave() {
-  const name = saveNameInput.value.trim();
-  if (!name) { saveNameInput.focus(); return; }
-
-  const entry = {
-    id:      Date.now().toString(),
-    name,
-    tags:    [...builderTags],
-    savedAt: new Date().toISOString(),
-  };
-  savedPrompts.unshift(entry);
-  localStorage.setItem(LS_SAVED, JSON.stringify(savedPrompts));
-  renderSavedList();
-  closeSaveDialog();
-  showToast(`保存: ${name}`);
-}
-
-function loadPrompt(id) {
-  const entry = savedPrompts.find(p => p.id === id);
-  if (!entry) return;
-  builderTags = [...entry.tags];
-  renderBuilder();
-  showToast(`読み込み: ${entry.name}`);
-}
-
-function deleteSaved(id) {
-  const entry = savedPrompts.find(p => p.id === id);
-  if (!entry) return;
-  if (!confirm(`「${entry.name}」を削除しますか？`)) return;
-  savedPrompts = savedPrompts.filter(p => p.id !== id);
-  localStorage.setItem(LS_SAVED, JSON.stringify(savedPrompts));
-  renderSavedList();
-}
-
-function renderSavedList() {
-  // カウントバッジ
-  if (savedPrompts.length > 0) {
-    savedBarCount.textContent = savedPrompts.length;
-    savedBarCount.classList.add("visible");
-  } else {
-    savedBarCount.classList.remove("visible");
-  }
-
-  if (!savedPrompts.length) {
-    savedList.innerHTML = '<div class="saved-empty">保存済みなし</div>';
-    return;
-  }
-
-  savedList.innerHTML = "";
-  for (const p of savedPrompts) {
-    const date = new Date(p.savedAt).toLocaleDateString("ja-JP", {month:"numeric", day:"numeric"});
-    const preview = p.tags.map(t => t.en).join(", ");
-
-    const item = document.createElement("div");
-    item.className = "saved-item";
-    item.innerHTML =
-      `<div class="saved-item-info">` +
-        `<span class="saved-name">${escHtml(p.name)}</span>` +
-        `<span class="saved-tags-preview">${escHtml(preview)}</span>` +
-        `<span class="saved-meta">${p.tags.length} tags · ${date}</span>` +
-      `</div>` +
-      `<div class="saved-item-btns">` +
-        `<button class="saved-load" data-id="${p.id}">読込</button>` +
-        `<button class="saved-del"  data-id="${p.id}">削除</button>` +
-      `</div>`;
-
-    item.querySelector(".saved-load").addEventListener("click", () => loadPrompt(p.id));
-    item.querySelector(".saved-del").addEventListener("click",  () => deleteSaved(p.id));
-    savedList.appendChild(item);
-  }
-}
-
-function exportSaved() {
-  const json = JSON.stringify(savedPrompts, null, 2);
-  const blob = new Blob([json], { type: "application/json" });
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = `prompthub_saved_${new Date().toISOString().slice(0,10)}.json`;
-  a.click();
-  URL.revokeObjectURL(a.href);
-}
-
-function importSaved(file) {
-  const reader = new FileReader();
-  reader.onload = (ev) => {
-    try {
-      const data = JSON.parse(ev.target.result);
-      if (!Array.isArray(data)) throw new Error("invalid format");
-      const existingIds = new Set(savedPrompts.map(p => p.id));
-      let added = 0;
-      for (const p of data) {
-        if (p.id && p.name && Array.isArray(p.tags) && !existingIds.has(p.id)) {
-          savedPrompts.push(p);
-          added++;
-        }
-      }
-      savedPrompts.sort((a, b) => b.savedAt.localeCompare(a.savedAt));
-      localStorage.setItem(LS_SAVED, JSON.stringify(savedPrompts));
-      renderSavedList();
-      showToast(`インポート: ${added} 件追加`);
-    } catch {
-      showToast("インポート失敗: 無効なファイル形式");
-    }
-    savedImportInput.value = "";
-  };
-  reader.readAsText(file);
 }
 
 // ---- タグ追加: LocalStorage → メモリ注入 ----
@@ -1502,7 +1363,6 @@ function setupEventListeners() {
     builderTags = [];
     renderBuilder();
   });
-  builderSave.addEventListener("click", openSaveDialog);
 
   // ブロック追加ダイアログ
   blockConfirm.addEventListener("click", saveCustomBlock);
@@ -1537,31 +1397,6 @@ function setupEventListeners() {
     incrementSelectUsage();
   });
   selectClear.addEventListener("click", clearSelectableBuilder);
-
-  // 保存ダイアログ
-  saveConfirm.addEventListener("click", commitSave);
-  saveCancel.addEventListener("click",  closeSaveDialog);
-  saveDialog.addEventListener("click", (e) => {
-    if (e.target === saveDialog) closeSaveDialog();
-  });
-  saveNameInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter")  commitSave();
-    if (e.key === "Escape") closeSaveDialog();
-  });
-
-  // 保存済みパネル開閉（ヘッダークリック）
-  savedBarHeader.addEventListener("click", (e) => {
-    // ボタン類はクリックイベントが伝播するので除外
-    if (e.target.closest("button, label")) return;
-    savedBar.classList.toggle("open");
-  });
-  savedToggle.addEventListener("click", () => savedBar.classList.toggle("open"));
-
-  // エクスポート / インポート
-  savedExport.addEventListener("click", (e) => { e.stopPropagation(); exportSaved(); });
-  savedImportInput.addEventListener("change", (e) => {
-    if (e.target.files[0]) importSaved(e.target.files[0]);
-  });
 
   // タグ追加ダイアログ
   tagAddBtn.addEventListener("click", openAddTagDialog);
