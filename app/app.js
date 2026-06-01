@@ -197,6 +197,7 @@ let selectPositivePrompt = "";
 let selectNegativePrompt = "";
 let userSelectBlocks = [];
 let editingBlockId = null;
+let selectUsageRecordedFor = "";
 
 // 削除済みタグ (en.toLowerCase() のセット)
 let deletedTags  = new Set(JSON.parse(localStorage.getItem(LS_DELETED) || "[]"));
@@ -1151,6 +1152,17 @@ function incrementSelectUsage() {
   renderSelectBuilder();
 }
 
+function selectedUsageFingerprint() {
+  return getSelectedSelectBlocks().map(block => block.id).join("|");
+}
+
+function recordSelectableUsageOnce() {
+  const fingerprint = selectedUsageFingerprint();
+  if (!fingerprint || fingerprint === selectUsageRecordedFor) return;
+  selectUsageRecordedFor = fingerprint;
+  incrementSelectUsage();
+}
+
 function buildSelectablePrompt() {
   const selected = getSelectedSelectBlocks();
   const positive = selected
@@ -1172,7 +1184,7 @@ function generateSelectablePrompt() {
   const { positive, negative } = buildSelectablePrompt();
   selectPositivePrompt = positive;
   selectNegativePrompt = negative;
-  if (positive) incrementSelectUsage();
+  selectUsageRecordedFor = "";
   renderGeneratedPrompts();
   showToast(positive ? "生成しました" : "ブロックを選択してください");
 }
@@ -1181,6 +1193,7 @@ function clearSelectableBuilder() {
   selectSelected = {};
   selectPositivePrompt = "";
   selectNegativePrompt = "";
+  selectUsageRecordedFor = "";
   renderSelectBuilder();
   showToast("選択式Builderをクリアしました");
 }
@@ -1195,6 +1208,7 @@ function selectPromptBlock(blockId) {
   }
   selectPositivePrompt = "";
   selectNegativePrompt = "";
+  selectUsageRecordedFor = "";
   renderSelectBuilder();
 }
 
@@ -1233,7 +1247,10 @@ function renderSelectCategoryTabs() {
     const total = allSelectBlocks().filter(block => block.enabled !== false && block.category === category).length;
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "select-cat-tab" + (selectActiveCategory === category ? " active" : "");
+    btn.className =
+      "select-cat-tab" +
+      (selectActiveCategory === category ? " active" : "") +
+      (total === 0 ? " empty" : "");
     btn.setAttribute("role", "tab");
     btn.setAttribute("aria-selected", selectActiveCategory === category ? "true" : "false");
     btn.dataset.category = category;
@@ -1259,40 +1276,55 @@ function renderSelectBlocks() {
 
   for (const block of blocks) {
     const usage = getSelectUsage(block.id);
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "select-block-card" + (selectSelected[block.category] === block.id ? " selected" : "");
-    btn.dataset.blockId = block.id;
-    btn.innerHTML =
+    const card = document.createElement("div");
+    card.className = "select-block-card" + (selectSelected[block.category] === block.id ? " selected" : "");
+    card.dataset.blockId = block.id;
+    card.setAttribute("role", "button");
+    card.setAttribute("tabindex", "0");
+    card.innerHTML =
       `<span class="select-block-top">` +
         `<span class="select-block-label">${escHtml(block.label)}</span>` +
         `<span class="select-block-meta">${block.favorite ? "★ " : ""}${usage.usage_count || 0} uses</span>` +
       `</span>` +
       `<span class="select-block-prompt">${escHtml(block.prompt)}</span>` +
       (block.user_created ? `<span class="select-block-user">ユーザー作成</span>` : "");
-    btn.addEventListener("click", () => selectPromptBlock(block.id));
+    card.addEventListener("click", (e) => {
+      if (e.target.closest(".select-block-actions")) return;
+      selectPromptBlock(block.id);
+    });
+    card.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      e.preventDefault();
+      selectPromptBlock(block.id);
+    });
     if (block.user_created) {
-      const edit = document.createElement("span");
-      edit.className = "select-block-edit";
+      const actions = document.createElement("span");
+      actions.className = "select-block-actions";
+
+      const edit = document.createElement("button");
+      edit.type = "button";
+      edit.className = "select-block-action select-block-edit";
       edit.textContent = "編集";
-      edit.title = "このブロックを編集";
+      edit.setAttribute("aria-label", `${block.label}を編集`);
       edit.addEventListener("click", (e) => {
         e.stopPropagation();
         openEditBlockDialog(block.id);
       });
-      btn.appendChild(edit);
+      actions.appendChild(edit);
 
-      const del = document.createElement("span");
-      del.className = "select-block-delete";
+      const del = document.createElement("button");
+      del.type = "button";
+      del.className = "select-block-action select-block-delete";
       del.textContent = "削除";
-      del.title = "このブロックを削除";
+      del.setAttribute("aria-label", `${block.label}を削除`);
       del.addEventListener("click", (e) => {
         e.stopPropagation();
         deleteCustomBlock(block.id);
       });
-      btn.appendChild(del);
+      actions.appendChild(del);
+      card.appendChild(actions);
     }
-    selectBlockList.appendChild(btn);
+    selectBlockList.appendChild(card);
   }
 }
 
@@ -1389,12 +1421,12 @@ function setupEventListeners() {
   selectCopyPositive.addEventListener("click", () => {
     if (!selectPositivePrompt) return;
     copyToClipboard(selectPositivePrompt);
-    incrementSelectUsage();
+    recordSelectableUsageOnce();
   });
   selectCopyNegative.addEventListener("click", () => {
     if (!selectNegativePrompt) return;
     copyToClipboard(selectNegativePrompt);
-    incrementSelectUsage();
+    recordSelectableUsageOnce();
   });
   selectClear.addEventListener("click", clearSelectableBuilder);
 

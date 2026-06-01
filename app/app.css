@@ -608,6 +608,18 @@ body {
   font-weight: 700;
 }
 
+.select-cat-tab.empty {
+  color: #9aa0b5;
+  border-style: dashed;
+  background: rgba(224,224,239,0.22);
+}
+
+.select-cat-tab.empty:hover,
+.select-cat-tab.empty.active {
+  color: var(--text-muted);
+  border-color: var(--accent);
+}
+
 #select-builder-body {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 230px;
@@ -642,6 +654,11 @@ body {
 .select-block-card:hover {
   border-color: var(--accent);
   background: #f0f2ff;
+}
+
+.select-block-card:focus {
+  outline: 2px solid rgba(137,180,250,0.6);
+  outline-offset: 2px;
 }
 
 .select-block-card.selected {
@@ -692,44 +709,41 @@ body {
   font-weight: 700;
 }
 
-.select-block-edit,
-.select-block-delete {
-  position: absolute;
-  bottom: 7px;
+.select-block-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+  margin-top: auto;
+}
+
+.select-block-action {
   background: #fff;
   border-radius: 5px;
-  padding: 1px 6px;
+  padding: 2px 7px;
   font-size: 0.65rem;
   font-weight: 700;
-  opacity: 0;
-  transition: opacity 0.12s, background 0.12s;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
 }
 
 .select-block-edit {
-  right: 46px;
   color: #315fbd;
   border: 1px solid #93b4ff;
 }
 
 .select-block-delete {
-  right: 8px;
   color: #b91c1c;
   border: 1px solid #fca5a5;
 }
 
-.select-block-card:hover .select-block-delete,
-.select-block-card:hover .select-block-edit,
-.select-block-delete:focus,
-.select-block-edit:focus {
-  opacity: 1;
-}
-
 .select-block-edit:hover {
   background: #e9f0ff;
+  border-color: #5b85e5;
 }
 
 .select-block-delete:hover {
   background: #fde8e8;
+  border-color: #ef4444;
 }
 
 #selected-blocks-panel {
