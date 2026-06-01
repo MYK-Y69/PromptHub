@@ -59,6 +59,47 @@
         <div id="saved-list"><!-- JS で生成 --></div>
       </div>
 
+      <!-- 選択式 Prompt Builder -->
+      <section id="select-builder" aria-labelledby="select-builder-title">
+        <div id="select-builder-head">
+          <div>
+            <h2 id="select-builder-title">Selectable Builder</h2>
+            <p id="select-builder-subtitle">SeaArt向けにブロックを選んで完成プロンプトを生成</p>
+          </div>
+          <div id="select-builder-actions">
+            <button id="select-generate">Generate</button>
+            <button id="select-copy-positive" disabled>Copy Positive</button>
+            <button id="select-copy-negative" disabled>Copy Negative</button>
+            <button id="select-clear">Clear</button>
+          </div>
+        </div>
+
+        <div id="select-builder-controls">
+          <label id="select-search-label" for="select-search">検索</label>
+          <input id="select-search" type="search" placeholder="キャラ / ポーズ / 背景を検索..." autocomplete="off" />
+          <div id="select-category-tabs" role="tablist" aria-label="Prompt block categories"></div>
+        </div>
+
+        <div id="select-builder-body">
+          <div id="select-block-list" aria-live="polite"></div>
+          <div id="selected-blocks-panel">
+            <div class="select-panel-label">選択中</div>
+            <div id="selected-blocks"></div>
+          </div>
+        </div>
+
+        <div id="generated-prompts">
+          <div class="prompt-output-group">
+            <label for="positive-output">Positive Prompt</label>
+            <textarea id="positive-output" readonly placeholder="GenerateするとここにPositive Promptが出ます"></textarea>
+          </div>
+          <div class="prompt-output-group">
+            <label for="negative-output">Negative Prompt</label>
+            <textarea id="negative-output" readonly placeholder="GenerateするとここにNegative Promptが出ます"></textarea>
+          </div>
+        </div>
+      </section>
+
       <!-- レコード一覧 -->
       <div id="record-list"><!-- JS で生成 --></div>
       <div id="empty-msg" hidden>該当するタグがありません。</div>

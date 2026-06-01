@@ -7,6 +7,158 @@ const DATA_URL = "../data/v2/compiled/tags.json";
 const LS_DELETED    = "prompthub_deleted";
 const LS_SAVED      = "prompthub_saved";
 const LS_USER_TAGS  = "prompthub_user_tags";
+const LS_SELECT_USAGE = "prompthub_select_builder_usage";
+
+// ---- Selectable Builder data ----
+const SELECT_CATEGORY_ORDER = ["character", "pose", "expression", "angle", "background"];
+const SELECT_CATEGORY_LABELS = {
+  character: "キャラクター",
+  pose: "ポーズ",
+  expression: "表情",
+  angle: "アングル",
+  background: "背景",
+};
+
+const DEFAULT_NEGATIVE_PROMPT =
+  "low quality, worst quality, blurry, bad anatomy, bad hands, extra fingers, missing fingers, text, watermark, logo";
+
+const SELECT_BLOCKS = [
+  {
+    id: "himesaki_rinami",
+    category: "character",
+    label: "姫崎莉波",
+    prompt: "himesaki rinami, 1girl, long wavy hair, brown hair, brown eyes, idol outfit, ribbon accessory, slim body, soft facial features",
+    negative_prompt: "",
+    favorite: true,
+    enabled: true,
+  },
+  {
+    id: "original_blue_short_hair",
+    category: "character",
+    label: "青髪ショートの少女",
+    prompt: "original character, 1girl, short blue hair, blue eyes, neat bangs, white blouse, pleated skirt, hairclip, petite body",
+    negative_prompt: "",
+    favorite: false,
+    enabled: true,
+  },
+  {
+    id: "original_silver_twin_tail",
+    category: "character",
+    label: "銀髪ツインテール",
+    prompt: "original character, 1girl, silver twintails, violet eyes, black ribbon, frilled dress, delicate accessories, slim body",
+    negative_prompt: "",
+    favorite: false,
+    enabled: true,
+  },
+  {
+    id: "pose_standing_confident",
+    category: "pose",
+    label: "自信のある立ち姿",
+    prompt: "standing, confident pose, hand on hip, relaxed shoulders",
+    negative_prompt: "",
+    favorite: true,
+    enabled: true,
+  },
+  {
+    id: "pose_sitting_sideways",
+    category: "pose",
+    label: "横向き座り",
+    prompt: "sitting sideways, legs together, elegant posture",
+    negative_prompt: "",
+    favorite: false,
+    enabled: true,
+  },
+  {
+    id: "pose_reaching_hand",
+    category: "pose",
+    label: "手を差し伸べる",
+    prompt: "reaching hand toward viewer, inviting gesture, dynamic pose",
+    negative_prompt: "deformed hand, extra hands",
+    favorite: false,
+    enabled: true,
+  },
+  {
+    id: "expression_gentle_smile",
+    category: "expression",
+    label: "やさしい笑顔",
+    prompt: "gentle smile, soft eyes, warm expression",
+    negative_prompt: "",
+    favorite: true,
+    enabled: true,
+  },
+  {
+    id: "expression_serious",
+    category: "expression",
+    label: "真剣な表情",
+    prompt: "serious expression, focused eyes, closed mouth",
+    negative_prompt: "",
+    favorite: false,
+    enabled: true,
+  },
+  {
+    id: "expression_surprised",
+    category: "expression",
+    label: "驚き",
+    prompt: "surprised expression, wide eyes, slightly open mouth",
+    negative_prompt: "",
+    favorite: false,
+    enabled: true,
+  },
+  {
+    id: "angle_eye_level",
+    category: "angle",
+    label: "目線の高さ",
+    prompt: "eye-level view, looking at viewer, balanced composition",
+    negative_prompt: "",
+    favorite: true,
+    enabled: true,
+  },
+  {
+    id: "angle_from_above",
+    category: "angle",
+    label: "上から",
+    prompt: "from above, high angle, cinematic framing",
+    negative_prompt: "",
+    favorite: false,
+    enabled: true,
+  },
+  {
+    id: "angle_low_angle",
+    category: "angle",
+    label: "ローアングル",
+    prompt: "from below, low angle, dramatic perspective",
+    negative_prompt: "",
+    favorite: false,
+    enabled: true,
+  },
+  {
+    id: "background_school_rooftop",
+    category: "background",
+    label: "学校の屋上",
+    prompt: "school rooftop, blue sky, soft sunlight, clean background",
+    negative_prompt: "",
+    favorite: true,
+    enabled: true,
+  },
+  {
+    id: "background_city_night",
+    category: "background",
+    label: "夜の街",
+    prompt: "city street at night, neon lights, depth of field, atmospheric background",
+    negative_prompt: "messy background",
+    favorite: false,
+    enabled: true,
+  },
+  {
+    id: "background_simple_studio",
+    category: "background",
+    label: "シンプルスタジオ",
+    prompt: "simple studio background, soft gradient backdrop, professional lighting",
+    negative_prompt: "cluttered background",
+    favorite: false,
+    enabled: true,
+  },
+];
 
 // ---- State ----
 let v2Data       = null;
@@ -16,6 +168,11 @@ let targetFilter = "";
 let builderTags  = [];
 let searchTimer  = null;
 let indexItems   = [];
+let selectActiveCategory = "character";
+let selectSearchQuery = "";
+let selectSelected = {};
+let selectPositivePrompt = "";
+let selectNegativePrompt = "";
 
 // 削除済みタグ (en.toLowerCase() のセット)
 let deletedTags  = new Set(JSON.parse(localStorage.getItem(LS_DELETED) || "[]"));
@@ -28,6 +185,7 @@ let ctxTargetTag = null;
 
 // ユーザーが追加したタグ [{en,jp,catId,scId?,scLabel?,secId,secLabel,target,target_note?,addedAt}]
 let userAddedTags = JSON.parse(localStorage.getItem(LS_USER_TAGS) || "[]");
+let selectUsage = JSON.parse(localStorage.getItem(LS_SELECT_USAGE) || "{}");
 
 // ---- target ラベル定義 ----
 const TARGET_LABEL = {
@@ -87,6 +245,18 @@ const tadUserCount   = document.getElementById("tad-user-count");
 const tadScRow       = document.getElementById("tad-sc-row");
 const tadSecRow      = document.getElementById("tad-sec-row");
 
+const selectBuilder       = document.getElementById("select-builder");
+const selectSearch        = document.getElementById("select-search");
+const selectCategoryTabs  = document.getElementById("select-category-tabs");
+const selectBlockList     = document.getElementById("select-block-list");
+const selectedBlocks      = document.getElementById("selected-blocks");
+const selectGenerate      = document.getElementById("select-generate");
+const selectCopyPositive  = document.getElementById("select-copy-positive");
+const selectCopyNegative  = document.getElementById("select-copy-negative");
+const selectClear         = document.getElementById("select-clear");
+const positiveOutput      = document.getElementById("positive-output");
+const negativeOutput      = document.getElementById("negative-output");
+
 // ---- 起動 ----
 (async function init() {
   try {
@@ -108,6 +278,7 @@ const tadSecRow      = document.getElementById("tad-sec-row");
   buildSidebar();
   setupEventListeners();
   renderSavedList();
+  renderSelectBuilder();
   updateTadUserCount();
 
   if (v2Data.categories.length > 0) {
@@ -915,6 +1086,190 @@ function importUserTags(file) {
   reader.readAsText(file);
 }
 
+// ---- 選択式 Prompt Builder ----
+function getSelectBlock(id) {
+  return SELECT_BLOCKS.find(block => block.id === id) || null;
+}
+
+function getSelectedSelectBlocks() {
+  return SELECT_CATEGORY_ORDER
+    .map(category => getSelectBlock(selectSelected[category]))
+    .filter(Boolean);
+}
+
+function getSelectUsage(blockId) {
+  return selectUsage[blockId] || { usage_count: 0, last_used_at: null };
+}
+
+function saveSelectUsage() {
+  localStorage.setItem(LS_SELECT_USAGE, JSON.stringify(selectUsage));
+}
+
+function incrementSelectUsage() {
+  const now = new Date().toISOString();
+  for (const block of getSelectedSelectBlocks()) {
+    const current = getSelectUsage(block.id);
+    selectUsage[block.id] = {
+      usage_count: (current.usage_count || 0) + 1,
+      last_used_at: now,
+    };
+  }
+  saveSelectUsage();
+  renderSelectBuilder();
+}
+
+function buildSelectablePrompt() {
+  const selected = getSelectedSelectBlocks();
+  const positive = selected
+    .map(block => block.prompt)
+    .filter(Boolean)
+    .join(", ");
+  const negatives = [
+    DEFAULT_NEGATIVE_PROMPT,
+    ...selected.map(block => block.negative_prompt).filter(Boolean),
+  ];
+  const negative = [...new Set(negatives.join(", ").split(",").map(x => x.trim()).filter(Boolean))]
+    .join(", ");
+  return { positive, negative };
+}
+
+function generateSelectablePrompt() {
+  const { positive, negative } = buildSelectablePrompt();
+  selectPositivePrompt = positive;
+  selectNegativePrompt = negative;
+  if (positive) incrementSelectUsage();
+  renderGeneratedPrompts();
+  showToast(positive ? "生成しました" : "ブロックを選択してください");
+}
+
+function clearSelectableBuilder() {
+  selectSelected = {};
+  selectPositivePrompt = "";
+  selectNegativePrompt = "";
+  renderSelectBuilder();
+  showToast("選択式Builderをクリアしました");
+}
+
+function selectPromptBlock(blockId) {
+  const block = getSelectBlock(blockId);
+  if (!block) return;
+  if (selectSelected[block.category] === block.id) {
+    delete selectSelected[block.category];
+  } else {
+    selectSelected[block.category] = block.id;
+  }
+  selectPositivePrompt = "";
+  selectNegativePrompt = "";
+  renderSelectBuilder();
+}
+
+function selectableBlocksForActiveCategory() {
+  const q = selectSearchQuery.trim().toLowerCase();
+  return SELECT_BLOCKS
+    .filter(block => block.enabled !== false && block.category === selectActiveCategory)
+    .filter(block => {
+      if (!q) return true;
+      return (
+        block.label.toLowerCase().includes(q) ||
+        block.prompt.toLowerCase().includes(q) ||
+        block.id.toLowerCase().includes(q)
+      );
+    })
+    .sort((a, b) => {
+      const au = getSelectUsage(a.id).usage_count || 0;
+      const bu = getSelectUsage(b.id).usage_count || 0;
+      if (bu !== au) return bu - au;
+      if ((b.favorite ? 1 : 0) !== (a.favorite ? 1 : 0)) return (b.favorite ? 1 : 0) - (a.favorite ? 1 : 0);
+      return a.label.localeCompare(b.label, "ja");
+    });
+}
+
+function renderSelectBuilder() {
+  if (!selectBuilder) return;
+  renderSelectCategoryTabs();
+  renderSelectBlocks();
+  renderSelectedBlocks();
+  renderGeneratedPrompts();
+}
+
+function renderSelectCategoryTabs() {
+  selectCategoryTabs.innerHTML = "";
+  for (const category of SELECT_CATEGORY_ORDER) {
+    const total = SELECT_BLOCKS.filter(block => block.enabled !== false && block.category === category).length;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "select-cat-tab" + (selectActiveCategory === category ? " active" : "");
+    btn.setAttribute("role", "tab");
+    btn.setAttribute("aria-selected", selectActiveCategory === category ? "true" : "false");
+    btn.dataset.category = category;
+    btn.textContent = `${SELECT_CATEGORY_LABELS[category]} ${selectSelected[category] ? "✓" : ""} (${total})`;
+    btn.addEventListener("click", () => {
+      selectActiveCategory = category;
+      renderSelectBuilder();
+    });
+    selectCategoryTabs.appendChild(btn);
+  }
+}
+
+function renderSelectBlocks() {
+  selectBlockList.innerHTML = "";
+  const blocks = selectableBlocksForActiveCategory();
+  if (blocks.length === 0) {
+    const empty = document.createElement("div");
+    empty.className = "select-empty";
+    empty.textContent = "該当するブロックがありません。";
+    selectBlockList.appendChild(empty);
+    return;
+  }
+
+  for (const block of blocks) {
+    const usage = getSelectUsage(block.id);
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "select-block-card" + (selectSelected[block.category] === block.id ? " selected" : "");
+    btn.dataset.blockId = block.id;
+    btn.innerHTML =
+      `<span class="select-block-top">` +
+        `<span class="select-block-label">${escHtml(block.label)}</span>` +
+        `<span class="select-block-meta">${block.favorite ? "★ " : ""}${usage.usage_count || 0} uses</span>` +
+      `</span>` +
+      `<span class="select-block-prompt">${escHtml(block.prompt)}</span>`;
+    btn.addEventListener("click", () => selectPromptBlock(block.id));
+    selectBlockList.appendChild(btn);
+  }
+}
+
+function renderSelectedBlocks() {
+  selectedBlocks.innerHTML = "";
+  const selected = getSelectedSelectBlocks();
+  if (selected.length === 0) {
+    const empty = document.createElement("div");
+    empty.className = "selected-empty";
+    empty.textContent = "未選択";
+    selectedBlocks.appendChild(empty);
+    return;
+  }
+
+  for (const block of selected) {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "selected-block-chip";
+    chip.title = "クリックで解除";
+    chip.innerHTML =
+      `<span>${escHtml(SELECT_CATEGORY_LABELS[block.category])}: ${escHtml(block.label)}</span>` +
+      `<span aria-hidden="true">×</span>`;
+    chip.addEventListener("click", () => selectPromptBlock(block.id));
+    selectedBlocks.appendChild(chip);
+  }
+}
+
+function renderGeneratedPrompts() {
+  positiveOutput.value = selectPositivePrompt;
+  negativeOutput.value = selectNegativePrompt;
+  selectCopyPositive.disabled = !selectPositivePrompt;
+  selectCopyNegative.disabled = !selectNegativePrompt;
+}
+
 // ---- イベント ----
 function setupEventListeners() {
   // 検索
@@ -951,6 +1306,24 @@ function setupEventListeners() {
     renderBuilder();
   });
   builderSave.addEventListener("click", openSaveDialog);
+
+  // 選択式 Prompt Builder
+  selectSearch.addEventListener("input", () => {
+    selectSearchQuery = selectSearch.value;
+    renderSelectBlocks();
+  });
+  selectGenerate.addEventListener("click", generateSelectablePrompt);
+  selectCopyPositive.addEventListener("click", () => {
+    if (!selectPositivePrompt) return;
+    copyToClipboard(selectPositivePrompt);
+    incrementSelectUsage();
+  });
+  selectCopyNegative.addEventListener("click", () => {
+    if (!selectNegativePrompt) return;
+    copyToClipboard(selectNegativePrompt);
+    incrementSelectUsage();
+  });
+  selectClear.addEventListener("click", clearSelectableBuilder);
 
   // 保存ダイアログ
   saveConfirm.addEventListener("click", commitSave);
@@ -1058,18 +1431,24 @@ function showToast(msg) {
 }
 
 function copyToClipboard(text) {
-  navigator.clipboard.writeText(text).then(
-    () => showToast(`コピー: ${text}`),
-    () => {
-      const ta = document.createElement("textarea");
-      ta.value = text;
-      ta.style.position = "fixed";
-      ta.style.opacity = "0";
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand("copy");
-      document.body.removeChild(ta);
-      showToast(`コピー: ${text}`);
-    }
-  );
+  const fallbackCopy = () => {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    document.body.removeChild(ta);
+    showToast(`コピー: ${text}`);
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(
+      () => showToast(`コピー: ${text}`),
+      fallbackCopy
+    );
+  } else {
+    fallbackCopy();
+  }
 }
