@@ -37,27 +37,52 @@
         <span id="builder-label">Prompt Builder</span>
         <div id="builder-chips"><!-- JS で生成 --></div>
         <div id="builder-actions">
-          <button id="builder-save" disabled>保存</button>
+          <button id="builder-block-add" disabled>ブロック追加</button>
           <button id="builder-copy" disabled>COPY</button>
           <button id="builder-clear">CLEAR</button>
         </div>
       </div>
 
-      <!-- 保存済みプロンプトパネル -->
-      <div id="saved-bar">
-        <div id="saved-bar-header">
-          <span id="saved-bar-label">保存済みプロンプト</span>
-          <span id="saved-bar-count"></span>
-          <div id="saved-bar-actions">
-            <button id="saved-export" title="JSONでエクスポート">エクスポート</button>
-            <label id="saved-import-label" title="JSONからインポート">インポート
-              <input id="saved-import-input" type="file" accept=".json" />
-            </label>
-            <button id="saved-toggle" title="開閉">▼</button>
+      <!-- 選択式 Prompt Builder -->
+      <section id="select-builder" aria-labelledby="select-builder-title">
+        <div id="select-builder-head">
+          <div>
+            <h2 id="select-builder-title">Selectable Builder</h2>
+            <p id="select-builder-subtitle">SeaArt向けにブロックを選んで完成プロンプトを生成</p>
+          </div>
+          <div id="select-builder-actions">
+            <button id="select-generate">Generate</button>
+            <button id="select-copy-positive" disabled>Copy Positive</button>
+            <button id="select-copy-negative" disabled>Copy Negative</button>
+            <button id="select-clear">Clear</button>
           </div>
         </div>
-        <div id="saved-list"><!-- JS で生成 --></div>
-      </div>
+
+        <div id="select-builder-controls">
+          <label id="select-search-label" for="select-search">検索</label>
+          <input id="select-search" type="search" placeholder="キャラ / ポーズ / 背景を検索..." autocomplete="off" />
+          <div id="select-category-tabs" role="tablist" aria-label="Prompt block categories"></div>
+        </div>
+
+        <div id="select-builder-body">
+          <div id="select-block-list" aria-live="polite"></div>
+          <div id="selected-blocks-panel">
+            <div class="select-panel-label">選択中</div>
+            <div id="selected-blocks"></div>
+          </div>
+        </div>
+
+        <div id="generated-prompts">
+          <div class="prompt-output-group">
+            <label for="positive-output">Positive Prompt</label>
+            <textarea id="positive-output" readonly placeholder="GenerateするとここにPositive Promptが出ます"></textarea>
+          </div>
+          <div class="prompt-output-group">
+            <label for="negative-output">Negative Prompt</label>
+            <textarea id="negative-output" readonly placeholder="GenerateするとここにNegative Promptが出ます"></textarea>
+          </div>
+        </div>
+      </section>
 
       <!-- レコード一覧 -->
       <div id="record-list"><!-- JS で生成 --></div>
@@ -82,14 +107,34 @@
     <button id="ctx-add">Builder に追加</button>
   </div>
 
-  <!-- 保存ダイアログ -->
-  <div id="save-dialog">
-    <div id="save-dialog-box">
-      <div id="save-dialog-title">プロンプトを保存</div>
-      <input id="save-name-input" type="text" placeholder="名前を入力（最大40文字）" maxlength="40" autocomplete="off" />
-      <div id="save-dialog-btns">
-        <button id="save-confirm">保存</button>
-        <button id="save-cancel">キャンセル</button>
+  <!-- ブロック追加ダイアログ -->
+  <div id="block-dialog">
+    <div id="block-dialog-box">
+      <div id="block-dialog-title">選択式ブロックを追加</div>
+      <div class="block-field">
+        <label class="block-lbl" for="block-name-input">ブロック名</label>
+        <input id="block-name-input" class="block-inp" type="text" placeholder="例: やさしい笑顔" maxlength="40" autocomplete="off" />
+      </div>
+      <div class="block-field">
+        <label class="block-lbl" for="block-category-select">カテゴリ</label>
+        <select id="block-category-select" class="block-inp"></select>
+      </div>
+      <div class="block-field block-field-wide">
+        <label class="block-lbl" for="block-positive-input">Positive</label>
+        <textarea id="block-positive-input" class="block-textarea"></textarea>
+      </div>
+      <div class="block-field block-field-wide">
+        <label class="block-lbl" for="block-negative-input">Negative</label>
+        <textarea id="block-negative-input" class="block-textarea" placeholder="任意"></textarea>
+      </div>
+      <label id="block-favorite-row">
+        <input id="block-favorite-input" type="checkbox" />
+        よく使うブロックとして上位表示
+      </label>
+      <div id="block-error"></div>
+      <div id="block-dialog-btns">
+        <button id="block-confirm">追加</button>
+        <button id="block-cancel">キャンセル</button>
       </div>
     </div>
   </div>

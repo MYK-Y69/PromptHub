@@ -5,8 +5,182 @@ const DATA_URL = "../data/v2/compiled/tags.json";
 
 // ---- LocalStorage キー ----
 const LS_DELETED    = "prompthub_deleted";
-const LS_SAVED      = "prompthub_saved";
 const LS_USER_TAGS  = "prompthub_user_tags";
+const LS_SELECT_USAGE = "prompthub_select_builder_usage";
+const LS_SELECT_BLOCKS = "prompthub_select_builder_blocks";
+
+// ---- Selectable Builder data ----
+const SELECT_CATEGORY_ORDER = [
+  "character",
+  "camera",
+  "composition",
+  "expression_face",
+  "pose",
+  "action",
+  "outfit",
+  "people_gender",
+  "angle",
+  "background",
+  "quality_meta",
+  "sensitive",
+  "negative",
+];
+const SELECT_CATEGORY_LABELS = {
+  character: "キャラクター",
+  camera: "カメラ",
+  composition: "構図",
+  expression_face: "表情・顔",
+  pose: "ポーズ",
+  action: "動作・行動",
+  outfit: "服装",
+  people_gender: "人数・性別",
+  angle: "アングル",
+  background: "背景",
+  quality_meta: "品質・メタ",
+  sensitive: "Sensitive",
+  negative: "Negative",
+};
+
+const DEFAULT_NEGATIVE_PROMPT =
+  "low quality, worst quality, blurry, bad anatomy, bad hands, extra fingers, missing fingers, text, watermark, logo";
+
+const SELECT_BLOCKS = [
+  {
+    id: "himesaki_rinami",
+    category: "character",
+    label: "姫崎莉波",
+    prompt: "himesaki rinami, 1girl, long wavy hair, brown hair, brown eyes, idol outfit, ribbon accessory, slim body, soft facial features",
+    negative_prompt: "",
+    favorite: true,
+    enabled: true,
+  },
+  {
+    id: "original_blue_short_hair",
+    category: "character",
+    label: "青髪ショートの少女",
+    prompt: "original character, 1girl, short blue hair, blue eyes, neat bangs, white blouse, pleated skirt, hairclip, petite body",
+    negative_prompt: "",
+    favorite: false,
+    enabled: true,
+  },
+  {
+    id: "original_silver_twin_tail",
+    category: "character",
+    label: "銀髪ツインテール",
+    prompt: "original character, 1girl, silver twintails, violet eyes, black ribbon, frilled dress, delicate accessories, slim body",
+    negative_prompt: "",
+    favorite: false,
+    enabled: true,
+  },
+  {
+    id: "pose_standing_confident",
+    category: "pose",
+    label: "自信のある立ち姿",
+    prompt: "standing, confident pose, hand on hip, relaxed shoulders",
+    negative_prompt: "",
+    favorite: true,
+    enabled: true,
+  },
+  {
+    id: "pose_sitting_sideways",
+    category: "pose",
+    label: "横向き座り",
+    prompt: "sitting sideways, legs together, elegant posture",
+    negative_prompt: "",
+    favorite: false,
+    enabled: true,
+  },
+  {
+    id: "pose_reaching_hand",
+    category: "pose",
+    label: "手を差し伸べる",
+    prompt: "reaching hand toward viewer, inviting gesture, dynamic pose",
+    negative_prompt: "deformed hand, extra hands",
+    favorite: false,
+    enabled: true,
+  },
+  {
+    id: "expression_gentle_smile",
+    category: "expression_face",
+    label: "やさしい笑顔",
+    prompt: "gentle smile, soft eyes, warm expression",
+    negative_prompt: "",
+    favorite: true,
+    enabled: true,
+  },
+  {
+    id: "expression_serious",
+    category: "expression_face",
+    label: "真剣な表情",
+    prompt: "serious expression, focused eyes, closed mouth",
+    negative_prompt: "",
+    favorite: false,
+    enabled: true,
+  },
+  {
+    id: "expression_surprised",
+    category: "expression_face",
+    label: "驚き",
+    prompt: "surprised expression, wide eyes, slightly open mouth",
+    negative_prompt: "",
+    favorite: false,
+    enabled: true,
+  },
+  {
+    id: "angle_eye_level",
+    category: "angle",
+    label: "目線の高さ",
+    prompt: "eye-level view, looking at viewer, balanced composition",
+    negative_prompt: "",
+    favorite: true,
+    enabled: true,
+  },
+  {
+    id: "angle_from_above",
+    category: "angle",
+    label: "上から",
+    prompt: "from above, high angle, cinematic framing",
+    negative_prompt: "",
+    favorite: false,
+    enabled: true,
+  },
+  {
+    id: "angle_low_angle",
+    category: "angle",
+    label: "ローアングル",
+    prompt: "from below, low angle, dramatic perspective",
+    negative_prompt: "",
+    favorite: false,
+    enabled: true,
+  },
+  {
+    id: "background_school_rooftop",
+    category: "background",
+    label: "学校の屋上",
+    prompt: "school rooftop, blue sky, soft sunlight, clean background",
+    negative_prompt: "",
+    favorite: true,
+    enabled: true,
+  },
+  {
+    id: "background_city_night",
+    category: "background",
+    label: "夜の街",
+    prompt: "city street at night, neon lights, depth of field, atmospheric background",
+    negative_prompt: "messy background",
+    favorite: false,
+    enabled: true,
+  },
+  {
+    id: "background_simple_studio",
+    category: "background",
+    label: "シンプルスタジオ",
+    prompt: "simple studio background, soft gradient backdrop, professional lighting",
+    negative_prompt: "cluttered background",
+    favorite: false,
+    enabled: true,
+  },
+];
 
 // ---- State ----
 let v2Data       = null;
@@ -16,18 +190,30 @@ let targetFilter = "";
 let builderTags  = [];
 let searchTimer  = null;
 let indexItems   = [];
+let selectActiveCategory = "character";
+let selectSearchQuery = "";
+let selectSelected = {};
+let selectPositivePrompt = "";
+let selectNegativePrompt = "";
+let userSelectBlocks = [];
+let editingBlockId = null;
+let selectUsageRecordedFor = "";
 
 // 削除済みタグ (en.toLowerCase() のセット)
 let deletedTags  = new Set(JSON.parse(localStorage.getItem(LS_DELETED) || "[]"));
-
-// 保存済みプロンプト [{id, name, tags:[{en}], savedAt}]
-let savedPrompts = JSON.parse(localStorage.getItem(LS_SAVED) || "[]");
 
 // コンテキストメニュー対象タグ
 let ctxTargetTag = null;
 
 // ユーザーが追加したタグ [{en,jp,catId,scId?,scLabel?,secId,secLabel,target,target_note?,addedAt}]
 let userAddedTags = JSON.parse(localStorage.getItem(LS_USER_TAGS) || "[]");
+let selectUsage = JSON.parse(localStorage.getItem(LS_SELECT_USAGE) || "{}");
+try {
+  userSelectBlocks = JSON.parse(localStorage.getItem(LS_SELECT_BLOCKS) || "[]");
+  if (!Array.isArray(userSelectBlocks)) userSelectBlocks = [];
+} catch {
+  userSelectBlocks = [];
+}
 
 // ---- target ラベル定義 ----
 const TARGET_LABEL = {
@@ -45,7 +231,7 @@ const emptyMsg        = document.getElementById("empty-msg");
 const builderChips    = document.getElementById("builder-chips");
 const builderCopy     = document.getElementById("builder-copy");
 const builderClear    = document.getElementById("builder-clear");
-const builderSave     = document.getElementById("builder-save");
+const builderBlockAdd = document.getElementById("builder-block-add");
 const indexTree       = document.getElementById("index-tree");
 const toast           = document.getElementById("toast");
 
@@ -54,18 +240,15 @@ const ctxDelete       = document.getElementById("ctx-delete");
 const ctxCopy         = document.getElementById("ctx-copy");
 const ctxAdd          = document.getElementById("ctx-add");
 
-const saveDialog      = document.getElementById("save-dialog");
-const saveNameInput   = document.getElementById("save-name-input");
-const saveConfirm     = document.getElementById("save-confirm");
-const saveCancel      = document.getElementById("save-cancel");
-
-const savedBar        = document.getElementById("saved-bar");
-const savedBarHeader  = document.getElementById("saved-bar-header");
-const savedBarCount   = document.getElementById("saved-bar-count");
-const savedList       = document.getElementById("saved-list");
-const savedToggle     = document.getElementById("saved-toggle");
-const savedExport     = document.getElementById("saved-export");
-const savedImportInput = document.getElementById("saved-import-input");
+const blockDialog         = document.getElementById("block-dialog");
+const blockNameInput      = document.getElementById("block-name-input");
+const blockCategorySelect = document.getElementById("block-category-select");
+const blockPositiveInput  = document.getElementById("block-positive-input");
+const blockNegativeInput  = document.getElementById("block-negative-input");
+const blockFavoriteInput  = document.getElementById("block-favorite-input");
+const blockError          = document.getElementById("block-error");
+const blockConfirm        = document.getElementById("block-confirm");
+const blockCancel         = document.getElementById("block-cancel");
 
 const tagAddBtn      = document.getElementById("tag-add-btn");
 const tagAddDialog   = document.getElementById("tag-add-dialog");
@@ -87,6 +270,18 @@ const tadUserCount   = document.getElementById("tad-user-count");
 const tadScRow       = document.getElementById("tad-sc-row");
 const tadSecRow      = document.getElementById("tad-sec-row");
 
+const selectBuilder       = document.getElementById("select-builder");
+const selectSearch        = document.getElementById("select-search");
+const selectCategoryTabs  = document.getElementById("select-category-tabs");
+const selectBlockList     = document.getElementById("select-block-list");
+const selectedBlocks      = document.getElementById("selected-blocks");
+const selectGenerate      = document.getElementById("select-generate");
+const selectCopyPositive  = document.getElementById("select-copy-positive");
+const selectCopyNegative  = document.getElementById("select-copy-negative");
+const selectClear         = document.getElementById("select-clear");
+const positiveOutput      = document.getElementById("positive-output");
+const negativeOutput      = document.getElementById("negative-output");
+
 // ---- 起動 ----
 (async function init() {
   try {
@@ -107,7 +302,7 @@ const tadSecRow      = document.getElementById("tad-sec-row");
 
   buildSidebar();
   setupEventListeners();
-  renderSavedList();
+  renderSelectBuilder();
   updateTadUserCount();
 
   if (v2Data.categories.length > 0) {
@@ -439,7 +634,132 @@ function renderBuilder() {
   }
   const hasChips = builderTags.length > 0;
   builderCopy.disabled = !hasChips;
-  builderSave.disabled = !hasChips;
+  builderBlockAdd.disabled = !hasChips;
+}
+
+function populateBlockCategorySelect() {
+  blockCategorySelect.innerHTML = "";
+  for (const category of SELECT_CATEGORY_ORDER) {
+    const opt = document.createElement("option");
+    opt.value = category;
+    opt.textContent = SELECT_CATEGORY_LABELS[category];
+    blockCategorySelect.appendChild(opt);
+  }
+}
+
+function openBlockDialog() {
+  if (builderTags.length === 0) return;
+  populateBlockCategorySelect();
+  editingBlockId = null;
+  document.getElementById("block-dialog-title").textContent = "選択式ブロックを追加";
+  blockConfirm.textContent = "追加";
+  blockNameInput.value = "";
+  blockCategorySelect.value = selectActiveCategory || "character";
+  blockPositiveInput.value = builderTags.map(t => t.en).join(", ");
+  blockNegativeInput.value = "";
+  blockFavoriteInput.checked = false;
+  blockError.textContent = "";
+  blockDialog.classList.add("show");
+  setTimeout(() => blockNameInput.focus(), 50);
+}
+
+function openEditBlockDialog(blockId) {
+  const block = userSelectBlocks.find(item => item.id === blockId);
+  if (!block) return;
+  populateBlockCategorySelect();
+  editingBlockId = blockId;
+  document.getElementById("block-dialog-title").textContent = "選択式ブロックを編集";
+  blockConfirm.textContent = "保存";
+  blockNameInput.value = block.label;
+  blockCategorySelect.value = block.category;
+  blockPositiveInput.value = block.prompt;
+  blockNegativeInput.value = block.negative_prompt || "";
+  blockFavoriteInput.checked = !!block.favorite;
+  blockError.textContent = "";
+  blockDialog.classList.add("show");
+  setTimeout(() => blockNameInput.focus(), 50);
+}
+
+function closeBlockDialog() {
+  blockDialog.classList.remove("show");
+  editingBlockId = null;
+}
+
+function slugFromText(text) {
+  return String(text)
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "")
+    .slice(0, 48);
+}
+
+function saveCustomBlock() {
+  const label = blockNameInput.value.trim();
+  const category = blockCategorySelect.value;
+  const prompt = blockPositiveInput.value.trim();
+  const negativePrompt = blockNegativeInput.value.trim();
+
+  if (!label) { blockError.textContent = "ブロック名を入力してください"; blockNameInput.focus(); return; }
+  if (!category) { blockError.textContent = "カテゴリを選択してください"; blockCategorySelect.focus(); return; }
+  if (!prompt) { blockError.textContent = "Positive prompt が空です"; blockPositiveInput.focus(); return; }
+
+  const existingBlock = editingBlockId
+    ? userSelectBlocks.find(item => item.id === editingBlockId)
+    : null;
+
+  const baseId = slugFromText(label) || "custom_block";
+  const usedIds = new Set(allSelectBlocks()
+    .filter(block => block.id !== editingBlockId)
+    .map(block => block.id));
+  let id = `custom_${category}_${baseId}`;
+  let suffix = 2;
+  if (existingBlock) id = existingBlock.id;
+  while (!existingBlock && usedIds.has(id)) {
+    id = `custom_${category}_${baseId}_${suffix}`;
+    suffix++;
+  }
+
+  const block = {
+    id,
+    category,
+    label,
+    prompt,
+    negative_prompt: negativePrompt,
+    favorite: blockFavoriteInput.checked,
+    enabled: true,
+    user_created: true,
+    created_at: existingBlock?.created_at || new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  };
+
+  if (existingBlock) {
+    userSelectBlocks = userSelectBlocks.map(item => item.id === existingBlock.id ? block : item);
+    if (selectSelected[existingBlock.category] === existingBlock.id && existingBlock.category !== category) {
+      delete selectSelected[existingBlock.category];
+      selectSelected[category] = existingBlock.id;
+    }
+  } else {
+    userSelectBlocks.unshift(block);
+    selectSelected[category] = id;
+  }
+  localStorage.setItem(LS_SELECT_BLOCKS, JSON.stringify(userSelectBlocks));
+  selectActiveCategory = category;
+  selectPositivePrompt = "";
+  selectNegativePrompt = "";
+  closeBlockDialog();
+  renderSelectBuilder();
+  showToast(existingBlock ? `ブロック更新: ${label}` : `ブロック追加: ${label}`);
+}
+
+function deleteCustomBlock(blockId) {
+  const block = userSelectBlocks.find(item => item.id === blockId);
+  if (!block) return;
+  userSelectBlocks = userSelectBlocks.filter(item => item.id !== blockId);
+  localStorage.setItem(LS_SELECT_BLOCKS, JSON.stringify(userSelectBlocks));
+  if (selectSelected[block.category] === blockId) delete selectSelected[block.category];
+  renderSelectBuilder();
+  showToast(`ブロック削除: ${block.label}`);
 }
 
 // ---- コンテキストメニュー ----
@@ -493,125 +813,6 @@ function deleteTag(tag) {
   renderRecords();
   buildSidebar();
   showToast(`削除: ${tag.en}（LocalStorage に記録済み）`);
-}
-
-// ---- 保存済みプロンプト ----
-function openSaveDialog() {
-  saveNameInput.value = "";
-  saveDialog.classList.add("show");
-  setTimeout(() => saveNameInput.focus(), 50);
-}
-
-function closeSaveDialog() {
-  saveDialog.classList.remove("show");
-}
-
-function commitSave() {
-  const name = saveNameInput.value.trim();
-  if (!name) { saveNameInput.focus(); return; }
-
-  const entry = {
-    id:      Date.now().toString(),
-    name,
-    tags:    [...builderTags],
-    savedAt: new Date().toISOString(),
-  };
-  savedPrompts.unshift(entry);
-  localStorage.setItem(LS_SAVED, JSON.stringify(savedPrompts));
-  renderSavedList();
-  closeSaveDialog();
-  showToast(`保存: ${name}`);
-}
-
-function loadPrompt(id) {
-  const entry = savedPrompts.find(p => p.id === id);
-  if (!entry) return;
-  builderTags = [...entry.tags];
-  renderBuilder();
-  showToast(`読み込み: ${entry.name}`);
-}
-
-function deleteSaved(id) {
-  const entry = savedPrompts.find(p => p.id === id);
-  if (!entry) return;
-  if (!confirm(`「${entry.name}」を削除しますか？`)) return;
-  savedPrompts = savedPrompts.filter(p => p.id !== id);
-  localStorage.setItem(LS_SAVED, JSON.stringify(savedPrompts));
-  renderSavedList();
-}
-
-function renderSavedList() {
-  // カウントバッジ
-  if (savedPrompts.length > 0) {
-    savedBarCount.textContent = savedPrompts.length;
-    savedBarCount.classList.add("visible");
-  } else {
-    savedBarCount.classList.remove("visible");
-  }
-
-  if (!savedPrompts.length) {
-    savedList.innerHTML = '<div class="saved-empty">保存済みなし</div>';
-    return;
-  }
-
-  savedList.innerHTML = "";
-  for (const p of savedPrompts) {
-    const date = new Date(p.savedAt).toLocaleDateString("ja-JP", {month:"numeric", day:"numeric"});
-    const preview = p.tags.map(t => t.en).join(", ");
-
-    const item = document.createElement("div");
-    item.className = "saved-item";
-    item.innerHTML =
-      `<div class="saved-item-info">` +
-        `<span class="saved-name">${escHtml(p.name)}</span>` +
-        `<span class="saved-tags-preview">${escHtml(preview)}</span>` +
-        `<span class="saved-meta">${p.tags.length} tags · ${date}</span>` +
-      `</div>` +
-      `<div class="saved-item-btns">` +
-        `<button class="saved-load" data-id="${p.id}">読込</button>` +
-        `<button class="saved-del"  data-id="${p.id}">削除</button>` +
-      `</div>`;
-
-    item.querySelector(".saved-load").addEventListener("click", () => loadPrompt(p.id));
-    item.querySelector(".saved-del").addEventListener("click",  () => deleteSaved(p.id));
-    savedList.appendChild(item);
-  }
-}
-
-function exportSaved() {
-  const json = JSON.stringify(savedPrompts, null, 2);
-  const blob = new Blob([json], { type: "application/json" });
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = `prompthub_saved_${new Date().toISOString().slice(0,10)}.json`;
-  a.click();
-  URL.revokeObjectURL(a.href);
-}
-
-function importSaved(file) {
-  const reader = new FileReader();
-  reader.onload = (ev) => {
-    try {
-      const data = JSON.parse(ev.target.result);
-      if (!Array.isArray(data)) throw new Error("invalid format");
-      const existingIds = new Set(savedPrompts.map(p => p.id));
-      let added = 0;
-      for (const p of data) {
-        if (p.id && p.name && Array.isArray(p.tags) && !existingIds.has(p.id)) {
-          savedPrompts.push(p);
-          added++;
-        }
-      }
-      savedPrompts.sort((a, b) => b.savedAt.localeCompare(a.savedAt));
-      localStorage.setItem(LS_SAVED, JSON.stringify(savedPrompts));
-      renderSavedList();
-      showToast(`インポート: ${added} 件追加`);
-    } catch {
-      showToast("インポート失敗: 無効なファイル形式");
-    }
-    savedImportInput.value = "";
-  };
-  reader.readAsText(file);
 }
 
 // ---- タグ追加: LocalStorage → メモリ注入 ----
@@ -915,6 +1116,249 @@ function importUserTags(file) {
   reader.readAsText(file);
 }
 
+// ---- 選択式 Prompt Builder ----
+function allSelectBlocks() {
+  return [...userSelectBlocks, ...SELECT_BLOCKS];
+}
+
+function getSelectBlock(id) {
+  return allSelectBlocks().find(block => block.id === id) || null;
+}
+
+function getSelectedSelectBlocks() {
+  return SELECT_CATEGORY_ORDER
+    .map(category => getSelectBlock(selectSelected[category]))
+    .filter(Boolean);
+}
+
+function getSelectUsage(blockId) {
+  return selectUsage[blockId] || { usage_count: 0, last_used_at: null };
+}
+
+function saveSelectUsage() {
+  localStorage.setItem(LS_SELECT_USAGE, JSON.stringify(selectUsage));
+}
+
+function incrementSelectUsage() {
+  const now = new Date().toISOString();
+  for (const block of getSelectedSelectBlocks()) {
+    const current = getSelectUsage(block.id);
+    selectUsage[block.id] = {
+      usage_count: (current.usage_count || 0) + 1,
+      last_used_at: now,
+    };
+  }
+  saveSelectUsage();
+  renderSelectBuilder();
+}
+
+function selectedUsageFingerprint() {
+  return getSelectedSelectBlocks().map(block => block.id).join("|");
+}
+
+function recordSelectableUsageOnce() {
+  const fingerprint = selectedUsageFingerprint();
+  if (!fingerprint || fingerprint === selectUsageRecordedFor) return;
+  selectUsageRecordedFor = fingerprint;
+  incrementSelectUsage();
+}
+
+function buildSelectablePrompt() {
+  const selected = getSelectedSelectBlocks();
+  const positive = selected
+    .filter(block => block.category !== "negative")
+    .map(block => block.prompt)
+    .filter(Boolean)
+    .join(", ");
+  const negatives = [
+    DEFAULT_NEGATIVE_PROMPT,
+    ...selected.filter(block => block.category === "negative").map(block => block.prompt).filter(Boolean),
+    ...selected.map(block => block.negative_prompt).filter(Boolean),
+  ];
+  const negative = [...new Set(negatives.join(", ").split(",").map(x => x.trim()).filter(Boolean))]
+    .join(", ");
+  return { positive, negative };
+}
+
+function generateSelectablePrompt() {
+  const { positive, negative } = buildSelectablePrompt();
+  selectPositivePrompt = positive;
+  selectNegativePrompt = negative;
+  selectUsageRecordedFor = "";
+  renderGeneratedPrompts();
+  showToast(positive ? "生成しました" : "ブロックを選択してください");
+}
+
+function clearSelectableBuilder() {
+  selectSelected = {};
+  selectPositivePrompt = "";
+  selectNegativePrompt = "";
+  selectUsageRecordedFor = "";
+  renderSelectBuilder();
+  showToast("選択式Builderをクリアしました");
+}
+
+function selectPromptBlock(blockId) {
+  const block = getSelectBlock(blockId);
+  if (!block) return;
+  if (selectSelected[block.category] === block.id) {
+    delete selectSelected[block.category];
+  } else {
+    selectSelected[block.category] = block.id;
+  }
+  selectPositivePrompt = "";
+  selectNegativePrompt = "";
+  selectUsageRecordedFor = "";
+  renderSelectBuilder();
+}
+
+function selectableBlocksForActiveCategory() {
+  const q = selectSearchQuery.trim().toLowerCase();
+  return allSelectBlocks()
+    .filter(block => block.enabled !== false && block.category === selectActiveCategory)
+    .filter(block => {
+      if (!q) return true;
+      return (
+        block.label.toLowerCase().includes(q) ||
+        block.prompt.toLowerCase().includes(q) ||
+        block.id.toLowerCase().includes(q)
+      );
+    })
+    .sort((a, b) => {
+      const au = getSelectUsage(a.id).usage_count || 0;
+      const bu = getSelectUsage(b.id).usage_count || 0;
+      if (bu !== au) return bu - au;
+      if ((b.favorite ? 1 : 0) !== (a.favorite ? 1 : 0)) return (b.favorite ? 1 : 0) - (a.favorite ? 1 : 0);
+      return a.label.localeCompare(b.label, "ja");
+    });
+}
+
+function renderSelectBuilder() {
+  if (!selectBuilder) return;
+  renderSelectCategoryTabs();
+  renderSelectBlocks();
+  renderSelectedBlocks();
+  renderGeneratedPrompts();
+}
+
+function renderSelectCategoryTabs() {
+  selectCategoryTabs.innerHTML = "";
+  for (const category of SELECT_CATEGORY_ORDER) {
+    const total = allSelectBlocks().filter(block => block.enabled !== false && block.category === category).length;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className =
+      "select-cat-tab" +
+      (selectActiveCategory === category ? " active" : "") +
+      (total === 0 ? " empty" : "");
+    btn.setAttribute("role", "tab");
+    btn.setAttribute("aria-selected", selectActiveCategory === category ? "true" : "false");
+    btn.dataset.category = category;
+    btn.textContent = `${SELECT_CATEGORY_LABELS[category]} ${selectSelected[category] ? "✓" : ""} (${total})`;
+    btn.addEventListener("click", () => {
+      selectActiveCategory = category;
+      renderSelectBuilder();
+    });
+    selectCategoryTabs.appendChild(btn);
+  }
+}
+
+function renderSelectBlocks() {
+  selectBlockList.innerHTML = "";
+  const blocks = selectableBlocksForActiveCategory();
+  if (blocks.length === 0) {
+    const empty = document.createElement("div");
+    empty.className = "select-empty";
+    empty.textContent = "該当するブロックがありません。";
+    selectBlockList.appendChild(empty);
+    return;
+  }
+
+  for (const block of blocks) {
+    const usage = getSelectUsage(block.id);
+    const card = document.createElement("div");
+    card.className = "select-block-card" + (selectSelected[block.category] === block.id ? " selected" : "");
+    card.dataset.blockId = block.id;
+    card.setAttribute("role", "button");
+    card.setAttribute("tabindex", "0");
+    card.innerHTML =
+      `<span class="select-block-top">` +
+        `<span class="select-block-label">${escHtml(block.label)}</span>` +
+        `<span class="select-block-meta">${block.favorite ? "★ " : ""}${usage.usage_count || 0} uses</span>` +
+      `</span>` +
+      `<span class="select-block-prompt">${escHtml(block.prompt)}</span>` +
+      (block.user_created ? `<span class="select-block-user">ユーザー作成</span>` : "");
+    card.addEventListener("click", (e) => {
+      if (e.target.closest(".select-block-actions")) return;
+      selectPromptBlock(block.id);
+    });
+    card.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      e.preventDefault();
+      selectPromptBlock(block.id);
+    });
+    if (block.user_created) {
+      const actions = document.createElement("span");
+      actions.className = "select-block-actions";
+
+      const edit = document.createElement("button");
+      edit.type = "button";
+      edit.className = "select-block-action select-block-edit";
+      edit.textContent = "編集";
+      edit.setAttribute("aria-label", `${block.label}を編集`);
+      edit.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openEditBlockDialog(block.id);
+      });
+      actions.appendChild(edit);
+
+      const del = document.createElement("button");
+      del.type = "button";
+      del.className = "select-block-action select-block-delete";
+      del.textContent = "削除";
+      del.setAttribute("aria-label", `${block.label}を削除`);
+      del.addEventListener("click", (e) => {
+        e.stopPropagation();
+        deleteCustomBlock(block.id);
+      });
+      actions.appendChild(del);
+      card.appendChild(actions);
+    }
+    selectBlockList.appendChild(card);
+  }
+}
+
+function renderSelectedBlocks() {
+  selectedBlocks.innerHTML = "";
+  const selected = getSelectedSelectBlocks();
+  if (selected.length === 0) {
+    const empty = document.createElement("div");
+    empty.className = "selected-empty";
+    empty.textContent = "未選択";
+    selectedBlocks.appendChild(empty);
+    return;
+  }
+
+  for (const block of selected) {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "selected-block-chip";
+    chip.title = "クリックで解除";
+    chip.innerHTML =
+      `<span>${escHtml(SELECT_CATEGORY_LABELS[block.category])}: ${escHtml(block.label)}</span>` +
+      `<span aria-hidden="true">×</span>`;
+    chip.addEventListener("click", () => selectPromptBlock(block.id));
+    selectedBlocks.appendChild(chip);
+  }
+}
+
+function renderGeneratedPrompts() {
+  positiveOutput.value = selectPositivePrompt;
+  negativeOutput.value = selectNegativePrompt;
+  selectCopyPositive.disabled = !selectPositivePrompt;
+  selectCopyNegative.disabled = !selectNegativePrompt;
+}
+
 // ---- イベント ----
 function setupEventListeners() {
   // 検索
@@ -942,6 +1386,7 @@ function setupEventListeners() {
   recordList.addEventListener("scroll", updateScrollHighlight);
 
   // Prompt Builder
+  builderBlockAdd.addEventListener("click", openBlockDialog);
   builderCopy.addEventListener("click", () => {
     const prompt = builderTags.map(t => t.en).join(", ");
     copyToClipboard(prompt);
@@ -950,32 +1395,40 @@ function setupEventListeners() {
     builderTags = [];
     renderBuilder();
   });
-  builderSave.addEventListener("click", openSaveDialog);
 
-  // 保存ダイアログ
-  saveConfirm.addEventListener("click", commitSave);
-  saveCancel.addEventListener("click",  closeSaveDialog);
-  saveDialog.addEventListener("click", (e) => {
-    if (e.target === saveDialog) closeSaveDialog();
+  // ブロック追加ダイアログ
+  blockConfirm.addEventListener("click", saveCustomBlock);
+  blockCancel.addEventListener("click", closeBlockDialog);
+  blockDialog.addEventListener("click", (e) => {
+    if (e.target === blockDialog) closeBlockDialog();
   });
-  saveNameInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter")  commitSave();
-    if (e.key === "Escape") closeSaveDialog();
+  blockNameInput.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeBlockDialog();
+  });
+  blockPositiveInput.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeBlockDialog();
+  });
+  blockNegativeInput.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeBlockDialog();
   });
 
-  // 保存済みパネル開閉（ヘッダークリック）
-  savedBarHeader.addEventListener("click", (e) => {
-    // ボタン類はクリックイベントが伝播するので除外
-    if (e.target.closest("button, label")) return;
-    savedBar.classList.toggle("open");
+  // 選択式 Prompt Builder
+  selectSearch.addEventListener("input", () => {
+    selectSearchQuery = selectSearch.value;
+    renderSelectBlocks();
   });
-  savedToggle.addEventListener("click", () => savedBar.classList.toggle("open"));
-
-  // エクスポート / インポート
-  savedExport.addEventListener("click", (e) => { e.stopPropagation(); exportSaved(); });
-  savedImportInput.addEventListener("change", (e) => {
-    if (e.target.files[0]) importSaved(e.target.files[0]);
+  selectGenerate.addEventListener("click", generateSelectablePrompt);
+  selectCopyPositive.addEventListener("click", () => {
+    if (!selectPositivePrompt) return;
+    copyToClipboard(selectPositivePrompt);
+    recordSelectableUsageOnce();
   });
+  selectCopyNegative.addEventListener("click", () => {
+    if (!selectNegativePrompt) return;
+    copyToClipboard(selectNegativePrompt);
+    recordSelectableUsageOnce();
+  });
+  selectClear.addEventListener("click", clearSelectableBuilder);
 
   // タグ追加ダイアログ
   tagAddBtn.addEventListener("click", openAddTagDialog);
@@ -1058,18 +1511,24 @@ function showToast(msg) {
 }
 
 function copyToClipboard(text) {
-  navigator.clipboard.writeText(text).then(
-    () => showToast(`コピー: ${text}`),
-    () => {
-      const ta = document.createElement("textarea");
-      ta.value = text;
-      ta.style.position = "fixed";
-      ta.style.opacity = "0";
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand("copy");
-      document.body.removeChild(ta);
-      showToast(`コピー: ${text}`);
-    }
-  );
+  const fallbackCopy = () => {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    document.body.removeChild(ta);
+    showToast(`コピー: ${text}`);
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(
+      () => showToast(`コピー: ${text}`),
+      fallbackCopy
+    );
+  } else {
+    fallbackCopy();
+  }
 }
