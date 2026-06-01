@@ -38,6 +38,7 @@
         <div id="builder-chips"><!-- JS で生成 --></div>
         <div id="builder-actions">
           <button id="builder-save" disabled>保存</button>
+          <button id="builder-block-add" disabled>ブロック追加</button>
           <button id="builder-copy" disabled>COPY</button>
           <button id="builder-clear">CLEAR</button>
         </div>
@@ -131,6 +132,38 @@
       <div id="save-dialog-btns">
         <button id="save-confirm">保存</button>
         <button id="save-cancel">キャンセル</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ブロック追加ダイアログ -->
+  <div id="block-dialog">
+    <div id="block-dialog-box">
+      <div id="block-dialog-title">選択式ブロックを追加</div>
+      <div class="block-field">
+        <label class="block-lbl" for="block-name-input">ブロック名</label>
+        <input id="block-name-input" class="block-inp" type="text" placeholder="例: やさしい笑顔" maxlength="40" autocomplete="off" />
+      </div>
+      <div class="block-field">
+        <label class="block-lbl" for="block-category-select">カテゴリ</label>
+        <select id="block-category-select" class="block-inp"></select>
+      </div>
+      <div class="block-field block-field-wide">
+        <label class="block-lbl" for="block-positive-input">Positive</label>
+        <textarea id="block-positive-input" class="block-textarea"></textarea>
+      </div>
+      <div class="block-field block-field-wide">
+        <label class="block-lbl" for="block-negative-input">Negative</label>
+        <textarea id="block-negative-input" class="block-textarea" placeholder="任意"></textarea>
+      </div>
+      <label id="block-favorite-row">
+        <input id="block-favorite-input" type="checkbox" />
+        よく使うブロックとして上位表示
+      </label>
+      <div id="block-error"></div>
+      <div id="block-dialog-btns">
+        <button id="block-confirm">追加</button>
+        <button id="block-cancel">キャンセル</button>
       </div>
     </div>
   </div>

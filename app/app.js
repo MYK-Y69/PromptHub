@@ -8,15 +8,38 @@ const LS_DELETED    = "prompthub_deleted";
 const LS_SAVED      = "prompthub_saved";
 const LS_USER_TAGS  = "prompthub_user_tags";
 const LS_SELECT_USAGE = "prompthub_select_builder_usage";
+const LS_SELECT_BLOCKS = "prompthub_select_builder_blocks";
 
 // ---- Selectable Builder data ----
-const SELECT_CATEGORY_ORDER = ["character", "pose", "expression", "angle", "background"];
+const SELECT_CATEGORY_ORDER = [
+  "character",
+  "camera",
+  "composition",
+  "expression_face",
+  "pose",
+  "action",
+  "outfit",
+  "people_gender",
+  "angle",
+  "background",
+  "quality_meta",
+  "sensitive",
+  "negative",
+];
 const SELECT_CATEGORY_LABELS = {
   character: "キャラクター",
+  camera: "カメラ",
+  composition: "構図",
+  expression_face: "表情・顔",
   pose: "ポーズ",
-  expression: "表情",
+  action: "動作・行動",
+  outfit: "服装",
+  people_gender: "人数・性別",
   angle: "アングル",
   background: "背景",
+  quality_meta: "品質・メタ",
+  sensitive: "Sensitive",
+  negative: "Negative",
 };
 
 const DEFAULT_NEGATIVE_PROMPT =
@@ -79,7 +102,7 @@ const SELECT_BLOCKS = [
   },
   {
     id: "expression_gentle_smile",
-    category: "expression",
+    category: "expression_face",
     label: "やさしい笑顔",
     prompt: "gentle smile, soft eyes, warm expression",
     negative_prompt: "",
@@ -88,7 +111,7 @@ const SELECT_BLOCKS = [
   },
   {
     id: "expression_serious",
-    category: "expression",
+    category: "expression_face",
     label: "真剣な表情",
     prompt: "serious expression, focused eyes, closed mouth",
     negative_prompt: "",
@@ -97,7 +120,7 @@ const SELECT_BLOCKS = [
   },
   {
     id: "expression_surprised",
-    category: "expression",
+    category: "expression_face",
     label: "驚き",
     prompt: "surprised expression, wide eyes, slightly open mouth",
     negative_prompt: "",
@@ -173,6 +196,7 @@ let selectSearchQuery = "";
 let selectSelected = {};
 let selectPositivePrompt = "";
 let selectNegativePrompt = "";
+let userSelectBlocks = [];
 
 // 削除済みタグ (en.toLowerCase() のセット)
 let deletedTags  = new Set(JSON.parse(localStorage.getItem(LS_DELETED) || "[]"));
@@ -186,6 +210,12 @@ let ctxTargetTag = null;
 // ユーザーが追加したタグ [{en,jp,catId,scId?,scLabel?,secId,secLabel,target,target_note?,addedAt}]
 let userAddedTags = JSON.parse(localStorage.getItem(LS_USER_TAGS) || "[]");
 let selectUsage = JSON.parse(localStorage.getItem(LS_SELECT_USAGE) || "{}");
+try {
+  userSelectBlocks = JSON.parse(localStorage.getItem(LS_SELECT_BLOCKS) || "[]");
+  if (!Array.isArray(userSelectBlocks)) userSelectBlocks = [];
+} catch {
+  userSelectBlocks = [];
+}
 
 // ---- target ラベル定義 ----
 const TARGET_LABEL = {
@@ -204,6 +234,7 @@ const builderChips    = document.getElementById("builder-chips");
 const builderCopy     = document.getElementById("builder-copy");
 const builderClear    = document.getElementById("builder-clear");
 const builderSave     = document.getElementById("builder-save");
+const builderBlockAdd = document.getElementById("builder-block-add");
 const indexTree       = document.getElementById("index-tree");
 const toast           = document.getElementById("toast");
 
@@ -216,6 +247,16 @@ const saveDialog      = document.getElementById("save-dialog");
 const saveNameInput   = document.getElementById("save-name-input");
 const saveConfirm     = document.getElementById("save-confirm");
 const saveCancel      = document.getElementById("save-cancel");
+
+const blockDialog         = document.getElementById("block-dialog");
+const blockNameInput      = document.getElementById("block-name-input");
+const blockCategorySelect = document.getElementById("block-category-select");
+const blockPositiveInput  = document.getElementById("block-positive-input");
+const blockNegativeInput  = document.getElementById("block-negative-input");
+const blockFavoriteInput  = document.getElementById("block-favorite-input");
+const blockError          = document.getElementById("block-error");
+const blockConfirm        = document.getElementById("block-confirm");
+const blockCancel         = document.getElementById("block-cancel");
 
 const savedBar        = document.getElementById("saved-bar");
 const savedBarHeader  = document.getElementById("saved-bar-header");
@@ -611,6 +652,95 @@ function renderBuilder() {
   const hasChips = builderTags.length > 0;
   builderCopy.disabled = !hasChips;
   builderSave.disabled = !hasChips;
+  builderBlockAdd.disabled = !hasChips;
+}
+
+function populateBlockCategorySelect() {
+  blockCategorySelect.innerHTML = "";
+  for (const category of SELECT_CATEGORY_ORDER) {
+    const opt = document.createElement("option");
+    opt.value = category;
+    opt.textContent = SELECT_CATEGORY_LABELS[category];
+    blockCategorySelect.appendChild(opt);
+  }
+}
+
+function openBlockDialog() {
+  if (builderTags.length === 0) return;
+  populateBlockCategorySelect();
+  blockNameInput.value = "";
+  blockCategorySelect.value = selectActiveCategory || "character";
+  blockPositiveInput.value = builderTags.map(t => t.en).join(", ");
+  blockNegativeInput.value = "";
+  blockFavoriteInput.checked = false;
+  blockError.textContent = "";
+  blockDialog.classList.add("show");
+  setTimeout(() => blockNameInput.focus(), 50);
+}
+
+function closeBlockDialog() {
+  blockDialog.classList.remove("show");
+}
+
+function slugFromText(text) {
+  return String(text)
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "")
+    .slice(0, 48);
+}
+
+function saveCustomBlock() {
+  const label = blockNameInput.value.trim();
+  const category = blockCategorySelect.value;
+  const prompt = blockPositiveInput.value.trim();
+  const negativePrompt = blockNegativeInput.value.trim();
+
+  if (!label) { blockError.textContent = "ブロック名を入力してください"; blockNameInput.focus(); return; }
+  if (!category) { blockError.textContent = "カテゴリを選択してください"; blockCategorySelect.focus(); return; }
+  if (!prompt) { blockError.textContent = "Positive prompt が空です"; blockPositiveInput.focus(); return; }
+
+  const baseId = slugFromText(label) || "custom_block";
+  const usedIds = new Set(allSelectBlocks().map(block => block.id));
+  let id = `custom_${category}_${baseId}`;
+  let suffix = 2;
+  while (usedIds.has(id)) {
+    id = `custom_${category}_${baseId}_${suffix}`;
+    suffix++;
+  }
+
+  const block = {
+    id,
+    category,
+    label,
+    prompt,
+    negative_prompt: negativePrompt,
+    favorite: blockFavoriteInput.checked,
+    enabled: true,
+    user_created: true,
+    created_at: new Date().toISOString(),
+  };
+
+  userSelectBlocks.unshift(block);
+  localStorage.setItem(LS_SELECT_BLOCKS, JSON.stringify(userSelectBlocks));
+  selectActiveCategory = category;
+  selectSelected[category] = id;
+  selectPositivePrompt = "";
+  selectNegativePrompt = "";
+  closeBlockDialog();
+  renderSelectBuilder();
+  showToast(`ブロック追加: ${label}`);
+}
+
+function deleteCustomBlock(blockId) {
+  const block = userSelectBlocks.find(item => item.id === blockId);
+  if (!block) return;
+  userSelectBlocks = userSelectBlocks.filter(item => item.id !== blockId);
+  localStorage.setItem(LS_SELECT_BLOCKS, JSON.stringify(userSelectBlocks));
+  if (selectSelected[block.category] === blockId) delete selectSelected[block.category];
+  renderSelectBuilder();
+  showToast(`ブロック削除: ${block.label}`);
 }
 
 // ---- コンテキストメニュー ----
@@ -1087,8 +1217,12 @@ function importUserTags(file) {
 }
 
 // ---- 選択式 Prompt Builder ----
+function allSelectBlocks() {
+  return [...userSelectBlocks, ...SELECT_BLOCKS];
+}
+
 function getSelectBlock(id) {
-  return SELECT_BLOCKS.find(block => block.id === id) || null;
+  return allSelectBlocks().find(block => block.id === id) || null;
 }
 
 function getSelectedSelectBlocks() {
@@ -1121,11 +1255,13 @@ function incrementSelectUsage() {
 function buildSelectablePrompt() {
   const selected = getSelectedSelectBlocks();
   const positive = selected
+    .filter(block => block.category !== "negative")
     .map(block => block.prompt)
     .filter(Boolean)
     .join(", ");
   const negatives = [
     DEFAULT_NEGATIVE_PROMPT,
+    ...selected.filter(block => block.category === "negative").map(block => block.prompt).filter(Boolean),
     ...selected.map(block => block.negative_prompt).filter(Boolean),
   ];
   const negative = [...new Set(negatives.join(", ").split(",").map(x => x.trim()).filter(Boolean))]
@@ -1165,7 +1301,7 @@ function selectPromptBlock(blockId) {
 
 function selectableBlocksForActiveCategory() {
   const q = selectSearchQuery.trim().toLowerCase();
-  return SELECT_BLOCKS
+  return allSelectBlocks()
     .filter(block => block.enabled !== false && block.category === selectActiveCategory)
     .filter(block => {
       if (!q) return true;
@@ -1195,7 +1331,7 @@ function renderSelectBuilder() {
 function renderSelectCategoryTabs() {
   selectCategoryTabs.innerHTML = "";
   for (const category of SELECT_CATEGORY_ORDER) {
-    const total = SELECT_BLOCKS.filter(block => block.enabled !== false && block.category === category).length;
+    const total = allSelectBlocks().filter(block => block.enabled !== false && block.category === category).length;
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "select-cat-tab" + (selectActiveCategory === category ? " active" : "");
@@ -1233,8 +1369,20 @@ function renderSelectBlocks() {
         `<span class="select-block-label">${escHtml(block.label)}</span>` +
         `<span class="select-block-meta">${block.favorite ? "★ " : ""}${usage.usage_count || 0} uses</span>` +
       `</span>` +
-      `<span class="select-block-prompt">${escHtml(block.prompt)}</span>`;
+      `<span class="select-block-prompt">${escHtml(block.prompt)}</span>` +
+      (block.user_created ? `<span class="select-block-user">ユーザー作成</span>` : "");
     btn.addEventListener("click", () => selectPromptBlock(block.id));
+    if (block.user_created) {
+      const del = document.createElement("span");
+      del.className = "select-block-delete";
+      del.textContent = "削除";
+      del.title = "このブロックを削除";
+      del.addEventListener("click", (e) => {
+        e.stopPropagation();
+        deleteCustomBlock(block.id);
+      });
+      btn.appendChild(del);
+    }
     selectBlockList.appendChild(btn);
   }
 }
@@ -1297,6 +1445,7 @@ function setupEventListeners() {
   recordList.addEventListener("scroll", updateScrollHighlight);
 
   // Prompt Builder
+  builderBlockAdd.addEventListener("click", openBlockDialog);
   builderCopy.addEventListener("click", () => {
     const prompt = builderTags.map(t => t.en).join(", ");
     copyToClipboard(prompt);
@@ -1306,6 +1455,23 @@ function setupEventListeners() {
     renderBuilder();
   });
   builderSave.addEventListener("click", openSaveDialog);
+
+  // ブロック追加ダイアログ
+  blockConfirm.addEventListener("click", saveCustomBlock);
+  blockCancel.addEventListener("click", closeBlockDialog);
+  blockDialog.addEventListener("click", (e) => {
+    if (e.target === blockDialog) closeBlockDialog();
+  });
+  blockNameInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") saveCustomBlock();
+    if (e.key === "Escape") closeBlockDialog();
+  });
+  blockPositiveInput.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeBlockDialog();
+  });
+  blockNegativeInput.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeBlockDialog();
+  });
 
   // 選択式 Prompt Builder
   selectSearch.addEventListener("input", () => {
