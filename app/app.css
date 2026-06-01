@@ -849,13 +849,11 @@ body {
   font-weight: 700;
 }
 
+.select-block-edit,
 .select-block-delete {
   position: absolute;
-  right: 8px;
   bottom: 7px;
-  color: #b91c1c;
   background: #fff;
-  border: 1px solid #fca5a5;
   border-radius: 5px;
   padding: 1px 6px;
   font-size: 0.65rem;
@@ -864,9 +862,27 @@ body {
   transition: opacity 0.12s, background 0.12s;
 }
 
+.select-block-edit {
+  right: 46px;
+  color: #315fbd;
+  border: 1px solid #93b4ff;
+}
+
+.select-block-delete {
+  right: 8px;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
+
 .select-block-card:hover .select-block-delete,
-.select-block-delete:focus {
+.select-block-card:hover .select-block-edit,
+.select-block-delete:focus,
+.select-block-edit:focus {
   opacity: 1;
+}
+
+.select-block-edit:hover {
+  background: #e9f0ff;
 }
 
 .select-block-delete:hover {

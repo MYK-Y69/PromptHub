@@ -197,6 +197,7 @@ let selectSelected = {};
 let selectPositivePrompt = "";
 let selectNegativePrompt = "";
 let userSelectBlocks = [];
+let editingBlockId = null;
 
 // 削除済みタグ (en.toLowerCase() のセット)
 let deletedTags  = new Set(JSON.parse(localStorage.getItem(LS_DELETED) || "[]"));
@@ -668,6 +669,9 @@ function populateBlockCategorySelect() {
 function openBlockDialog() {
   if (builderTags.length === 0) return;
   populateBlockCategorySelect();
+  editingBlockId = null;
+  document.getElementById("block-dialog-title").textContent = "選択式ブロックを追加";
+  blockConfirm.textContent = "追加";
   blockNameInput.value = "";
   blockCategorySelect.value = selectActiveCategory || "character";
   blockPositiveInput.value = builderTags.map(t => t.en).join(", ");
@@ -678,8 +682,26 @@ function openBlockDialog() {
   setTimeout(() => blockNameInput.focus(), 50);
 }
 
+function openEditBlockDialog(blockId) {
+  const block = userSelectBlocks.find(item => item.id === blockId);
+  if (!block) return;
+  populateBlockCategorySelect();
+  editingBlockId = blockId;
+  document.getElementById("block-dialog-title").textContent = "選択式ブロックを編集";
+  blockConfirm.textContent = "保存";
+  blockNameInput.value = block.label;
+  blockCategorySelect.value = block.category;
+  blockPositiveInput.value = block.prompt;
+  blockNegativeInput.value = block.negative_prompt || "";
+  blockFavoriteInput.checked = !!block.favorite;
+  blockError.textContent = "";
+  blockDialog.classList.add("show");
+  setTimeout(() => blockNameInput.focus(), 50);
+}
+
 function closeBlockDialog() {
   blockDialog.classList.remove("show");
+  editingBlockId = null;
 }
 
 function slugFromText(text) {
@@ -701,11 +723,18 @@ function saveCustomBlock() {
   if (!category) { blockError.textContent = "カテゴリを選択してください"; blockCategorySelect.focus(); return; }
   if (!prompt) { blockError.textContent = "Positive prompt が空です"; blockPositiveInput.focus(); return; }
 
+  const existingBlock = editingBlockId
+    ? userSelectBlocks.find(item => item.id === editingBlockId)
+    : null;
+
   const baseId = slugFromText(label) || "custom_block";
-  const usedIds = new Set(allSelectBlocks().map(block => block.id));
+  const usedIds = new Set(allSelectBlocks()
+    .filter(block => block.id !== editingBlockId)
+    .map(block => block.id));
   let id = `custom_${category}_${baseId}`;
   let suffix = 2;
-  while (usedIds.has(id)) {
+  if (existingBlock) id = existingBlock.id;
+  while (!existingBlock && usedIds.has(id)) {
     id = `custom_${category}_${baseId}_${suffix}`;
     suffix++;
   }
@@ -719,18 +748,27 @@ function saveCustomBlock() {
     favorite: blockFavoriteInput.checked,
     enabled: true,
     user_created: true,
-    created_at: new Date().toISOString(),
+    created_at: existingBlock?.created_at || new Date().toISOString(),
+    updated_at: new Date().toISOString(),
   };
 
-  userSelectBlocks.unshift(block);
+  if (existingBlock) {
+    userSelectBlocks = userSelectBlocks.map(item => item.id === existingBlock.id ? block : item);
+    if (selectSelected[existingBlock.category] === existingBlock.id && existingBlock.category !== category) {
+      delete selectSelected[existingBlock.category];
+      selectSelected[category] = existingBlock.id;
+    }
+  } else {
+    userSelectBlocks.unshift(block);
+    selectSelected[category] = id;
+  }
   localStorage.setItem(LS_SELECT_BLOCKS, JSON.stringify(userSelectBlocks));
   selectActiveCategory = category;
-  selectSelected[category] = id;
   selectPositivePrompt = "";
   selectNegativePrompt = "";
   closeBlockDialog();
   renderSelectBuilder();
-  showToast(`ブロック追加: ${label}`);
+  showToast(existingBlock ? `ブロック更新: ${label}` : `ブロック追加: ${label}`);
 }
 
 function deleteCustomBlock(blockId) {
@@ -1373,6 +1411,16 @@ function renderSelectBlocks() {
       (block.user_created ? `<span class="select-block-user">ユーザー作成</span>` : "");
     btn.addEventListener("click", () => selectPromptBlock(block.id));
     if (block.user_created) {
+      const edit = document.createElement("span");
+      edit.className = "select-block-edit";
+      edit.textContent = "編集";
+      edit.title = "このブロックを編集";
+      edit.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openEditBlockDialog(block.id);
+      });
+      btn.appendChild(edit);
+
       const del = document.createElement("span");
       del.className = "select-block-delete";
       del.textContent = "削除";
@@ -1463,7 +1511,6 @@ function setupEventListeners() {
     if (e.target === blockDialog) closeBlockDialog();
   });
   blockNameInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") saveCustomBlock();
     if (e.key === "Escape") closeBlockDialog();
   });
   blockPositiveInput.addEventListener("keydown", (e) => {
