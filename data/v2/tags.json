@@ -1,7 +1,7 @@
 {
   "schema_version": "2.1",
-  "generated_at": "2026-04-13T00:20:49Z",
-  "count": 10168,
+  "generated_at": "2026-06-23T00:45:17Z",
+  "count": 10085,
   "categories": [
     {
       "id": "camera",
@@ -199,12 +199,6 @@
                   "target_note": null
                 },
                 {
-                  "en": "view",
-                  "jp": "俯瞰視点（上から見下ろすアングル（e621用語））",
-                  "target": null,
-                  "target_note": null
-                },
-                {
                   "en": "ahead",
                   "jp": "正面を見る（自分の真正面を見ている視線（視聴者とは限らない））",
                   "target": null,
@@ -225,12 +219,6 @@
                 {
                   "en": "side",
                   "jp": "横を見る（左右どちらかを見ている状態）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "view",
-                  "jp": "ローアングル視点（下から見上げるアングル（e621用語））",
                   "target": null,
                   "target_note": null
                 },
@@ -285,12 +273,6 @@
                 {
                   "en": "view",
                   "jp": "横から見た姿（真横方向からの視点）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "view",
-                  "jp": "斜め45度の視点（斜め前から捉えた一般的なアングル）",
                   "target": null,
                   "target_note": null
                 },
@@ -1010,19 +992,19 @@
               "tags": [
                 {
                   "en": "blurry background",
-                  "jp": "背景のぼかし（被写界深度の効果で背景をぼかす表現 blurry foreground）",
+                  "jp": "背景のぼかし（被写界深度の効果で背景をぼかす表現）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "blurry foreground",
-                  "jp": "前景のぼかし（手前にある物体をぼかす表現 bokeh）",
+                  "jp": "前景のぼかし（手前にある物体をぼかす表現）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "butt from the front",
-                  "jp": "正面から見える尻（正面を向いているが尻も見える状態 caustics）",
+                  "jp": "正面から見える尻（正面を向いているが尻も見える状態）",
                   "target": null,
                   "target_note": null
                 },
@@ -1034,13 +1016,13 @@
                 },
                 {
                   "en": "looking aside",
-                  "jp": "視線を少し横に向ける（正面から少し外れた方向を見ている視線 looking at another）",
+                  "jp": "視線を少し横に向ける（正面から少し外れた方向を見ている視線）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "looking at partner",
-                  "jp": "パートナーを見る（相手役のキャラクターを見ている視線 looking at viewer）",
+                  "jp": "パートナーを見る（相手役のキャラクターを見ている視線）",
                   "target": null,
                   "target_note": null
                 },
@@ -1052,7 +1034,7 @@
                 },
                 {
                   "en": "three-quarter view",
-                  "jp": "斜め45度の視点（斜め前から捉えた一般的なアングル thigh gap）",
+                  "jp": "斜め45度の視点（斜め前から捉えた一般的なアングル）",
                   "target": null,
                   "target_note": null
                 }
@@ -23499,73 +23481,73 @@
               "tags": [
                 {
                   "en": "arms akimbo",
-                  "jp": "腰に両手（両手を腰に当て、肘を外側に張った力強いポーズ arms at sides）",
+                  "jp": "腰に両手（両手を腰に当て、肘を外側に張った力強いポーズ）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "arms behind back",
-                  "jp": "後ろ手（両腕を背後に回した姿勢 arms behind head）",
+                  "jp": "後ろ手（両腕を背後に回した姿勢）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "arms behind head",
-                  "jp": "両手後頭部（両手を頭の後ろに回しているポーズ arms bent）",
+                  "jp": "両手後頭部（両手を頭の後ろに回しているポーズ）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "arms bent",
-                  "jp": "腕を曲げる（肘を曲げた状態の腕 arms between legs）",
+                  "jp": "腕を曲げる（肘を曲げた状態の腕）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "arms between legs",
-                  "jp": "腕を脚の間に（両腕を脚の間に入れた姿勢 arms up）",
+                  "jp": "腕を脚の間に（両腕を脚の間に入れた姿勢）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "cupping hands",
-                  "jp": "手をすくう形（両手を丸く合わせ、液体や物を受ける形 double v）",
+                  "jp": "手をすくう形（両手を丸く合わせ、液体や物を受ける形）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "fetal position",
-                  "jp": "胎児姿勢（体を丸めてうずくまる、守りの姿勢 finger gun）",
+                  "jp": "胎児姿勢（体を丸めてうずくまる、守りの姿勢）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "hands on lap",
-                  "jp": "膝に手（座った状態で両手を自分の膝（または腿）に置く heart hands）",
+                  "jp": "膝に手（座った状態で両手を自分の膝（または腿）に置く）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "jojo pose",
-                  "jp": "ジョジョ立ち（漫画「ジョジョの奇妙な冒険」風の誇張された独特のポーズ kneeling）",
+                  "jp": "ジョジョ立ち（漫画「ジョジョの奇妙な冒険」風の誇張された独特のポーズ）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "on knee",
-                  "jp": "膝の上（他者の膝上に位置している状態 on stomach）",
+                  "jp": "膝の上（他者の膝上に位置している状態）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "paws",
-                  "jp": "猫の手（手を丸めて動物の足のように見せるポーズ。paw poseとも pointing）",
+                  "jp": "猫の手（手を丸めて動物の足のように見せるポーズ。paw poseとも）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "sitting on desk",
-                  "jp": "机の上に座る（机の表面にお尻をついて座っている状態 sitting on lap）",
+                  "jp": "机の上に座る（机の表面にお尻をついて座っている状態）",
                   "target": "self",
                   "target_note": null
                 }
@@ -29131,56 +29113,8 @@
                   "target_note": null
                 },
                 {
-                  "en": "head",
-                  "jp": "片腕を頭上へ（自分の片腕を頭より高い位置へ伸ばす動作）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "waist",
-                  "jp": "自分の腰に腕を回す（自分の腕を自分の腰に巻きつけるようなポーズ）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "head",
-                  "jp": "片手後頭部（自分の片手を後頭部の位置に置く）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "head",
-                  "jp": "頭に腕を乗せる（自分の腕を頭の上に乗せている状態）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "breasts",
-                  "jp": "片腕胸下支え（片方の前腕または上腕で胸を下方から支える）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "head",
-                  "jp": "両手後頭部（自分の両手を頭の後ろに回す）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "breasts",
-                  "jp": "両腕胸下支え（両腕を組むようにして、自分の胸を下から支える）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
                   "en": "finger",
                   "jp": "自分の指を噛む（自分の指を口に入れ、軽く噛んでいる状態）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "lift",
-                  "jp": "乳持ち上げ（自分の手で自分の胸を持ち上げる動作）",
                   "target": "self",
                   "target_note": null
                 },
@@ -29193,24 +29127,6 @@
                 {
                   "en": "suppress",
                   "jp": "胸押さえ（自分の胸を上方から手で押さえる、または休ませる動作）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "together",
-                  "jp": "寄せ乳（手や腕を使って自分の両胸を中央に強く寄せる）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "ass",
-                  "jp": "尻隠し（恥ずかしさ等から自分の尻を手で隠すポーズ）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "breasts",
-                  "jp": "手ブラ（手や腕で自分の乳首を覆い隠すポーズ。腕ブラも含む）",
                   "target": "self",
                   "target_note": null
                 },
@@ -29245,92 +29161,14 @@
                   "target_note": null
                 },
                 {
-                  "en": "mouth",
-                  "jp": "口を覆う（自分の口を手で覆う動作。驚きや秘密を守る仕草）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "mouth",
-                  "jp": "口に指を入れる（自分の指を口の中に入れている状態）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "cheek",
-                  "jp": "指を頬に当てる（人差し指を自分の頬に当てる照れや思考のポーズ）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "mouth",
-                  "jp": "指を口に当てる（指を口元（唇）に置く仕草。誘惑や静止の意味）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "chin",
-                  "jp": "顎に指を当てる（自分の顎に指を当てて考えるような仕草）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "ass",
-                  "jp": "自分の尻を掴む（自分の尻を手で掴み揉む動作）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
                   "en": "breast",
                   "jp": "セルフ乳揉み（自分の胸を自分の手で掴んで揉む動作）",
                   "target": "self",
                   "target_note": null
                 },
                 {
-                  "en": "mouth",
-                  "jp": "自分の髪を咥える（自分の髪の毛を口に含んでいる状態）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "legs",
-                  "jp": "脚の間に手（座った状態で自分の手を股の間に置く。arm）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "hair",
-                  "jp": "自分の髪に手を入れる（自分の髪の中に手を通している、またはかき上げる）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "ass",
-                  "jp": "自分の尻に手を置く（揉まずに自分の尻に手を当てている状態）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "cheek",
-                  "jp": "頬に手を当てる（自分の頬に手を置くポーズ（頬杖以外））",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "chest",
-                  "jp": "胸に手を当てる（心臓付近に手を置く動作。揉むのではなく休ませる）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
                   "en": "forehead",
                   "jp": "額に手を置く（自分の額に手を当てる動作）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "head",
-                  "jp": "頭に手を置く（自分の頭の上に片手を置く）",
                   "target": "self",
                   "target_note": null
                 },
@@ -29347,26 +29185,8 @@
                   "target_note": null
                 },
                 {
-                  "en": "shoulder",
-                  "jp": "肩に手を置く（自分の肩に片手を置く状態）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
                   "en": "thigh",
                   "jp": "太ももに手を置く（自分の太ももに手を置く）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "hair",
-                  "jp": "自分の髪に両手を入れる（両手を髪の中に差し込んでいる状態）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "chin",
-                  "jp": "顎に両手（両手で自分の顎を支えるポーズ）",
                   "target": "self",
                   "target_note": null
                 },
@@ -29379,18 +29199,6 @@
                 {
                   "en": "knee",
                   "jp": "膝に両手（両膝にそれぞれ手を置いている状態）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "hand",
-                  "jp": "頭を手に乗せる（腕で頭を支える。cheek）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "hair",
-                  "jp": "髪を持つ（自分の髪の毛先や束を手で持っている）",
                   "target": "self",
                   "target_note": null
                 },
@@ -29409,36 +29217,6 @@
                 {
                   "en": "tail",
                   "jp": "自分の尻尾を持つ（自分の尻尾を抱える、または掴んでいる状態）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "together",
-                  "jp": "自分の手を合わせる（祈りや合掌、あるいは指を組む動作。interlocked）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "hair",
-                  "jp": "自分の髪で遊ぶ（自分の髪を指でいじる動作）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "cheek",
-                  "jp": "頬を掻く（自分の頬を指で掻く仕草。照れ隠しの表現）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "head",
-                  "jp": "頭を掻く（自分の頭を掻く、または軽く叩く仕草）",
-                  "target": "self",
-                  "target_note": null
-                },
-                {
-                  "en": "chin",
-                  "jp": "自分の顎を撫でる（考え事をしながら自分の顎を撫でる動作）",
                   "target": "self",
                   "target_note": null
                 }
@@ -30274,24 +30052,6 @@
                   "target_note": null
                 },
                 {
-                  "en": "shoulder",
-                  "jp": "肩に腕を回す（他者の肩を抱くように腕を回す動作）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "waist",
-                  "jp": "腰に腕を回す（他者の腰に腕を回す。引き寄せる動作）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "back",
-                  "jp": "腕を引かれる（他者によって自分の腕を後ろに引かれている状態）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
                   "en": "hug",
                   "jp": "腕を抱きしめる（他者の腕を自分の両腕で抱きしめる）",
                   "target": null,
@@ -30310,38 +30070,8 @@
                   "target_note": null
                 },
                 {
-                  "en": "grab",
-                  "jp": "他者の顔を掴む（他人の顔を鷲掴みにする、または固定する動作）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "mouth",
-                  "jp": "他者の口に指を入れる（他人の口の中に指を入れている状態）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "mouth",
-                  "jp": "他者の口を制す（相手を黙らせるために他人の口に指を当てる）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "grab",
-                  "jp": "平らな胸を掴む（胸の平坦なキャラクターの胸部を掴む動作）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
                   "en": "arm",
                   "jp": "他者の腕を掴む（他人の腕を手で掴む、または引っ張る）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "ass",
-                  "jp": "他者の尻を掴む（他人の尻を手で掴み揉む）",
                   "target": null,
                   "target_note": null
                 },
@@ -30352,20 +30082,8 @@
                   "target_note": null
                 },
                 {
-                  "en": "chin",
-                  "jp": "顎クイ（他人の顎を下から指で持ち上げる、または固定する）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
                   "en": "ear",
                   "jp": "他者の耳を掴む（他人の耳を引っ張る動作）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "hair",
-                  "jp": "髪掴み（他人の髪を掴んで引っ張る、または固定する）",
                   "target": null,
                   "target_note": null
                 },
@@ -30376,62 +30094,14 @@
                   "target_note": null
                 },
                 {
-                  "en": "grab",
-                  "jp": "手掴み（一方的に相手の手を積極的に掴む動作）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "hair",
-                  "jp": "他者の髪に手を入れる（他人の髪の中に指を通す動作）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "back",
-                  "jp": "他者の背中に手を置く（他人の背中に手を当てる）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "cheek",
-                  "jp": "他者の頬に手を置く（他人の頬に手を添える優しい動作）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "chest",
-                  "jp": "他者の胸に手を置く（揉まずに他人の胸（または胸筋）に手を当てる）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "head",
-                  "jp": "他者の頭に手を置く（他人の頭の上に手を置く）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
                   "en": "hip",
                   "jp": "他者の腰に手を置く（他人の腰（ヒップ付近）に手を置く）",
                   "target": null,
                   "target_note": null
                 },
                 {
-                  "en": "shoulder",
-                  "jp": "他者の肩に手を置く（他人の肩に手を置く動作）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
                   "en": "thigh",
                   "jp": "他者の太ももに手を置く（他人の太ももに手を当てる）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "mouth",
-                  "jp": "ハンドギャグ（他人の口を自分の手で完全に覆い塞ぐ）",
                   "target": null,
                   "target_note": null
                 },
@@ -30448,24 +30118,6 @@
                   "target_note": null
                 },
                 {
-                  "en": "hand",
-                  "jp": "手にキス（相手の手の甲や指先にキスをする礼儀的な仕草）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "arms",
-                  "jp": "腕を組む（互いの腕を肘で絡め合う（腕組み））",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "grab",
-                  "jp": "ネクタイを掴む（他人のネクタイを掴んで自分の方へ引き寄せる）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
                   "en": "swear",
                   "jp": "指切り（二人が小指を絡めて約束をするポーズ）",
                   "target": null,
@@ -30474,18 +30126,6 @@
                 {
                   "en": "docking",
                   "jp": "乳合わせ（同程度のサイズの胸同士を正面から押し付け合う）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "grab",
-                  "jp": "太もも掴み（他人の太ももを強く掴む動作）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "grab",
-                  "jp": "舌掴み（他人の舌を指で掴む、または引っ張る動作）",
                   "target": null,
                   "target_note": null
                 }
@@ -30922,12 +30562,6 @@
                   "target_note": null
                 },
                 {
-                  "en": "legs",
-                  "jp": "生脚（衣服で覆われていない脚部（太もも～脛））",
-                  "target": null,
-                  "target_note": null
-                },
-                {
                   "en": "barefoot",
                   "jp": "裸足（靴も靴下も履いていない、完全に素足の状態）",
                   "target": null,
@@ -30942,12 +30576,6 @@
                 {
                   "en": "belly",
                   "jp": "ボテ腹（肥満、満腹、妊娠等で顕著に大きく膨らんだ腹部。inflationを含む）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "breasts",
-                  "jp": "乳揺れ（胸が上下左右に揺れている状態。静止画ではブレ等で表現）",
                   "target": null,
                   "target_note": null
                 },
@@ -30976,12 +30604,6 @@
                   "target_note": null
                 },
                 {
-                  "en": "arms",
-                  "jp": "多腕（通常の2本を超える腕（4本腕、6本腕等）を持つ体質）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
                   "en": "fat",
                   "jp": "肥満（明らかに太っている、または皮下脂肪の多い体格）",
                   "target": null,
@@ -30990,18 +30612,6 @@
                 {
                   "en": "chest",
                   "jp": "平坦な胸（乳房の膨らみが全くない完全に平らな胸部）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "legs",
-                  "jp": "長い脚（上半身に対して顕著に長い脚）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "waist",
-                  "jp": "細い腰（腰幅が頭部と同程度、またはそれ以下の極めて細い腰）",
                   "target": null,
                   "target_note": null
                 },
@@ -31096,38 +30706,14 @@
                   "target_note": null
                 },
                 {
-                  "en": "back",
-                  "jp": "後ろ手（両腕を背後に回した姿勢）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "head",
-                  "jp": "両手後頭部（両手を頭の後ろに回しているポーズ）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
                   "en": "bent",
                   "jp": "腕を曲げる（肘を曲げた状態の腕）",
                   "target": null,
                   "target_note": null
                 },
                 {
-                  "en": "legs",
-                  "jp": "腕を脚の間に（両腕を脚の間に入れた姿勢）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
                   "en": "beckoning",
                   "jp": "手招きする（他者を呼び寄せる手の動き）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "hands",
-                  "jp": "手をすくう形（両手を丸く合わせ、液体や物を受ける形）",
                   "target": null,
                   "target_note": null
                 },
@@ -31228,24 +30814,6 @@
                   "target_note": null
                 },
                 {
-                  "en": "grab",
-                  "jp": "服を掴む（自分または他人の服を引っ張る、または掴む。）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "grab",
-                  "jp": "カーテンを掴む（カーテンを手で持っている、または引き寄せている）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "hand",
-                  "jp": "紳士ハンド（体の一部が画面外にある、または浮遊して見える手）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
                   "en": "glass",
                   "jp": "ガラスに手を置く（窓ガラスや鏡などの表面に手を当てている）",
                   "target": null,
@@ -31278,30 +30846,6 @@
                 {
                   "en": "ground",
                   "jp": "地面に両手をつく（地面に両手をついている姿勢）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "grab",
-                  "jp": "枕を掴む（枕を抱え込む、または掴んでいる状態）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "grab",
-                  "jp": "シーツ掴み（ベッドのシーツを強く握りしめている状態）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "grab",
-                  "jp": "尻尾を掴む（自分または他人の尻尾を掴む動作）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "grab",
-                  "jp": "触手を掴む（触手を自分の手で掴む、または押し返している状態）",
                   "target": null,
                   "target_note": null
                 }
@@ -32255,175 +31799,175 @@
               "tags": [
                 {
                   "en": "arm above head",
-                  "jp": "片腕を頭上へ（自分の片腕を頭より高い位置へ伸ばす動作 arm across waist）",
+                  "jp": "片腕を頭上へ（自分の片腕を頭より高い位置へ伸ばす動作）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "arm across waist",
-                  "jp": "自分の腰に腕を回す（自分の腕を自分の腰に巻きつけるようなポーズ arm behind head）",
+                  "jp": "自分の腰に腕を回す（自分の腕を自分の腰に巻きつけるようなポーズ）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "arm behind head",
-                  "jp": "片手後頭部（自分の片手を後頭部の位置に置く arm on own head）",
+                  "jp": "片手後頭部（自分の片手を後頭部の位置に置く）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "arm on own head",
-                  "jp": "頭に腕を乗せる（自分の腕を頭の上に乗せている状態 arm under breasts）",
+                  "jp": "頭に腕を乗せる（自分の腕を頭の上に乗せている状態）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "arm under breasts",
-                  "jp": "片腕胸下支え（片方の前腕または上腕で胸を下方から支える arms behind head）",
+                  "jp": "片腕胸下支え（片方の前腕または上腕で胸を下方から支える）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "arms under breasts",
-                  "jp": "両腕胸下支え（両腕を組むようにして、自分の胸を下から支える biting own finger）",
+                  "jp": "両腕胸下支え（両腕を組むようにして、自分の胸を下から支える）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "biting own finger",
-                  "jp": "自分の指を噛む（自分の指を口に入れ、軽く噛んでいる状態 breast lift）",
+                  "jp": "自分の指を噛む（自分の指を口に入れ、軽く噛んでいる状態）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "breast lift",
-                  "jp": "乳持ち上げ（自分の手で自分の胸を持ち上げる動作 breast rest）",
+                  "jp": "乳持ち上げ（自分の手で自分の胸を持ち上げる動作）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "breast suppress",
-                  "jp": "胸押さえ（自分の胸を上方から手で押さえる、または休ませる動作 breasts squeezed together）",
+                  "jp": "胸押さえ（自分の胸を上方から手で押さえる、または休ませる動作）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "breasts squeezed together",
-                  "jp": "寄せ乳（手や腕を使って自分の両胸を中央に強く寄せる covering ass）",
+                  "jp": "寄せ乳（手や腕を使って自分の両胸を中央に強く寄せる）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "covering ass",
-                  "jp": "尻隠し（恥ずかしさ等から自分の尻を手で隠すポーズ covering breasts）",
+                  "jp": "尻隠し（恥ずかしさ等から自分の尻を手で隠すポーズ）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "covering breasts",
-                  "jp": "手ブラ（手や腕で自分の乳首を覆い隠すポーズ。腕ブラも含む covering crotch）",
+                  "jp": "手ブラ（手や腕で自分の乳首を覆い隠すポーズ。腕ブラも含む）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "covering crotch",
-                  "jp": "股間隠し（手や物で自分の股間を覆い隠すポーズ covering face）",
+                  "jp": "股間隠し（手や物で自分の股間を覆い隠すポーズ）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "covering face",
-                  "jp": "顔隠し（両手や物で自分の顔全体を覆う。恥ずかしさや恐怖の表現 covering nipples）",
+                  "jp": "顔隠し（両手や物で自分の顔全体を覆う。恥ずかしさや恐怖の表現）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "covering nipples",
-                  "jp": "乳首隠し（指先や手で乳首部分のみをピンポイントで隠す covering own ears）",
+                  "jp": "乳首隠し（指先や手で乳首部分のみをピンポイントで隠す）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "covering own ears",
-                  "jp": "耳塞ぎ（大きな音を遮る、または聞きたくない時に耳を覆う動作 covering own eyes）",
+                  "jp": "耳塞ぎ（大きな音を遮る、または聞きたくない時に耳を覆う動作）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "covering own eyes",
-                  "jp": "目隠し（自分の両目を手で覆う動作。covering one eye（片目隠し）も含む covering own mouth）",
+                  "jp": "目隠し（自分の両目を手で覆う動作。covering one eye（片目隠し）も含む）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "covering own mouth",
-                  "jp": "口を覆う（自分の口を手で覆う動作。驚きや秘密を守る仕草 finger in own mouth）",
+                  "jp": "口を覆う（自分の口を手で覆う動作。驚きや秘密を守る仕草）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "finger in own mouth",
-                  "jp": "口に指を入れる（自分の指を口の中に入れている状態 finger to cheek）",
+                  "jp": "口に指を入れる（自分の指を口の中に入れている状態）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "finger to cheek",
-                  "jp": "指を頬に当てる（人差し指を自分の頬に当てる照れや思考のポーズ finger to mouth）",
+                  "jp": "指を頬に当てる（人差し指を自分の頬に当てる照れや思考のポーズ）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "finger to mouth",
-                  "jp": "指を口に当てる（指を口元（唇）に置く仕草。誘惑や静止の意味 finger to own chin）",
+                  "jp": "指を口に当てる（指を口元（唇）に置く仕草。誘惑や静止の意味）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "finger to own chin",
-                  "jp": "顎に指を当てる（自分の顎に指を当てて考えるような仕草 grabbing own ass）",
+                  "jp": "顎に指を当てる（自分の顎に指を当てて考えるような仕草）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "grabbing own ass",
-                  "jp": "自分の尻を掴む（自分の尻を手で掴み揉む動作 grabbing own breast）",
+                  "jp": "自分の尻を掴む（自分の尻を手で掴み揉む動作）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "grabbing own breast",
-                  "jp": "セルフ乳揉み（自分の胸を自分の手で掴んで揉む動作 hair in own mouth）",
+                  "jp": "セルフ乳揉み（自分の胸を自分の手で掴んで揉む動作）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "hair in own mouth",
-                  "jp": "自分の髪を咥える（自分の髪の毛を口に含んでいる状態 hand between legs）",
+                  "jp": "自分の髪を咥える（自分の髪の毛を口に含んでいる状態）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "hand between legs",
-                  "jp": "脚の間に手（座った状態で自分の手を股の間に置く。arm between legsを含む hand in own hair）",
+                  "jp": "脚の間に手（座った状態で自分の手を股の間に置く。arm between legsを含む）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "hand in own hair",
-                  "jp": "自分の髪に手を入れる（自分の髪の中に手を通している、またはかき上げる hand in own panties）",
+                  "jp": "自分の髪に手を入れる（自分の髪の中に手を通している、またはかき上げる）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "hand in own panties",
-                  "jp": "自分のパンツの中に手を入れる（自分の下着の中に自分の手を入れている状態 hand on own ass）",
+                  "jp": "自分のパンツの中に手を入れる（自分の下着の中に自分の手を入れている状態）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "hand on own ass",
-                  "jp": "自分の尻に手を置く（揉まずに自分の尻に手を当てている状態 hand on own cheek）",
+                  "jp": "自分の尻に手を置く（揉まずに自分の尻に手を当てている状態）",
                   "target": "self",
                   "target_note": null
                 },
@@ -32435,133 +31979,133 @@
                 },
                 {
                   "en": "hand on own chest",
-                  "jp": "胸に手を当てる（心臓付近に手を置く動作。揉むのではなく休ませる hand on own forehead）",
+                  "jp": "胸に手を当てる（心臓付近に手を置く動作。揉むのではなく休ませる）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "hand on own forehead",
-                  "jp": "額に手を置く（自分の額に手を当てる動作 hand on own head）",
+                  "jp": "額に手を置く（自分の額に手を当てる動作）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "hand on own head",
-                  "jp": "頭に手を置く（自分の頭の上に片手を置く hand on own knee）",
+                  "jp": "頭に手を置く（自分の頭の上に片手を置く）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "hand on own knee",
-                  "jp": "膝に手を置く（自分の膝に片手を置く状態 hand on own neck）",
+                  "jp": "膝に手を置く（自分の膝に片手を置く状態）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "hand on own neck",
-                  "jp": "首に手を置く（自分の首筋に手を当てるポーズ hand on own shoulder）",
+                  "jp": "首に手を置く（自分の首筋に手を当てるポーズ）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "hand on own shoulder",
-                  "jp": "肩に手を置く（自分の肩に片手を置く状態 hand on own stomach）",
+                  "jp": "肩に手を置く（自分の肩に片手を置く状態）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "hand on own stomach",
-                  "jp": "腹に手を置く（自分の腹部に手を置く状態 hand on own thigh）",
+                  "jp": "腹に手を置く（自分の腹部に手を置く状態）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "hand on own thigh",
-                  "jp": "太ももに手を置く（自分の太ももに手を置く hands in hair）",
+                  "jp": "太ももに手を置く（自分の太ももに手を置く）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "hands in hair",
-                  "jp": "自分の髪に両手を入れる（両手を髪の中に差し込んでいる状態 hands on own chin）",
+                  "jp": "自分の髪に両手を入れる（両手を髪の中に差し込んでいる状態）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "hands on own chin",
-                  "jp": "顎に両手（両手で自分の顎を支えるポーズ hands on own hips）",
+                  "jp": "顎に両手（両手で自分の顎を支えるポーズ）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "hands on own hips",
-                  "jp": "腰に両手（両手を腰に当てた姿勢 hands on own knee）",
+                  "jp": "腰に両手（両手を腰に当てた姿勢）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "hands on own knee",
-                  "jp": "膝に両手（両膝にそれぞれ手を置いている状態 head on hand）",
+                  "jp": "膝に両手（両膝にそれぞれ手を置いている状態）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "head on hand",
-                  "jp": "頭を手に乗せる（腕で頭を支える。cheek rest（頬杖）の上位概念 holding hair）",
+                  "jp": "頭を手に乗せる（腕で頭を支える。cheek rest（頬杖）の上位概念）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "holding hair",
-                  "jp": "髪を持つ（自分の髪の毛先や束を手で持っている holding own arm）",
+                  "jp": "髪を持つ（自分の髪の毛先や束を手で持っている）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "holding own arm",
-                  "jp": "自分の腕を持つ（自分の片腕をもう一方の手で掴んでいる状態 holding own foot）",
+                  "jp": "自分の腕を持つ（自分の片腕をもう一方の手で掴んでいる状態）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "holding own foot",
-                  "jp": "自分の足を持つ（自分の足先や足首を手で持っているポーズ holding own tail）",
+                  "jp": "自分の足を持つ（自分の足先や足首を手で持っているポーズ）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "holding own tail",
-                  "jp": "自分の尻尾を持つ（自分の尻尾を抱える、または掴んでいる状態 own hands together）",
+                  "jp": "自分の尻尾を持つ（自分の尻尾を抱える、または掴んでいる状態）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "own hands together",
-                  "jp": "自分の手を合わせる（祈りや合掌、あるいは指を組む動作。interlocked fingersを含む playing with own hair）",
+                  "jp": "自分の手を合わせる（祈りや合掌、あるいは指を組む動作。interlocked fingersを含む）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "playing with own hair",
-                  "jp": "自分の髪で遊ぶ（自分の髪を指でいじる動作 scratching cheek）",
+                  "jp": "自分の髪で遊ぶ（自分の髪を指でいじる動作）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "scratching cheek",
-                  "jp": "頬を掻く（自分の頬を指で掻く仕草。照れ隠しの表現 scratching head）",
+                  "jp": "頬を掻く（自分の頬を指で掻く仕草。照れ隠しの表現）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "scratching head",
-                  "jp": "頭を掻く（自分の頭を掻く、または軽く叩く仕草 stroking own chin）",
+                  "jp": "頭を掻く（自分の頭を掻く、または軽く叩く仕草）",
                   "target": "self",
                   "target_note": null
                 },
                 {
                   "en": "stroking own chin",
-                  "jp": "自分の顎を撫でる（考え事をしながら自分の顎を撫でる動作 arm around neck）",
+                  "jp": "自分の顎を撫でる（考え事をしながら自分の顎を撫でる動作）",
                   "target": "self",
                   "target_note": null
                 }
@@ -32573,187 +32117,187 @@
               "tags": [
                 {
                   "en": "arm around neck",
-                  "jp": "首に腕を回す（他者の首の後ろに腕を回して抱き寄せる動作 arm around shoulder）",
+                  "jp": "首に腕を回す（他者の首の後ろに腕を回して抱き寄せる動作）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "arm around shoulder",
-                  "jp": "肩に腕を回す（他者の肩を抱くように腕を回す動作 arm around waist）",
+                  "jp": "肩に腕を回す（他者の肩を抱くように腕を回す動作）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "arm around waist",
-                  "jp": "腰に腕を回す（他者の腰に腕を回す。引き寄せる動作 arm held back）",
+                  "jp": "腰に腕を回す（他者の腰に腕を回す。引き寄せる動作）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "arm held back",
-                  "jp": "腕を引かれる（他者によって自分の腕を後ろに引かれている状態 arm hug）",
+                  "jp": "腕を引かれる（他者によって自分の腕を後ろに引かれている状態）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "arm hug",
-                  "jp": "腕を抱きしめる（他者の腕を自分の両腕で抱きしめる asymmetrical docking）",
+                  "jp": "腕を抱きしめる（他者の腕を自分の両腕で抱きしめる）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "asymmetrical docking",
-                  "jp": "非対称乳合わせ（サイズ差のある胸同士を押し付け合う動作 covering another's eyes）",
+                  "jp": "非対称乳合わせ（サイズ差のある胸同士を押し付け合う動作）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "covering another's eyes",
-                  "jp": "他者の目を隠す（背後等から他者の目元を自分の手で覆う face grab）",
+                  "jp": "他者の目を隠す（背後等から他者の目元を自分の手で覆う）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "face grab",
-                  "jp": "他者の顔を掴む（他人の顔を鷲掴みにする、または固定する動作 finger in another's mouth）",
+                  "jp": "他者の顔を掴む（他人の顔を鷲掴みにする、または固定する動作）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "finger in another's mouth",
-                  "jp": "他者の口に指を入れる（他人の口の中に指を入れている状態 finger to another's mouth）",
+                  "jp": "他者の口に指を入れる（他人の口の中に指を入れている状態）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "finger to another's mouth",
-                  "jp": "他者の口を制す（相手を黙らせるために他人の口に指を当てる flat chest grab）",
+                  "jp": "他者の口を制す（相手を黙らせるために他人の口に指を当てる）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "flat chest grab",
-                  "jp": "平らな胸を掴む（胸の平坦なキャラクターの胸部を掴む動作 grabbing another's arm）",
+                  "jp": "平らな胸を掴む（胸の平坦なキャラクターの胸部を掴む動作）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "grabbing another's arm",
-                  "jp": "他者の腕を掴む（他人の腕を手で掴む、または引っ張る grabbing another's ass）",
+                  "jp": "他者の腕を掴む（他人の腕を手で掴む、または引っ張る）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "grabbing another's ass",
-                  "jp": "他者の尻を掴む（他人の尻を手で掴み揉む grabbing another's breast）",
+                  "jp": "他者の尻を掴む（他人の尻を手で掴み揉む）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "grabbing another's breast",
-                  "jp": "乳揉み（他人の胸を揉む、または鷲掴みにする動作 grabbing another's chin）",
+                  "jp": "乳揉み（他人の胸を揉む、または鷲掴みにする動作）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "grabbing another's chin",
-                  "jp": "顎クイ（他人の顎を下から指で持ち上げる、または固定する grabbing another's ear）",
+                  "jp": "顎クイ（他人の顎を下から指で持ち上げる、または固定する）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "grabbing another's ear",
-                  "jp": "他者の耳を掴む（他人の耳を引っ張る動作 grabbing another's hair）",
+                  "jp": "他者の耳を掴む（他人の耳を引っ張る動作）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "grabbing another's hair",
-                  "jp": "髪掴み（他人の髪を掴んで引っ張る、または固定する grabbing from behind）",
+                  "jp": "髪掴み（他人の髪を掴んで引っ張る、または固定する）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "grabbing from behind",
-                  "jp": "背後から掴む（後ろから相手の体を抱え込んだり掴んだりする hand grab）",
+                  "jp": "背後から掴む（後ろから相手の体を抱え込んだり掴んだりする）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "hand grab",
-                  "jp": "手掴み（一方的に相手の手を積極的に掴む動作 hand in another's hair）",
+                  "jp": "手掴み（一方的に相手の手を積極的に掴む動作）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "hand in another's hair",
-                  "jp": "他者の髪に手を入れる（他人の髪の中に指を通す動作 hand on another's back）",
+                  "jp": "他者の髪に手を入れる（他人の髪の中に指を通す動作）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "hand on another's back",
-                  "jp": "他者の背中に手を置く（他人の背中に手を当てる hand on another's cheek）",
+                  "jp": "他者の背中に手を置く（他人の背中に手を当てる）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "hand on another's cheek",
-                  "jp": "他者の頬に手を置く（他人の頬に手を添える優しい動作 hand on another's chest）",
+                  "jp": "他者の頬に手を置く（他人の頬に手を添える優しい動作）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "hand on another's chest",
-                  "jp": "他者の胸に手を置く（揉まずに他人の胸（または胸筋）に手を当てる hand on another's head）",
+                  "jp": "他者の胸に手を置く（揉まずに他人の胸（または胸筋）に手を当てる）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "hand on another's head",
-                  "jp": "他者の頭に手を置く（他人の頭の上に手を置く hand on another's hip）",
+                  "jp": "他者の頭に手を置く（他人の頭の上に手を置く）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "hand on another's hip",
-                  "jp": "他者の腰に手を置く（他人の腰（ヒップ付近）に手を置く hand on another's shoulder）",
+                  "jp": "他者の腰に手を置く（他人の腰（ヒップ付近）に手を置く）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "hand on another's shoulder",
-                  "jp": "他者の肩に手を置く（他人の肩に手を置く動作 hand on another's stomach）",
+                  "jp": "他者の肩に手を置く（他人の肩に手を置く動作）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "hand on another's stomach",
-                  "jp": "他者の腹に手を置く（他人の腹部に手を当てる hand on another's thigh）",
+                  "jp": "他者の腹に手を置く（他人の腹部に手を当てる）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "hand on another's thigh",
-                  "jp": "他者の太ももに手を置く（他人の太ももに手を当てる hand over another's mouth）",
+                  "jp": "他者の太ももに手を置く（他人の太ももに手を当てる）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "hand over another's mouth",
-                  "jp": "ハンドギャグ（他人の口を自分の手で完全に覆い塞ぐ headpat）",
+                  "jp": "ハンドギャグ（他人の口を自分の手で完全に覆い塞ぐ）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "heart hands duo",
-                  "jp": "二人でハート（二人のキャラクターが片手ずつ使って一つのハートを作る holding hands）",
+                  "jp": "二人でハート（二人のキャラクターが片手ずつ使って一つのハートを作る）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "kissing hand",
-                  "jp": "手にキス（相手の手の甲や指先にキスをする礼儀的な仕草 locked arms）",
+                  "jp": "手にキス（相手の手の甲や指先にキスをする礼儀的な仕草）",
                   "target": "other",
                   "target_note": null
                 },
@@ -32765,31 +32309,31 @@
                 },
                 {
                   "en": "necktie grab",
-                  "jp": "ネクタイを掴む（他人のネクタイを掴んで自分の方へ引き寄せる pinky swear）",
+                  "jp": "ネクタイを掴む（他人のネクタイを掴んで自分の方へ引き寄せる）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "pinky swear",
-                  "jp": "指切り（二人が小指を絡めて約束をするポーズ symmetrical docking）",
+                  "jp": "指切り（二人が小指を絡めて約束をするポーズ）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "symmetrical docking",
-                  "jp": "乳合わせ（同程度のサイズの胸同士を正面から押し付け合う thigh grab）",
+                  "jp": "乳合わせ（同程度のサイズの胸同士を正面から押し付け合う）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "thigh grab",
-                  "jp": "太もも掴み（他人の太ももを強く掴む動作 tongue grab）",
+                  "jp": "太もも掴み（他人の太ももを強く掴む動作）",
                   "target": "other",
                   "target_note": null
                 },
                 {
                   "en": "tongue grab",
-                  "jp": "舌掴み（他人の舌を指で掴む、または引っ張る動作 clothes grab）",
+                  "jp": "舌掴み（他人の舌を指で掴む、または引っ張る動作）",
                   "target": "other",
                   "target_note": null
                 }
@@ -32801,61 +32345,61 @@
               "tags": [
                 {
                   "en": "clothes grab",
-                  "jp": "服を掴む（自分または他人の服を引っ張る、または掴む。 shirt grab等を含む curtain grab）",
+                  "jp": "服を掴む（自分または他人の服を引っ張る、または掴む。 shirt grab等を含む）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "curtain grab",
-                  "jp": "カーテンを掴む（カーテンを手で持っている、または引き寄せている disembodied hand）",
+                  "jp": "カーテンを掴む（カーテンを手で持っている、または引き寄せている）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "disembodied hand",
-                  "jp": "紳士ハンド（体の一部が画面外にある、または浮遊して見える手 hand in panties）",
+                  "jp": "紳士ハンド（体の一部が画面外にある、または浮遊して見える手）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "hand in panties",
-                  "jp": "パンツの中に手（自分または他者の下着の中に手を入れている状態 hand on glass）",
+                  "jp": "パンツの中に手（自分または他者の下着の中に手を入れている状態）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "hand on hilt",
-                  "jp": "剣の柄に手を置く（抜刀前やポーズとして刀剣の柄に手を当てている hand on wall）",
+                  "jp": "剣の柄に手を置く（抜刀前やポーズとして刀剣の柄に手を当てている）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "hands in opposite sleeves",
-                  "jp": "袖手（着物の両手を反対側の袖の中に入れている状態 hands on ground）",
+                  "jp": "袖手（着物の両手を反対側の袖の中に入れている状態）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "pillow grab",
-                  "jp": "枕を掴む（枕を抱え込む、または掴んでいる状態 sheet grab）",
+                  "jp": "枕を掴む（枕を抱え込む、または掴んでいる状態）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "sheet grab",
-                  "jp": "シーツ掴み（ベッドのシーツを強く握りしめている状態 tail grab）",
+                  "jp": "シーツ掴み（ベッドのシーツを強く握りしめている状態）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "tail grab",
-                  "jp": "尻尾を掴む（自分または他人の尻尾を掴む動作 tentacle grab）",
+                  "jp": "尻尾を掴む（自分または他人の尻尾を掴む動作）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "tentacle grab",
-                  "jp": "触手を掴む（触手を自分の手で掴む、または押し返している状態 abs）",
+                  "jp": "触手を掴む（触手を自分の手で掴む、または押し返している状態）",
                   "target": null,
                   "target_note": null
                 }
@@ -34521,12 +34065,6 @@
                   "target_note": null
                 },
                 {
-                  "en": "pull",
-                  "jp": "ビキニを引く（ビキニの布地を指で引っ張る動作）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
                   "en": "bodysuit",
                   "jp": "ボディスーツ（上下が一体化した、肌に密着する衣装）",
                   "target": null,
@@ -34535,18 +34073,6 @@
                 {
                   "en": "bottomless",
                   "jp": "下脱ぎ（下半身に衣服を着用していない状態。裸シャツ等）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "lift",
-                  "jp": "ブラ持ち上げ（ブラジャーを胸の上にたくし上げている状態）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "pull",
-                  "jp": "ブラ下げ（ブラジャーを下に引き下げている状態）",
                   "target": null,
                   "target_note": null
                 },
@@ -34575,12 +34101,6 @@
                   "target_note": null
                 },
                 {
-                  "en": "lift",
-                  "jp": "ドレスをたくし上げる（ドレスの裾を手で持ち上げる動作）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
                   "en": "highleg",
                   "jp": "ハイレグ（脚の付け根が極めて高い位置までカットされたデザイン）",
                   "target": null,
@@ -34605,20 +34125,8 @@
                   "target_note": null
                 },
                 {
-                  "en": "shoulder",
-                  "jp": "オフショルダー（肩を完全に露出させ、袖が上腕部から始まるデザイン）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
                   "en": "swimsuit",
                   "jp": "ワンピース水着（上下一体型の水着。スク水（school）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "pull",
-                  "jp": "パンツ下ろし（下着を下に引き下げている動作。pantyhose）",
                   "target": null,
                   "target_note": null
                 },
@@ -34649,12 +34157,6 @@
                 {
                   "en": "lift",
                   "jp": "シャツをたくし上げる（シャツの裾を上に持ち上げる動作）",
-                  "target": null,
-                  "target_note": null
-                },
-                {
-                  "en": "pull",
-                  "jp": "シャツを引く（シャツの襟や裾を引っ張る動作）",
                   "target": null,
                   "target_note": null
                 },
@@ -34690,103 +34192,103 @@
               "tags": [
                 {
                   "en": "backless outfit",
-                  "jp": "バックレス（背中が大きく開いたデザインの衣装 bikini）",
+                  "jp": "バックレス（背中が大きく開いたデザインの衣装）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "bikini pull",
-                  "jp": "ビキニを引く（ビキニの布地を指で引っ張る動作 blouse）",
+                  "jp": "ビキニを引く（ビキニの布地を指で引っ張る動作）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "body bodysuit",
-                  "jp": "ボディスーツ（上下が一体化した、肌に密着する衣装 bottomless）",
+                  "jp": "ボディスーツ（上下が一体化した、肌に密着する衣装）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "bra lift",
-                  "jp": "ブラ持ち上げ（ブラジャーを胸の上にたくし上げている状態 bra pull）",
+                  "jp": "ブラ持ち上げ（ブラジャーを胸の上にたくし上げている状態）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "bra pull",
-                  "jp": "ブラ下げ（ブラジャーを下に引き下げている状態 center opening）",
+                  "jp": "ブラ下げ（ブラジャーを下に引き下げている状態）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "center opening",
-                  "jp": "中央開き（胸の中央部分が縦に開いているデザイン china dress）",
+                  "jp": "中央開き（胸の中央部分が縦に開いているデザイン）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "cleavage cutout",
-                  "jp": "谷間ホール（胸元にハートや猫型などの穴が開いたデザイン completely nude）",
+                  "jp": "谷間ホール（胸元にハートや猫型などの穴が開いたデザイン）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "completely nude",
-                  "jp": "完全裸（首から下に一切の衣服・小物を着用していない状態 crop top）",
+                  "jp": "完全裸（首から下に一切の衣服・小物を着用していない状態）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "detached sleeves",
-                  "jp": "独立袖（肩部分で繋がっておらず、独立している袖 dress）",
+                  "jp": "独立袖（肩部分で繋がっておらず、独立している袖）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "dress lift",
-                  "jp": "ドレスをたくし上げる（ドレスの裾を手で持ち上げる動作 highleg）",
+                  "jp": "ドレスをたくし上げる（ドレスの裾を手で持ち上げる動作）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "maid apron",
-                  "jp": "メイドエプロン（フリルが付いた、メイド用の装飾的なエプロン midriff）",
+                  "jp": "メイドエプロン（フリルが付いた、メイド用の装飾的なエプロン）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "off shoulder",
-                  "jp": "オフショルダー（肩を完全に露出させ、袖が上腕部から始まるデザイン one-piece swimsuit）",
+                  "jp": "オフショルダー（肩を完全に露出させ、袖が上腕部から始まるデザイン）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "one-piece swimsuit",
-                  "jp": "ワンピース水着（上下一体型の水着。スク水（school swimsuit）を含む panty pull）",
+                  "jp": "ワンピース水着（上下一体型の水着。スク水（school swimsuit）を含む）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "panty pull",
-                  "jp": "パンツ下ろし（下着を下に引き下げている動作。pantyhose pullも含む pantyhose）",
+                  "jp": "パンツ下ろし（下着を下に引き下げている動作。pantyhose pullも含む）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "revealing clothes",
-                  "jp": "エロ衣装（露出度が極めて高く、実用性よりも魅せることを重視した衣装 see-through）",
+                  "jp": "エロ衣装（露出度が極めて高く、実用性よりも魅せることを重視した衣装）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "shirt pull",
-                  "jp": "シャツを引く（シャツの襟や裾を引っ張る動作 skirt）",
+                  "jp": "シャツを引く（シャツの襟や裾を引っ張る動作）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "torn clothes",
-                  "jp": "破れた服（戦闘やアクシデントで衣服が裂けている状態 underwear）",
+                  "jp": "破れた服（戦闘やアクシデントで衣服が裂けている状態）",
                   "target": null,
                   "target_note": null
                 }
@@ -49303,25 +48805,25 @@
               "tags": [
                 {
                   "en": "baseball bat",
-                  "jp": "バット（木製または金属製のバット。武器としても扱われる belt）",
+                  "jp": "バット（木製または金属製のバット。武器としても扱われる）",
                   "target": "object",
                   "target_note": null
                 },
                 {
                   "en": "(weapon) chainsaw",
-                  "jp": "チェンソー（動力付きの回転鋸 choker）",
+                  "jp": "チェンソー（動力付きの回転鋸）",
                   "target": "object",
                   "target_note": null
                 },
                 {
                   "en": "hair ornament",
-                  "jp": "髪飾り（リボン、ヘアピン、ヘッドバンド等の総称 halo）",
+                  "jp": "髪飾り（リボン、ヘアピン、ヘッドバンド等の総称）",
                   "target": "object",
                   "target_note": null
                 },
                 {
                   "en": "submachine gun",
-                  "jp": "サブマシンガン（片手または両手で扱える小型の機関銃 sunglasses）",
+                  "jp": "サブマシンガン（片手または両手で扱える小型の機関銃）",
                   "target": "object",
                   "target_note": null
                 }
@@ -51131,31 +50633,31 @@
                 },
                 {
                   "en": "bouncing breasts",
-                  "jp": "乳揺れ（胸が上下左右に揺れている状態。静止画ではブレ等で表現 breasts）",
+                  "jp": "乳揺れ（胸が上下左右に揺れている状態。静止画ではブレ等で表現）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "breasts apart",
-                  "jp": "離れた乳房（左右の乳房が外側を向き、中央に隙間がある状態 cleavage）",
+                  "jp": "離れた乳房（左右の乳房が外側を向き、中央に隙間がある状態）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "extra arms",
-                  "jp": "多腕（通常の2本を超える腕（4本腕、6本腕等）を持つ体質 fat）",
+                  "jp": "多腕（通常の2本を超える腕（4本腕、6本腕等）を持つ体質）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "long legs",
-                  "jp": "長い脚（上半身に対して顕著に長い脚 mature female）",
+                  "jp": "長い脚（上半身に対して顕著に長い脚）",
                   "target": null,
                   "target_note": null
                 },
                 {
                   "en": "narrow waist",
-                  "jp": "細い腰（腰幅が頭部と同程度、またはそれ以下の極めて細い腰 navel）",
+                  "jp": "細い腰（腰幅が頭部と同程度、またはそれ以下の極めて細い腰）",
                   "target": null,
                   "target_note": null
                 }
