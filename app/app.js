@@ -308,7 +308,7 @@ function updateScrollHighlight() {
 
 // ---- レコード一覧レンダリング ----
 function renderRecords() {
-  const q          = searchQuery.trim().toLowerCase();
+  const q          = searchQuery.trim();
   const tf         = targetFilter;
   const globalMode = q.length > 0;
 
@@ -400,11 +400,27 @@ function matchesFilter(tag, q, tf) {
     }
   }
   if (q) {
-    const enOk = tag.en.toLowerCase().includes(q);
-    const jpOk = tag.jp.toLowerCase().includes(q);
+    const enOk = containsSearchText(tag.en, q);
+    const jpOk = containsSearchText(tag.jp, q);
     if (!enOk && !jpOk) return false;
   }
   return true;
+}
+
+function normalizeSearchText(value) {
+  return String(value ?? "")
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function containsSearchText(value, query) {
+  const haystack = normalizeSearchText(value);
+  const needle = normalizeSearchText(query);
+  if (!needle) return true;
+  if (haystack.includes(needle)) return true;
+  return haystack.replace(/\s+/g, "").includes(needle.replace(/\s+/g, ""));
 }
 
 // ---- レコード DOM 生成 ----
@@ -1077,15 +1093,15 @@ function selectPromptBlock(blockId) {
 }
 
 function selectableBlocksForActiveCategory() {
-  const q = selectSearchQuery.trim().toLowerCase();
+  const q = normalizeSearchText(selectSearchQuery);
   return allSelectBlocks()
     .filter(block => block.enabled !== false && block.category === selectActiveCategory)
     .filter(block => {
       if (!q) return true;
       return (
-        block.label.toLowerCase().includes(q) ||
-        block.prompt.toLowerCase().includes(q) ||
-        block.id.toLowerCase().includes(q)
+        containsSearchText(block.label, q) ||
+        containsSearchText(block.prompt, q) ||
+        containsSearchText(block.id, q)
       );
     })
     .sort((a, b) => {
