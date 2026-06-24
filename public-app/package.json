@@ -1,0 +1,21 @@
+{
+  "name": "public-app",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/sync-data.mjs",
+    "dev": "vite --host 127.0.0.1",
+    "prebuild": "node scripts/sync-data.mjs",
+    "build": "vite build",
+    "check": "node scripts/check-app.mjs",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "5.0.4",
+    "vite": "6.4.2",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {}
+}

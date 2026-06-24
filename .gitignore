@@ -7,3 +7,9 @@ data/imbox/
 data/dictionary/*.preview.json
 *.pyc
 __pycache__/
+
+# public prototype build artifacts
+public-app/.npm-cache/
+public-app/node_modules/
+public-app/dist/
+public-app/public/data/tags.json

@@ -2,147 +2,99 @@
 
 ## Intake Summary
 
-Build a selectable prompt builder MVP inside current PromptHub. It must preserve existing tag browsing, Builder, saved prompts, import/export, tag addition, and Target filtering. New UI should let the user choose character, pose, expression, angle, and background blocks, then generate SeaArt-ready positive and negative prompts.
+Build a fully separated public PromptHub app based on the approved mockup direction. The current legacy `app/` is not a dependency and must not be modified by this build. The product goal is a repeatable workflow:
 
-## Assumptions
-
-- Work target is `/Users/nil-origin/PromptHub`, because it contains saved prompts, import/export, tag addition, and Target filtering.
-- No SeaArt automation or external service integration will be added.
-- MVP prompt blocks can be bundled as static JS constants to avoid changing the large compiled dataset.
-- Usage stats should use a new LocalStorage key and must not mutate existing saved prompt or tag data.
-
-## Screen Structure
-
-- Keep existing app shell.
-- Add a `Selectable Builder` panel between the saved prompt panel and record list.
-- The panel contains a compact header, search field, category tabs, block cards, selected items, Generate/Copy/Clear controls, and Positive/Negative output fields.
-
-## Component Structure
-
-- Static prompt block data: `SELECT_BLOCKS`.
-- State: selected blocks by category, active selectable category, selectable search, generated positive/negative strings, usage stats.
-- Render functions:
-  - `renderSelectBuilder()`
-  - `renderSelectCategoryTabs()`
-  - `renderSelectBlocks()`
-  - `renderSelectedBlocks()`
-  - `renderGeneratedPrompts()`
-- Actions:
-  - select/unselect block
-  - generate prompts
-  - copy generated prompts
-  - clear selected builder
-  - increment usage stats
-
-## State Management
-
-- New LocalStorage key: `prompthub_select_builder_usage`.
-- Usage shape:
-
-```json
-{
-  "block_id": {
-    "usage_count": 2,
-    "last_used_at": "ISO timestamp"
-  }
-}
+```text
+Explore -> Builder Workshop -> Collections -> reuse in Builder
 ```
 
-- Existing keys remain unchanged.
+## Quality Governance
 
-## Data Model / Data Flow
+- Single-agent review scores are not accepted as final scores.
+- Plan and implementation scoring must be performed by separate subagents when the tool is available.
+- If subagents are unavailable, the score remains pending and cannot be used as a pass gate.
+- For this repair loop, the accepted independent scores are:
+  - Plan Review: 78/100, Fail before revision.
+  - UX Implementation Review: 72/100, Fail.
+  - Technical Implementation Review: 81/100, No-go.
 
-Prompt block:
+## Requirements
 
-```json
-{
-  "id": "himesaki_rinami",
-  "category": "character",
-  "label": "姫崎莉波",
-  "prompt": "trigger words, hairstyle, hair color...",
-  "negative_prompt": "",
-  "favorite": false,
-  "enabled": true
-}
-```
+- Keep the public app isolated under `public-app/`.
+- Runtime must not depend on `app/` or repository-relative legacy paths.
+- Use real PromptHub compiled prompt data as the accepted runtime path.
+- Keep sample data only as an emergency/dev fallback, not as a successful public state.
+- Explore must support major and middle categories, search, target/source/user/favorite filters, visible empty/loading/error states, tag detail, copy, favorite, hide, and add-to-builder actions.
+- Builder Workshop must support Positive/Negative prompt editing, candidate search, Guide Blocks, output copy, save recipe, reorder, duplicate warning, and clear actions.
+- Collections must support explicit section switching, selected recipe inspection, load/copy/rename/duplicate/export/delete, favorites, recent prompts, custom Guide Blocks, user tags, and JSON backup.
+- Settings must support Sensitive gating, display preferences, local data import/export/reset, hidden tags, legacy import, and data status.
+- Sensitive vocabulary is OFF by default.
 
-Generate joins selected positive blocks in this order:
+## Data Source And Acceptance
 
-1. character
-2. pose
-3. expression
-4. angle
-5. background
+- Source of truth for this public app build: `data/v2/compiled/tags.json`.
+- `public-app/scripts/sync-data.mjs` copies that file to `public-app/public/data/tags.json` before dev/build.
+- Runtime loads `data/tags.json` through `import.meta.env.BASE_URL`, with Vite `base: "./"` so root and subpath hosting both work.
+- Acceptance check: production `dist/data/tags.json` must contain the compiled data count, at least 1,000 non-sensitive initial Explore tags, and at least 100 non-empty dictionary sections.
+- Current verified dataset: 10,085 tags, 9 major categories, 606 non-empty sections, 9,477 initial non-sensitive Explore tags.
 
-Negative prompt joins all selected block `negative_prompt` values plus a default negative block.
+## UI Structure
 
-## Technical Approach
+- Desktop Explore: left category rail, center search/results table, right tag inspector and draft summary.
+- Mobile Explore: full horizontal major category strip including "all", plus full active middle-category strip. No sliced-only taxonomy access.
+- Builder: left candidate rail, center prompt editor and Guide Blocks, right output/save inspector.
+- Collections: left collection section rail, center selected section list/editor, right selected recipe inspector.
+- Settings: sidebar plus grouped settings rows.
+- All primary lists must have empty states.
+- Table row selection must be keyboard-operable.
+- Editing repeat-use data must use inline forms, not browser `prompt()`.
+- Focus states must be visible.
 
-- Modify only `app/index.html`, `app/app.js`, and `app/app.css`, plus docs/reviews/plans.
-- Use plain DOM APIs consistent with the current app.
-- Add no dependencies.
-- Do not change `data/v2/compiled/tags.json`.
-- Preserve existing builder function names and LocalStorage shapes.
+## Component And Module Boundaries
 
-## UI / UX Approach
+Current construction keeps the app in `public-app/src/App.jsx` for the first working pass, but production hardening should split without behavior changes into:
 
-- Compact panel matching PromptHub's existing dense tool UI.
-- Category tabs show selected/total status.
-- Cards show label, prompt preview, usage count, and favorite marker.
-- Selected items are shown as removable chips.
-- Positive and Negative outputs use textarea fields for SeaArt copy/paste.
+- data loader / normalizer
+- local storage adapter and import validators
+- shared tag/prompt utilities
+- `ExploreView`
+- `BuilderView`
+- `CollectionsView`
+- `SettingsView`
+- shared table, panel, and edit form components
 
-## Accessibility Approach
+The large `App.jsx` file is an accepted short-term construction risk, not a final maintainability target.
 
-- Use buttons for selectable blocks and actions.
-- Add labels for search and output textareas.
-- Keep keyboard focusable controls.
-- Ensure disabled buttons reflect unavailable actions.
+## Repair Scope
 
-## Responsive Approach
+Repair loop 1 addresses the independent reviewer findings:
 
-- On narrow screens, stack sidebars and main content via CSS media query.
-- Selectable builder controls wrap instead of overflowing.
-- Output areas use fixed minimum heights and full width.
+- Configure relative Vite base for subpath deployment.
+- Remove repository-relative runtime data fallback.
+- Add strict local import normalization for recipes, blocks, tags, draft, favorites, recent prompts, hidden tags, and preferences.
+- Wrap localStorage writes so quota/security failures do not crash the UI.
+- Cap one-click generated dictionary Guide Block additions to avoid huge prompts from sections with hundreds of tags.
+- Replace mobile sliced category shortcuts with full category and subcategory access.
+- Make Collections sidebar buttons stateful.
+- Make recipe selection explicit and drive the inspector from the selected recipe.
+- Replace browser `prompt()` edit flows with inline forms.
+- Route table copy through the common copy helper.
+- Add keyboard selection, `aria-selected`, labels, `aria-pressed`, and focus-visible styling.
+- Expand static checks for data source, subpath base, no prompt dialogs, import validators, Collections state, and Guide Block cap.
 
 ## Verification Plan
 
-- Syntax check with `node --check app/app.js`.
-- Serve locally with `python3 -m http.server 8000`.
-- Browser verification:
-  - records render
-  - existing builder add/copy/clear works
-  - saved prompt save/export/import controls exist
-  - tag add dialog opens
-  - selectable category selection works
-  - Generate creates positive/negative prompts
-  - Copy works
-  - Clear works
-  - usage_count persists across reload
-  - mobile width does not heavily break
+- `npm run build` in `public-app/`.
+- `npm run check` in `public-app/`.
+- `git diff --check`.
+- Verify Vite dev or preview responds locally when available.
+- Verify `/data/tags.json` or relative `data/tags.json` resolves in served output.
+- Use subagent implementation review after repair; accept the lowest independent score as the current gate.
 
-## Work Sequence
+## Out Of Scope
 
-1. Add selectable builder markup.
-2. Add prompt block constants, state, render/action functions.
-3. Wire event listeners.
-4. Add CSS for desktop and mobile.
-5. Run local syntax/server/browser verification.
-6. Save implementation review and score.
-7. Repair only MVP blockers if score is under threshold.
-8. Commit locally without push.
-
-## Risks and Mitigations
-
-- Risk: existing Builder behavior changes. Mitigation: leave existing Builder state and functions intact.
-- Risk: import/export incompatibility. Mitigation: new feature uses separate LocalStorage and does not alter import/export schemas.
-- Risk: panel increases vertical clutter. Mitigation: compact controls and scroll-friendly card row.
-- Risk: no package build. Mitigation: use syntax check and browser verification.
-
-## Out of Scope
-
-- SeaArt API/CLI/browser automation.
-- Main/production merge.
-- Push/deploy.
-- Large data migration.
-- Dependency additions.
+- Replacing the legacy `app/`.
+- Editing dictionary pipeline tools.
+- User accounts, cloud sync, collaboration, billing, or telemetry.
+- Full component split before the current repair score is known.
+- Git push without explicit user approval.
