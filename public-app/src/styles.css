@@ -399,11 +399,55 @@ p {
   display: flex;
   gap: 4px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .row-actions button {
   padding: 4px 6px;
   font-size: 12px;
+}
+
+.row-actions-prioritized {
+  gap: 6px;
+}
+
+.action-menu {
+  position: relative;
+}
+
+.action-menu summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 12px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.action-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.action-menu[open] summary {
+  border-color: #9edce4;
+  background: var(--primary-soft);
+  color: var(--primary-strong);
+}
+
+.action-menu-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 5px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcfe;
 }
 
 .star.active,
@@ -565,6 +609,15 @@ p {
   background: #fbf9ff;
 }
 
+.danger-zone {
+  border-color: #f3c3c9;
+  background: var(--danger-soft);
+}
+
+.danger-zone h2 {
+  color: var(--danger);
+}
+
 .hidden-tags-row {
   border-color: #d8dfeb;
   background: #fbfcfe;
@@ -662,6 +715,22 @@ button:disabled {
   margin: 12px 0 16px;
 }
 
+.recommended-guide-blocks {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0;
+  padding: 12px;
+  border: 1px solid #bfe8df;
+  border-radius: 9px;
+  background: linear-gradient(180deg, #f2fbf8, #ffffff);
+}
+
+.guide-recommend-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
 .guide-shortcut-section {
   display: grid;
   align-content: start;
@@ -671,6 +740,10 @@ button:disabled {
   border: 1px solid var(--line);
   border-radius: 9px;
   background: #fbfcfe;
+}
+
+.guide-shortcut-section.empty {
+  background: var(--surface-soft);
 }
 
 .guide-shortcut-head {
@@ -979,6 +1052,10 @@ button:disabled {
   transform: translateX(-50%) translateY(0);
 }
 
+.mobile-builder-actions {
+  display: none;
+}
+
 .empty-state {
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -1010,11 +1087,18 @@ button:disabled {
 
   .nav {
     justify-content: flex-start;
-    overflow-x: auto;
+    flex-wrap: wrap;
+    gap: 4px 12px;
     height: auto;
   }
 
+  .nav button {
+    min-height: 34px;
+    padding: 5px 8px;
+  }
+
   .top-status {
+    flex-wrap: wrap;
     justify-content: flex-start;
   }
 
@@ -1038,6 +1122,10 @@ button:disabled {
   .inspector,
   .settings-content {
     padding: 14px;
+  }
+
+  .workspace.builder {
+    padding-bottom: 74px;
   }
 
   .mobile-category-strip {
@@ -1132,12 +1220,57 @@ button:disabled {
     padding-top: 4px;
   }
 
+  .row-actions button,
+  .action-menu summary,
+  .action-menu-panel button,
+  .guide-card-actions button {
+    min-height: 38px;
+    padding: 8px 10px;
+  }
+
+  .token-row span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .token-row button {
+    min-width: 30px;
+    min-height: 30px;
+    margin-left: 0;
+    padding: 0 5px;
+  }
+
+  .action-menu-panel {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-width: 160px;
+  }
+
   .guide-grid,
   .guide-shortcuts,
+  .guide-recommend-grid,
   .guide-tools,
   .learn-grid,
   .user-tag-form {
     grid-template-columns: 1fr;
+  }
+
+  .recommended-guide-blocks {
+    padding: 10px;
+  }
+
+  .guide-shortcuts {
+    gap: 7px;
+  }
+
+  .guide-shortcut-section.empty {
+    gap: 3px;
+    padding: 8px 10px;
+  }
+
+  .guide-shortcut-section.empty .shortcut-empty {
+    display: none;
   }
 
   .guide-purpose {
@@ -1147,5 +1280,29 @@ button:disabled {
 
   .workspace.collections .inspector {
     order: -1;
+  }
+
+  .mobile-builder-actions {
+    position: fixed;
+    right: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    left: 10px;
+    z-index: 20;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+    padding: 8px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+  }
+
+  .mobile-builder-actions button {
+    min-width: 0;
+    min-height: 42px;
+    padding: 8px 6px;
+    font-size: 12px;
   }
 }

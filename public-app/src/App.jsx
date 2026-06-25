@@ -1647,14 +1647,16 @@ function TagTable({ records, totalRecords, selectedRecord, setSelectedRecordId, 
               <td>{record.categoryLabel} &gt; {record.subcategoryLabel}</td>
               <td><span className="small-pill">{record.target || "未設定"}</span></td>
               <td>
-                <div className="row-actions">
-                  <button onClick={(event) => { event.stopPropagation(); copyText(record.en, record.en); }}>Copy</button>
-                  <button onClick={(event) => { event.stopPropagation(); addToDraft(record, "positive"); }}>+Positive</button>
+                <div className="row-actions row-actions-prioritized">
+                  <button className="primary" onClick={(event) => { event.stopPropagation(); addToDraft(record, "positive"); }}>+Positive</button>
                   <button onClick={(event) => { event.stopPropagation(); addToDraft(record, "negative"); }}>+Negative</button>
-                  <button className={favorites.includes(record.en) ? "star active" : "star"} onClick={(event) => { event.stopPropagation(); toggleFavorite(record.en); }}>
-                    Favorite
-                  </button>
-                  <button onClick={(event) => { event.stopPropagation(); hideTag(record.en); }}>Hide</button>
+                  <ActionMenu>
+                    <button onClick={(event) => { event.stopPropagation(); copyText(record.en, record.en); }}>Copy</button>
+                    <button className={favorites.includes(record.en) ? "star active" : "star"} onClick={(event) => { event.stopPropagation(); toggleFavorite(record.en); }}>
+                      {favorites.includes(record.en) ? "Unfavorite" : "Favorite"}
+                    </button>
+                    <button className="danger-button" onClick={(event) => { event.stopPropagation(); hideTag(record.en); }}>Hide</button>
+                  </ActionMenu>
                 </div>
               </td>
             </tr>
@@ -1733,6 +1735,17 @@ function PromptSummary({ draft, setView }) {
   );
 }
 
+function ActionMenu({ label = "More", children }) {
+  return (
+    <details className="action-menu">
+      <summary>{label}</summary>
+      <div className="action-menu-panel">
+        {children}
+      </div>
+    </details>
+  );
+}
+
 function GuideBlockCard({ block, applyGuideBlock, copyGuideBlock, pinned, toggleGuideBlockPin, guideBlockUsage, compact = false }) {
   const positiveCount = (block.positive || []).length;
   const negativeCount = (block.negative || []).length;
@@ -1779,7 +1792,7 @@ function GuideBlockCard({ block, applyGuideBlock, copyGuideBlock, pinned, toggle
 
 function GuideBlockShortcutSection({ title, description, blocks, emptyText, applyGuideBlock, copyGuideBlock, pinnedGuideBlockIds, toggleGuideBlockPin, guideBlockUsage }) {
   return (
-    <section className="guide-shortcut-section">
+    <section className={`guide-shortcut-section ${blocks.length === 0 ? "empty" : ""}`}>
       <div className="guide-shortcut-head">
         <strong>{title}</strong>
         <span>{description}</span>
@@ -1803,6 +1816,42 @@ function GuideBlockShortcutSection({ title, description, blocks, emptyText, appl
         </div>
       )}
     </section>
+  );
+}
+
+function RecommendedGuideBlocks({ blocks, applyGuideBlock, copyGuideBlock, pinnedGuideBlockIds, toggleGuideBlockPin, guideBlockUsage }) {
+  return (
+    <section className="recommended-guide-blocks" aria-label="Recommended Guide Blocks">
+      <div className="guide-shortcut-head">
+        <strong>Recommended Blocks</strong>
+        <span>今のDraftに近い構成と、すぐ使える定番ブロック</span>
+      </div>
+      <div className="guide-recommend-grid">
+        {blocks.map((block) => (
+          <GuideBlockCard
+            key={block.id}
+            block={block}
+            compact
+            applyGuideBlock={applyGuideBlock}
+            copyGuideBlock={copyGuideBlock}
+            pinned={pinnedGuideBlockIds.includes(block.id)}
+            toggleGuideBlockPin={toggleGuideBlockPin}
+            guideBlockUsage={guideBlockUsage}
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function BuilderMobileActionBar({ positiveText, negativeText, copyText, saveRecipe }) {
+  return (
+    <nav className="mobile-builder-actions" aria-label="Builder quick actions">
+      <button className="primary" disabled={!positiveText} onClick={() => copyText(positiveText, "Positive Prompt")}>Copy +</button>
+      <button disabled={!negativeText} onClick={() => copyText(negativeText, "Negative Prompt")}>Copy -</button>
+      <button disabled={!positiveText && !negativeText} onClick={() => copyText(`Positive:\n${positiveText}\n\nNegative:\n${negativeText}`, "Both Prompts")}>Copy both</button>
+      <button disabled={!positiveText && !negativeText} onClick={saveRecipe}>Save</button>
+    </nav>
   );
 }
 
@@ -1875,6 +1924,37 @@ function BuilderView({
   const myBlocks = guideBlocks
     .filter((block) => visibleGuideBlock(block) && (block.userCreated || block.category === "custom"))
     .slice(0, GUIDE_BLOCK_SHORTCUT_LIMIT);
+  const draftTerms = useMemo(() => {
+    return [...draft.positive, ...draft.negative]
+      .map((item) => normalizeText(item.en))
+      .filter(Boolean);
+  }, [draft.positive, draft.negative]);
+  const recommendedBlocks = useMemo(() => {
+    const seen = new Set();
+    const blocks = [];
+    const addBlocks = (items) => {
+      for (const block of items) {
+        if (blocks.length >= 4) return;
+        if (!block || seen.has(block.id) || !visibleGuideBlock(block)) continue;
+        seen.add(block.id);
+        blocks.push(block);
+      }
+    };
+    const draftMatched = filteredGuideBlocks.filter((block) => {
+      if (draftTerms.length === 0) return false;
+      const searchable = block.searchable || normalizeText([block.label, block.categoryLabel, block.category, ...(block.positive || []), ...(block.negative || [])].join(" "));
+      return draftTerms.some((term) => searchable.includes(term));
+    });
+    const fallbackBlocks = filteredGuideBlocks.filter((block) => {
+      return block.id === "negative_base" || block.userCreated || !block.dictionaryGenerated || Number(block.tagCount || 0) <= 16;
+    });
+    addBlocks(pinnedBlocks);
+    addBlocks(recentBlocks);
+    addBlocks(draftMatched);
+    addBlocks(fallbackBlocks);
+    addBlocks(filteredGuideBlocks);
+    return blocks;
+  }, [draftTerms, filteredGuideBlocks, pinnedBlocks, recentBlocks, showSensitive]);
 
   useEffect(() => {
     setGuideLimit(80);
@@ -1920,8 +2000,16 @@ function BuilderView({
               <h2>Guide Blocks</h2>
               <p>よく使う表情、構図、品質、Negativeをブロック単位で再利用します。探す前に、固定・最近使用・自作からすぐ追加できます。</p>
             </div>
-            <button onClick={createGuideBlockFromDraft}>選択中をブロック化</button>
+            <button onClick={createGuideBlockFromDraft}>今のDraftをGuide Block化</button>
           </div>
+          <RecommendedGuideBlocks
+            blocks={recommendedBlocks}
+            applyGuideBlock={applyGuideBlock}
+            copyGuideBlock={copyGuideBlock}
+            pinnedGuideBlockIds={pinnedGuideBlockIds}
+            toggleGuideBlockPin={toggleGuideBlockPin}
+            guideBlockUsage={guideBlockUsage}
+          />
           <div className="guide-purpose">
             <strong>何に使う？</strong>
             <span>繰り返し使うタグの組み合わせを、毎回検索せずにBuilderへ戻すためのショートカットです。</span>
@@ -2023,6 +2111,7 @@ function BuilderView({
           </div>
         </section>
       </aside>
+      <BuilderMobileActionBar positiveText={positiveText} negativeText={negativeText} copyText={copyText} saveRecipe={saveRecipe} />
     </main>
   );
 }
@@ -2231,21 +2320,23 @@ function CollectionsView({
                       {locked ? (
                         <span className="small-pill">SettingsでSensitive ON</span>
                       ) : (
-                        <div className="row-actions">
-                          <button onClick={(event) => { event.stopPropagation(); loadRecipe(recipe); }}>Load</button>
-                          <button onClick={(event) => { event.stopPropagation(); copyRecipe(recipe, "both"); }}>Copy Both</button>
-                          <button onClick={(event) => { event.stopPropagation(); copyRecipe(recipe, "positive"); }}>Copy Positive</button>
+                        <div className="row-actions row-actions-prioritized">
+                          <button className="primary" onClick={(event) => { event.stopPropagation(); loadRecipe(recipe); }}>Load</button>
+                          <button onClick={(event) => { event.stopPropagation(); copyRecipe(recipe, "both"); }}>Copy</button>
                           {editing ? (
                             <>
                               <button onClick={(event) => { event.stopPropagation(); saveRecipeEdit(recipe); }}>Save</button>
                               <button onClick={(event) => { event.stopPropagation(); setEditingRecipeId(""); }}>Cancel</button>
                             </>
                           ) : (
-                            <button onClick={(event) => { event.stopPropagation(); startRecipeEdit(recipe); }}>Rename</button>
+                            <ActionMenu>
+                              <button onClick={(event) => { event.stopPropagation(); copyRecipe(recipe, "positive"); }}>Copy Positive</button>
+                              <button onClick={(event) => { event.stopPropagation(); startRecipeEdit(recipe); }}>Rename</button>
+                              <button onClick={(event) => { event.stopPropagation(); duplicateRecipe(recipe); }}>Duplicate</button>
+                              <button onClick={(event) => { event.stopPropagation(); exportRecipe(recipe); }}>Export</button>
+                              <button className="danger-button" onClick={(event) => { event.stopPropagation(); deleteRecipe(recipe); }}>Delete</button>
+                            </ActionMenu>
                           )}
-                          <button onClick={(event) => { event.stopPropagation(); duplicateRecipe(recipe); }}>Duplicate</button>
-                          <button onClick={(event) => { event.stopPropagation(); exportRecipe(recipe); }}>Export</button>
-                          <button onClick={(event) => { event.stopPropagation(); deleteRecipe(recipe); }}>Delete</button>
                         </div>
                       )}
                     </td>
@@ -2502,8 +2593,14 @@ function SettingsView({
               Import JSON
               <input type="file" accept="application/json,.json" onChange={importLocalData} />
             </label>
-            <button className="danger-button" onClick={resetLocalData}>Reset local data</button>
           </div>
+        </div>
+        <div className="settings-row danger-zone">
+          <div>
+            <h2>Danger zone</h2>
+            <p>このブラウザに保存したレシピ、Draft、Guide Blocks、ユーザー追加タグをすべて削除します。</p>
+          </div>
+          <button className="danger-button" onClick={resetLocalData}>Reset local data</button>
         </div>
         <div className="settings-row">
           <div>

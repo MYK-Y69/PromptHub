@@ -2,33 +2,34 @@
 
 ## Score
 
-Total: 88 / 100
+Total: 89 / 100
 
 | Criterion | Points | Score | Notes |
 | --- | ---: | ---: | --- |
-| Requirements fit | 25 | 23 | Guide Blocksの存在意義改善、Pinned/Recent/My Blocks、Recipe命名、Collections Quick reuseまで一貫している。 |
-| Implementation approach | 20 | 18 | 既存React/Vite/localStorage構成に沿っており、範囲も現実的。 |
-| UI/UX design | 20 | 18 | 「再利用パネル」としての価値が明確。操作数が増えすぎないよう実装時の整理が必要。 |
-| Maintainability | 15 | 12 | App.jsx肥大化リスクあり。小さなヘルパー/表示コンポーネントで局所化する必要がある。 |
-| Test and verification potential | 10 | 9 | build/check/diff/browser QAが定義されている。 |
-| Scope control | 10 | 8 | 検索同義語など大きいテーマはOut of Scopeにできている。 |
+| Requirements fit | 25 | 23 | 85未満の3領域に直接対応している。 |
+| Implementation approach | 20 | 17 | 既存React/CSS/localStorage構成に沿っており、依存追加なし。 |
+| UI/UX design | 20 | 18 | Guide Blocks推薦、モバイル固定アクション、行アクション整理が低スコア要因に効く。 |
+| Maintainability | 15 | 13 | 小コンポーネント追加に抑える前提で妥当。 |
+| Test and verification | 10 | 9 | build/check/browser screenshot/subagent rescoringまで定義。 |
+| Scope control | 10 | 9 | データパイプラインや大規模再設計を避けている。 |
 
 ## Gate
 
-Pass
+Pass. Builder phase may proceed.
 
 ## Required Revisions
 
-なし。80点以上のため実装に進んでよい。
-
-## Risks
-
-- Guide Blockカードの操作数が多くなりやすい。
-- Recently usedの更新条件を明確にする必要がある。
-- 既存userGuideBlocksに `userCreated` がない場合のfallbackが必要。
-- Collections Quick操作追加でモバイル横幅が増えないよう確認が必要。
-- 新localStorageキーのimport/export/reset漏れに注意。
+なし。
 
 ## Reviewer Notes
 
-実装時は `+Positive` を最優先にし、`+Negative / Copy / Pin` は控えめな行アクションとして扱う。Recently usedはGuide BlockをPositive/Negativeへ追加した時だけ更新する。
+- `RecommendedGuideBlocks` は pinned > recently used > draft match > fallback core blocks の順で最大表示数を制限する。
+- `More` メニューは `aria-expanded` を付け、開いた状態で主要補助操作をキーボード到達可能にする。
+- sticky bottom bar はBuilder mobileのみ表示し、Draftが空でもコピー/保存の既存挙動を壊さない。
+- 再採点は前回と同じ3観点で実施し、全て85以上を完了条件にする。
+
+## Risks
+
+- More化で補助操作が1タップ遠くなるため、主操作は必ず残す。
+- mobile nav wrapで上部占有が増えすぎないよう、ボタンサイズを抑える。
+- sticky action barはコンテンツを覆わないよう下部余白を追加する。

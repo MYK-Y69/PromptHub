@@ -49,9 +49,17 @@ const requiredSourceStrings = [
   "inline-edit-form",
   "GuideBlockCard",
   "GuideBlockShortcutSection",
+  "RecommendedGuideBlocks",
+  "BuilderMobileActionBar",
+  "ActionMenu",
   "recordGuideBlockUse",
   "toggleGuideBlockPin",
   "visibleGuideBlock",
+  "Recommended Blocks",
+  "今のDraftをGuide Block化",
+  "mobile-builder-actions",
+  "action-menu",
+  "danger-zone",
   "Recently used",
   "My Blocks",
   "Recipe name before save",
@@ -120,6 +128,21 @@ if (!src.includes("const name = draftRecipeName.trim()") || !src.includes("setDr
 
 if (!src.includes("copyRecipe(recipe, \"both\")") || !src.includes("copyRecipe(recipe, \"positive\")")) {
   console.error("Collections recipes must expose quick copy actions for reuse.");
+  process.exit(1);
+}
+
+if (!src.includes("RecommendedGuideBlocks") || !src.includes("draftMatched") || !src.includes("fallbackBlocks")) {
+  console.error("Guide Blocks must surface useful recommended blocks before empty shortcut buckets.");
+  process.exit(1);
+}
+
+if (!src.includes("BuilderMobileActionBar") || !src.includes("Copy +") || !src.includes("Copy both")) {
+  console.error("Builder mobile must expose sticky copy/save actions.");
+  process.exit(1);
+}
+
+if (!src.includes("<ActionMenu>") || !src.includes("row-actions-prioritized")) {
+  console.error("Dense row actions must be reduced with prioritized actions and More menus.");
   process.exit(1);
 }
 

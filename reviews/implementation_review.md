@@ -208,3 +208,55 @@ Pass. Independent score: 87 / 100. P2 repair was applied and verified after the 
 
 - New browser-level workflow verification is documented but not yet automated as an npm script because the public app currently has no browser automation dependency.
 - `public-app/src/App.jsx` remains large; component splitting should be considered before long-term maintenance.
+
+---
+
+# UI Satisfaction 85+ Repair Review
+
+## Scope
+
+User goal: UI満足度レビューの全スコアを85以上へ引き上げる。
+
+Previous scores:
+
+- Overall UX satisfaction: 82 / 100
+- Accessibility / mobile / visual clarity: 76 / 100
+- Repeat-use workflow: 76 / 100
+
+Implemented repair focus:
+
+- Guide Blocksを説明カード中心からRecommended Blocks中心の実用ショートカットへ変更。
+- Builder mobileにsticky copy/save action barを追加。
+- ExploreとCollectionsの行操作を主要操作 + Moreへ整理。
+- Mobile navigationを折り返し表示に変更し、Settingsの見切れを解消。
+- SettingsのReset local dataをDanger zoneへ分離。
+
+## Verification
+
+| Check | Result | Notes |
+| --- | --- | --- |
+| `npm run build` | Pass | Synced 10,085 tags and built Vite production output. Environment printed `pyenv` shim warnings only. |
+| `npm run check` | Pass | Confirmed compiled data counts and new UI repair markers. |
+| `git diff --check` | Pass | No whitespace errors. |
+| Browser screenshots | Pass | Captured repaired desktop/mobile screens in `reviews/ui-satisfaction-repair-2026-06-26/screenshots/`. |
+| Mobile metrics | Pass | 390px viewport: no horizontal overflow, Recommended Blocks present, sticky Builder action bar present. |
+
+## Independent Rescore
+
+| Reviewer Focus | Previous | New Score | Gate |
+| --- | ---: | ---: | --- |
+| Overall UX satisfaction | 82 | 86 | Pass |
+| Accessibility / mobile / visual clarity | 76 | 88 | Pass |
+| Repeat-use workflow | 76 | 87 | Pass |
+
+All requested scores are now at least 85.
+
+## Remaining Non-Blocking Issues
+
+- Mobile Builder still scrolls more than desktop because prompt chips are intentionally larger for tap targets.
+- Collections mobile could be improved further by resetting scroll position on view change or adding section anchors.
+- Long Guide Block contents are truncated in cards; an expand preview could push scores closer to 90+.
+
+## Current Gate
+
+Pass. Lowest independent satisfaction score after repair: 86 / 100.

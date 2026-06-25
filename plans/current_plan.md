@@ -1,184 +1,146 @@
-# Implementation Plan
+# PromptHub UI Satisfaction Repair Plan
 
 ## Intake Summary
 
-PromptHub public appのUI改善を実施する。最重要課題は、現状のGuide Blocksが「大量の辞書セクション一覧」に見えており、ユーザーにとって何のために使うのかが弱いこと。Guide Blocksを「よく使うプロンプト構成を、Builderへ素早く再投入するための再利用パネル」として再設計する。
+User goal: UI満足度レビューの全スコアを85以上に引き上げる。
 
-あわせて、UI満足度監査で優先度が高かった以下も同じ作業導線として修正する。
+Current audited scores:
 
-- Guide Blocksの目的説明
-- Pinned / Recently used / My Blocks
-- Guide Blockの使用履歴
-- Recipe保存時の命名
-- CollectionsのQuick Load / Quick Copy
+- Overall UX satisfaction: 82 / 100
+- Accessibility / mobile / visual clarity: 76 / 100
+- Repeat-use workflow: 76 / 100
+- Integrated score: 78 / 100
 
-## Assumptions
+The product already communicates the core loop:
 
-- 既存のReact/Vite構成とlocalStorage保存を維持する。
-- 実装範囲は `public-app/src/App.jsx`、`public-app/src/styles.css`、`public-app/scripts/check-app.mjs`、ハーネス成果物に限定する。
-- 大規模なコンポーネント分割やデータ移行は行わない。
-- Guide Blocksは辞書由来ブロック、コアブロック、ユーザー作成ブロックを引き続き併用する。
-- Pinnedはユーザー操作、Recently usedはGuide Block使用時に自動更新、My Blocksはユーザー作成ブロックから表示する。
+```text
+Explore -> Builder -> Collections -> reuse
+```
 
-## Screen Structure
+The remaining score blockers are concentrated in:
 
-### Builder
+- Guide Blocksが説明カードに見え、初回から「すぐ使える部品」に見えない。
+- モバイルBuilderで完成後のCopy/Saveが遠い。
+- Explore/Collectionsの行アクションが密集している。
+- モバイルナビでSettingsが見切れ、全機能へ届く安心感が弱い。
+- SettingsのReset local dataが日常操作に近い。
 
-- Guide Blocks見出しを「よく使う構成をまとめて追加」に寄せ、用途を明確にする。
-- Guide Blocks上部にショートカット領域を追加する。
-  - Pinned: 固定したブロック
-  - Recently used: 最近使ったブロック
-  - My Blocks: ユーザー作成ブロック
-- 既存の検索・カテゴリ・一覧は「Library」として残し、600件超の辞書を探索できる場所にする。
-- 各Guide Blockカードには以下を出す。
-  - 主操作: `+Positive`
-  - 補助操作: `+Negative`
-  - 固定: Pin / Unpin
-  - コピー: Copy
-  - メタ情報: category/source path、tag count、使用回数
-- 出力と保存パネルにRecipe名入力欄を追加し、保存時にその名前を使う。
+## Requirements
+
+- Keep the public app isolated under `public-app/`.
+- Do not edit dictionary pipelines or source prompt data.
+- Improve the current UI enough that independent subagent satisfaction scores can reasonably reach 85+.
+- Keep changes scoped, maintainable, and consistent with the current React/CSS structure.
+- Preserve existing core behavior: Explore add/copy/favorite/hide, Builder draft editing, Guide Blocks usage, recipe save/load/copy, local import/export/reset.
+- Add no new runtime dependencies.
+
+## Screen Changes
+
+### Builder / Guide Blocks
+
+- Add a prominent `Recommended Blocks` section above empty shortcut buckets.
+- Populate recommended blocks from existing Guide Blocks, prioritizing:
+  - pinned
+  - recently used
+  - high-use core blocks
+  - useful dictionary blocks matching current Draft tags/searchable text
+- Keep Pinned / Recently used / My Blocks, but compress empty states so they do not dominate mobile.
+- Rename `選択中をブロック化` to `今のDraftをGuide Block化`.
+- After creating a Guide Block, surface it in My Blocks and allow it to appear in recommendations.
+- On mobile, show recommended/library content sooner and avoid half-clipped CTA behavior.
+
+### Builder / Mobile Completion Actions
+
+- Add a mobile-only sticky bottom action bar for:
+  - `Copy +`
+  - `Copy -`
+  - `Copy both`
+  - `Save`
+- Keep desktop inspector unchanged.
+- Ensure mobile sticky bar does not cover content by adding bottom padding.
+
+### Explore
+
+- Reduce row action density.
+- Keep `+Positive` and `+Negative` as primary row actions.
+- Move `Copy`, `Favorite`, and `Hide` into a compact `More` disclosure inside each row.
+- Preserve immediate access to those actions without relying only on the right inspector.
 
 ### Collections
 
-- Recipe一覧の操作にQuick reuseを追加する。
-  - Load
-  - Copy Positive
-  - Copy Both
-  - Rename
-  - Duplicate
-  - Export
-  - Delete
-- Guide Blocksセクションは「自分で作った再利用ブロック」として説明を強化する。
-- 行動の優先順位はQuick Load / Quick Copyを先に置き、破壊的操作は最後に置く。
+- Reduce recipe row action density.
+- Keep `Load` and `Copy` as primary row actions.
+- Move `Copy Positive`, `Rename`, `Duplicate`, `Export`, and `Delete` into a compact `More` disclosure.
+- Keep selected recipe inspector actions unchanged.
 
-## Component Structure
+### Mobile Navigation
 
-単一ファイル構成は維持しつつ、以下の小さなヘルパー/表示関数を追加する。
+- Let top navigation wrap instead of horizontal scrolling.
+- Keep all five primary destinations visible at common mobile widths.
+- Maintain active state and status pills.
 
-- `getBlockTags(block, side)`
-- `getBlockSummary(block)`
-- `getGuideBlockMeta(block, guideBlockUsage)`
-- `GuideBlockShortcutSection`
-- `GuideBlockCard`
+### Settings
 
-既存 `BuilderView` のGuide Blocks部分を、ショートカット領域とLibrary領域に分ける。
+- Move `Reset local data` into a visually distinct danger zone row.
+- Keep Export/Import as normal local data controls.
 
-## State Management
+## Component / State Approach
 
-新しいlocalStorage保存対象を追加する。
+- Add small helper components in `App.jsx`:
+  - `ActionMenu`
+  - `BuilderMobileActionBar`
+  - `RecommendedGuideBlocks`
+- Use local component state for row-level `More` menus.
+- Avoid global state additions unless required.
+- Reuse existing `copyText`, `applyGuideBlock`, `saveRecipe`, and `createGuideBlockFromDraft`.
+- Add static check markers to `public-app/scripts/check-app.mjs`.
 
-- `prompthub:v1:pinnedGuideBlocks`
-- `prompthub:v1:recentGuideBlocks`
-- `prompthub:v1:guideBlockUsage`
-- `prompthub:v1:draftRecipeName`
+## Accessibility / Responsive Approach
 
-React state:
-
-- `pinnedGuideBlockIds`
-- `recentGuideBlockIds`
-- `guideBlockUsage`
-- `draftRecipeName`
-
-Guide Block使用時:
-
-- 使用ブロックをRecent先頭へ移動
-- 最大件数を制限する
-- 使用回数と最終使用時刻を更新する
-- 既存のDraft追加処理を維持する
-
-Pinned:
-
-- toggle操作でlocalStorageへ保存する
-- Pinnedセクションは最大6件表示
-
-My Blocks:
-
-- `userGuideBlocks` のうち `userCreated` を最大6件表示
-
-Recipe保存:
-
-- `draftRecipeName.trim()` があれば保存名に使う
-- 空なら既存の自動名を使う
-- 保存後は入力欄をクリアする
-
-## Data Model / Data Flow
-
-- 既存のimport/export JSONに新しいGuide Block関連状態を含める。
-- import時は配列/オブジェクトを正規化し、不正値でUIが壊れないようにする。
-- reset時はPinned/Recent/Usage/Recipe名も初期化する。
-- check scriptで新しい保存キーとUI markerを確認する。
-
-## Technical Approach
-
-- 既存の`readNormalizedJson`、`writeJson`、`normalizeImportedStrings`を再利用する。
-- `guideBlocks` 配列は現状どおり合成し、IDを基準にPinned/Recentを解決する。
-- Recentから消えたIDは表示時に自然に無視する。
-- UI追加はCSSグリッドと既存カードスタイルを拡張し、依存関係は追加しない。
-
-## UI / UX Approach
-
-- Guide Blocksの価値を「探す」ではなく「再利用する」に置き換える。
-- 上段にすぐ使うショートカット、下段に検索Libraryという構造にする。
-- 初見でも「ブロック単位で追加すると作業が速くなる」と分かるコピーを入れる。
-- 日常利用ではPinned/Recent/My Blocksから1クリックで追加できるようにする。
-- Collectionsでは保存済みレシピを管理するだけでなく、素早く読み込み/コピーできるようにする。
-
-## Accessibility Approach
-
-- Pin、Copy、+Positive、+Negativeに明確な `aria-label` を付ける。
-- ボタン内テキストは短くしつつ、スクリーンリーダー向けラベルで補う。
-- Recipe名入力にlabelを付ける。
-- カード操作はbutton要素を使い、フォーカススタイルは既存のfocus-visibleを活かす。
-
-## Responsive Approach
-
-- デスクトップはショートカット領域を2-3列のカードグリッドにする。
-- モバイルは1列に積む。
-- CollectionsのQuick操作は折り返し可能にし、既存のモバイルカード化テーブルを維持する。
-- 横スクロールやテキストはみ出しを避ける。
+- `More` disclosure buttons use `aria-expanded`.
+- Hidden action groups remain keyboard reachable when open.
+- Mobile action bar buttons have concise labels and accessible names.
+- Guide Block buttons have larger hit targets on mobile.
+- Top navigation wraps without clipping.
+- Empty shortcut sections use compact states on mobile.
 
 ## Verification Plan
 
 - `npm run build`
 - `npm run check`
 - `git diff --check`
-- ブラウザ確認:
-  - BuilderでGuide Blocksの目的説明が見える
-  - Pin / Unpinが動き、Pinnedに反映される
-  - Guide Block使用後にRecently usedへ反映される
-  - My Blocks作成後にショートカットへ表示される
-  - +Positive / +Negative / Copyが動く
-  - Recipe名を入力して保存するとCollectionsに反映される
-  - CollectionsでCopy Both / Copy Positive / Loadが使える
-  - モバイル幅でBuilder/Collectionsが横にはみ出さない
+- Browser screenshots:
+  - Explore desktop
+  - Builder desktop
+  - Collections desktop
+  - Settings desktop
+  - Builder mobile top
+  - Builder mobile Guide Blocks
+  - Collections mobile
+- Subagent rescoring:
+  - Overall UX satisfaction
+  - Accessibility / mobile / visual clarity
+  - Repeat-use workflow
+- Completion requires every independent score to be at least 85.
 
 ## Work Sequence
 
-1. localStorage key、state、normalizerを追加する。
-2. Guide Block使用履歴・pin toggle・copy helperを追加する。
-3. BuilderのGuide Blocks UIをショートカット + Libraryへ再構成する。
-4. Builder保存パネルにRecipe名入力欄を追加する。
-5. CollectionsのRecipe行にQuick Copy導線を追加する。
-6. CSSを追加し、desktop/mobile両方を整える。
-7. check scriptを更新する。
-8. build/check/browser QAを実行する。
-9. implementation reviewを実施し、85点未満ならrepair loopを回す。
+1. Update plan and plan review artifacts.
+2. Add recommended Guide Blocks and compact shortcut treatment.
+3. Add mobile sticky Builder action bar.
+4. Convert dense row actions to primary actions + More menus.
+5. Wrap mobile top navigation.
+6. Separate Settings danger zone.
+7. Update static checks.
+8. Run build/check/diff verification.
+9. Capture screenshots and rerun subagent scoring.
+10. If any score remains under 85, run another repair loop.
 
-## Risks and Mitigations
+## Scope Exclusions
 
-- `App.jsx`がさらに大きくなる。
-  - 小さなヘルパーと表示コンポーネントに分け、局所的に抑える。
-- Guide Blocks上段が増え、Builderが長くなる。
-  - Pinned/Recent/My Blocksは最大表示数を制限する。
-- 操作が増えてカードがうるさくなる。
-  - `+Positive` を主操作、その他は小さなrow actionsにする。
-- 古いlocalStorageデータが混在する。
-  - normalizerとfallbackで安全に読む。
-
-## Out of Scope
-
-- アカウント、クラウド同期、共有機能。
-- 大規模なコンポーネント分割。
-- 辞書パイプラインやデータ本体の編集。
-- 日本語同義語検索の本格実装。
-- git push。
+- Account/cloud sync.
+- Major component extraction.
+- New search algorithm or synonym engine.
+- New design system.
+- Data import pipeline changes.
+- Git push.
