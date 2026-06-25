@@ -946,6 +946,58 @@ button:disabled {
     display: none;
   }
 
+  .recipe-table,
+  .recipe-table tbody,
+  .recipe-table tr,
+  .recipe-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .recipe-table {
+    overflow: visible;
+    border: 0;
+    background: transparent;
+  }
+
+  .recipe-table thead {
+    display: none;
+  }
+
+  .recipe-table tr {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: var(--surface);
+  }
+
+  .recipe-table td {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 0;
+    padding: 6px 0;
+  }
+
+  .recipe-table td::before {
+    content: attr(data-label);
+    flex: 0 0 78px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .recipe-table td:first-child {
+    display: block;
+  }
+
+  .recipe-table td:first-child::before {
+    display: block;
+    margin-bottom: 4px;
+  }
+
   .tag-table tr,
   .tag-table td {
     display: block;

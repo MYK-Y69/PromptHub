@@ -299,13 +299,13 @@ function buildDictionaryGuideBlocks(data) {
   for (const category of data.categories || []) {
     const subcategories = category.subcategories || [{ id: `${category.id}_all`, label: category.label, sections: category.sections || [] }];
     for (const subcategory of subcategories) {
-      for (const section of subcategory.sections || []) {
+      for (const [sectionIndex, section] of (subcategory.sections || []).entries()) {
         const tags = (section.tags || [])
           .map((tag) => tag.en)
           .filter(Boolean);
         if (tags.length === 0) continue;
         blocks.push({
-          id: `dict_${blockIdFromPath(category.id, subcategory.id, section.id)}`,
+          id: `dict_${blockIdFromPath(category.id, subcategory.id, section.id, sectionIndex)}`,
           category: category.id,
           categoryLabel: category.label,
           label: `${subcategory.label} / ${section.label}`,
@@ -773,8 +773,8 @@ export function App() {
   }, [selectedRecordId, visibleRecords]);
 
   const selectedRecord = useMemo(() => {
-    return visibleRecords.find((record) => record.id === selectedRecordId) || visibleRecords[0] || records.find((record) => record.en === "looking at viewer" && !hiddenTagSet.has(normalizeText(record.en))) || null;
-  }, [records, selectedRecordId, visibleRecords, hiddenTagSet]);
+    return visibleRecords.find((record) => record.id === selectedRecordId) || visibleRecords[0] || null;
+  }, [selectedRecordId, visibleRecords]);
 
   const activeMajor = selectedCategory === "all" ? null : major.find((item) => item.id === selectedCategory);
 
@@ -859,7 +859,9 @@ export function App() {
   }
 
   function deleteGuideBlock(id) {
-    setUserGuideBlocks((current) => current.filter((block) => block.id !== id));
+    const block = userGuideBlocks.find((item) => item.id === id);
+    if (!block || !window.confirm(`${block.label} を削除しますか？`)) return;
+    setUserGuideBlocks((current) => current.filter((item) => item.id !== id));
     notify("Guide Block を削除しました");
   }
 
@@ -884,12 +886,12 @@ export function App() {
     const en = tag.en?.trim();
     if (!en) {
       notify("English tag を入力してください");
-      return;
+      return false;
     }
     const exists = records.some((record) => normalizeText(record.en) === normalizeText(en));
     if (exists) {
       notify("同じEnglish tagがすでにあります");
-      return;
+      return false;
     }
     const now = new Date().toISOString();
     setUserTags((current) => [
@@ -906,11 +908,20 @@ export function App() {
       ...current,
     ]);
     notify("ユーザータグを追加しました");
+    return true;
   }
 
   function editUserTag(tag, values) {
     const en = values?.en?.trim();
-    if (!en) return;
+    if (!en) {
+      notify("English tag を入力してください");
+      return false;
+    }
+    const exists = records.some((record) => normalizeText(record.en) === normalizeText(en) && record.id !== tag.id);
+    if (exists) {
+      notify("同じEnglish tagがすでにあります");
+      return false;
+    }
     setUserTags((current) => current.map((item) => item.id === tag.id ? {
       ...item,
       en,
@@ -920,9 +931,12 @@ export function App() {
       updatedAt: new Date().toISOString(),
     } : item));
     notify("ユーザータグを更新しました");
+    return true;
   }
 
   function deleteUserTag(id) {
+    const tag = userTags.find((item) => item.id === id);
+    if (!tag || !window.confirm(`${tag.en} を削除しますか？`)) return;
     setUserTags((current) => current.filter((tag) => tag.id !== id));
     notify("ユーザータグを削除しました");
   }
@@ -1324,6 +1338,7 @@ function ExploreView(props) {
   } = props;
 
   const displayedMajor = major.filter((item) => showSensitive || item.id !== "sensitive");
+  const activeSubcategory = activeMajor?.subcategories.find((subcategory) => subcategory.id === selectedSubcategory);
   const resultsTopRef = useRef(null);
   const jumpToResults = () => {
     window.requestAnimationFrame(() => {
@@ -1417,7 +1432,7 @@ function ExploreView(props) {
             <p>
               {records.length.toLocaleString()} 件
               {selectedCategory && selectedCategory !== "all" && activeMajor ? ` / ${activeMajor.label}` : ""}
-              {selectedSubcategory && selectedRecord ? ` > ${selectedRecord.subcategoryLabel}` : ""}
+              {selectedSubcategory && activeSubcategory ? ` > ${activeSubcategory.label}` : ""}
             </p>
           </div>
           <button onClick={() => setView("builder")}>Builderを開く</button>
@@ -1883,9 +1898,10 @@ function CollectionsView({
   }
 
   function saveUserTagEdit(tag) {
-    editUserTag(tag, userTagEditForm);
-    setEditingUserTagId("");
-    setUserTagEditForm({ en: "", jp: "", note: "", target: "" });
+    if (editUserTag(tag, userTagEditForm)) {
+      setEditingUserTagId("");
+      setUserTagEditForm({ en: "", jp: "", note: "", target: "" });
+    }
   }
 
   return (
@@ -1943,7 +1959,7 @@ function CollectionsView({
                     tabIndex={locked ? undefined : 0}
                     aria-selected={selectedRecipe?.id === recipe.id}
                   >
-                    <td>
+                    <td data-label="名前">
                       {editing ? (
                         <input
                           value={recipeNameDraft}
@@ -1954,10 +1970,10 @@ function CollectionsView({
                         <strong>{recipe.name}</strong>
                       )}
                     </td>
-                    <td>{recipe.updatedAt}</td>
-                    <td>{locked ? "Sensitiveを含むため非表示" : recipe.positive.length}</td>
-                    <td>{locked ? "-" : recipe.negative.length}</td>
-                    <td>
+                    <td data-label="更新日">{recipe.updatedAt}</td>
+                    <td data-label="Positive">{locked ? "Sensitiveを含むため非表示" : recipe.positive.length}</td>
+                    <td data-label="Negative">{locked ? "-" : recipe.negative.length}</td>
+                    <td data-label="操作">
                       {locked ? (
                         <span className="small-pill">SettingsでSensitive ON</span>
                       ) : (
@@ -2089,8 +2105,9 @@ function CollectionsView({
             <button
               className="primary"
               onClick={() => {
-                addUserTag(tagForm);
-                setTagForm({ en: "", jp: "", note: "", target: "" });
+                if (addUserTag(tagForm)) {
+                  setTagForm({ en: "", jp: "", note: "", target: "" });
+                }
               }}
             >
               Add tag

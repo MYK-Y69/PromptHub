@@ -46,6 +46,10 @@ const requiredSourceStrings = [
   "aria-selected",
   "[tagIndex, tag]",
   "scrollIntoView",
+  "activeSubcategory",
+  "[sectionIndex, section]",
+  "data-label=\"操作\"",
+  "if (addUserTag(tagForm))",
 ];
 
 const missing = requiredSourceStrings.filter((needle) => !src.includes(needle));
@@ -79,6 +83,16 @@ if (!src.includes('readNormalizedJson("prompthub:v1:draft"') || !src.includes("f
   process.exit(1);
 }
 
+if (src.includes("selectedSubcategory && selectedRecord ?")) {
+  console.error("Explore heading must use the selected subcategory, not fallback selectedRecord.");
+  process.exit(1);
+}
+
+if (src.includes("addUserTag(tagForm);\n                setTagForm")) {
+  console.error("User tag form must clear only after addUserTag succeeds.");
+  process.exit(1);
+}
+
 if (!existsSync(distDataPath)) {
   console.error("Missing dist/data/tags.json. Run npm run build first.");
   process.exit(1);
@@ -102,6 +116,23 @@ const sectionCount = data.categories.reduce((sum, category) => {
 
 if (sectionCount < 100) {
   console.error(`Expected full PromptHub section data, got only ${sectionCount} sections.`);
+  process.exit(1);
+}
+
+const guideBlockIds = [];
+for (const category of data.categories) {
+  const subcategories = category.subcategories || [{ id: `${category.id}_all`, sections: category.sections || [] }];
+  for (const subcategory of subcategories) {
+    for (const [sectionIndex, section] of (subcategory.sections || []).entries()) {
+      if ((section.tags || []).length > 0) {
+        guideBlockIds.push(`dict_${[category.id, subcategory.id, section.id, sectionIndex].join("/")}`);
+      }
+    }
+  }
+}
+
+if (new Set(guideBlockIds).size !== guideBlockIds.length) {
+  console.error("Dictionary Guide Block source paths must be unique after sectionIndex disambiguation.");
   process.exit(1);
 }
 
