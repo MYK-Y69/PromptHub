@@ -634,6 +634,78 @@ button:disabled {
   gap: 10px;
 }
 
+.guide-purpose {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 12px 0;
+  padding: 10px 12px;
+  border: 1px solid #bfe8df;
+  border-radius: 8px;
+  background: var(--green-soft);
+}
+
+.guide-purpose strong {
+  color: var(--green);
+  white-space: nowrap;
+}
+
+.guide-purpose span {
+  color: #405064;
+  font-size: 13px;
+}
+
+.guide-shortcuts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 12px 0 16px;
+}
+
+.guide-shortcut-section {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #fbfcfe;
+}
+
+.guide-shortcut-head {
+  display: grid;
+  gap: 2px;
+}
+
+.guide-shortcut-head strong,
+.library-heading h3 {
+  margin: 0;
+  color: var(--text);
+}
+
+.guide-shortcut-head span,
+.library-heading p,
+.shortcut-empty {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.guide-shortcut-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.library-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
 .guide-tools {
   display: grid;
   grid-template-columns: minmax(160px, 1fr) minmax(150px, 220px) auto;
@@ -658,19 +730,62 @@ button:disabled {
   display: grid;
   gap: 4px;
   text-align: left;
+  padding: 11px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
 }
 
-.guide-card span {
+.guide-card.compact {
+  padding: 9px;
+}
+
+.guide-card-main {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
+
+.guide-card-main span {
   color: var(--muted);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.guide-card em {
+.guide-card-main em {
   color: var(--primary);
   font-size: 12px;
   font-style: normal;
+}
+
+.guide-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 4px;
+}
+
+.guide-card-actions button {
+  padding: 4px 7px;
+  font-size: 12px;
+}
+
+.save-name-field {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.save-name-field span {
+  color: var(--muted);
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.save-name-field input {
+  min-width: 0;
+  padding: 8px 10px;
 }
 
 .recent-list,
@@ -1018,10 +1133,16 @@ button:disabled {
   }
 
   .guide-grid,
+  .guide-shortcuts,
   .guide-tools,
   .learn-grid,
   .user-tag-form {
     grid-template-columns: 1fr;
+  }
+
+  .guide-purpose {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .workspace.collections .inspector {

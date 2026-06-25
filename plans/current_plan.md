@@ -2,99 +2,183 @@
 
 ## Intake Summary
 
-Build a fully separated public PromptHub app based on the approved mockup direction. The current legacy `app/` is not a dependency and must not be modified by this build. The product goal is a repeatable workflow:
+PromptHub public appのUI改善を実施する。最重要課題は、現状のGuide Blocksが「大量の辞書セクション一覧」に見えており、ユーザーにとって何のために使うのかが弱いこと。Guide Blocksを「よく使うプロンプト構成を、Builderへ素早く再投入するための再利用パネル」として再設計する。
 
-```text
-Explore -> Builder Workshop -> Collections -> reuse in Builder
-```
+あわせて、UI満足度監査で優先度が高かった以下も同じ作業導線として修正する。
 
-## Quality Governance
+- Guide Blocksの目的説明
+- Pinned / Recently used / My Blocks
+- Guide Blockの使用履歴
+- Recipe保存時の命名
+- CollectionsのQuick Load / Quick Copy
 
-- Single-agent review scores are not accepted as final scores.
-- Plan and implementation scoring must be performed by separate subagents when the tool is available.
-- If subagents are unavailable, the score remains pending and cannot be used as a pass gate.
-- For this repair loop, the accepted independent scores are:
-  - Plan Review: 78/100, Fail before revision.
-  - UX Implementation Review: 72/100, Fail.
-  - Technical Implementation Review: 81/100, No-go.
+## Assumptions
 
-## Requirements
+- 既存のReact/Vite構成とlocalStorage保存を維持する。
+- 実装範囲は `public-app/src/App.jsx`、`public-app/src/styles.css`、`public-app/scripts/check-app.mjs`、ハーネス成果物に限定する。
+- 大規模なコンポーネント分割やデータ移行は行わない。
+- Guide Blocksは辞書由来ブロック、コアブロック、ユーザー作成ブロックを引き続き併用する。
+- Pinnedはユーザー操作、Recently usedはGuide Block使用時に自動更新、My Blocksはユーザー作成ブロックから表示する。
 
-- Keep the public app isolated under `public-app/`.
-- Runtime must not depend on `app/` or repository-relative legacy paths.
-- Use real PromptHub compiled prompt data as the accepted runtime path.
-- Keep sample data only as an emergency/dev fallback, not as a successful public state.
-- Explore must support major and middle categories, search, target/source/user/favorite filters, visible empty/loading/error states, tag detail, copy, favorite, hide, and add-to-builder actions.
-- Builder Workshop must support Positive/Negative prompt editing, candidate search, Guide Blocks, output copy, save recipe, reorder, duplicate warning, and clear actions.
-- Collections must support explicit section switching, selected recipe inspection, load/copy/rename/duplicate/export/delete, favorites, recent prompts, custom Guide Blocks, user tags, and JSON backup.
-- Settings must support Sensitive gating, display preferences, local data import/export/reset, hidden tags, legacy import, and data status.
-- Sensitive vocabulary is OFF by default.
+## Screen Structure
 
-## Data Source And Acceptance
+### Builder
 
-- Source of truth for this public app build: `data/v2/compiled/tags.json`.
-- `public-app/scripts/sync-data.mjs` copies that file to `public-app/public/data/tags.json` before dev/build.
-- Runtime loads `data/tags.json` through `import.meta.env.BASE_URL`, with Vite `base: "./"` so root and subpath hosting both work.
-- Acceptance check: production `dist/data/tags.json` must contain the compiled data count, at least 1,000 non-sensitive initial Explore tags, and at least 100 non-empty dictionary sections.
-- Current verified dataset: 10,085 tags, 9 major categories, 606 non-empty sections, 9,477 initial non-sensitive Explore tags.
+- Guide Blocks見出しを「よく使う構成をまとめて追加」に寄せ、用途を明確にする。
+- Guide Blocks上部にショートカット領域を追加する。
+  - Pinned: 固定したブロック
+  - Recently used: 最近使ったブロック
+  - My Blocks: ユーザー作成ブロック
+- 既存の検索・カテゴリ・一覧は「Library」として残し、600件超の辞書を探索できる場所にする。
+- 各Guide Blockカードには以下を出す。
+  - 主操作: `+Positive`
+  - 補助操作: `+Negative`
+  - 固定: Pin / Unpin
+  - コピー: Copy
+  - メタ情報: category/source path、tag count、使用回数
+- 出力と保存パネルにRecipe名入力欄を追加し、保存時にその名前を使う。
 
-## UI Structure
+### Collections
 
-- Desktop Explore: left category rail, center search/results table, right tag inspector and draft summary.
-- Mobile Explore: full horizontal major category strip including "all", plus full active middle-category strip. No sliced-only taxonomy access.
-- Builder: left candidate rail, center prompt editor and Guide Blocks, right output/save inspector.
-- Collections: left collection section rail, center selected section list/editor, right selected recipe inspector.
-- Settings: sidebar plus grouped settings rows.
-- All primary lists must have empty states.
-- Table row selection must be keyboard-operable.
-- Editing repeat-use data must use inline forms, not browser `prompt()`.
-- Focus states must be visible.
+- Recipe一覧の操作にQuick reuseを追加する。
+  - Load
+  - Copy Positive
+  - Copy Both
+  - Rename
+  - Duplicate
+  - Export
+  - Delete
+- Guide Blocksセクションは「自分で作った再利用ブロック」として説明を強化する。
+- 行動の優先順位はQuick Load / Quick Copyを先に置き、破壊的操作は最後に置く。
 
-## Component And Module Boundaries
+## Component Structure
 
-Current construction keeps the app in `public-app/src/App.jsx` for the first working pass, but production hardening should split without behavior changes into:
+単一ファイル構成は維持しつつ、以下の小さなヘルパー/表示関数を追加する。
 
-- data loader / normalizer
-- local storage adapter and import validators
-- shared tag/prompt utilities
-- `ExploreView`
-- `BuilderView`
-- `CollectionsView`
-- `SettingsView`
-- shared table, panel, and edit form components
+- `getBlockTags(block, side)`
+- `getBlockSummary(block)`
+- `getGuideBlockMeta(block, guideBlockUsage)`
+- `GuideBlockShortcutSection`
+- `GuideBlockCard`
 
-The large `App.jsx` file is an accepted short-term construction risk, not a final maintainability target.
+既存 `BuilderView` のGuide Blocks部分を、ショートカット領域とLibrary領域に分ける。
 
-## Repair Scope
+## State Management
 
-Repair loop 1 addresses the independent reviewer findings:
+新しいlocalStorage保存対象を追加する。
 
-- Configure relative Vite base for subpath deployment.
-- Remove repository-relative runtime data fallback.
-- Add strict local import normalization for recipes, blocks, tags, draft, favorites, recent prompts, hidden tags, and preferences.
-- Wrap localStorage writes so quota/security failures do not crash the UI.
-- Cap one-click generated dictionary Guide Block additions to avoid huge prompts from sections with hundreds of tags.
-- Replace mobile sliced category shortcuts with full category and subcategory access.
-- Make Collections sidebar buttons stateful.
-- Make recipe selection explicit and drive the inspector from the selected recipe.
-- Replace browser `prompt()` edit flows with inline forms.
-- Route table copy through the common copy helper.
-- Add keyboard selection, `aria-selected`, labels, `aria-pressed`, and focus-visible styling.
-- Expand static checks for data source, subpath base, no prompt dialogs, import validators, Collections state, and Guide Block cap.
+- `prompthub:v1:pinnedGuideBlocks`
+- `prompthub:v1:recentGuideBlocks`
+- `prompthub:v1:guideBlockUsage`
+- `prompthub:v1:draftRecipeName`
+
+React state:
+
+- `pinnedGuideBlockIds`
+- `recentGuideBlockIds`
+- `guideBlockUsage`
+- `draftRecipeName`
+
+Guide Block使用時:
+
+- 使用ブロックをRecent先頭へ移動
+- 最大件数を制限する
+- 使用回数と最終使用時刻を更新する
+- 既存のDraft追加処理を維持する
+
+Pinned:
+
+- toggle操作でlocalStorageへ保存する
+- Pinnedセクションは最大6件表示
+
+My Blocks:
+
+- `userGuideBlocks` のうち `userCreated` を最大6件表示
+
+Recipe保存:
+
+- `draftRecipeName.trim()` があれば保存名に使う
+- 空なら既存の自動名を使う
+- 保存後は入力欄をクリアする
+
+## Data Model / Data Flow
+
+- 既存のimport/export JSONに新しいGuide Block関連状態を含める。
+- import時は配列/オブジェクトを正規化し、不正値でUIが壊れないようにする。
+- reset時はPinned/Recent/Usage/Recipe名も初期化する。
+- check scriptで新しい保存キーとUI markerを確認する。
+
+## Technical Approach
+
+- 既存の`readNormalizedJson`、`writeJson`、`normalizeImportedStrings`を再利用する。
+- `guideBlocks` 配列は現状どおり合成し、IDを基準にPinned/Recentを解決する。
+- Recentから消えたIDは表示時に自然に無視する。
+- UI追加はCSSグリッドと既存カードスタイルを拡張し、依存関係は追加しない。
+
+## UI / UX Approach
+
+- Guide Blocksの価値を「探す」ではなく「再利用する」に置き換える。
+- 上段にすぐ使うショートカット、下段に検索Libraryという構造にする。
+- 初見でも「ブロック単位で追加すると作業が速くなる」と分かるコピーを入れる。
+- 日常利用ではPinned/Recent/My Blocksから1クリックで追加できるようにする。
+- Collectionsでは保存済みレシピを管理するだけでなく、素早く読み込み/コピーできるようにする。
+
+## Accessibility Approach
+
+- Pin、Copy、+Positive、+Negativeに明確な `aria-label` を付ける。
+- ボタン内テキストは短くしつつ、スクリーンリーダー向けラベルで補う。
+- Recipe名入力にlabelを付ける。
+- カード操作はbutton要素を使い、フォーカススタイルは既存のfocus-visibleを活かす。
+
+## Responsive Approach
+
+- デスクトップはショートカット領域を2-3列のカードグリッドにする。
+- モバイルは1列に積む。
+- CollectionsのQuick操作は折り返し可能にし、既存のモバイルカード化テーブルを維持する。
+- 横スクロールやテキストはみ出しを避ける。
 
 ## Verification Plan
 
-- `npm run build` in `public-app/`.
-- `npm run check` in `public-app/`.
-- `git diff --check`.
-- Verify Vite dev or preview responds locally when available.
-- Verify `/data/tags.json` or relative `data/tags.json` resolves in served output.
-- Use subagent implementation review after repair; accept the lowest independent score as the current gate.
+- `npm run build`
+- `npm run check`
+- `git diff --check`
+- ブラウザ確認:
+  - BuilderでGuide Blocksの目的説明が見える
+  - Pin / Unpinが動き、Pinnedに反映される
+  - Guide Block使用後にRecently usedへ反映される
+  - My Blocks作成後にショートカットへ表示される
+  - +Positive / +Negative / Copyが動く
+  - Recipe名を入力して保存するとCollectionsに反映される
+  - CollectionsでCopy Both / Copy Positive / Loadが使える
+  - モバイル幅でBuilder/Collectionsが横にはみ出さない
 
-## Out Of Scope
+## Work Sequence
 
-- Replacing the legacy `app/`.
-- Editing dictionary pipeline tools.
-- User accounts, cloud sync, collaboration, billing, or telemetry.
-- Full component split before the current repair score is known.
-- Git push without explicit user approval.
+1. localStorage key、state、normalizerを追加する。
+2. Guide Block使用履歴・pin toggle・copy helperを追加する。
+3. BuilderのGuide Blocks UIをショートカット + Libraryへ再構成する。
+4. Builder保存パネルにRecipe名入力欄を追加する。
+5. CollectionsのRecipe行にQuick Copy導線を追加する。
+6. CSSを追加し、desktop/mobile両方を整える。
+7. check scriptを更新する。
+8. build/check/browser QAを実行する。
+9. implementation reviewを実施し、85点未満ならrepair loopを回す。
+
+## Risks and Mitigations
+
+- `App.jsx`がさらに大きくなる。
+  - 小さなヘルパーと表示コンポーネントに分け、局所的に抑える。
+- Guide Blocks上段が増え、Builderが長くなる。
+  - Pinned/Recent/My Blocksは最大表示数を制限する。
+- 操作が増えてカードがうるさくなる。
+  - `+Positive` を主操作、その他は小さなrow actionsにする。
+- 古いlocalStorageデータが混在する。
+  - normalizerとfallbackで安全に読む。
+
+## Out of Scope
+
+- アカウント、クラウド同期、共有機能。
+- 大規模なコンポーネント分割。
+- 辞書パイプラインやデータ本体の編集。
+- 日本語同義語検索の本格実装。
+- git push。

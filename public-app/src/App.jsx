@@ -166,9 +166,16 @@ const LOCAL_KEYS = [
   "prompthub:v1:preferences",
   "prompthub:v1:customBlocks",
   "prompthub:v1:guideBlocks",
+  "prompthub:v1:pinnedGuideBlocks",
+  "prompthub:v1:recentGuideBlocks",
+  "prompthub:v1:guideBlockUsage",
+  "prompthub:v1:draftRecipeName",
   "prompthub:v1:userTags",
   "prompthub:v1:hiddenTags",
 ];
+
+const GUIDE_BLOCK_SHORTCUT_LIMIT = 6;
+const RECENT_GUIDE_BLOCK_LIMIT = 12;
 
 const LEGACY_KEYS = [
   "prompthub_deleted",
@@ -511,6 +518,19 @@ function normalizeImportedStrings(items, limit = 1000) {
   return [...new Set(items.map((item) => String(item || "").trim()).filter(Boolean))].slice(0, limit);
 }
 
+function normalizeImportedUsageMap(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return {};
+  return Object.fromEntries(Object.entries(value)
+    .map(([id, usage]) => {
+      const source = usage && typeof usage === "object" ? usage : {};
+      return [String(id), {
+        count: Math.max(0, Number(source.count || source.uses || 0)),
+        lastUsedAt: String(source.lastUsedAt || source.updatedAt || ""),
+      }];
+    })
+    .filter(([id]) => id));
+}
+
 function normalizeImportedRecipes(items) {
   if (!Array.isArray(items)) return null;
   return items
@@ -661,6 +681,10 @@ export function App() {
   ], normalizeImportedRecipes));
   const [recentPrompts, setRecentPrompts] = useState(() => readNormalizedJson("prompthub:v1:recentPrompts", [], normalizeImportedRecentPrompts));
   const [userGuideBlocks, setUserGuideBlocks] = useState(() => readCustomBlocks());
+  const [pinnedGuideBlockIds, setPinnedGuideBlockIds] = useState(() => readNormalizedJson("prompthub:v1:pinnedGuideBlocks", [], (value) => normalizeImportedStrings(value, 200)));
+  const [recentGuideBlockIds, setRecentGuideBlockIds] = useState(() => readNormalizedJson("prompthub:v1:recentGuideBlocks", [], (value) => normalizeImportedStrings(value, RECENT_GUIDE_BLOCK_LIMIT)));
+  const [guideBlockUsage, setGuideBlockUsage] = useState(() => readNormalizedJson("prompthub:v1:guideBlockUsage", {}, normalizeImportedUsageMap));
+  const [draftRecipeName, setDraftRecipeName] = useState(() => String(readJson("prompthub:v1:draftRecipeName", "") || ""));
   const [userTags, setUserTags] = useState(() => readNormalizedJson("prompthub:v1:userTags", [], normalizeImportedUserTags));
   const [hiddenTags, setHiddenTags] = useState(() => readNormalizedJson("prompthub:v1:hiddenTags", [], (value) => normalizeImportedStrings(value, 5000)));
   const [showSensitive, setShowSensitive] = useState(() => initialPreferences.sensitive);
@@ -708,6 +732,10 @@ export function App() {
   useEffect(() => { writeJson("prompthub:v1:recipes", recipes); }, [recipes]);
   useEffect(() => { writeJson("prompthub:v1:recentPrompts", recentPrompts); }, [recentPrompts]);
   useEffect(() => { writeJson("prompthub:v1:customBlocks", userGuideBlocks); }, [userGuideBlocks]);
+  useEffect(() => { writeJson("prompthub:v1:pinnedGuideBlocks", pinnedGuideBlockIds); }, [pinnedGuideBlockIds]);
+  useEffect(() => { writeJson("prompthub:v1:recentGuideBlocks", recentGuideBlockIds); }, [recentGuideBlockIds]);
+  useEffect(() => { writeJson("prompthub:v1:guideBlockUsage", guideBlockUsage); }, [guideBlockUsage]);
+  useEffect(() => { writeJson("prompthub:v1:draftRecipeName", draftRecipeName); }, [draftRecipeName]);
   useEffect(() => { writeJson("prompthub:v1:userTags", userTags); }, [userTags]);
   useEffect(() => { writeJson("prompthub:v1:hiddenTags", hiddenTags); }, [hiddenTags]);
   useEffect(() => { writeJson("prompthub:v1:preferences", { sensitive: showSensitive, density, languageEmphasis, inspectorMode }); }, [showSensitive, density, languageEmphasis, inspectorMode]);
@@ -745,6 +773,7 @@ export function App() {
     ];
   }, [dictionary.major, userRecords]);
   const guideBlocks = useMemo(() => [...userGuideBlocks, ...CORE_GUIDE_BLOCKS, ...dictionaryGuideBlocks], [userGuideBlocks, dictionaryGuideBlocks]);
+  const guideBlocksById = useMemo(() => new Map(guideBlocks.map((block) => [block.id, block])), [guideBlocks]);
   const sourceSites = useMemo(() => {
     return [...new Set(records.filter((record) => !hiddenTagSet.has(normalizeText(record.en))).map((record) => record.sourceSite).filter(Boolean))].sort((a, b) => a.localeCompare(b));
   }, [records, hiddenTagSet]);
@@ -819,18 +848,42 @@ export function App() {
     notify("Draft をクリアしました");
   }
 
-  function applyGuideBlock(block) {
-    const positiveTags = (block.positive || []).slice(0, block.dictionaryGenerated ? GUIDE_BLOCK_ADD_LIMIT : undefined);
-    const negativeTags = (block.negative || []).slice(0, block.dictionaryGenerated ? GUIDE_BLOCK_ADD_LIMIT : undefined);
+  function recordGuideBlockUse(block) {
+    const now = new Date().toISOString();
+    setRecentGuideBlockIds((current) => [block.id, ...current.filter((id) => id !== block.id)].slice(0, RECENT_GUIDE_BLOCK_LIMIT));
+    setGuideBlockUsage((current) => ({
+      ...current,
+      [block.id]: {
+        count: Number(current[block.id]?.count || block.usageCount || block.uses || 0) + 1,
+        lastUsedAt: now,
+      },
+    }));
+  }
+
+  function toggleGuideBlockPin(block) {
+    setPinnedGuideBlockIds((current) => {
+      if (current.includes(block.id)) return current.filter((id) => id !== block.id);
+      return [block.id, ...current].slice(0, 200);
+    });
+    notify(pinnedGuideBlockIds.includes(block.id) ? `${block.label} の固定を解除しました` : `${block.label} を固定しました`);
+  }
+
+  function applyGuideBlock(block, side = "both") {
+    const addPositive = side === "both" || side === "positive";
+    const addNegative = side === "both" || side === "negative";
+    const positiveTags = addPositive ? (block.positive || []).slice(0, block.dictionaryGenerated ? GUIDE_BLOCK_ADD_LIMIT : undefined) : [];
+    const negativeTags = addNegative ? (block.negative || []).slice(0, block.dictionaryGenerated ? GUIDE_BLOCK_ADD_LIMIT : undefined) : [];
     setDraft((current) => ({
       positive: uniqByEn([...current.positive, ...positiveTags.map((tag) => makeDraftItem(tag, tag, tag.includes("light") ? "style_quality" : "custom", "block"))]),
       negative: uniqByEn([...current.negative, ...negativeTags.map((tag) => makeDraftItem(tag, tag, "negative", "block"))]),
     }));
+    recordGuideBlockUse(block);
     const totalTags = (block.positive || []).length + (block.negative || []).length;
+    const sideLabel = side === "positive" ? "Positive" : side === "negative" ? "Negative" : "Draft";
     if (block.dictionaryGenerated && totalTags > GUIDE_BLOCK_ADD_LIMIT) {
-      notify(`${block.label} の先頭${GUIDE_BLOCK_ADD_LIMIT}件をDraftに追加`);
+      notify(`${block.label} の先頭${GUIDE_BLOCK_ADD_LIMIT}件を${sideLabel}に追加`);
     } else {
-      notify(`${block.label} をDraftに追加`);
+      notify(`${block.label} を${sideLabel}に追加`);
     }
   }
 
@@ -979,14 +1032,16 @@ export function App() {
   }
 
   function saveRecipe() {
+    const name = draftRecipeName.trim() || "新しいPromptレシピ";
     const recipe = {
       id: `recipe_${Date.now()}`,
-      name: "新しいPromptレシピ",
+      name,
       positive: draft.positive.map((item) => item.en),
       negative: draft.negative.map((item) => item.en),
       updatedAt: new Date().toISOString().slice(0, 10).replaceAll("-", "/"),
     };
     setRecipes((current) => [recipe, ...current]);
+    setDraftRecipeName("");
     notify("Collections に保存しました");
     setView("collections");
   }
@@ -1065,6 +1120,10 @@ export function App() {
       draft,
       customBlocks: userGuideBlocks,
       guideBlocks: userGuideBlocks,
+      pinnedGuideBlocks: pinnedGuideBlockIds,
+      recentGuideBlocks: recentGuideBlockIds,
+      guideBlockUsage,
+      draftRecipeName,
       userTags,
       hiddenTags,
       legacyKeysDetected,
@@ -1087,6 +1146,9 @@ export function App() {
         const importedRecipes = normalizeImportedRecipes(data.recipes);
         const importedRecentPrompts = normalizeImportedRecentPrompts(data.recentPrompts);
         const importedBlocks = normalizeImportedGuideBlocks(data.customBlocks || data.guideBlocks);
+        const importedPinnedBlocks = normalizeImportedStrings(data.pinnedGuideBlocks, 200);
+        const importedRecentBlocks = normalizeImportedStrings(data.recentGuideBlocks, RECENT_GUIDE_BLOCK_LIMIT);
+        const importedUsage = normalizeImportedUsageMap(data.guideBlockUsage);
         const importedUserTags = normalizeImportedUserTags(data.userTags);
         const importedHiddenTags = normalizeImportedStrings(data.hiddenTags, 5000);
 
@@ -1094,6 +1156,10 @@ export function App() {
         if (importedRecipes) { setRecipes(importedRecipes); summary.push(`recipes ${importedRecipes.length}`); }
         if (importedRecentPrompts) { setRecentPrompts(importedRecentPrompts); summary.push(`recent ${importedRecentPrompts.length}`); }
         if (importedBlocks) { setUserGuideBlocks(importedBlocks); summary.push(`blocks ${importedBlocks.length}`); }
+        if (importedPinnedBlocks) { setPinnedGuideBlockIds(importedPinnedBlocks); summary.push(`pinned blocks ${importedPinnedBlocks.length}`); }
+        if (importedRecentBlocks) { setRecentGuideBlockIds(importedRecentBlocks); summary.push(`recent blocks ${importedRecentBlocks.length}`); }
+        if (Object.keys(importedUsage).length > 0) { setGuideBlockUsage(importedUsage); summary.push(`block usage ${Object.keys(importedUsage).length}`); }
+        if (typeof data.draftRecipeName === "string") setDraftRecipeName(data.draftRecipeName);
         if (importedUserTags) { setUserTags(importedUserTags); summary.push(`user tags ${importedUserTags.length}`); }
         if (importedHiddenTags) { setHiddenTags(importedHiddenTags); summary.push(`hidden ${importedHiddenTags.length}`); }
         if (data.draft?.positive || data.draft?.negative) {
@@ -1124,6 +1190,10 @@ export function App() {
     setRecipes([]);
     setRecentPrompts([]);
     setUserGuideBlocks([]);
+    setPinnedGuideBlockIds([]);
+    setRecentGuideBlockIds([]);
+    setGuideBlockUsage({});
+    setDraftRecipeName("");
     setUserTags([]);
     setHiddenTags([]);
     setShowSensitive(false);
@@ -1228,9 +1298,17 @@ export function App() {
           dictionaryGuideBlockCount={dictionaryGuideBlocks.length}
           showSensitive={showSensitive}
           applyGuideBlock={applyGuideBlock}
+          copyGuideBlock={(block) => copyText([...block.positive, ...block.negative].join(", "), block.label)}
+          pinnedGuideBlockIds={pinnedGuideBlockIds}
+          recentGuideBlockIds={recentGuideBlockIds}
+          guideBlockUsage={guideBlockUsage}
+          guideBlocksById={guideBlocksById}
+          toggleGuideBlockPin={toggleGuideBlockPin}
           createGuideBlockFromDraft={createGuideBlockFromDraft}
           copyText={copyText}
           saveRecipe={saveRecipe}
+          draftRecipeName={draftRecipeName}
+          setDraftRecipeName={setDraftRecipeName}
           positiveText={positiveText}
           negativeText={negativeText}
           addToDraft={addToDraft}
@@ -1250,6 +1328,12 @@ export function App() {
           duplicateRecipe={duplicateRecipe}
           deleteRecipe={deleteRecipe}
           exportRecipe={exportRecipe}
+          copyRecipe={(recipe, mode = "both") => {
+            const positive = recipe.positive.join(", ");
+            const negative = recipe.negative.join(", ");
+            if (mode === "positive") copyText(positive, `${recipe.name} Positive`);
+            else copyText(`Positive:\n${positive}\n\nNegative:\n${negative}`, `${recipe.name} Both`);
+          }}
           copyText={copyText}
           positiveText={positiveText}
           negativeText={negativeText}
@@ -1649,7 +1733,104 @@ function PromptSummary({ draft, setView }) {
   );
 }
 
-function BuilderView({ records, draft, removeDraftItem, moveDraftItem, clearDraft, guideBlocks, dictionaryGuideBlockCount, showSensitive, applyGuideBlock, createGuideBlockFromDraft, copyText, saveRecipe, positiveText, negativeText, addToDraft }) {
+function GuideBlockCard({ block, applyGuideBlock, copyGuideBlock, pinned, toggleGuideBlockPin, guideBlockUsage, compact = false }) {
+  const positiveCount = (block.positive || []).length;
+  const negativeCount = (block.negative || []).length;
+  const usage = guideBlockUsage[block.id];
+  const usageCount = Number(usage?.count || block.usageCount || block.uses || 0);
+  const meta = block.dictionaryGenerated
+    ? `${block.sourcePath?.join(" > ")} / ${block.tagCount} tags`
+    : `${usageCount} uses`;
+  const tags = [...(block.positive || []), ...(block.negative || [])].join(", ");
+
+  return (
+    <article className={`guide-card ${compact ? "compact" : ""}`}>
+      <div className="guide-card-main">
+        <strong>{block.label}</strong>
+        <span>{tags}</span>
+        <em>{meta}</em>
+      </div>
+      <div className="guide-card-actions">
+        <button
+          className="primary"
+          disabled={positiveCount === 0}
+          onClick={() => applyGuideBlock(block, "positive")}
+          aria-label={`${block.label} をPositiveに追加`}
+        >
+          +Positive
+        </button>
+        <button
+          disabled={negativeCount === 0}
+          onClick={() => applyGuideBlock(block, "negative")}
+          aria-label={`${block.label} をNegativeに追加`}
+        >
+          +Negative
+        </button>
+        <button onClick={() => toggleGuideBlockPin(block)} aria-label={`${block.label} を${pinned ? "固定解除" : "固定"}`}>
+          {pinned ? "Unpin" : "Pin"}
+        </button>
+        <button onClick={() => copyGuideBlock(block)} aria-label={`${block.label} をコピー`}>
+          Copy
+        </button>
+      </div>
+    </article>
+  );
+}
+
+function GuideBlockShortcutSection({ title, description, blocks, emptyText, applyGuideBlock, copyGuideBlock, pinnedGuideBlockIds, toggleGuideBlockPin, guideBlockUsage }) {
+  return (
+    <section className="guide-shortcut-section">
+      <div className="guide-shortcut-head">
+        <strong>{title}</strong>
+        <span>{description}</span>
+      </div>
+      {blocks.length === 0 ? (
+        <p className="shortcut-empty">{emptyText}</p>
+      ) : (
+        <div className="guide-shortcut-grid">
+          {blocks.map((block) => (
+            <GuideBlockCard
+              key={block.id}
+              block={block}
+              compact
+              applyGuideBlock={applyGuideBlock}
+              copyGuideBlock={copyGuideBlock}
+              pinned={pinnedGuideBlockIds.includes(block.id)}
+              toggleGuideBlockPin={toggleGuideBlockPin}
+              guideBlockUsage={guideBlockUsage}
+            />
+          ))}
+        </div>
+      )}
+    </section>
+  );
+}
+
+function BuilderView({
+  records,
+  draft,
+  removeDraftItem,
+  moveDraftItem,
+  clearDraft,
+  guideBlocks,
+  dictionaryGuideBlockCount,
+  showSensitive,
+  applyGuideBlock,
+  copyGuideBlock,
+  pinnedGuideBlockIds,
+  recentGuideBlockIds,
+  guideBlockUsage,
+  guideBlocksById,
+  toggleGuideBlockPin,
+  createGuideBlockFromDraft,
+  copyText,
+  saveRecipe,
+  draftRecipeName,
+  setDraftRecipeName,
+  positiveText,
+  negativeText,
+  addToDraft,
+}) {
   const [localSearch, setLocalSearch] = useState("soft");
   const [guideSearch, setGuideSearch] = useState("");
   const [guideCategory, setGuideCategory] = useState("all");
@@ -1668,16 +1849,32 @@ function BuilderView({ records, draft, removeDraftItem, moveDraftItem, clearDraf
     }
     return [...map.entries()].sort((a, b) => a[1].localeCompare(b[1], "ja"));
   }, [guideBlocks, showSensitive]);
+  const visibleGuideBlock = (block) => block && (showSensitive || block.sourceCategoryId !== "sensitive");
   const filteredGuideBlocks = useMemo(() => {
     const q = normalizeText(guideSearch);
     return guideBlocks.filter((block) => {
-      if (!showSensitive && block.sourceCategoryId === "sensitive") return false;
+      if (!visibleGuideBlock(block)) return false;
       if (guideCategory !== "all" && block.category !== guideCategory) return false;
       if (!q) return true;
       const searchable = block.searchable || normalizeText([block.label, block.categoryLabel, block.category, ...(block.positive || []), ...(block.negative || [])].join(" "));
       return matchesSearch(searchable, q);
+    }).sort((a, b) => {
+      const pinnedDiff = Number(pinnedGuideBlockIds.includes(b.id)) - Number(pinnedGuideBlockIds.includes(a.id));
+      if (pinnedDiff !== 0) return pinnedDiff;
+      const usageDiff = Number(guideBlockUsage[b.id]?.count || b.usageCount || b.uses || 0) - Number(guideBlockUsage[a.id]?.count || a.usageCount || a.uses || 0);
+      if (usageDiff !== 0) return usageDiff;
+      return a.label.localeCompare(b.label, "ja");
     });
-  }, [guideBlocks, guideSearch, guideCategory, showSensitive]);
+  }, [guideBlocks, guideSearch, guideCategory, showSensitive, pinnedGuideBlockIds, guideBlockUsage]);
+  const pinnedBlocks = pinnedGuideBlockIds.map((id) => guideBlocksById.get(id)).filter(visibleGuideBlock).slice(0, GUIDE_BLOCK_SHORTCUT_LIMIT);
+  const recentBlocks = recentGuideBlockIds
+    .map((id) => guideBlocksById.get(id))
+    .filter(visibleGuideBlock)
+    .filter((block, index, list) => list.findIndex((item) => item.id === block.id) === index)
+    .slice(0, GUIDE_BLOCK_SHORTCUT_LIMIT);
+  const myBlocks = guideBlocks
+    .filter((block) => visibleGuideBlock(block) && (block.userCreated || block.category === "custom"))
+    .slice(0, GUIDE_BLOCK_SHORTCUT_LIMIT);
 
   useEffect(() => {
     setGuideLimit(80);
@@ -1721,9 +1918,54 @@ function BuilderView({ records, draft, removeDraftItem, moveDraftItem, clearDraf
           <div className="panel-head">
             <div>
               <h2>Guide Blocks</h2>
-              <p>PromptHub本体の全セクション {dictionaryGuideBlockCount.toLocaleString()} 件と、ユーザー保存ブロックをまとめて使えます。</p>
+              <p>よく使う表情、構図、品質、Negativeをブロック単位で再利用します。探す前に、固定・最近使用・自作からすぐ追加できます。</p>
             </div>
             <button onClick={createGuideBlockFromDraft}>選択中をブロック化</button>
+          </div>
+          <div className="guide-purpose">
+            <strong>何に使う？</strong>
+            <span>繰り返し使うタグの組み合わせを、毎回検索せずにBuilderへ戻すためのショートカットです。</span>
+          </div>
+          <div className="guide-shortcuts">
+            <GuideBlockShortcutSection
+              title="Pinned"
+              description="毎回使う構成"
+              blocks={pinnedBlocks}
+              emptyText="LibraryからPinするとここに固定されます。"
+              applyGuideBlock={applyGuideBlock}
+              copyGuideBlock={copyGuideBlock}
+              pinnedGuideBlockIds={pinnedGuideBlockIds}
+              toggleGuideBlockPin={toggleGuideBlockPin}
+              guideBlockUsage={guideBlockUsage}
+            />
+            <GuideBlockShortcutSection
+              title="Recently used"
+              description="直近で使ったブロック"
+              blocks={recentBlocks}
+              emptyText="Guide Blockを追加するとここに履歴が残ります。"
+              applyGuideBlock={applyGuideBlock}
+              copyGuideBlock={copyGuideBlock}
+              pinnedGuideBlockIds={pinnedGuideBlockIds}
+              toggleGuideBlockPin={toggleGuideBlockPin}
+              guideBlockUsage={guideBlockUsage}
+            />
+            <GuideBlockShortcutSection
+              title="My Blocks"
+              description="自分で保存した構成"
+              blocks={myBlocks}
+              emptyText="Draftをブロック化すると自作ブロックとして出ます。"
+              applyGuideBlock={applyGuideBlock}
+              copyGuideBlock={copyGuideBlock}
+              pinnedGuideBlockIds={pinnedGuideBlockIds}
+              toggleGuideBlockPin={toggleGuideBlockPin}
+              guideBlockUsage={guideBlockUsage}
+            />
+          </div>
+          <div className="library-heading">
+            <div>
+              <h3>Library</h3>
+              <p>PromptHub本体の全セクション {dictionaryGuideBlockCount.toLocaleString()} 件から、必要なブロックを探して固定できます。</p>
+            </div>
           </div>
           <div className="guide-tools">
             <input value={guideSearch} onChange={(event) => setGuideSearch(event.target.value)} placeholder="Guide Blocksを検索" aria-label="Guide Blocks search" />
@@ -1735,13 +1977,15 @@ function BuilderView({ records, draft, removeDraftItem, moveDraftItem, clearDraf
           </div>
           <div className="guide-grid">
             {filteredGuideBlocks.slice(0, guideLimit).map((block) => (
-              <button key={block.id} className="guide-card" onClick={() => applyGuideBlock(block)}>
-                <strong>{block.label}</strong>
-                <span>{[...block.positive, ...block.negative].join(", ")}</span>
-                <em>
-                  {block.dictionaryGenerated ? `${block.sourcePath?.join(" > ")} / ${block.tagCount} tags` : `${block.uses} uses`}
-                </em>
-              </button>
+              <GuideBlockCard
+                key={block.id}
+                block={block}
+                applyGuideBlock={applyGuideBlock}
+                copyGuideBlock={copyGuideBlock}
+                pinned={pinnedGuideBlockIds.includes(block.id)}
+                toggleGuideBlockPin={toggleGuideBlockPin}
+                guideBlockUsage={guideBlockUsage}
+              />
             ))}
           </div>
           {filteredGuideBlocks.length > guideLimit && (
@@ -1758,6 +2002,15 @@ function BuilderView({ records, draft, removeDraftItem, moveDraftItem, clearDraf
           <h2>出力と保存</h2>
           <OutputBox label="Positive" text={positiveText} />
           <OutputBox label="Negative" text={negativeText} danger />
+          <label className="save-name-field">
+            <span>Recipe name</span>
+            <input
+              value={draftRecipeName}
+              onChange={(event) => setDraftRecipeName(event.target.value)}
+              placeholder="例: 自然光ポートレート"
+              aria-label="Recipe name before save"
+            />
+          </label>
           <div className="stack-actions">
             <button className="primary" onClick={() => copyText(positiveText, "Positive Prompt")}>Copy Positive</button>
             <button onClick={() => copyText(negativeText, "Negative Prompt")}>Copy Negative</button>
@@ -1818,6 +2071,7 @@ function CollectionsView({
   duplicateRecipe,
   deleteRecipe,
   exportRecipe,
+  copyRecipe,
   copyText,
   recentPrompts,
   saveRecentAsRecipe,
@@ -1979,6 +2233,8 @@ function CollectionsView({
                       ) : (
                         <div className="row-actions">
                           <button onClick={(event) => { event.stopPropagation(); loadRecipe(recipe); }}>Load</button>
+                          <button onClick={(event) => { event.stopPropagation(); copyRecipe(recipe, "both"); }}>Copy Both</button>
+                          <button onClick={(event) => { event.stopPropagation(); copyRecipe(recipe, "positive"); }}>Copy Positive</button>
                           {editing ? (
                             <>
                               <button onClick={(event) => { event.stopPropagation(); saveRecipeEdit(recipe); }}>Save</button>

@@ -20,6 +20,10 @@ const requiredSourceStrings = [
   "prompthub:v1:userTags",
   "prompthub:v1:customBlocks",
   "prompthub:v1:guideBlocks",
+  "prompthub:v1:pinnedGuideBlocks",
+  "prompthub:v1:recentGuideBlocks",
+  "prompthub:v1:guideBlockUsage",
+  "prompthub:v1:draftRecipeName",
   "prompthub:v1:hiddenTags",
   "表示言語",
   "詳細ペイン",
@@ -43,6 +47,17 @@ const requiredSourceStrings = [
   "selectedCollectionSection",
   "selectedRecipeId",
   "inline-edit-form",
+  "GuideBlockCard",
+  "GuideBlockShortcutSection",
+  "recordGuideBlockUse",
+  "toggleGuideBlockPin",
+  "visibleGuideBlock",
+  "Recently used",
+  "My Blocks",
+  "Recipe name before save",
+  "Copy Both",
+  "guide-purpose",
+  "guide-shortcuts",
   "aria-selected",
   "[tagIndex, tag]",
   "scrollIntoView",
@@ -80,6 +95,31 @@ if (!src.includes("visibleRecipes.map((recipe)") || src.includes("recipes.map((r
 
 if (!src.includes('readNormalizedJson("prompthub:v1:draft"') || !src.includes("for (const key of LOCAL_KEYS) removeJson(key)")) {
   console.error("LocalStorage read/reset paths must be schema-normalized and exception-safe.");
+  process.exit(1);
+}
+
+if (!src.includes("recordGuideBlockUse(block)") || !src.includes("setRecentGuideBlockIds") || !src.includes("setGuideBlockUsage")) {
+  console.error("Guide Blocks must update recent usage and usage counts when applied.");
+  process.exit(1);
+}
+
+if (!src.includes("pinnedGuideBlockIds.map((id) => guideBlocksById.get(id))") || !src.includes("recentGuideBlockIds")) {
+  console.error("Builder must surface pinned and recently used Guide Block shortcuts.");
+  process.exit(1);
+}
+
+if (!src.includes(".filter(visibleGuideBlock).slice(0, GUIDE_BLOCK_SHORTCUT_LIMIT)") || !src.includes("visibleGuideBlock(block) && (block.userCreated || block.category === \"custom\")")) {
+  console.error("Guide Block shortcuts must respect Sensitive OFF filtering.");
+  process.exit(1);
+}
+
+if (!src.includes("const name = draftRecipeName.trim()") || !src.includes("setDraftRecipeName(\"\")")) {
+  console.error("Saved recipes must use the visible recipe name field and clear it after save.");
+  process.exit(1);
+}
+
+if (!src.includes("copyRecipe(recipe, \"both\")") || !src.includes("copyRecipe(recipe, \"positive\")")) {
+  console.error("Collections recipes must expose quick copy actions for reuse.");
   process.exit(1);
 }
 

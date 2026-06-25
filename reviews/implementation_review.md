@@ -139,3 +139,72 @@ Pass. Lowest independent post-repair score: 86 / 100.
 - `public-app/src/App.jsx` is still a large single-file implementation and should be split before production hardening.
 - Static checks are partly marker-based and do not replace browser-level interaction tests.
 - Sensitive recipe hiding depends on exact matches against loaded dictionary records; freeform imported sensitive terms outside the dictionary cannot be classified automatically.
+
+---
+
+# Guide Blocks Improvement Review
+
+## Scope
+
+Guide Blocksの存在意義を「辞書セクションの一覧」から「よく使うプロンプト部品をBuilderへ戻す再利用ショートカット」に変更した。対象はBuilderのGuide Blocks、Recipe保存、CollectionsのQuick reuse、関連localStorage/check script。
+
+## Independent Implementation Review
+
+Reviewer: Carver
+
+Total: 87 / 100
+
+Gate: Pass
+
+| Criterion | Max | Score |
+| --- | ---: | ---: |
+| Requirements fit | 25 | 23 |
+| UI/UX | 20 | 18 |
+| Technical correctness | 20 | 16 |
+| Maintainability | 15 | 12 |
+| Verification coverage | 10 | 8 |
+| Scope control | 10 | 10 |
+
+## Review Findings
+
+- P2: Sensitive Guide Blocks could bypass Sensitive OFF via Pinned / Recently used / My Blocks shortcuts.
+- P3: New workflow checks in `check-app.mjs` are marker-based and do not replace browser-level interaction tests.
+
+## Repair Applied
+
+- Applied the same Sensitive OFF filtering to `pinnedBlocks`, `recentBlocks`, and `myBlocks`.
+- Added `visibleGuideBlock` static check markers so shortcut filtering cannot be accidentally removed without `npm run check` failing.
+
+## Browser QA
+
+Manual browser verification was run against `http://127.0.0.1:5176/`:
+
+- Builder renders Guide Blocks purpose copy.
+- Pinned / Recently used / My Blocks are visible.
+- Pin from Library reflects in Pinned.
+- Adding a Guide Block updates Recently used.
+- Creating a block from Draft reflects in My Blocks.
+- Recipe name field saves a named recipe.
+- Collections shows Load / Copy Both / Copy Positive.
+- Copy Positive and Copy Both write expected clipboard text.
+- Desktop Builder and Collections had no horizontal overflow.
+- Mobile Builder and Collections at 390px width had no horizontal overflow.
+- Browser console error/warning log was empty during interaction checks.
+
+## Verification After Repair
+
+| Command / Check | Result | Notes |
+| --- | --- | --- |
+| `npm run build` | Pass | Synced 10,085 tags and built production output. Environment printed `pyenv` shim warnings only. |
+| `npm run check` | Pass | Confirmed compiled data counts plus new Guide Blocks workflow markers and Sensitive shortcut filtering marker. |
+| `git diff --check` | Pass | No whitespace errors. |
+| Browser smoke after repair | Pass | Builder loaded after reload with Guide purpose, shortcut sections, Guide cards, and no horizontal overflow. |
+
+## Current Gate
+
+Pass. Independent score: 87 / 100. P2 repair was applied and verified after the score.
+
+## Residual Risks
+
+- New browser-level workflow verification is documented but not yet automated as an npm script because the public app currently has no browser automation dependency.
+- `public-app/src/App.jsx` remains large; component splitting should be considered before long-term maintenance.

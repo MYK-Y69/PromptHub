@@ -1,44 +1,34 @@
 # Plan Review
 
-## Governance
+## Score
 
-Single-agent scores are not accepted as final. This file records independent subagent review results.
+Total: 88 / 100
 
-## First Independent Review
+| Criterion | Points | Score | Notes |
+| --- | ---: | ---: | --- |
+| Requirements fit | 25 | 23 | Guide Blocksの存在意義改善、Pinned/Recent/My Blocks、Recipe命名、Collections Quick reuseまで一貫している。 |
+| Implementation approach | 20 | 18 | 既存React/Vite/localStorage構成に沿っており、範囲も現実的。 |
+| UI/UX design | 20 | 18 | 「再利用パネル」としての価値が明確。操作数が増えすぎないよう実装時の整理が必要。 |
+| Maintainability | 15 | 12 | App.jsx肥大化リスクあり。小さなヘルパー/表示コンポーネントで局所化する必要がある。 |
+| Test and verification potential | 10 | 9 | build/check/diff/browser QAが定義されている。 |
+| Scope control | 10 | 8 | 検索同義語など大きいテーマはOut of Scopeにできている。 |
 
-Reviewer: Plan Reviewer Agent
+## Gate
 
-Total: 78 / 100
+Pass
 
-Gate: Fail, revise before build.
+## Required Revisions
 
-Key required revisions:
+なし。80点以上のため実装に進んでよい。
 
-- Define the real PromptHub data source unambiguously.
-- Tighten independent runtime criteria so the public app does not depend on `app/` or repository-relative legacy paths.
-- Add concrete desktop/mobile UI structure, empty/loading/error states, and accessibility expectations.
-- Add maintainability boundaries.
-- Add verification for real-data counts and scoped changes.
+## Risks
 
-## Revised Plan Review
+- Guide Blockカードの操作数が多くなりやすい。
+- Recently usedの更新条件を明確にする必要がある。
+- 既存userGuideBlocksに `userCreated` がない場合のfallbackが必要。
+- Collections Quick操作追加でモバイル横幅が増えないよう確認が必要。
+- 新localStorageキーのimport/export/reset漏れに注意。
 
-Reviewer: Second-pass Plan Reviewer Agent
+## Reviewer Notes
 
-Total: 87 / 100
-
-| Criterion | Max | Score |
-| --- | ---: | ---: |
-| Requirements fit | 25 | 23 |
-| Implementation approach | 20 | 17 |
-| UI/UX design | 20 | 18 |
-| Maintainability | 15 | 12 |
-| Test/verification potential | 10 | 8 |
-| Scope control | 10 | 9 |
-
-Gate: Pass.
-
-## Residual Risks
-
-- `public-app/src/App.jsx` is still large and should be split before production hardening.
-- Complex UI behavior still needs interaction-level review beyond static checks.
-- Import/export edge cases need targeted validation to avoid local-data crashes.
+実装時は `+Positive` を最優先にし、`+Negative / Copy / Pin` は控えめな行アクションとして扱う。Recently usedはGuide BlockをPositive/Negativeへ追加した時だけ更新する。
