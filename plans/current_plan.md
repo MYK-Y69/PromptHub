@@ -144,3 +144,67 @@ The remaining score blockers are concentrated in:
 - New design system.
 - Data import pipeline changes.
 - Git push.
+
+---
+
+# Explore Split Pane Repair Plan
+
+## Intake Summary
+
+User goal: Explore画面で、左カテゴリとプロンプト一覧を画面分割し、一覧をスクロールしてもカテゴリが見えなくならないようにする。
+
+The current Explore screen uses a three-column desktop grid, but the page itself scrolls as one surface. When users browse long prompt result lists, the left category rail scrolls away from the viewport. This weakens the main Explore workflow because users lose the ability to jump categories while comparing prompt rows.
+
+## Requirements
+
+- Keep this change scoped to the public app Explore layout.
+- Preserve existing category/subcategory behavior, search, filters, result table, inspector, and mobile category strips.
+- On desktop and tablet-wide layouts, split Explore into stable panes:
+  - left category pane remains visible
+  - center prompt list scrolls independently
+  - right inspector remains visible when present
+- On mobile, keep the current single-column flow with mobile category strips.
+- Do not add dependencies or redesign unrelated screens.
+
+## Screen / Layout Approach
+
+- Add Explore-specific pane classes in `App.jsx`:
+  - `explore-sidebar`
+  - `explore-content`
+  - `explore-inspector`
+- For desktop (`min-width: 981px`), make `.workspace.explore` a fixed-height grid based on the viewport below the topbar.
+- Give each Explore pane its own vertical scrolling:
+  - left category pane: `overflow-y: auto`
+  - center content: `overflow-y: auto`
+  - right inspector: `overflow-y: auto`
+- Keep horizontal table overflow inside `.table-wrap`, not on the whole page.
+- Preserve the existing medium-width auto-inspector behavior by allowing the inspector to move under the content while the category rail remains independently visible.
+
+## Accessibility / UX Notes
+
+- The category rail should keep the active category visible and usable while results move.
+- The list pane should not create nested awkward scrolling on mobile.
+- The layout should avoid clipped bottom content by using `min-height: 0` on grid children.
+- No visible instructional copy is added.
+
+## Verification Plan
+
+- `npm run build`
+- `npm run check`
+- `git diff --check`
+- Browser or headless layout check at desktop width:
+  - `.workspace.explore` height is viewport-bounded
+  - category pane and content pane have independent overflow
+  - scrolling center content does not move the category pane
+- Mobile sanity check:
+  - sidebar remains hidden
+  - mobile category strips remain available
+  - no horizontal document overflow
+
+## Scope Exclusions
+
+- Category ordering or taxonomy changes.
+- Prompt data changes.
+- New sticky headers for every table column.
+- Broader component extraction.
+- Git push.

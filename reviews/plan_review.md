@@ -33,3 +33,34 @@ Pass. Builder phase may proceed.
 - More化で補助操作が1タップ遠くなるため、主操作は必ず残す。
 - mobile nav wrapで上部占有が増えすぎないよう、ボタンサイズを抑える。
 - sticky action barはコンテンツを覆わないよう下部余白を追加する。
+
+---
+
+# Explore Split Pane Plan Review
+
+## Score
+
+Total: 91 / 100
+
+| Criterion | Points | Score | Notes |
+| --- | ---: | ---: | --- |
+| Requirements fit | 25 | 24 | 左カテゴリがスクロールで消える問題に直接対応している。 |
+| Implementation approach | 20 | 18 | 既存のReact構造とCSSグリッドだけで解決できる。 |
+| UI/UX design | 20 | 18 | デスクトップは分割ペイン、モバイルは既存導線維持で妥当。 |
+| Maintainability | 15 | 14 | Explore専用class追加に限定され、他画面への影響が小さい。 |
+| Test and verification | 10 | 9 | build/checkに加え、CDPで独立スクロールを検証可能。 |
+| Scope control | 10 | 8 | 固定高さグリッドの副作用確認は必要だが、機能追加は抑えられている。 |
+
+## Gate
+
+Pass. Builder phase may proceed.
+
+## Required Revisions
+
+なし。
+
+## Risks
+
+- `min-height: 0` が不足すると中央ペインがページ全体を押し広げ、分割ペインが成立しない。
+- medium幅の `inspector-auto` では右ペインが下段へ回るため、カテゴリ固定と内容表示の両立を確認する。
+- モバイルは既存の単一カラムとカテゴリチップを維持し、ネストスクロールを増やさない。

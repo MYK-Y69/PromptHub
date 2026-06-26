@@ -3,6 +3,7 @@ import { join } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
 const src = readFileSync(join(root, "src/App.jsx"), "utf8");
+const styles = readFileSync(join(root, "src/styles.css"), "utf8");
 const viteConfig = readFileSync(join(root, "vite.config.mjs"), "utf8");
 const distHtml = existsSync(join(root, "dist/index.html")) ? readFileSync(join(root, "dist/index.html"), "utf8") : "";
 const distDataPath = join(root, "dist/data/tags.json");
@@ -70,6 +71,9 @@ const requiredSourceStrings = [
   "[tagIndex, tag]",
   "scrollIntoView",
   "activeSubcategory",
+  "explore-sidebar",
+  "explore-content",
+  "explore-inspector",
   "[sectionIndex, section]",
   "data-label=\"操作\"",
   "if (addUserTag(tagForm))",
@@ -148,6 +152,11 @@ if (!src.includes("<ActionMenu>") || !src.includes("row-actions-prioritized")) {
 
 if (src.includes("selectedSubcategory && selectedRecord ?")) {
   console.error("Explore heading must use the selected subcategory, not fallback selectedRecord.");
+  process.exit(1);
+}
+
+if (!styles.includes("@media (min-width: 981px)") || !styles.includes("height: calc(100vh - 62px)") || !styles.includes(".explore-sidebar") || !styles.includes("overscroll-behavior: contain")) {
+  console.error("Explore desktop must use split panes with independently scrollable category/content/inspector areas.");
   process.exit(1);
 }
 

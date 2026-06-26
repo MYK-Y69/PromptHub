@@ -260,3 +260,48 @@ All requested scores are now at least 85.
 ## Current Gate
 
 Pass. Lowest independent satisfaction score after repair: 86 / 100.
+
+---
+
+# Explore Split Pane Implementation Review
+
+## Scope
+
+Explore画面の左カテゴリと中央プロンプト一覧をデスクトップで分割ペイン化し、一覧スクロール中もカテゴリを見失わないようにした。
+
+## Score
+
+Total: 90 / 100
+
+Gate: Pass
+
+| Criterion | Score |
+| --- | ---: |
+| Requirements achievement | 24 / 25 |
+| UI/UX quality | 18 / 20 |
+| Code quality | 18 / 20 |
+| Verification results | 13 / 15 |
+| Maintainability | 9 / 10 |
+| Accessibility | 4 / 5 |
+| Lack of overengineering | 4 / 5 |
+
+## Verification
+
+| Command / Check | Result | Notes |
+| --- | --- | --- |
+| `npm run build` | Pass | Synced 10,085 tags and built Vite output. pyenv rehash warnings were environmental. |
+| `npm run check` | Pass | Added Explore split-pane CSS/source markers; existing app checks still pass. |
+| `git diff --check` | Pass | No whitespace issues. |
+| Headless browser layout probe | Not completed | Playwright browser binary was not installed, and direct Google Chrome launch failed in this environment. Static layout checks were used instead. |
+
+## Review Notes
+
+- Desktop Explore now uses a viewport-bounded grid under the topbar.
+- `.explore-sidebar`, `.explore-content`, and `.explore-inspector` each get independent vertical overflow on desktop.
+- Mobile remains single-column with the existing mobile category strips.
+- The medium-width inspector-auto layout was adjusted so the category rail spans both rows when the inspector moves below the content.
+
+## Residual Risks
+
+- Actual browser scroll feel should be confirmed manually at `http://127.0.0.1:5176/` because automated headless browser launch was unavailable.
+- If the topbar height changes significantly later, the desktop Explore height calculation should be updated with it.

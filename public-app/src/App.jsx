@@ -1443,7 +1443,7 @@ function ExploreView(props) {
 
   return (
     <main className="workspace explore">
-      <aside className="sidebar">
+      <aside className="sidebar explore-sidebar">
         <h2>カテゴリ</h2>
         <button
           className={`category-button ${selectedCategory === "all" ? "active" : ""}`}
@@ -1483,7 +1483,7 @@ function ExploreView(props) {
         </div>
       </aside>
 
-      <section className="content">
+      <section className="content explore-content">
         <div className="search-hero">
           <label htmlFor="global-search">日本語・英語でタグ検索</label>
           <div className="search-row">
@@ -1566,7 +1566,7 @@ function ExploreView(props) {
         )}
       </section>
 
-      <aside className="inspector">
+      <aside className="inspector explore-inspector">
         <TagInspector
           record={selectedRecord}
           allRecords={allRecords}
