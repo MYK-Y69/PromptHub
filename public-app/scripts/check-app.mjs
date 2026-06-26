@@ -58,6 +58,7 @@ const requiredSourceStrings = [
   "visibleGuideBlock",
   "Recommended Blocks",
   "guideBlockDraftName",
+  "latestCreatedGuideBlockId",
   "Guide Block name before create",
   "guide-create-controls",
   "mobile-builder-actions",
@@ -151,6 +152,11 @@ if (!src.includes("RecommendedGuideBlocks") || !src.includes("draftMatched") || 
 
 if (!src.includes("const label = guideBlockDraftName.trim() || fallbackLabel") || !src.includes("setGuideBlockDraftName(\"\")")) {
   console.error("Guide Block creation must support a user-entered name and clear it after save.");
+  process.exit(1);
+}
+
+if (!src.includes("setLatestCreatedGuideBlockId(block.id)") || !src.includes("addBlocks([latestCreatedGuideBlock])") || !src.includes("a.id === latestCreatedGuideBlockId")) {
+  console.error("Newly created Guide Blocks must be prioritized at the top of Builder Guide Blocks.");
   process.exit(1);
 }
 

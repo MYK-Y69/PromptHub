@@ -387,3 +387,43 @@ User goals:
 - Collections redesign.
 - Bulk renaming.
 - Git push.
+
+---
+
+# Created Guide Block Priority Plan
+
+## Intake Summary
+
+User goal: Builderで作成したGuide Blockが、作成後すぐにGuide Blocksの最上段へ出るようにする。
+
+Current behavior: created blocks are stored at the front of `userGuideBlocks`, but `Recommended Blocks` prioritizes pinned/recent/draft-matched blocks first, so a newly created block can be visually buried.
+
+## Requirements
+
+- Newly created Guide Block should appear first in the Builder Guide Blocks area.
+- Preserve existing Pinned / Recently used / My Blocks behavior.
+- Do not auto-pin the block; this should remain a user choice.
+- Keep behavior local and lightweight.
+
+## Approach
+
+- Track `latestCreatedGuideBlockId` in `App`.
+- Set it when `createGuideBlockFromDraft` succeeds.
+- Pass it to `BuilderView`.
+- In `BuilderView`, resolve the latest created block from `guideBlocksById`.
+- Add the latest created block before pinned/recent/draft matches in `recommendedBlocks`.
+- Sort `filteredGuideBlocks` so the latest created block is first when visible.
+- Add static check markers for the latest-created priority path.
+
+## Verification
+
+- `npm run build`
+- `npm run check`
+- `git diff --check`
+
+## Scope Exclusions
+
+- Auto-pinning.
+- New animations.
+- Cross-device sync.
+- Git push.

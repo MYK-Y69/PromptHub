@@ -686,6 +686,7 @@ export function App() {
   const [guideBlockUsage, setGuideBlockUsage] = useState(() => readNormalizedJson("prompthub:v1:guideBlockUsage", {}, normalizeImportedUsageMap));
   const [draftRecipeName, setDraftRecipeName] = useState(() => String(readJson("prompthub:v1:draftRecipeName", "") || ""));
   const [guideBlockDraftName, setGuideBlockDraftName] = useState("");
+  const [latestCreatedGuideBlockId, setLatestCreatedGuideBlockId] = useState("");
   const [userTags, setUserTags] = useState(() => readNormalizedJson("prompthub:v1:userTags", [], normalizeImportedUserTags));
   const [hiddenTags, setHiddenTags] = useState(() => readNormalizedJson("prompthub:v1:hiddenTags", [], (value) => normalizeImportedStrings(value, 5000)));
   const [showSensitive, setShowSensitive] = useState(() => initialPreferences.sensitive);
@@ -911,6 +912,7 @@ export function App() {
       updatedAt: now,
     };
     setUserGuideBlocks((current) => [block, ...current]);
+    setLatestCreatedGuideBlockId(block.id);
     setGuideBlockDraftName("");
     notify(`${label} をGuide Blockに保存しました`);
   }
@@ -1315,6 +1317,7 @@ export function App() {
           setDraftRecipeName={setDraftRecipeName}
           guideBlockDraftName={guideBlockDraftName}
           setGuideBlockDraftName={setGuideBlockDraftName}
+          latestCreatedGuideBlockId={latestCreatedGuideBlockId}
           positiveText={positiveText}
           negativeText={negativeText}
           addToDraft={addToDraft}
@@ -1884,6 +1887,7 @@ function BuilderView({
   setDraftRecipeName,
   guideBlockDraftName,
   setGuideBlockDraftName,
+  latestCreatedGuideBlockId,
   positiveText,
   negativeText,
   addToDraft,
@@ -1907,6 +1911,7 @@ function BuilderView({
     return [...map.entries()].sort((a, b) => a[1].localeCompare(b[1], "ja"));
   }, [guideBlocks, showSensitive]);
   const visibleGuideBlock = (block) => block && (showSensitive || block.sourceCategoryId !== "sensitive");
+  const latestCreatedGuideBlock = guideBlocksById.get(latestCreatedGuideBlockId);
   const filteredGuideBlocks = useMemo(() => {
     const q = normalizeText(guideSearch);
     return guideBlocks.filter((block) => {
@@ -1916,13 +1921,15 @@ function BuilderView({
       const searchable = block.searchable || normalizeText([block.label, block.categoryLabel, block.category, ...(block.positive || []), ...(block.negative || [])].join(" "));
       return matchesSearch(searchable, q);
     }).sort((a, b) => {
+      if (a.id === latestCreatedGuideBlockId) return -1;
+      if (b.id === latestCreatedGuideBlockId) return 1;
       const pinnedDiff = Number(pinnedGuideBlockIds.includes(b.id)) - Number(pinnedGuideBlockIds.includes(a.id));
       if (pinnedDiff !== 0) return pinnedDiff;
       const usageDiff = Number(guideBlockUsage[b.id]?.count || b.usageCount || b.uses || 0) - Number(guideBlockUsage[a.id]?.count || a.usageCount || a.uses || 0);
       if (usageDiff !== 0) return usageDiff;
       return a.label.localeCompare(b.label, "ja");
     });
-  }, [guideBlocks, guideSearch, guideCategory, showSensitive, pinnedGuideBlockIds, guideBlockUsage]);
+  }, [guideBlocks, guideSearch, guideCategory, showSensitive, pinnedGuideBlockIds, guideBlockUsage, latestCreatedGuideBlockId]);
   const pinnedBlocks = pinnedGuideBlockIds.map((id) => guideBlocksById.get(id)).filter(visibleGuideBlock).slice(0, GUIDE_BLOCK_SHORTCUT_LIMIT);
   const recentBlocks = recentGuideBlockIds
     .map((id) => guideBlocksById.get(id))
@@ -1956,13 +1963,14 @@ function BuilderView({
     const fallbackBlocks = filteredGuideBlocks.filter((block) => {
       return block.id === "negative_base" || block.userCreated || !block.dictionaryGenerated || Number(block.tagCount || 0) <= 16;
     });
+    addBlocks([latestCreatedGuideBlock]);
     addBlocks(pinnedBlocks);
     addBlocks(recentBlocks);
     addBlocks(draftMatched);
     addBlocks(fallbackBlocks);
     addBlocks(filteredGuideBlocks);
     return blocks;
-  }, [draftTerms, filteredGuideBlocks, pinnedBlocks, recentBlocks, showSensitive]);
+  }, [draftTerms, filteredGuideBlocks, pinnedBlocks, recentBlocks, showSensitive, latestCreatedGuideBlock]);
 
   useEffect(() => {
     setGuideLimit(80);

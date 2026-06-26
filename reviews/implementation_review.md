@@ -487,3 +487,47 @@ Gate: Pass
 
 - Duplicate Guide Block names are allowed for now, matching the current flexible local-save model.
 - Final spacing should be checked visually in the in-app browser at narrow laptop widths.
+
+---
+
+# Created Guide Block Priority Implementation Review
+
+## Scope
+
+Builderで作成したGuide Blockが、作成直後にBuilderのGuide Blocks上部へ出るように表示優先度を調整した。
+
+## Score
+
+Total: 90 / 100
+
+Gate: Pass
+
+| Criterion | Score |
+| --- | ---: |
+| Requirements achievement | 24 / 25 |
+| UI/UX quality | 18 / 20 |
+| Code quality | 18 / 20 |
+| Verification results | 14 / 15 |
+| Maintainability | 9 / 10 |
+| Accessibility | 5 / 5 |
+| Lack of overengineering | 2 / 5 |
+
+## Verification
+
+| Command / Check | Result | Notes |
+| --- | --- | --- |
+| `npm run build` | Pass | Synced 10,085 tags and built Vite output. pyenv rehash warnings were environmental. |
+| `npm run check` | Pass | Added checks for latest-created Guide Block priority. |
+| `git diff --check` | Pass | No whitespace issues. |
+| Local server HEAD check | Pass | `http://127.0.0.1:5176/` returned HTTP 200. |
+
+## Review Notes
+
+- Added `latestCreatedGuideBlockId` state.
+- Set the latest-created id when `createGuideBlockFromDraft` succeeds.
+- Recommended Blocks now adds the latest-created block before pinned/recent/draft matches.
+- Library sorting puts the latest-created block first when it is visible under the active filters.
+
+## Residual Risks
+
+- If the user has an active search or category filter that excludes the new block, the Library list can still hide it; Recommended Blocks remains the primary top placement.

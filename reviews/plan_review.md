@@ -170,3 +170,28 @@ Gate: Pass. Builder phase may proceed.
 - The plan directly solves the missing creation-time naming flow.
 - Keeping the default fallback avoids forcing extra typing.
 - The short create button should fix the awkward Japanese line break shown in the screenshot.
+
+---
+
+# Created Guide Block Priority Plan Review
+
+## Score
+
+Total: 91 / 100
+
+Gate: Pass. Builder phase may proceed.
+
+| Criterion | Score |
+| --- | ---: |
+| Requirements fit | 25 / 25 |
+| Implementation approach | 18 / 20 |
+| UI/UX design | 19 / 20 |
+| Maintainability | 14 / 15 |
+| Test and verification | 8 / 10 |
+| Scope control | 7 / 10 |
+
+## Notes
+
+- Tracking the latest created block directly matches the user's expectation.
+- Prioritizing it in recommendations is better than auto-pinning because it does not change long-term user preferences.
+- Main risk is filter/search hiding the block; the default all-category state will show it at the top.
