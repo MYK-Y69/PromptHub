@@ -54,6 +54,7 @@ const requiredSourceStrings = [
   "BuilderMobileActionBar",
   "ActionMenu",
   "favorite-toggle",
+  "pill-button",
   "recordGuideBlockUse",
   "toggleGuideBlockPin",
   "visibleGuideBlock",
@@ -173,6 +174,11 @@ if (!src.includes("<ActionMenu>") || !src.includes("row-actions-prioritized")) {
 
 if (!src.includes("aria-pressed={isFavorite}") || !src.includes("toggleFavorite(record.en)") || src.includes("Unfavorite")) {
   console.error("Explore rows must expose inline favorite toggles instead of hiding favorite inside More.");
+  process.exit(1);
+}
+
+if (!src.includes("setShowSensitive(!showSensitive)") || !src.includes("Sensitive語彙を") || !styles.includes(".pill-button.active")) {
+  console.error("Header Sensitive status must be directly toggleable.");
   process.exit(1);
 }
 

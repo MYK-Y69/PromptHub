@@ -575,3 +575,47 @@ Gate: Pass
 ## Residual Risks
 
 - The star button should be visually checked in dense table rows on narrow laptop widths.
+
+---
+
+# Sensitive Toggle Accessibility Implementation Review
+
+## Scope
+
+ヘッダーの `Sensitive ON/OFF` 表示を直接切り替え可能なボタンに変更した。Settings内の既存ON/OFF操作は維持した。
+
+## Score
+
+Total: 92 / 100
+
+Gate: Pass
+
+| Criterion | Score |
+| --- | ---: |
+| Requirements achievement | 25 / 25 |
+| UI/UX quality | 19 / 20 |
+| Code quality | 18 / 20 |
+| Verification results | 14 / 15 |
+| Maintainability | 9 / 10 |
+| Accessibility | 5 / 5 |
+| Lack of overengineering | 2 / 5 |
+
+## Verification
+
+| Command / Check | Result | Notes |
+| --- | --- | --- |
+| `npm run build` | Pass | Synced 10,085 tags and built Vite output. pyenv rehash warnings were environmental. |
+| `npm run check` | Pass | Added checks for the header Sensitive toggle. |
+| `git diff --check` | Pass | No whitespace issues. |
+| Local server HEAD check | Pass | `http://127.0.0.1:5176/` returned HTTP 200. |
+
+## Review Notes
+
+- Header `Sensitive OFF/ON` is now a `.pill-button`.
+- The button toggles `showSensitive` directly.
+- Added `aria-pressed` and an explicit Japanese `aria-label`.
+- Active ON state uses the existing gradient pill treatment.
+
+## Residual Risks
+
+- Because this is a safety-related filter, the ON state should remain visually obvious during manual use.

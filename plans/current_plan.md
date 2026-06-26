@@ -466,3 +466,37 @@ User goal: Exploreの検索結果行で、詳細を開かなくてもFavorite登
 - Inspector redesign.
 - New icon library dependency.
 - Git push.
+
+---
+
+# Sensitive Toggle Accessibility Plan
+
+## Intake Summary
+
+User concern: Current header shows `Sensitive OFF`, but it appears non-interactive. Settings has ON/OFF controls, but users need an obvious way to toggle from the visible status area.
+
+## Requirements
+
+- Make Sensitive ON/OFF directly toggleable from the top status area.
+- Preserve Settings ON/OFF segmented controls.
+- Keep current filtering behavior and local preference persistence.
+- Provide accessible pressed state and label.
+
+## Approach
+
+- Replace the header `Sensitive ON/OFF` span with a button.
+- Use `aria-pressed={showSensitive}` and a clear `aria-label`.
+- Add `.pill-button` styling so it looks like a status pill but behaves like a control.
+- Add static checks for the header toggle.
+
+## Verification
+
+- `npm run build`
+- `npm run check`
+- `git diff --check`
+
+## Scope Exclusions
+
+- Changing Sensitive default.
+- Changing Sensitive data filters.
+- Git push.

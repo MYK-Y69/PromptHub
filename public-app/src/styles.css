@@ -156,6 +156,23 @@ textarea {
   color: var(--muted);
 }
 
+.pill-button {
+  min-height: auto;
+  font-weight: 750;
+}
+
+.pill-button:hover {
+  border-color: #b7a2ff;
+  background: var(--primary-soft);
+  color: var(--primary-strong);
+}
+
+.pill-button.active {
+  background: var(--accent-gradient);
+  border-color: transparent;
+  color: #fff;
+}
+
 .workspace {
   display: grid;
   min-height: calc(100vh - 62px);

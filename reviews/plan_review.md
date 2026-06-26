@@ -220,3 +220,28 @@ Gate: Pass. Builder phase may proceed.
 - The row-level star directly removes the need to open details before favoriting.
 - Keeping it icon-like avoids adding another long text button to the dense action area.
 - Main risk is accidental row selection; `stopPropagation` and `aria-pressed` are required.
+
+---
+
+# Sensitive Toggle Accessibility Plan Review
+
+## Score
+
+Total: 93 / 100
+
+Gate: Pass. Builder phase may proceed.
+
+| Criterion | Score |
+| --- | ---: |
+| Requirements fit | 25 / 25 |
+| Implementation approach | 19 / 20 |
+| UI/UX design | 20 / 20 |
+| Maintainability | 14 / 15 |
+| Test and verification | 8 / 10 |
+| Scope control | 7 / 10 |
+
+## Notes
+
+- Making the visible status pill interactive directly resolves the confusion.
+- Keeping Settings controls preserves the existing safety/visibility model.
+- The header button must be visually distinguishable as clickable while staying compact.

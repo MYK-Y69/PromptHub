@@ -1249,7 +1249,14 @@ export function App() {
           ))}
         </nav>
         <div className="top-status">
-          <span className="pill muted">Sensitive {showSensitive ? "ON" : "OFF"}</span>
+          <button
+            className={`pill pill-button ${showSensitive ? "active" : "muted"}`}
+            aria-pressed={showSensitive}
+            aria-label={`Sensitive語彙を${showSensitive ? "OFF" : "ON"}に切り替え`}
+            onClick={() => setShowSensitive(!showSensitive)}
+          >
+            Sensitive {showSensitive ? "ON" : "OFF"}
+          </button>
           <span className="pill">{dataState.source === "compiled" ? "compiled data" : "sample data"}</span>
         </div>
       </header>
