@@ -350,3 +350,48 @@ Gate: Pass
 
 - Final color impression should be checked visually in the in-app browser because automated screenshot capture was intentionally avoided to keep local load low.
 - If the palette feels too vivid after use, the gradient can be softened by reducing CTA shadow and using the soft gradient on fewer surfaces.
+
+---
+
+# Gradient Tone-Down Implementation Review
+
+## Scope
+
+前回の多色グラデーションを整理し、添付画像の下帯に近いラベンダーから紫の控えめなグラデーションへ調整した。文字の視認性を優先し、通常テキストやブランド文字は単色へ戻した。
+
+## Score
+
+Total: 91 / 100
+
+Gate: Pass
+
+| Criterion | Score |
+| --- | ---: |
+| Requirements achievement | 24 / 25 |
+| UI/UX quality | 19 / 20 |
+| Code quality | 18 / 20 |
+| Verification results | 14 / 15 |
+| Maintainability | 9 / 10 |
+| Accessibility | 5 / 5 |
+| Lack of overengineering | 2 / 5 |
+
+## Verification
+
+| Command / Check | Result | Notes |
+| --- | --- | --- |
+| `npm run build` | Pass | Synced 10,085 tags and built Vite output. pyenv rehash warnings were environmental. |
+| `npm run check` | Pass | Updated palette check to toned-down lavender/purple and stale over-colorized values. |
+| `git diff --check` | Pass | No whitespace issues. |
+| Local server HEAD check | Pass | `http://127.0.0.1:5176/` returned HTTP 200. |
+
+## Review Notes
+
+- Removed the previous blue/pink-heavy gradient values and body radial color washes.
+- Restored topbar and app background to calmer near-white surfaces.
+- Changed brand and small metadata accents back to solid purple for readability.
+- Kept the reference-style gradient mainly on primary buttons and subtle highlighted surfaces.
+
+## Residual Risks
+
+- Final preference is visual and should be checked in the in-app browser.
+- If the CTA still feels too saturated, reduce the rightmost purple stop from `#8a55ff` to a softer violet.

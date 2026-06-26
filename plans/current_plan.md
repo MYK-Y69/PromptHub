@@ -256,3 +256,42 @@ The app is an operational prompt browser/builder, so the new color system should
 - Theme switcher.
 - Brand/logo redesign beyond color treatment.
 - Git push.
+
+---
+
+# Gradient Tone-Down Plan
+
+## Intake Summary
+
+User goal: 前回のカラー調整は色を足しすぎたため、添付画像の下帯のようなラベンダーから紫への落ち着いたグラデーションへ寄せ、文字の視認性を改善する。
+
+## Requirements
+
+- Reduce the number of accent hues.
+- Keep the palette close to lavender/purple gradient, without strong blue/pink spread.
+- Improve text readability by using solid dark text for navigation, labels, and brand text.
+- Use gradients only on high-signal actions and subtle highlighted surfaces.
+- Preserve existing layout and workflows.
+
+## Approach
+
+- Replace the previous multi-color gradient with a simpler lavender-to-purple gradient.
+- Remove body radial color washes and return the app background to a quiet near-white lavender.
+- Make the topbar mostly white again.
+- Use solid purple for brand accent and selected nav instead of gradient text.
+- Keep primary buttons as white text on a clear gradient, matching the reference banner.
+- Update checks so stale over-colorized blue/pink palette values cannot remain.
+
+## Verification
+
+- `npm run build`
+- `npm run check`
+- `git diff --check`
+- Local server HEAD check
+
+## Scope Exclusions
+
+- Layout redesign.
+- New imagery.
+- Theme switching.
+- Git push.

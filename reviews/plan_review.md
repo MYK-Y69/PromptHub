@@ -95,3 +95,28 @@ Pass. Builder phase may proceed.
 - グラデーションを多用しすぎると業務ツールとして読みづらくなるため、主要CTA/選択状態/強調面に限定する。
 - ピンク系はdanger表現と混同しないよう、危険操作は既存の赤系を維持する。
 - 白背景とのコントラストを落としすぎない。
+
+---
+
+# Gradient Tone-Down Plan Review
+
+## Score
+
+Total: 92 / 100
+
+Gate: Pass. Builder phase may proceed.
+
+| Criterion | Score |
+| --- | ---: |
+| Requirements fit | 25 / 25 |
+| Implementation approach | 18 / 20 |
+| UI/UX design | 19 / 20 |
+| Maintainability | 14 / 15 |
+| Test and verification | 8 / 10 |
+| Scope control | 8 / 10 |
+
+## Notes
+
+- The plan directly addresses the user's feedback that too many colors were added.
+- Readability improves by restoring solid text and limiting gradient use to CTA-level elements.
+- Main risk is making the UI too plain; active states should retain enough purple contrast.

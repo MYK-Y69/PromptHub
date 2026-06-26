@@ -1,23 +1,20 @@
 :root {
   color-scheme: light;
-  --bg: #fbf8ff;
+  --bg: #fbfaff;
   --surface: #ffffff;
-  --surface-soft: #faf7ff;
+  --surface-soft: #fbf9ff;
   --line: #ded7ee;
   --line-soft: #f0eaf8;
   --text: #172033;
   --muted: #667085;
-  --primary: #8056ff;
-  --primary-strong: #6140d8;
+  --primary: #8a55ff;
+  --primary-strong: #5b35c8;
   --primary-soft: #f1ebff;
-  --accent-blue: #42b9ef;
-  --accent-pink: #e67fba;
-  --accent-lavender: #d6a5df;
-  --accent-gradient: linear-gradient(100deg, #8056ff 0%, #6f7cf7 42%, #42b9ef 72%, #e67fba 100%);
-  --accent-soft-gradient: linear-gradient(135deg, #fbf3ff 0%, #f3efff 42%, #edf9ff 72%, #fff3fa 100%);
+  --accent-gradient: linear-gradient(90deg, #d4a4d9 0%, #b585ee 48%, #8a55ff 100%);
+  --accent-soft-gradient: linear-gradient(90deg, #fbf7fc 0%, #f6f1ff 100%);
   --danger: #cf3f4b;
   --danger-soft: #fff0f1;
-  --positive: #5f62dc;
+  --positive: #6950d8;
   --positive-soft: #f0efff;
   --shadow: 0 14px 34px rgba(84, 63, 152, 0.11);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -31,10 +28,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background:
-    radial-gradient(circle at 12% 0%, rgba(214, 165, 223, 0.22), transparent 28%),
-    radial-gradient(circle at 82% 3%, rgba(66, 185, 239, 0.16), transparent 26%),
-    var(--accent-soft-gradient);
+  background: var(--bg);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
 }
@@ -64,7 +58,7 @@ input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
 tr:focus-visible {
-  outline: 3px solid rgba(128, 86, 255, 0.36);
+  outline: 3px solid rgba(138, 85, 255, 0.32);
   outline-offset: 2px;
 }
 
@@ -97,9 +91,7 @@ textarea {
   align-items: center;
   min-height: 62px;
   padding: 0 24px;
-  background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.96), rgba(251, 247, 255, 0.94)),
-    var(--accent-soft-gradient);
+  background: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(10px);
 }
@@ -115,10 +107,7 @@ textarea {
 }
 
 .brand span {
-  background: var(--accent-gradient);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  color: var(--primary);
 }
 
 .nav {
@@ -326,7 +315,7 @@ p {
   background: var(--accent-gradient);
   color: #fff;
   border-color: transparent;
-  box-shadow: 0 8px 18px rgba(128, 86, 255, 0.18);
+  box-shadow: 0 8px 18px rgba(138, 85, 255, 0.16);
 }
 
 .filter-row {
@@ -424,7 +413,7 @@ p {
 .recipe-table tr.selected,
 .recipe-table tr:hover {
   background: #f6f1ff;
-  box-shadow: inset 3px 0 0 #8056ff;
+  box-shadow: inset 3px 0 0 var(--primary);
 }
 
 .row-actions {
@@ -859,10 +848,7 @@ button:disabled {
 }
 
 .guide-card-main em {
-  background: var(--accent-gradient);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  color: var(--primary);
   font-size: 12px;
   font-style: normal;
 }
