@@ -53,6 +53,7 @@ const requiredSourceStrings = [
   "RecommendedGuideBlocks",
   "BuilderMobileActionBar",
   "ActionMenu",
+  "favorite-toggle",
   "recordGuideBlockUse",
   "toggleGuideBlockPin",
   "visibleGuideBlock",
@@ -167,6 +168,11 @@ if (!src.includes("BuilderMobileActionBar") || !src.includes("Copy +") || !src.i
 
 if (!src.includes("<ActionMenu>") || !src.includes("row-actions-prioritized")) {
   console.error("Dense row actions must be reduced with prioritized actions and More menus.");
+  process.exit(1);
+}
+
+if (!src.includes("aria-pressed={isFavorite}") || !src.includes("toggleFavorite(record.en)") || src.includes("Unfavorite")) {
+  console.error("Explore rows must expose inline favorite toggles instead of hiding favorite inside More.");
   process.exit(1);
 }
 

@@ -195,3 +195,28 @@ Gate: Pass. Builder phase may proceed.
 - Tracking the latest created block directly matches the user's expectation.
 - Prioritizing it in recommendations is better than auto-pinning because it does not change long-term user preferences.
 - Main risk is filter/search hiding the block; the default all-category state will show it at the top.
+
+---
+
+# Explore Row Favorite Plan Review
+
+## Score
+
+Total: 92 / 100
+
+Gate: Pass. Builder phase may proceed.
+
+| Criterion | Score |
+| --- | ---: |
+| Requirements fit | 25 / 25 |
+| Implementation approach | 18 / 20 |
+| UI/UX design | 20 / 20 |
+| Maintainability | 14 / 15 |
+| Test and verification | 8 / 10 |
+| Scope control | 7 / 10 |
+
+## Notes
+
+- The row-level star directly removes the need to open details before favoriting.
+- Keeping it icon-like avoids adding another long text button to the dense action area.
+- Main risk is accidental row selection; `stopPropagation` and `aria-pressed` are required.

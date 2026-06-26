@@ -427,3 +427,42 @@ Current behavior: created blocks are stored at the front of `userGuideBlocks`, b
 - New animations.
 - Cross-device sync.
 - Git push.
+
+---
+
+# Explore Row Favorite Plan
+
+## Intake Summary
+
+User goal: Exploreの検索結果行で、詳細を開かなくてもFavorite登録できるように、`+Positive` / `+Negative` と同じ操作エリアへ星ボタンを出す。
+
+## Requirements
+
+- Add an inline favorite toggle in each Explore result row.
+- Keep row selection behavior intact.
+- Prevent favorite clicks from opening/selecting the prompt row.
+- Preserve right inspector favorite action.
+- Reduce duplication by removing Favorite from the row `More` menu.
+- Use an icon-like star control with accessible labels.
+
+## Approach
+
+- In `TagTable`, compute favorite state per row.
+- Add a star button next to `+Positive` and `+Negative`.
+- Use `aria-pressed` and an explicit `aria-label`.
+- Remove row-level Favorite/Unfavorite from the `ActionMenu`.
+- Add CSS for a compact square `.favorite-toggle` button.
+- Add static check markers for inline row favorite behavior.
+
+## Verification
+
+- `npm run build`
+- `npm run check`
+- `git diff --check`
+
+## Scope Exclusions
+
+- Favorites collection redesign.
+- Inspector redesign.
+- New icon library dependency.
+- Git push.

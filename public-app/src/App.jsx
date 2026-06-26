@@ -1628,48 +1628,57 @@ function TagTable({ records, totalRecords, selectedRecord, setSelectedRecordId, 
           </tr>
         </thead>
         <tbody>
-          {records.map((record) => (
-            <tr
-              key={record.id}
-              className={selectedRecord?.id === record.id ? "selected" : ""}
-              onClick={() => setSelectedRecordId(record.id)}
-              onKeyDown={(event) => {
-                if (event.key === "Enter" || event.key === " ") {
-                  event.preventDefault();
-                  setSelectedRecordId(record.id);
-                }
-              }}
-              tabIndex={0}
-              aria-selected={selectedRecord?.id === record.id}
-            >
-              {languageEmphasis === "jp" ? (
-                <>
-                  <td>{record.jp}</td>
-                  <td><strong>{record.en}</strong></td>
-                </>
-              ) : (
-                <>
-                  <td><strong>{record.en}</strong></td>
-                  <td>{record.jp}</td>
-                </>
-              )}
-              <td>{record.categoryLabel} &gt; {record.subcategoryLabel}</td>
-              <td><span className="small-pill">{record.target || "未設定"}</span></td>
-              <td>
-                <div className="row-actions row-actions-prioritized">
-                  <button className="primary" onClick={(event) => { event.stopPropagation(); addToDraft(record, "positive"); }}>+Positive</button>
-                  <button onClick={(event) => { event.stopPropagation(); addToDraft(record, "negative"); }}>+Negative</button>
-                  <ActionMenu>
-                    <button onClick={(event) => { event.stopPropagation(); copyText(record.en, record.en); }}>Copy</button>
-                    <button className={favorites.includes(record.en) ? "star active" : "star"} onClick={(event) => { event.stopPropagation(); toggleFavorite(record.en); }}>
-                      {favorites.includes(record.en) ? "Unfavorite" : "Favorite"}
+          {records.map((record) => {
+            const isFavorite = favorites.includes(record.en);
+            return (
+              <tr
+                key={record.id}
+                className={selectedRecord?.id === record.id ? "selected" : ""}
+                onClick={() => setSelectedRecordId(record.id)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    setSelectedRecordId(record.id);
+                  }
+                }}
+                tabIndex={0}
+                aria-selected={selectedRecord?.id === record.id}
+              >
+                {languageEmphasis === "jp" ? (
+                  <>
+                    <td>{record.jp}</td>
+                    <td><strong>{record.en}</strong></td>
+                  </>
+                ) : (
+                  <>
+                    <td><strong>{record.en}</strong></td>
+                    <td>{record.jp}</td>
+                  </>
+                )}
+                <td>{record.categoryLabel} &gt; {record.subcategoryLabel}</td>
+                <td><span className="small-pill">{record.target || "未設定"}</span></td>
+                <td>
+                  <div className="row-actions row-actions-prioritized">
+                    <button className="primary" onClick={(event) => { event.stopPropagation(); addToDraft(record, "positive"); }}>+Positive</button>
+                    <button onClick={(event) => { event.stopPropagation(); addToDraft(record, "negative"); }}>+Negative</button>
+                    <button
+                      className={`favorite-toggle ${isFavorite ? "active" : ""}`}
+                      aria-label={`${record.en} を${isFavorite ? "お気に入り解除" : "お気に入り登録"}`}
+                      aria-pressed={isFavorite}
+                      title={isFavorite ? "お気に入り解除" : "お気に入り登録"}
+                      onClick={(event) => { event.stopPropagation(); toggleFavorite(record.en); }}
+                    >
+                      {isFavorite ? "★" : "☆"}
                     </button>
-                    <button className="danger-button" onClick={(event) => { event.stopPropagation(); hideTag(record.en); }}>Hide</button>
-                  </ActionMenu>
-                </div>
-              </td>
-            </tr>
-          ))}
+                    <ActionMenu>
+                      <button onClick={(event) => { event.stopPropagation(); copyText(record.en, record.en); }}>Copy</button>
+                      <button className="danger-button" onClick={(event) => { event.stopPropagation(); hideTag(record.en); }}>Hide</button>
+                    </ActionMenu>
+                  </div>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

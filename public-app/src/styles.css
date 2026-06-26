@@ -463,6 +463,22 @@ p {
   gap: 6px;
 }
 
+.favorite-toggle {
+  display: inline-grid;
+  place-items: center;
+  min-width: 34px;
+  min-height: 30px;
+  padding: 4px 7px;
+  color: var(--muted);
+  line-height: 1;
+}
+
+.favorite-toggle.active {
+  color: var(--primary-strong);
+  border-color: #b7a2ff;
+  background: var(--primary-soft);
+}
+
 .action-menu {
   position: relative;
 }

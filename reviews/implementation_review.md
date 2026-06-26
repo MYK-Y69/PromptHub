@@ -531,3 +531,47 @@ Gate: Pass
 ## Residual Risks
 
 - If the user has an active search or category filter that excludes the new block, the Library list can still hide it; Recommended Blocks remains the primary top placement.
+
+---
+
+# Explore Row Favorite Implementation Review
+
+## Scope
+
+Exploreの検索結果行に星のお気に入りボタンを追加し、詳細を開かずにFavorite登録/解除できるようにした。
+
+## Score
+
+Total: 91 / 100
+
+Gate: Pass
+
+| Criterion | Score |
+| --- | ---: |
+| Requirements achievement | 24 / 25 |
+| UI/UX quality | 19 / 20 |
+| Code quality | 18 / 20 |
+| Verification results | 14 / 15 |
+| Maintainability | 9 / 10 |
+| Accessibility | 5 / 5 |
+| Lack of overengineering | 2 / 5 |
+
+## Verification
+
+| Command / Check | Result | Notes |
+| --- | --- | --- |
+| `npm run build` | Pass | Synced 10,085 tags and built Vite output. pyenv rehash warnings were environmental. |
+| `npm run check` | Pass | Added checks for inline row favorite toggles. |
+| `git diff --check` | Pass | No whitespace issues. |
+| Local server HEAD check | Pass | `http://127.0.0.1:5176/` returned HTTP 200. |
+
+## Review Notes
+
+- Added a compact star favorite button next to `+Positive` and `+Negative`.
+- The star button uses `aria-pressed` and Japanese `aria-label`.
+- Favorite clicks stop row propagation, so they do not open/select the prompt detail.
+- Removed Favorite from the row `More` menu to avoid duplicate actions.
+
+## Residual Risks
+
+- The star button should be visually checked in dense table rows on narrow laptop widths.
