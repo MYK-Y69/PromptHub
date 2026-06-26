@@ -619,3 +619,47 @@ Gate: Pass
 ## Residual Risks
 
 - Because this is a safety-related filter, the ON state should remain visually obvious during manual use.
+
+---
+
+# Explore Category Result Limit Fix Implementation Review
+
+## Scope
+
+Exploreの左カテゴリ選択時に、プロンプト一覧が80件で止まって見える問題を修正した。
+
+## Score
+
+Total: 91 / 100
+
+Gate: Pass
+
+| Criterion | Score |
+| --- | ---: |
+| Requirements achievement | 24 / 25 |
+| UI/UX quality | 19 / 20 |
+| Code quality | 18 / 20 |
+| Verification results | 14 / 15 |
+| Maintainability | 9 / 10 |
+| Accessibility | 5 / 5 |
+| Lack of overengineering | 2 / 5 |
+
+## Verification
+
+| Command / Check | Result | Notes |
+| --- | --- | --- |
+| `npm run build` | Pass | Synced 10,085 tags and built Vite output. pyenv rehash warnings were environmental. |
+| `npm run check` | Pass | Added checks for category-scoped full display. |
+| `git diff --check` | Pass | No whitespace issues. |
+| Local server HEAD check | Pass | `http://127.0.0.1:5176/` returned HTTP 200. |
+
+## Review Notes
+
+- Added `categoryScopedResults` and `visibleTableRecords` in `ExploreView`.
+- Category/subcategory scoped results now pass full `records` into `TagTable`.
+- The broad all-category view still uses `resultLimit` and `Show more` to avoid rendering every tag by default.
+- `Show more` is hidden when category results are already fully displayed.
+
+## Residual Risks
+
+- Very large categories can render more rows at once; this matches the user's expectation for category browsing, while the broad all view remains capped.

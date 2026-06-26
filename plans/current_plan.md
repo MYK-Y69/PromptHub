@@ -500,3 +500,41 @@ User concern: Current header shows `Sensitive OFF`, but it appears non-interacti
 - Changing Sensitive default.
 - Changing Sensitive data filters.
 - Git push.
+
+---
+
+# Explore Category Result Limit Fix Plan
+
+## Intake Summary
+
+User goal: Explore left category selection should not cap the prompt list at 80 results. Categories with more than 80 prompts must show all matching prompts.
+
+Current behavior: `TagTable` receives `records.slice(0, resultLimit)`, and `resultLimit` resets to 80 whenever filters/categories change. This makes category selections appear incomplete unless the user notices and uses `Show more`.
+
+## Requirements
+
+- Category and subcategory selections should show all matching prompts.
+- Preserve staged loading for the unfiltered `all` view to avoid rendering thousands of rows by default.
+- Keep existing `Show more` behavior where it still matters.
+- Do not change data filtering logic.
+
+## Approach
+
+- In `ExploreView`, compute whether results are scoped by category/subcategory.
+- Use full `records` for scoped category/subcategory results.
+- Use `records.slice(0, resultLimit)` only for the broad all-category view.
+- Hide `Show more` when full scoped results are already displayed.
+- Add static checks for scoped category full display.
+
+## Verification
+
+- `npm run build`
+- `npm run check`
+- `git diff --check`
+
+## Scope Exclusions
+
+- Virtualized table implementation.
+- Search algorithm changes.
+- Category taxonomy changes.
+- Git push.

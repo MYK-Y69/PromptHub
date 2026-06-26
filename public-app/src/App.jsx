@@ -1439,6 +1439,8 @@ function ExploreView(props) {
 
   const displayedMajor = major.filter((item) => showSensitive || item.id !== "sensitive");
   const activeSubcategory = activeMajor?.subcategories.find((subcategory) => subcategory.id === selectedSubcategory);
+  const categoryScopedResults = selectedCategory && selectedCategory !== "all";
+  const visibleTableRecords = categoryScopedResults ? records : records.slice(0, resultLimit);
   const resultsTopRef = useRef(null);
   const jumpToResults = () => {
     window.requestAnimationFrame(() => {
@@ -1563,7 +1565,7 @@ function ExploreView(props) {
         )}
 
         <TagTable
-          records={records.slice(0, resultLimit)}
+          records={visibleTableRecords}
           totalRecords={records.length}
           selectedRecord={selectedRecord}
           setSelectedRecordId={setSelectedRecordId}
@@ -1574,7 +1576,7 @@ function ExploreView(props) {
           languageEmphasis={languageEmphasis}
           copyText={copyText}
         />
-        {records.length > resultLimit && (
+        {!categoryScopedResults && records.length > resultLimit && (
           <div className="show-more">
             <span>{resultLimit.toLocaleString()} / {records.length.toLocaleString()} 件を表示中</span>
             <button onClick={() => setResultLimit((current) => current + 80)}>Show more</button>

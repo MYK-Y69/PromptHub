@@ -79,6 +79,8 @@ const requiredSourceStrings = [
   "explore-sidebar",
   "explore-content",
   "explore-inspector",
+  "categoryScopedResults",
+  "visibleTableRecords",
   "builder-sidebar",
   "builder-workshop-pane",
   "builder-guide-pane",
@@ -179,6 +181,11 @@ if (!src.includes("aria-pressed={isFavorite}") || !src.includes("toggleFavorite(
 
 if (!src.includes("setShowSensitive(!showSensitive)") || !src.includes("Sensitive語彙を") || !styles.includes(".pill-button.active")) {
   console.error("Header Sensitive status must be directly toggleable.");
+  process.exit(1);
+}
+
+if (!src.includes("const visibleTableRecords = categoryScopedResults ? records : records.slice(0, resultLimit)") || !src.includes("{!categoryScopedResults && records.length > resultLimit")) {
+  console.error("Explore category selections must show all matching prompts instead of capping at 80.");
   process.exit(1);
 }
 
