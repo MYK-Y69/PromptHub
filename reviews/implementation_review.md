@@ -441,3 +441,49 @@ Gate: Pass
 
 - Final scroll feel should be checked visually in the in-app browser, especially on laptop-height viewports.
 - If the Workshop pane feels too short, increase the desktop row split from `42%` to around `48%`.
+
+---
+
+# Guide Block Naming Implementation Review
+
+## Scope
+
+BuilderでDraftをGuide Block化するときに任意名を入力できるようにし、長い作成ボタン文言が不自然に改行される問題を解消した。
+
+## Score
+
+Total: 91 / 100
+
+Gate: Pass
+
+| Criterion | Score |
+| --- | ---: |
+| Requirements achievement | 24 / 25 |
+| UI/UX quality | 19 / 20 |
+| Code quality | 18 / 20 |
+| Verification results | 14 / 15 |
+| Maintainability | 9 / 10 |
+| Accessibility | 5 / 5 |
+| Lack of overengineering | 2 / 5 |
+
+## Verification
+
+| Command / Check | Result | Notes |
+| --- | --- | --- |
+| `npm run build` | Pass | Synced 10,085 tags and built Vite output. pyenv rehash warnings were environmental. |
+| `npm run check` | Pass | Added checks for Guide Block naming state and input clearing. |
+| `git diff --check` | Pass | No whitespace issues. |
+| Local server HEAD check | Pass | `http://127.0.0.1:5176/` returned HTTP 200 after starting Vite. |
+
+## Review Notes
+
+- Added `guideBlockDraftName` state and creation-time naming.
+- Empty name still falls back to `カスタムブロック N`.
+- Name input clears after a successful save.
+- Replaced the long create button with a short `作成` button inside `.guide-create-controls`.
+- The create button uses `white-space: nowrap` to avoid awkward Japanese line breaks.
+
+## Residual Risks
+
+- Duplicate Guide Block names are allowed for now, matching the current flexible local-save model.
+- Final spacing should be checked visually in the in-app browser at narrow laptop widths.

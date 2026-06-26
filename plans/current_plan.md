@@ -346,3 +346,44 @@ User goals:
 - Guide Blocks feature changes.
 - Collections information architecture changes.
 - Git push.
+
+---
+
+# Guide Block Naming Plan
+
+## Intake Summary
+
+User goals:
+
+- BuilderでDraftをGuide Block化するとき、保存前に任意の名前を付けられるようにする。
+- 現在の「今のDraftをGuide Block化」ボタン内テキストが不自然に改行されるため、ボタン表示を整える。
+
+## Requirements
+
+- Keep the existing default naming fallback: `カスタムブロック N`.
+- Add a Builder-side name input near the Guide Block creation action.
+- Clear the input after successful Guide Block creation.
+- Preserve existing Collections-side edit/rename behavior.
+- Avoid awkward line breaks inside the create button.
+
+## Approach
+
+- Add `guideBlockDraftName` state in `App`.
+- Pass name state and setter into `BuilderView`.
+- Change `createGuideBlockFromDraft` to use the trimmed input name or fallback to `カスタムブロック N`.
+- Replace the long creation button with a compact input + short action button.
+- Add CSS for a stable `.guide-create-controls` layout and no-wrap create button text.
+
+## Verification
+
+- `npm run build`
+- `npm run check`
+- `git diff --check`
+- Static check for the new naming state and create controls.
+
+## Scope Exclusions
+
+- Modal dialogs.
+- Collections redesign.
+- Bulk renaming.
+- Git push.

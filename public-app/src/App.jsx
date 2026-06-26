@@ -685,6 +685,7 @@ export function App() {
   const [recentGuideBlockIds, setRecentGuideBlockIds] = useState(() => readNormalizedJson("prompthub:v1:recentGuideBlocks", [], (value) => normalizeImportedStrings(value, RECENT_GUIDE_BLOCK_LIMIT)));
   const [guideBlockUsage, setGuideBlockUsage] = useState(() => readNormalizedJson("prompthub:v1:guideBlockUsage", {}, normalizeImportedUsageMap));
   const [draftRecipeName, setDraftRecipeName] = useState(() => String(readJson("prompthub:v1:draftRecipeName", "") || ""));
+  const [guideBlockDraftName, setGuideBlockDraftName] = useState("");
   const [userTags, setUserTags] = useState(() => readNormalizedJson("prompthub:v1:userTags", [], normalizeImportedUserTags));
   const [hiddenTags, setHiddenTags] = useState(() => readNormalizedJson("prompthub:v1:hiddenTags", [], (value) => normalizeImportedStrings(value, 5000)));
   const [showSensitive, setShowSensitive] = useState(() => initialPreferences.sensitive);
@@ -894,10 +895,12 @@ export function App() {
     }
 
     const now = new Date().toISOString();
+    const fallbackLabel = `カスタムブロック ${userGuideBlocks.length + 1}`;
+    const label = guideBlockDraftName.trim() || fallbackLabel;
     const block = {
       id: `custom_${Date.now()}`,
       category: "custom",
-      label: `カスタムブロック ${userGuideBlocks.length + 1}`,
+      label,
       positive: draft.positive.map((item) => item.en),
       negative: draft.negative.map((item) => item.en),
       uses: 0,
@@ -908,7 +911,8 @@ export function App() {
       updatedAt: now,
     };
     setUserGuideBlocks((current) => [block, ...current]);
-    notify("Guide Block に保存しました");
+    setGuideBlockDraftName("");
+    notify(`${label} をGuide Blockに保存しました`);
   }
 
   function deleteGuideBlock(id) {
@@ -1309,6 +1313,8 @@ export function App() {
           saveRecipe={saveRecipe}
           draftRecipeName={draftRecipeName}
           setDraftRecipeName={setDraftRecipeName}
+          guideBlockDraftName={guideBlockDraftName}
+          setGuideBlockDraftName={setGuideBlockDraftName}
           positiveText={positiveText}
           negativeText={negativeText}
           addToDraft={addToDraft}
@@ -1876,6 +1882,8 @@ function BuilderView({
   saveRecipe,
   draftRecipeName,
   setDraftRecipeName,
+  guideBlockDraftName,
+  setGuideBlockDraftName,
   positiveText,
   negativeText,
   addToDraft,
@@ -2002,7 +2010,17 @@ function BuilderView({
               <h2>Guide Blocks</h2>
               <p>よく使う表情、構図、品質、Negativeをブロック単位で再利用します。探す前に、固定・最近使用・自作からすぐ追加できます。</p>
             </div>
-            <button onClick={createGuideBlockFromDraft}>今のDraftをGuide Block化</button>
+            <div className="guide-create-controls">
+              <label htmlFor="guide-block-draft-name">Guide Block name</label>
+              <input
+                id="guide-block-draft-name"
+                value={guideBlockDraftName}
+                onChange={(event) => setGuideBlockDraftName(event.target.value)}
+                placeholder="例: 表情セット"
+                aria-label="Guide Block name before create"
+              />
+              <button onClick={createGuideBlockFromDraft}>作成</button>
+            </div>
           </div>
           <RecommendedGuideBlocks
             blocks={recommendedBlocks}

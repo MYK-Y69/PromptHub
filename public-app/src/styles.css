@@ -760,6 +760,30 @@ button:disabled {
   font-size: 13px;
 }
 
+.guide-create-controls {
+  display: grid;
+  grid-template-columns: auto minmax(150px, 240px) auto;
+  align-items: center;
+  gap: 8px;
+  min-width: min(100%, 420px);
+}
+
+.guide-create-controls label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.guide-create-controls input {
+  min-width: 0;
+  padding: 8px 10px;
+}
+
+.guide-create-controls button {
+  white-space: nowrap;
+}
+
 .guide-shortcuts {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1285,6 +1309,16 @@ button:disabled {
 
   .row-actions {
     padding-top: 4px;
+  }
+
+  .guide-create-controls {
+    grid-template-columns: minmax(0, 1fr) auto;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .guide-create-controls label {
+    grid-column: 1 / -1;
   }
 
   .row-actions button,

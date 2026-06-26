@@ -57,7 +57,9 @@ const requiredSourceStrings = [
   "toggleGuideBlockPin",
   "visibleGuideBlock",
   "Recommended Blocks",
-  "今のDraftをGuide Block化",
+  "guideBlockDraftName",
+  "Guide Block name before create",
+  "guide-create-controls",
   "mobile-builder-actions",
   "action-menu",
   "danger-zone",
@@ -144,6 +146,11 @@ if (!src.includes("copyRecipe(recipe, \"both\")") || !src.includes("copyRecipe(r
 
 if (!src.includes("RecommendedGuideBlocks") || !src.includes("draftMatched") || !src.includes("fallbackBlocks")) {
   console.error("Guide Blocks must surface useful recommended blocks before empty shortcut buckets.");
+  process.exit(1);
+}
+
+if (!src.includes("const label = guideBlockDraftName.trim() || fallbackLabel") || !src.includes("setGuideBlockDraftName(\"\")")) {
+  console.error("Guide Block creation must support a user-entered name and clear it after save.");
   process.exit(1);
 }
 
