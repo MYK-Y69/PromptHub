@@ -160,6 +160,18 @@ if (!styles.includes("@media (min-width: 981px)") || !styles.includes("height: c
   process.exit(1);
 }
 
+if (!styles.includes("--accent-gradient") || !styles.includes("#8056ff") || !styles.includes("#42b9ef") || !styles.includes("#e67fba")) {
+  console.error("PromptHub color system must use the violet/blue/pink gradient palette.");
+  process.exit(1);
+}
+
+for (const staleColor of ["#087f8c", "#056572", "#e7f7f8", "#9edce4", "#bee8ed", "#effbfc", "#8dd9e1", "--green"]) {
+  if (styles.includes(staleColor)) {
+    console.error(`Stale green/teal color remains in styles.css: ${staleColor}`);
+    process.exit(1);
+  }
+}
+
 if (src.includes("addUserTag(tagForm);\n                setTagForm")) {
   console.error("User tag form must clear only after addUserTag succeeds.");
   process.exit(1);

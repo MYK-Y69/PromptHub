@@ -1,20 +1,25 @@
 :root {
   color-scheme: light;
-  --bg: #f6f8fb;
+  --bg: #fbf8ff;
   --surface: #ffffff;
-  --surface-soft: #f8fafc;
-  --line: #d9e0ea;
-  --line-soft: #edf1f6;
+  --surface-soft: #faf7ff;
+  --line: #ded7ee;
+  --line-soft: #f0eaf8;
   --text: #172033;
   --muted: #667085;
-  --primary: #087f8c;
-  --primary-strong: #056572;
-  --primary-soft: #e7f7f8;
+  --primary: #8056ff;
+  --primary-strong: #6140d8;
+  --primary-soft: #f1ebff;
+  --accent-blue: #42b9ef;
+  --accent-pink: #e67fba;
+  --accent-lavender: #d6a5df;
+  --accent-gradient: linear-gradient(100deg, #8056ff 0%, #6f7cf7 42%, #42b9ef 72%, #e67fba 100%);
+  --accent-soft-gradient: linear-gradient(135deg, #fbf3ff 0%, #f3efff 42%, #edf9ff 72%, #fff3fa 100%);
   --danger: #cf3f4b;
   --danger-soft: #fff0f1;
-  --green: #23885c;
-  --green-soft: #e9f7ef;
-  --shadow: 0 14px 34px rgba(24, 32, 51, 0.08);
+  --positive: #5f62dc;
+  --positive-soft: #f0efff;
+  --shadow: 0 14px 34px rgba(84, 63, 152, 0.11);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -26,7 +31,10 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: var(--bg);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(214, 165, 223, 0.22), transparent 28%),
+    radial-gradient(circle at 82% 3%, rgba(66, 185, 239, 0.16), transparent 26%),
+    var(--accent-soft-gradient);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
 }
@@ -48,7 +56,7 @@ button {
 }
 
 button:hover {
-  border-color: #9edce4;
+  border-color: #b7a2ff;
 }
 
 button:focus-visible,
@@ -56,7 +64,7 @@ input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
 tr:focus-visible {
-  outline: 3px solid #8dd9e1;
+  outline: 3px solid rgba(128, 86, 255, 0.36);
   outline-offset: 2px;
 }
 
@@ -89,7 +97,9 @@ textarea {
   align-items: center;
   min-height: 62px;
   padding: 0 24px;
-  background: rgba(255, 255, 255, 0.94);
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.96), rgba(251, 247, 255, 0.94)),
+    var(--accent-soft-gradient);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(10px);
 }
@@ -105,7 +115,10 @@ textarea {
 }
 
 .brand span {
-  color: var(--primary);
+  background: var(--accent-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .nav {
@@ -138,7 +151,7 @@ textarea {
 .small-pill {
   display: inline-flex;
   align-items: center;
-  border: 1px solid #bee8ed;
+  border: 1px solid #d7c8ff;
   background: var(--primary-soft);
   color: var(--primary-strong);
   border-radius: 999px;
@@ -192,7 +205,7 @@ textarea {
 .sidebar {
   padding: 20px 16px;
   border-right: 1px solid var(--line);
-  background: var(--surface-soft);
+  background: linear-gradient(180deg, #fbf7ff, #f8fbff);
 }
 
 .content {
@@ -245,7 +258,7 @@ p {
 .segmented button.active {
   background: var(--primary-soft);
   color: var(--primary-strong);
-  border-color: #9edce4;
+  border-color: #b7a2ff;
 }
 
 .category-button strong,
@@ -310,9 +323,10 @@ p {
 }
 
 .primary {
-  background: var(--primary);
+  background: var(--accent-gradient);
   color: #fff;
-  border-color: var(--primary);
+  border-color: transparent;
+  box-shadow: 0 8px 18px rgba(128, 86, 255, 0.18);
 }
 
 .filter-row {
@@ -330,7 +344,7 @@ p {
 .example-row button {
   color: var(--primary-strong);
   background: var(--primary-soft);
-  border-color: #bee8ed;
+  border-color: #d7c8ff;
   font-size: 12px;
   padding: 5px 8px;
 }
@@ -409,8 +423,8 @@ p {
 .tag-table tr.selected,
 .recipe-table tr.selected,
 .recipe-table tr:hover {
-  background: #effbfc;
-  box-shadow: inset 3px 0 0 var(--primary);
+  background: #f6f1ff;
+  box-shadow: inset 3px 0 0 #8056ff;
 }
 
 .row-actions {
@@ -452,7 +466,7 @@ p {
 }
 
 .action-menu[open] summary {
-  border-color: #9edce4;
+  border-color: #b7a2ff;
   background: var(--primary-soft);
   color: var(--primary-strong);
 }
@@ -471,7 +485,7 @@ p {
 .star.active,
 .subtle.active {
   color: var(--primary-strong);
-  border-color: #9edce4;
+  border-color: #b7a2ff;
   background: var(--primary-soft);
 }
 
@@ -665,7 +679,7 @@ button:disabled {
 }
 
 .prompt-editor.positive {
-  border-color: #bfe8df;
+  border-color: #cfc3ff;
 }
 
 .prompt-editor.negative {
@@ -682,8 +696,8 @@ button:disabled {
 }
 
 .token-row span {
-  background: var(--green-soft);
-  border-color: #c6ead8;
+  background: var(--positive-soft);
+  border-color: #d7c8ff;
 }
 
 .negative .token-row span {
@@ -711,13 +725,13 @@ button:disabled {
   align-items: center;
   margin: 12px 0;
   padding: 10px 12px;
-  border: 1px solid #bfe8df;
+  border: 1px solid #d7c8ff;
   border-radius: 8px;
-  background: var(--green-soft);
+  background: #f5f1ff;
 }
 
 .guide-purpose strong {
-  color: var(--green);
+  color: var(--primary-strong);
   white-space: nowrap;
 }
 
@@ -738,9 +752,9 @@ button:disabled {
   gap: 10px;
   margin: 12px 0;
   padding: 12px;
-  border: 1px solid #bfe8df;
+  border: 1px solid #d7c8ff;
   border-radius: 9px;
-  background: linear-gradient(180deg, #f2fbf8, #ffffff);
+  background: linear-gradient(135deg, #f7f1ff 0%, #f0f7ff 58%, #fff5fb 100%);
 }
 
 .guide-recommend-grid {
@@ -845,7 +859,10 @@ button:disabled {
 }
 
 .guide-card-main em {
-  color: var(--primary);
+  background: var(--accent-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
   font-size: 12px;
   font-style: normal;
 }
@@ -937,7 +954,7 @@ button:disabled {
 }
 
 .output-box span {
-  color: var(--green);
+  color: var(--positive);
   font-weight: 800;
   font-size: 12px;
 }

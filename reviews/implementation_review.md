@@ -305,3 +305,48 @@ Gate: Pass
 
 - Actual browser scroll feel should be confirmed manually at `http://127.0.0.1:5176/` because automated headless browser launch was unavailable.
 - If the topbar height changes significantly later, the desktop Explore height calculation should be updated with it.
+
+---
+
+# Gradient Color Refresh Implementation Review
+
+## Scope
+
+PromptHubの緑/ティール系の既定カラーを、添付参考画像に近い紫・青・ピンク・淡いラベンダーのグラデーション基調へ変更した。
+
+## Score
+
+Total: 90 / 100
+
+Gate: Pass
+
+| Criterion | Score |
+| --- | ---: |
+| Requirements achievement | 24 / 25 |
+| UI/UX quality | 18 / 20 |
+| Code quality | 18 / 20 |
+| Verification results | 14 / 15 |
+| Maintainability | 9 / 10 |
+| Accessibility | 4 / 5 |
+| Lack of overengineering | 3 / 5 |
+
+## Verification
+
+| Command / Check | Result | Notes |
+| --- | --- | --- |
+| `npm run build` | Pass | Synced 10,085 tags and built Vite output. pyenv rehash warnings were environmental. |
+| `npm run check` | Pass | Added gradient palette and stale green/teal color checks. |
+| `git diff --check` | Pass | No whitespace issues. |
+| Local server HEAD check | Pass | `http://127.0.0.1:5176/` returned HTTP 200. |
+
+## Review Notes
+
+- Added reusable `--accent-gradient` and `--accent-soft-gradient` variables.
+- Updated primary CTA, brand accent, active states, selected rows, pills, focus ring, and highlighted Guide Blocks surfaces.
+- Replaced the remaining green-positive treatment with lavender/blue-positive styling.
+- Kept danger actions red/pink so destructive states remain distinct from the new brand palette.
+
+## Residual Risks
+
+- Final color impression should be checked visually in the in-app browser because automated screenshot capture was intentionally avoided to keep local load low.
+- If the palette feels too vivid after use, the gradient can be softened by reducing CTA shadow and using the soft gradient on fewer surfaces.

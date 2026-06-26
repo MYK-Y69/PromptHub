@@ -208,3 +208,51 @@ The current Explore screen uses a three-column desktop grid, but the page itself
 - New sticky headers for every table column.
 - Broader component extraction.
 - Git push.
+
+---
+
+# Gradient Color Refresh Plan
+
+## Intake Summary
+
+User goal: 現状のCodexっぽい緑系カラーリングをやめ、添付画像のような紫・青・ピンク・淡いラベンダーのグラデーションカラーへ調整する。
+
+The app is an operational prompt browser/builder, so the new color system should feel more custom and polished while preserving scanability, contrast, and repeated-use ergonomics.
+
+## Requirements
+
+- Keep the change focused on visual color styling.
+- Remove the green/teal primary impression from the current UI.
+- Use the attached references as the palette direction:
+  - violet primary
+  - blue secondary accent
+  - pink accent
+  - soft lavender surfaces
+- Preserve readable text, selected states, danger states, and table density.
+- Do not change prompt data, layout behavior, navigation structure, or workflows.
+
+## Visual Approach
+
+- Replace primary variables with a violet-led palette.
+- Add reusable gradient variables:
+  - primary gradient for main CTA, active brand accents, and selected table rail
+  - soft gradient for body/background and highlighted Guide Blocks areas
+- Use gradients on high-signal controls only, not every surface.
+- Convert remaining green-positive areas to lavender/blue-positive areas.
+- Keep danger red/pink distinct for destructive actions.
+
+## Verification Plan
+
+- `npm run build`
+- `npm run check`
+- `git diff --check`
+- Static scan that old teal/green accent colors no longer remain in `styles.css`.
+- Manual browser check at `http://127.0.0.1:5176/` for overall color impression.
+
+## Scope Exclusions
+
+- New illustrations or image assets.
+- Layout redesign.
+- Theme switcher.
+- Brand/logo redesign beyond color treatment.
+- Git push.
