@@ -74,6 +74,13 @@ const requiredSourceStrings = [
   "explore-sidebar",
   "explore-content",
   "explore-inspector",
+  "builder-sidebar",
+  "builder-workshop-pane",
+  "builder-guide-pane",
+  "builder-inspector",
+  "collections-sidebar",
+  "collections-content",
+  "collections-inspector",
   "[sectionIndex, section]",
   "data-label=\"操作\"",
   "if (addUserTag(tagForm))",
@@ -160,8 +167,13 @@ if (!styles.includes("@media (min-width: 981px)") || !styles.includes("height: c
   process.exit(1);
 }
 
-if (!styles.includes("--accent-gradient") || !styles.includes("#d4a4d9") || !styles.includes("#8a55ff")) {
+if (!styles.includes("--accent-gradient") || !styles.includes("linear-gradient(90deg, #8a55ff 0%, #b585ee 52%, #d4a4d9 100%)")) {
   console.error("PromptHub color system must use the toned-down lavender/purple gradient palette.");
+  process.exit(1);
+}
+
+if (!styles.includes(".workspace.builder") || !styles.includes(".workspace.collections") || !styles.includes("builder-workshop-pane") || !styles.includes("builder-guide-pane") || !styles.includes("collections-content")) {
+  console.error("Builder and Collections must use split-pane desktop scrolling.");
   process.exit(1);
 }
 

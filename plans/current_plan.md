@@ -295,3 +295,54 @@ User goal: 前回のカラー調整は色を足しすぎたため、添付画像
 - New imagery.
 - Theme switching.
 - Git push.
+
+---
+
+# Pane Split Follow-up Plan
+
+## Intake Summary
+
+User goals:
+
+- Reverse the current gradient direction so it moves from dark purple to light lavender.
+- Builder: keep the left add-candidate sidebar independent from the Builder Workshop scroll.
+- Builder: split Builder Workshop and Guide Blocks so the Workshop contents remain readable while Guide Blocks can scroll independently.
+- Collections: split the left collection navigation and the right Collections workspace so they do not scroll together.
+
+## Requirements
+
+- Keep existing workflows, data, and controls unchanged.
+- Apply desktop split-pane behavior without creating mobile nested scroll traps.
+- Reuse the Explore split-pane pattern where possible.
+- Preserve Builder mobile sticky actions.
+- Keep changes scoped to `public-app` UI structure/CSS and harness artifacts.
+
+## Technical Approach
+
+- Reverse `--accent-gradient` stops to dark-to-light.
+- Add pane-specific classes in `App.jsx`:
+  - Builder: `builder-sidebar`, `builder-content`, `builder-workshop-pane`, `builder-guide-pane`, `builder-inspector`
+  - Collections: `collections-sidebar`, `collections-content`, `collections-inspector`
+- On desktop (`min-width: 981px`):
+  - Make `.workspace.builder` and `.workspace.collections` viewport-bounded like Explore.
+  - Give sidebar/content/inspector panes independent scroll behavior.
+  - Make `.builder-content` a two-row grid: Workshop upper pane and Guide Blocks lower pane.
+  - Make only `.builder-workshop-pane` and `.builder-guide-pane` scroll internally.
+- On mobile:
+  - Keep the current single-column behavior.
+  - Avoid fixed-height internal panes.
+
+## Verification
+
+- `npm run build`
+- `npm run check`
+- `git diff --check`
+- Static checks for the new pane classes and reversed gradient.
+- Local server HEAD check.
+
+## Scope Exclusions
+
+- Prompt editor redesign.
+- Guide Blocks feature changes.
+- Collections information architecture changes.
+- Git push.

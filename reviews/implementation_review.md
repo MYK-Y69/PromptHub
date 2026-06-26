@@ -395,3 +395,49 @@ Gate: Pass
 
 - Final preference is visual and should be checked in the in-app browser.
 - If the CTA still feels too saturated, reduce the rightmost purple stop from `#8a55ff` to a softer violet.
+
+---
+
+# Pane Split Follow-up Implementation Review
+
+## Scope
+
+グラデーションの向きを濃い紫から薄いラベンダーへ反転し、BuilderとCollectionsのスクロール構造を分割ペイン化した。
+
+## Score
+
+Total: 91 / 100
+
+Gate: Pass
+
+| Criterion | Score |
+| --- | ---: |
+| Requirements achievement | 24 / 25 |
+| UI/UX quality | 19 / 20 |
+| Code quality | 18 / 20 |
+| Verification results | 14 / 15 |
+| Maintainability | 9 / 10 |
+| Accessibility | 5 / 5 |
+| Lack of overengineering | 2 / 5 |
+
+## Verification
+
+| Command / Check | Result | Notes |
+| --- | --- | --- |
+| `npm run build` | Pass | Synced 10,085 tags and built Vite output. pyenv rehash warnings were environmental. |
+| `npm run check` | Pass | Added checks for reversed gradient and Builder/Collections split-pane markers. |
+| `git diff --check` | Pass | No whitespace issues. |
+| Local server HEAD check | Pass | `http://127.0.0.1:5176/` returned HTTP 200. |
+
+## Review Notes
+
+- `--accent-gradient` now runs from `#8a55ff` to `#d4a4d9`.
+- Builder desktop now has independently scrollable candidate sidebar, Builder Workshop pane, Guide Blocks pane, and output inspector.
+- Builder central content is split into upper Workshop and lower Guide Blocks panes on desktop only.
+- Collections desktop now has independently scrollable left navigation, content area, and inspector.
+- Mobile keeps the existing single-column behavior to avoid nested scroll traps.
+
+## Residual Risks
+
+- Final scroll feel should be checked visually in the in-app browser, especially on laptop-height viewports.
+- If the Workshop pane feels too short, increase the desktop row split from `42%` to around `48%`.

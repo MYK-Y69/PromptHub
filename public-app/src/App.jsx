@@ -1962,7 +1962,7 @@ function BuilderView({
 
   return (
     <main className="workspace builder">
-      <aside className="sidebar">
+      <aside className="sidebar builder-sidebar">
         <h2>追加候補</h2>
         <input className="side-search" value={localSearch} onChange={(event) => setLocalSearch(event.target.value)} aria-label="Builder tag search" />
         <div className="candidate-list">
@@ -1980,21 +1980,23 @@ function BuilderView({
       </aside>
 
       <section className="content builder-content">
-        <div className="section-heading">
-          <div>
-            <h1>Builder Workshop</h1>
-            <p>Explore から送ったタグと Guide Blocks を、1つのPrompt Draftで編集します。</p>
+        <div className="builder-workshop-pane">
+          <div className="section-heading">
+            <div>
+              <h1>Builder Workshop</h1>
+              <p>Explore から送ったタグと Guide Blocks を、1つのPrompt Draftで編集します。</p>
+            </div>
+            <button onClick={clearDraft}>すべてクリア</button>
           </div>
-          <button onClick={clearDraft}>すべてクリア</button>
+          {conflicts.length > 0 && (
+            <div className="warning-box" role="status">
+              Positive と Negative の両方にあるタグ: {conflicts.join(", ")}
+            </div>
+          )}
+          <PromptEditor side="positive" title="Positive Prompt" items={draft.positive} text={positiveText} onRemove={removeDraftItem} onMove={moveDraftItem} />
+          <PromptEditor side="negative" title="Negative Prompt" items={draft.negative} text={negativeText} onRemove={removeDraftItem} onMove={moveDraftItem} />
         </div>
-        {conflicts.length > 0 && (
-          <div className="warning-box" role="status">
-            Positive と Negative の両方にあるタグ: {conflicts.join(", ")}
-          </div>
-        )}
-        <PromptEditor side="positive" title="Positive Prompt" items={draft.positive} text={positiveText} onRemove={removeDraftItem} onMove={moveDraftItem} />
-        <PromptEditor side="negative" title="Negative Prompt" items={draft.negative} text={negativeText} onRemove={removeDraftItem} onMove={moveDraftItem} />
-        <section className="guide-panel">
+        <section className="guide-panel builder-guide-pane">
           <div className="panel-head">
             <div>
               <h2>Guide Blocks</h2>
@@ -2085,7 +2087,7 @@ function BuilderView({
         </section>
       </section>
 
-      <aside className="inspector">
+      <aside className="inspector builder-inspector">
         <section className="panel">
           <h2>出力と保存</h2>
           <OutputBox label="Positive" text={positiveText} />
@@ -2249,7 +2251,7 @@ function CollectionsView({
 
   return (
     <main className="workspace collections">
-      <aside className="sidebar">
+      <aside className="sidebar collections-sidebar">
         <h2>コレクション</h2>
         {[
           ["recipes", "保存済みレシピ", recipes.length],
@@ -2273,7 +2275,7 @@ function CollectionsView({
         </div>
       </aside>
 
-      <section className="content">
+      <section className="content collections-content">
         <div className="section-heading">
           <div>
             <h1>Collections</h1>
@@ -2502,7 +2504,7 @@ function CollectionsView({
         )}
       </section>
 
-      <aside className="inspector">
+      <aside className="inspector collections-inspector">
         {selectedRecipe && (
           <section className="panel">
             <h2>選択中のレシピ</h2>
