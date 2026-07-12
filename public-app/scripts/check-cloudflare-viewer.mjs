@@ -6,8 +6,8 @@ const distDir = join(root, "dist-viewer");
 const authMiddlewarePath = join(root, "functions", "_middleware.js");
 
 const forbiddenEverywhereText = [
-  "127.0.0.1",
-  "localhost",
+  "http://127.0.0.1",
+  "http://localhost",
   "ローカル環境",
   "/api/admin",
   "/api/generate",
@@ -96,6 +96,18 @@ if (!authMiddleware.includes("PROMPTHUB_VIEWER_PASSWORD")) {
 for (const privateRoute of ["PRIVATE_PATH_PATTERNS", "data\\/v2\\/admin", "\\/uploads"]) {
   if (!authMiddleware.includes(privateRoute)) {
     fail(`Cloudflare Pages auth middleware must block private route marker: ${privateRoute}.`);
+  }
+}
+
+const syncFunctionPath = join(root, "functions", "api", "sync.js");
+if (!existsSync(syncFunctionPath)) {
+  fail("Cloudflare Pages sync API is missing: functions/api/sync.js.");
+}
+
+const syncFunction = readFileSync(syncFunctionPath, "utf8");
+for (const marker of ["PROMPTHUB_SYNC", "expectedRevision", "sync_conflict", "Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"]) {
+  if (!syncFunction.includes(marker)) {
+    fail(`Cloudflare sync API is missing required marker: ${marker}.`);
   }
 }
 

@@ -694,6 +694,52 @@ p {
   background: #fbf9ff;
 }
 
+.sync-row {
+  align-items: flex-start;
+  border-color: #bfd8e8;
+  background: #f8fcff;
+}
+
+.sync-fields {
+  display: grid;
+  grid-template-columns: minmax(220px, 2fr) minmax(120px, 1fr) minmax(140px, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.sync-fields label {
+  display: grid;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.sync-fields input {
+  min-width: 0;
+}
+
+.sync-actions {
+  display: grid;
+  gap: 9px;
+  justify-items: end;
+}
+
+.sync-pill.synced {
+  color: #17603a;
+  background: #e6f6ee;
+}
+
+.sync-pill.syncing {
+  color: #29517a;
+  background: #e8f2ff;
+}
+
+.sync-pill.error,
+.sync-pill.conflict {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
 .danger-zone {
   border-color: #f3c3c9;
   background: var(--danger-soft);
@@ -1246,6 +1292,14 @@ button:disabled {
   .inspector,
   .settings-content {
     padding: 14px;
+  }
+
+  .sync-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .sync-actions {
+    justify-items: start;
   }
 
   .workspace.builder {

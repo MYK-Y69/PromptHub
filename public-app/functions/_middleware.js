@@ -51,6 +51,11 @@ function readBasicCredentials(header) {
 export async function onRequest(context) {
   const expectedUser = context.env.PROMPTHUB_VIEWER_USER || "viewer";
   const expectedPassword = context.env.PROMPTHUB_VIEWER_PASSWORD;
+  const { pathname } = new URL(context.request.url);
+
+  if (context.request.method === "OPTIONS" && pathname === "/api/sync") {
+    return context.next();
+  }
 
   if (!expectedPassword) {
     return new Response("Access is not configured.", {
@@ -68,7 +73,6 @@ export async function onRequest(context) {
     return authResponse();
   }
 
-  const { pathname } = new URL(context.request.url);
   if (PRIVATE_PATH_PATTERNS.some((pattern) => pattern.test(pathname))) {
     return new Response("Not found", {
       status: 404,

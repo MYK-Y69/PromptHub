@@ -174,6 +174,11 @@ const LOCAL_KEYS = [
   "prompthub:v1:hiddenTags",
 ];
 
+const SYNC_SETTINGS_KEY = "prompthub:v1:syncSettings";
+const SYNC_DEFAULT_ENDPOINT = "https://prompthub-viewer.pages.dev/api/sync";
+const SYNC_DEBOUNCE_MS = 1500;
+const SYNC_POLL_MS = 60000;
+
 const GUIDE_BLOCK_SHORTCUT_LIMIT = 6;
 const RECENT_GUIDE_BLOCK_LIMIT = 12;
 
@@ -364,6 +369,40 @@ function removeJson(key) {
     return true;
   } catch {
     return false;
+  }
+}
+
+function isLocalAppOrigin() {
+  return ["127.0.0.1", "localhost", "::1"].includes(window.location.hostname);
+}
+
+function defaultSyncEndpoint() {
+  return isLocalAppOrigin() ? SYNC_DEFAULT_ENDPOINT : `${window.location.origin}/api/sync`;
+}
+
+function normalizeSyncSettings(value) {
+  const input = value && typeof value === "object" ? value : {};
+  return {
+    enabled: typeof input.enabled === "boolean" ? input.enabled : false,
+    endpoint: String(input.endpoint || defaultSyncEndpoint()).trim(),
+    username: String(input.username || "viewer").trim(),
+    password: "",
+  };
+}
+
+function persistableSyncSettings(settings) {
+  return {
+    enabled: !!settings.enabled,
+    endpoint: String(settings.endpoint || defaultSyncEndpoint()).trim(),
+    username: String(settings.username || "viewer").trim(),
+  };
+}
+
+function encodeBasicAuth(username, password) {
+  try {
+    return `Basic ${btoa(`${username}:${password}`)}`;
+  } catch {
+    return "";
   }
 }
 
@@ -696,6 +735,12 @@ export function App() {
   const [legacyKeysDetected, setLegacyKeysDetected] = useState(() => listLegacyKeys());
   const [migrationNotice, setMigrationNotice] = useState("");
   const [toast, setToast] = useState("");
+  const [syncSettings, setSyncSettings] = useState(() => readNormalizedJson(SYNC_SETTINGS_KEY, null, normalizeSyncSettings));
+  const [syncStatus, setSyncStatus] = useState({ state: "idle", message: "未同期" });
+  const syncBootstrappedRef = useRef(false);
+  const syncApplyingRef = useRef(false);
+  const syncRevisionRef = useRef(null);
+  const syncSuppressNextPushRef = useRef(false);
 
   useEffect(() => {
     let alive = true;
@@ -741,6 +786,57 @@ export function App() {
   useEffect(() => { writeJson("prompthub:v1:userTags", userTags); }, [userTags]);
   useEffect(() => { writeJson("prompthub:v1:hiddenTags", hiddenTags); }, [hiddenTags]);
   useEffect(() => { writeJson("prompthub:v1:preferences", { sensitive: showSensitive, density, languageEmphasis, inspectorMode }); }, [showSensitive, density, languageEmphasis, inspectorMode]);
+  useEffect(() => { writeJson(SYNC_SETTINGS_KEY, persistableSyncSettings(syncSettings)); }, [syncSettings]);
+
+  useEffect(() => {
+    if (!syncSettings.enabled) {
+      syncBootstrappedRef.current = false;
+      setSyncStatus({ state: "idle", message: "同期OFF" });
+      return;
+    }
+
+    syncBootstrappedRef.current = false;
+    runSync("pull", { silent: true }).finally(() => {
+      syncBootstrappedRef.current = true;
+    });
+  }, [syncSettings.enabled, syncSettings.endpoint, syncSettings.username, syncSettings.password]);
+
+  useEffect(() => {
+    if (!syncSettings.enabled || !syncBootstrappedRef.current || syncApplyingRef.current) return undefined;
+    if (syncSuppressNextPushRef.current) {
+      syncSuppressNextPushRef.current = false;
+      return undefined;
+    }
+    const timer = window.setTimeout(() => {
+      runSync("push", { silent: true });
+    }, SYNC_DEBOUNCE_MS);
+    return () => window.clearTimeout(timer);
+  }, [
+    syncSettings.enabled,
+    draft,
+    favorites,
+    recipes,
+    recentPrompts,
+    userGuideBlocks,
+    pinnedGuideBlockIds,
+    recentGuideBlockIds,
+    guideBlockUsage,
+    draftRecipeName,
+    userTags,
+    hiddenTags,
+    showSensitive,
+    density,
+    languageEmphasis,
+    inspectorMode,
+  ]);
+
+  useEffect(() => {
+    if (!syncSettings.enabled) return undefined;
+    const timer = window.setInterval(() => {
+      runSync("pull", { silent: true });
+    }, SYNC_POLL_MS);
+    return () => window.clearInterval(timer);
+  }, [syncSettings.enabled, syncSettings.endpoint, syncSettings.username, syncSettings.password]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => setDebouncedQuery(query), 180);
@@ -811,6 +907,161 @@ export function App() {
 
   function notify(message) {
     setToast(message);
+  }
+
+  function buildLocalSyncSnapshot() {
+    return {
+      schemaVersion: 1,
+      updatedAt: new Date().toISOString(),
+      favorites,
+      recipes,
+      recentPrompts,
+      draft,
+      customBlocks: userGuideBlocks,
+      guideBlocks: userGuideBlocks,
+      pinnedGuideBlocks: pinnedGuideBlockIds,
+      recentGuideBlocks: recentGuideBlockIds,
+      guideBlockUsage,
+      draftRecipeName,
+      userTags,
+      hiddenTags,
+      preferences: { sensitive: showSensitive, density, languageEmphasis, inspectorMode },
+    };
+  }
+
+  function applySyncSnapshot(snapshot) {
+    if (!snapshot || typeof snapshot !== "object") return false;
+
+    const importedFavorites = normalizeImportedStrings(snapshot.favorites, 2000);
+    const importedRecipes = normalizeImportedRecipes(snapshot.recipes);
+    const importedRecentPrompts = normalizeImportedRecentPrompts(snapshot.recentPrompts);
+    const importedBlocks = normalizeImportedGuideBlocks(snapshot.customBlocks || snapshot.guideBlocks);
+    const importedPinnedBlocks = normalizeImportedStrings(snapshot.pinnedGuideBlocks, 200);
+    const importedRecentBlocks = normalizeImportedStrings(snapshot.recentGuideBlocks, RECENT_GUIDE_BLOCK_LIMIT);
+    const importedUsage = normalizeImportedUsageMap(snapshot.guideBlockUsage);
+    const importedUserTags = normalizeImportedUserTags(snapshot.userTags);
+    const importedHiddenTags = normalizeImportedStrings(snapshot.hiddenTags, 5000);
+    const importedPreferences = normalizeImportedPreferences(snapshot.preferences);
+
+    syncApplyingRef.current = true;
+    if (importedFavorites) setFavorites(importedFavorites);
+    if (importedRecipes) setRecipes(importedRecipes);
+    if (importedRecentPrompts) setRecentPrompts(importedRecentPrompts);
+    if (importedBlocks) setUserGuideBlocks(importedBlocks);
+    if (importedPinnedBlocks) setPinnedGuideBlockIds(importedPinnedBlocks);
+    if (importedRecentBlocks) setRecentGuideBlockIds(importedRecentBlocks);
+    if (Object.prototype.hasOwnProperty.call(snapshot, "guideBlockUsage")) setGuideBlockUsage(importedUsage);
+    if (typeof snapshot.draftRecipeName === "string") setDraftRecipeName(snapshot.draftRecipeName);
+    if (importedUserTags) setUserTags(importedUserTags);
+    if (importedHiddenTags) setHiddenTags(importedHiddenTags);
+    if (snapshot.draft?.positive || snapshot.draft?.negative) {
+      setDraft({
+        positive: normalizeDraftItems(snapshot.draft?.positive, "positive"),
+        negative: normalizeDraftItems(snapshot.draft?.negative, "negative"),
+      });
+    }
+    setShowSensitive(importedPreferences.sensitive);
+    setDensity(importedPreferences.density);
+    setLanguageEmphasis(importedPreferences.languageEmphasis);
+    setInspectorMode(importedPreferences.inspectorMode);
+    window.setTimeout(() => {
+      syncApplyingRef.current = false;
+    }, 0);
+    return true;
+  }
+
+  async function requestSync(method, body) {
+    const endpoint = syncSettings.endpoint || defaultSyncEndpoint();
+    const headers = { "Content-Type": "application/json" };
+    if (syncSettings.username && syncSettings.password) {
+      headers.Authorization = encodeBasicAuth(syncSettings.username, syncSettings.password);
+    }
+
+    const response = await fetch(endpoint, {
+      method,
+      headers,
+      credentials: "include",
+      body: body ? JSON.stringify(body) : undefined,
+    });
+
+    let data = {};
+    try {
+      data = await response.json();
+    } catch {
+      data = {};
+    }
+
+    if (!response.ok) {
+      const error = new Error(data.error || `HTTP ${response.status}`);
+      error.status = response.status;
+      error.data = data;
+      throw error;
+    }
+    return data;
+  }
+
+  async function pushSyncSnapshot(snapshot = buildLocalSyncSnapshot(), expectedRevision = syncRevisionRef.current, silent = false) {
+    if (!syncSettings.enabled) return;
+    if (syncStatus.state === "conflict") {
+      setSyncStatus({ state: "conflict", message: "Pullしてクラウド変更を確認してからPushしてください。" });
+      return;
+    }
+    setSyncStatus({ state: "syncing", message: "クラウドへ保存中..." });
+    const result = await requestSync("POST", { snapshot, expectedRevision });
+    syncRevisionRef.current = result.revision || null;
+    setSyncStatus({
+      state: "synced",
+      message: `同期済み ${new Date().toLocaleTimeString()}`,
+      revision: result.revision || null,
+    });
+    if (!silent) notify("クラウドへ同期しました");
+  }
+
+  async function pullSyncSnapshot({ silent = false } = {}) {
+    if (!syncSettings.enabled) return;
+    setSyncStatus({ state: "syncing", message: "クラウドから確認中..." });
+    const remote = await requestSync("GET");
+    const localSnapshot = buildLocalSyncSnapshot();
+
+    if (!remote.snapshot) {
+      await pushSyncSnapshot(localSnapshot, remote.revision || null, true);
+      if (!silent) notify("ローカルデータをクラウドに作成しました");
+      return;
+    }
+
+    syncRevisionRef.current = remote.revision || null;
+    syncSuppressNextPushRef.current = true;
+    applySyncSnapshot(remote.snapshot);
+    setSyncStatus({
+      state: "synced",
+      message: `クラウド確認済み ${new Date().toLocaleTimeString()}`,
+      revision: remote.revision || null,
+    });
+    if (!silent) notify("クラウド同期データを反映しました");
+  }
+
+  async function runSync(action, options) {
+    try {
+      if (!syncSettings.endpoint) {
+        setSyncStatus({ state: "error", message: "同期URLが未設定です" });
+        return;
+      }
+      if (action === "pull") await pullSyncSnapshot(options);
+      if (action === "push") await pushSyncSnapshot(buildLocalSyncSnapshot(), syncRevisionRef.current, options?.silent);
+    } catch (error) {
+      if (error.status === 409) {
+        setSyncStatus({ state: "conflict", message: "クラウド側に新しい変更があります。Pullして確認してください。" });
+        return;
+      }
+      const message = error.data?.error === "sync_storage_not_configured"
+        ? "Cloudflare KVが未設定です"
+        : `同期失敗: ${error.message}`;
+      setSyncStatus({ state: "error", message });
+    }
+  }
+
+  function updateSyncSetting(name, value) {
+    setSyncSettings((current) => ({ ...current, [name]: value }));
   }
 
   function addToDraft(record, side = "positive") {
@@ -1386,6 +1637,11 @@ export function App() {
           exportLocalData={exportLocalData}
           importLocalData={importLocalData}
           resetLocalData={resetLocalData}
+          syncSettings={syncSettings}
+          syncStatus={syncStatus}
+          updateSyncSetting={updateSyncSetting}
+          pullSync={() => runSync("pull")}
+          pushSync={() => runSync("push")}
           dataState={dataState}
           legacyKeysDetected={legacyKeysDetected}
           migrationNotice={migrationNotice}
@@ -2601,6 +2857,11 @@ function SettingsView({
   exportLocalData,
   importLocalData,
   resetLocalData,
+  syncSettings,
+  syncStatus,
+  updateSyncSetting,
+  pullSync,
+  pushSync,
   dataState,
   legacyKeysDetected,
   migrationNotice,
@@ -2639,6 +2900,62 @@ function SettingsView({
               Import JSON
               <input type="file" accept="application/json,.json" onChange={importLocalData} />
             </label>
+          </div>
+        </div>
+        <div className="settings-row sync-row">
+          <div>
+            <h2>Private cloud sync</h2>
+            <p>{syncStatus.message}</p>
+            <div className="sync-fields">
+              <label>
+                <span>Sync URL</span>
+                <input
+                  value={syncSettings.endpoint}
+                  onChange={(event) => updateSyncSetting("endpoint", event.target.value)}
+                  placeholder={SYNC_DEFAULT_ENDPOINT}
+                />
+              </label>
+              <label>
+                <span>User</span>
+                <input
+                  value={syncSettings.username}
+                  onChange={(event) => updateSyncSetting("username", event.target.value)}
+                  autoComplete="username"
+                />
+              </label>
+              <label>
+                <span>Password</span>
+                <input
+                  type="password"
+                  value={syncSettings.password}
+                  onChange={(event) => updateSyncSetting("password", event.target.value)}
+                  autoComplete="current-password"
+                />
+              </label>
+            </div>
+          </div>
+          <div className="sync-actions">
+            <div className="segmented">
+              <button
+                className={syncSettings.enabled ? "active" : ""}
+                aria-pressed={syncSettings.enabled}
+                onClick={() => updateSyncSetting("enabled", true)}
+              >
+                ON
+              </button>
+              <button
+                className={!syncSettings.enabled ? "active" : ""}
+                aria-pressed={!syncSettings.enabled}
+                onClick={() => updateSyncSetting("enabled", false)}
+              >
+                OFF
+              </button>
+            </div>
+            <div className="button-group">
+              <button onClick={pullSync} disabled={!syncSettings.enabled}>Pull</button>
+              <button onClick={pushSync} disabled={!syncSettings.enabled}>Push now</button>
+            </div>
+            <span className={`pill sync-pill ${syncStatus.state}`}>{syncStatus.state}</span>
           </div>
         </div>
         <div className="settings-row danger-zone">

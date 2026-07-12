@@ -5,6 +5,7 @@ const root = new URL("..", import.meta.url).pathname;
 const src = readFileSync(join(root, "src/App.jsx"), "utf8");
 const styles = readFileSync(join(root, "src/styles.css"), "utf8");
 const viteConfig = readFileSync(join(root, "vite.config.mjs"), "utf8");
+const syncFunction = existsSync(join(root, "functions/api/sync.js")) ? readFileSync(join(root, "functions/api/sync.js"), "utf8") : "";
 const distHtml = existsSync(join(root, "dist/index.html")) ? readFileSync(join(root, "dist/index.html"), "utf8") : "";
 const distDataPath = join(root, "dist/data/tags.json");
 const distAssetsPath = join(root, "dist/assets");
@@ -91,6 +92,11 @@ const requiredSourceStrings = [
   "[sectionIndex, section]",
   "data-label=\"操作\"",
   "if (addUserTag(tagForm))",
+  "Private cloud sync",
+  "SYNC_DEFAULT_ENDPOINT",
+  "pullSyncSnapshot",
+  "pushSyncSnapshot",
+  "applySyncSnapshot(remote.snapshot)",
 ];
 
 const missing = requiredSourceStrings.filter((needle) => !src.includes(needle));
@@ -121,6 +127,11 @@ if (!src.includes("visibleRecipes.map((recipe)") || src.includes("recipes.map((r
 
 if (!src.includes('readNormalizedJson("prompthub:v1:draft"') || !src.includes("for (const key of LOCAL_KEYS) removeJson(key)")) {
   console.error("LocalStorage read/reset paths must be schema-normalized and exception-safe.");
+  process.exit(1);
+}
+
+if (!syncFunction.includes("PROMPTHUB_SYNC") || !syncFunction.includes("expectedRevision") || !syncFunction.includes("sync_conflict")) {
+  console.error("Cloud sync API must use KV storage and revision conflict checks.");
   process.exit(1);
 }
 
