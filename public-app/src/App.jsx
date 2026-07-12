@@ -703,7 +703,7 @@ export function App() {
     async function loadData() {
       for (const url of DATA_URLS) {
         try {
-          const response = await fetch(url);
+          const response = await fetch(url, { credentials: "same-origin" });
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           const json = await response.json();
           if (alive) setDataState({ status: "ready", data: json, source: "compiled", url });
