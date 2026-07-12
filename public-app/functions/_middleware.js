@@ -1,4 +1,15 @@
 const REALM = "PromptHub Viewer";
+const PRIVATE_PATH_PATTERNS = [
+  /^\/admin(?:\.html)?$/i,
+  /^\/admin\//i,
+  /^\/imports(?:\/|$)/i,
+  /^\/inbox(?:\/|$)/i,
+  /^\/uploads(?:\/|$)/i,
+  /^\/generated(?:\/|$)/i,
+  /^\/converted(?:\/|$)/i,
+  /^\/extracted(?:\/|$)/i,
+  /^\/data\/v2\/admin(?:\/|$)/i,
+];
 
 function authResponse(message = "Authentication required") {
   return new Response(message, {
@@ -55,6 +66,14 @@ export async function onRequest(context) {
     !timingSafeEqual(credentials.password, expectedPassword)
   ) {
     return authResponse();
+  }
+
+  const { pathname } = new URL(context.request.url);
+  if (PRIVATE_PATH_PATTERNS.some((pattern) => pattern.test(pathname))) {
+    return new Response("Not found", {
+      status: 404,
+      headers: { "Cache-Control": "no-store" },
+    });
   }
 
   const response = await context.next();

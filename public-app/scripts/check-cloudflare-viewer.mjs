@@ -3,6 +3,7 @@ import { extname, join, relative } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
 const distDir = join(root, "dist-viewer");
+const authMiddlewarePath = join(root, "functions", "_middleware.js");
 
 const forbiddenEverywhereText = [
   "127.0.0.1",
@@ -39,23 +40,22 @@ const forbiddenDataText = [
   "sheets_config",
 ];
 
-const forbiddenUiText = [
-  "localStorage",
-  "FileReader",
-  "Import JSON",
-  "Export JSON",
-  "Add tag",
-  "Edit tag",
-  "Delete tag",
-  "Rename",
-  "Reset local data",
+const requiredUiText = [
   "Builder",
   "Collections",
   "Settings",
-  "Guide Blocks",
-  "Recipe",
-  "Admin",
-  "prompthub:v1",
+];
+
+const forbiddenFilePathPatterns = [
+  /(^|\/)admin[^/]*$/i,
+  /(^|\/)admin(\/|$)/i,
+  /(^|\/)imports(\/|$)/i,
+  /(^|\/)inbox(\/|$)/i,
+  /(^|\/)uploads(\/|$)/i,
+  /(^|\/)generated(\/|$)/i,
+  /(^|\/)converted(\/|$)/i,
+  /(^|\/)extracted(\/|$)/i,
+  /(^|\/)data\/v2\/admin(\/|$)/i,
 ];
 
 const textExtensions = new Set([
@@ -85,6 +85,20 @@ if (!existsSync(distDir)) {
   fail("dist-viewer is missing. Run npm run build:viewer first.");
 }
 
+if (!existsSync(authMiddlewarePath)) {
+  fail("Cloudflare Pages auth middleware is missing: functions/_middleware.js.");
+}
+
+const authMiddleware = readFileSync(authMiddlewarePath, "utf8");
+if (!authMiddleware.includes("PROMPTHUB_VIEWER_PASSWORD")) {
+  fail("Cloudflare Pages auth middleware must require PROMPTHUB_VIEWER_PASSWORD.");
+}
+for (const privateRoute of ["PRIVATE_PATH_PATTERNS", "data\\/v2\\/admin", "\\/uploads"]) {
+  if (!authMiddleware.includes(privateRoute)) {
+    fail(`Cloudflare Pages auth middleware must block private route marker: ${privateRoute}.`);
+  }
+}
+
 const files = walk(distDir);
 const relFiles = files.map((file) => relative(distDir, file));
 
@@ -97,6 +111,14 @@ for (const required of ["index.html", "data/tags.json"]) {
 for (const forbiddenFile of ["admin.html"]) {
   if (relFiles.includes(forbiddenFile)) {
     fail(`Viewer build must not publish ${forbiddenFile}.`);
+  }
+}
+
+for (const rel of relFiles) {
+  const normalizedRel = rel.split("\\").join("/");
+  const pathHit = forbiddenFilePathPatterns.find((pattern) => pattern.test(normalizedRel));
+  if (pathHit) {
+    fail(`Cloudflare app build must not publish private/admin path: ${rel}.`);
   }
 }
 
@@ -160,10 +182,17 @@ for (const file of files) {
   }
 
   if (!textExtensions.has(extname(file))) continue;
-  const uiHit = forbiddenUiText.find((needle) => text.includes(needle));
-  if (uiHit) {
-    fail(`Viewer UI asset contains forbidden text "${uiHit}" in ${rel}.`);
+}
+
+const textAssetContents = files
+  .filter((file) => textExtensions.has(extname(file)))
+  .map((file) => readFileSync(file, "utf8"))
+  .join("\n");
+
+for (const required of requiredUiText) {
+  if (!textAssetContents.includes(required)) {
+    fail(`Cloudflare app build is missing expected local UI text "${required}".`);
   }
 }
 
-console.log(`Cloudflare viewer build check passed: ${relFiles.length} files, ${data.categories.length} categories.`);
+console.log(`Cloudflare app build check passed: ${relFiles.length} files, ${data.categories.length} categories.`);

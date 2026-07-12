@@ -21,7 +21,7 @@ export default defineConfig({
   },
   server: {
     warmup: {
-      clientFiles: ["./src/viewerMain.jsx"],
+      clientFiles: ["./src/main.jsx"],
     },
   },
   plugins: [react()],
