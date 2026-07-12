@@ -8,7 +8,9 @@
     "dev": "vite --host 127.0.0.1",
     "prebuild": "node scripts/sync-data.mjs",
     "build": "vite build",
+    "build:viewer": "node scripts/sync-viewer-data.mjs && vite build --config vite.viewer.config.mjs && node scripts/finalize-viewer-build.mjs && node scripts/check-cloudflare-viewer.mjs",
     "check": "node scripts/check-app.mjs",
+    "check:viewer": "node scripts/check-cloudflare-viewer.mjs",
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
