@@ -1,0 +1,7 @@
+name = "prompthub-viewer"
+pages_build_output_dir = "dist-viewer"
+compatibility_date = "2026-07-12"
+
+[[kv_namespaces]]
+binding = "PROMPTHUB_SYNC"
+id = "41f7863169b4449585c11862242e4392"

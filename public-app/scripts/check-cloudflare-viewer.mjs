@@ -4,6 +4,7 @@ import { extname, join, relative } from "node:path";
 const root = new URL("..", import.meta.url).pathname;
 const distDir = join(root, "dist-viewer");
 const authMiddlewarePath = join(root, "functions", "_middleware.js");
+const wranglerConfigPath = join(root, "wrangler.toml");
 
 const forbiddenEverywhereText = [
   "http://127.0.0.1",
@@ -87,6 +88,17 @@ if (!existsSync(distDir)) {
 
 if (!existsSync(authMiddlewarePath)) {
   fail("Cloudflare Pages auth middleware is missing: functions/_middleware.js.");
+}
+
+if (!existsSync(wranglerConfigPath)) {
+  fail("Cloudflare Pages wrangler.toml is missing.");
+}
+
+const wranglerConfig = readFileSync(wranglerConfigPath, "utf8");
+for (const marker of ["pages_build_output_dir = \"dist-viewer\"", "binding = \"PROMPTHUB_SYNC\"", "id = \"41f7863169b4449585c11862242e4392\""]) {
+  if (!wranglerConfig.includes(marker)) {
+    fail(`Cloudflare Pages wrangler.toml is missing required marker: ${marker}.`);
+  }
 }
 
 const authMiddleware = readFileSync(authMiddlewarePath, "utf8");
